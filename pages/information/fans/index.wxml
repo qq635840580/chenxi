@@ -1,0 +1,28 @@
+<!--pages/information/fans/index.wxml-->
+<view class='weui-information' wx:for="{{list}}" wx:key="id">
+  <view class='weui-cell information-head'>
+    <view class='weui-cell__hd'>
+      <image src='{{item.user.avatarUrl}}'></image>
+    </view>
+    <view class='weui-cell__bd'>
+      <view class='weui-cell__title'>
+        {{item.user.nickname}} 
+        <view wx:if="{{item.user.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.user.age}}</view>
+        <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.user.age}}</view>
+      </view>
+      <view class='weui-cell__desc'>{{item.update_time}}</view>
+    </view>
+    <view class='weui-cell__ft'>
+      <button class='weui-btn' size='mini' type="primary" hidden="{{item.is_attention != 2}}" data-id="{{item.user.id}}" bindtap='followSave'>+ 关注</button>
+      <button class='weui-btn' size='mini' plain="true" type="default" hidden="{{item.is_attention != 1}}" data-id="{{item.user.id}}" bindtap='followSave'>互相关注</button>
+    </view>
+  </view>
+  <view class='information-body'>
+    <view class='information__desc'>关注了你</view>
+  </view>
+</view>
+
+<view class='weui-nothing' wx:if="{{list.length == 0}}">
+  <image mode='widthFix' src='/img/information/nothing.png'></image>
+  <view>暂无消息</view>
+</view>

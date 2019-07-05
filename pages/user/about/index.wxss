@@ -1,0 +1,50 @@
+/* pages/user/about/index.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.page__hd {
+  text-align: center;
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+}
+
+.page__hd>image {
+  width: 320rpx;
+  margin-bottom: 50rpx;
+}
+
+.page__title {
+  font-size: 36rpx;
+  line-height: 1;
+  margin-bottom: 10rpx;
+  color: #555;
+}
+
+.page__desc {
+  font-size: 30rpx;
+  color: #555;
+}
+
+.page__bd_spacing{
+  padding-left: 76rpx;
+  padding-right: 76rpx;
+}
+.weui-article__p{
+  font-size: 30rpx;
+  line-height: 1.4;
+  color: #555;
+  text-align: center
+}
+.weui-share{
+  padding-top: 300rpx;
+}
+.weui-share>button {
+  width: 600rpx;
+  overflow: auto;
+  background-color: #3acc88;
+  color: #fff;
+  border-radius: 200rpx;
+  box-shadow: 0 0 30rpx #3acc88;
+}

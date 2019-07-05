@@ -1,0 +1,36 @@
+<!--pages/index/index.wxml-->
+<view class='page__bd_spacing'>
+  <navigator url="search" class='weui-habit__btn'>+ 添加习惯</navigator>
+
+  <block wx:for="{{list}}" wx:key="id">
+    <navigator url='/pages/details/habitDetails/index?type={{item.title}}' open-type='redirect'	class='weui-habit'>
+      <view class='weui-habit__hd'>
+        <image src='{{item.img}}'></image>
+      </view>
+      <view class='weui-habit__bd'>
+        <view class='weui-flex weui-habit__title'>
+          <view class='weui-flex__item'>{{item.name}}</view>
+        </view>
+        <view class='weui-flex weui-habit__desc'>
+          <view style='padding-right:50rpx'>已坚持{{item.days}}天</view>
+          <view class='weui-flex__item' hidden='{{!item.remind}}'>提醒{{item.remind}}</view>
+        </view>
+      </view>
+      <view class='weui-habit__ft'>
+        <icon hidden='{{!item.is_clock}}' type='success' size='35' color='#3ACC88'></icon>
+      </view>
+    </navigator>
+  </block>  
+
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length>0}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">
+      共{{list.length}}个习惯
+    </view>
+  </view>
+
+  <view class='weui-nothing' wx:if="{{list.length==0}}">
+    <image src='/img/nothing.png' mode='widthFix'></image>
+    <view>自律改变习惯</view>
+    <view>快去添加一个习惯吧</view>
+  </view>
+</view>

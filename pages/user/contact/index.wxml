@@ -1,0 +1,33 @@
+<!--pages/user/contact/index.wxml-->
+<view class='weui-cells weui-cells_after-title'>
+  <view class='weui-cell'>
+    <view class='weui-cell__hd'>
+      <image mode='widthFix' src='/img/user/contact/wechat.png'></image>
+    </view>
+    <view class='weui-cell__bd'>微信公众号</view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'>{{gzh}}</view>
+  </view>
+  <view class='weui-cell'>
+    <view class='weui-cell__hd'>
+      <image mode='widthFix' src='/img/user/contact/weibo.png'></image>
+    </view>
+    <view class='weui-cell__bd'>官方微博</view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'>{{weibo}}</view>
+  </view>
+  <view class='weui-cell'>
+    <view class='weui-cell__hd'>
+      <image mode='widthFix' src='/img/user/contact/qq.png'></image>
+    </view>
+    <view class='weui-cell__bd'>官方QQ群</view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'>{{qq}}</view>
+  </view>
+</view>
+
+<view class='weui-kefu'>
+  <button open-type="contact">联系客服</button>
+</view>
+
+<view class='weui-saoma'>
+  <image mode='widthFix' src='{{wechat_group_image}}'></image>
+  <view>扫码加入微信群</view>
+</view>

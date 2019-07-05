@@ -1,0 +1,23 @@
+/* pages/user/question/index.wxss */
+.weui-cell::before{
+  left: 0;
+}
+.weui-cell__title {
+  font-weight: 400;
+  font-size: 30rpx;
+  color: #555;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+.weui-list__style {
+  display: inline-block;
+  width: 10rpx;
+  height: 10rpx;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: #3acc88;
+  margin-right: 20rpx;
+}

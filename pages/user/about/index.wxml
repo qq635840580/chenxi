@@ -1,0 +1,13 @@
+<!--pages/user/about/index.wxml-->
+<view class='page__hd'>
+  <image mode='widthFix' src='{{qr_image}}'></image>
+  <view class='page__title'>{{name}}</view>
+  <view class='page__desc'>{{version}}</view>
+</view>
+
+<view class='page__bd_spacing'>
+  <view class='weui-article__p'>{{intro}}</view>
+  <view class='weui-share'>
+    <button open-type='share'>快分享给朋友吧</button>
+  </view>
+</view>

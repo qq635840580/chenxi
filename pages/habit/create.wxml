@@ -1,0 +1,43 @@
+<!--pages/habit/create.wxml-->
+<form bindsubmit='submitForm'>
+  <view class='weui-cells'>
+    <view class='weui-cell weui-cell_input'>
+      <view class='weui-cell__bd'>习惯名称</view>
+      <view class='weui-cell__ft'>
+        <input class='weui-input' name="name" value='{{name}}' />
+      </view>
+    </view>
+  </view>
+  <view class='weui-cells'>
+    <view class='weui-cell weui-cell_switch'>
+      <view class='weui-cell__bd'>提醒</view>
+      <view class='weui-cell__ft'>
+        <switch color='#3ACC88' name="is_remind" checked />
+      </view>
+    </view>
+    <view class='weui-cell weui-cell_select'>
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">提醒时间</view>
+      </view>
+      <view class='weui-cell__bd'>
+        <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+          <input hidden name="remind_time" value='{{time}}' />
+          <view class="weui-select weui-select_in-select-after">{{time}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__tips">提醒时间每天通过“晨夕习惯”公众号提醒</view>
+  <view class='weui-cells weui-cells_after-title'>
+    <view class='weui-cell weui-cell_switch'>
+      <view class='weui-cell__bd'>是否公开</view>
+      <view class='weui-cell__ft'>
+        <switch color='#3ACC88' name="is_public" checked />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" form-type='submit'>完成创建</button>
+  </view>
+</form>

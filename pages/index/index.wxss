@@ -1,0 +1,46 @@
+/* pages/index/index.wxss */
+
+.weui-habit__btn {
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 4;
+  margin-top: 20rpx;
+  text-align: center;
+  color: #555;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.weui-habit {
+  margin-top: 20rpx;
+}
+
+.weui-habit__hd image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 40rpx;
+  vertical-align: middle;
+}
+
+.weui-habit__bd {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.weui-habit__bd .weui-flex {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.weui-habit__title {
+  font-size: 36rpx;
+  font-weight: 400;
+  color: #212121;
+}
+
+.weui-habit__desc {
+  font-size: 28rpx;
+  color: #999;
+}

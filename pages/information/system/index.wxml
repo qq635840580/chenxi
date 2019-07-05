@@ -1,0 +1,19 @@
+<!--pages/information/system/index.wxml-->
+<view class='weui-system' wx:for="{{list}}" wx:key="id">
+  <view class='system-head'>
+    <view class='system-head__hd'>
+      <image src='/img/information/system.png'></image>
+    </view>
+    <view class='system-head__bd'>系统通知</view>
+    <view class='system-head__ft'>12/26 12:00</view>
+  </view>
+  <view class="system-body">
+    <view class="system-body__title">{{item.system.title}}</view>
+    <view class="system-body__desc">{{item.system.content}}</view>
+  </view>
+</view>
+
+<view class='weui-nothing' wx:if="{{list.length == 0}}">
+  <image mode='widthFix' src='/img/information/nothing.png'></image>
+  <view>暂无消息</view>
+</view>

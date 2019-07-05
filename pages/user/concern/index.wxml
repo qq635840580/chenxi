@@ -1,0 +1,24 @@
+<!--pages/user/concern/index.wxml-->
+<view class='weui-cells weui-cells_after-title'>
+  <view class='weui-cell' wx:for="{{list}}" wx:key="id">
+    <view class='weui-cell__hd'>
+      <image src='{{item.avatarUrl}}'></image>
+    </view>
+    <view class='weui-cell__bd'>
+      <view class='weui-cell__title'>
+        {{item.nickname}} 
+        <view wx:if="{{item.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.age}}</view>
+        <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.age}}</view>
+      </view>
+    </view>
+    <view class='weui-cell__ft'>
+      <button class='weui-btn' size='mini' type="primary" hidden="{{item.is_attention != 2}}" data-id="{{item.follow_id}}" bindtap='followSave'>+ 关注</button>
+      <button class='weui-btn' size='mini' plain="true" type="default" hidden="{{item.is_attention != 1}}"  data-id="{{item.follow_id}}" bindtap='followSave'>互相关注</button>
+    </view>
+  </view>
+</view>
+
+<view class='weui-nothing' wx:if="{{list.length == 0}}">
+  <image mode='widthFix' src='/img/information/nothing.png'></image>
+  <view>暂无关注</view>
+</view>

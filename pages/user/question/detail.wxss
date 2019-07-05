@@ -1,0 +1,11 @@
+/* pages/user/question/detail.wxss */
+page{
+  background-color: #fff;
+}
+.page__title{
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+.weui-article{
+  color: #212121;
+}

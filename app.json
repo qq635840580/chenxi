@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/search",
+    "pages/habit/create",
+    "pages/find/choice/index",
+    "pages/find/latest/index",
+    "pages/find/follow/index",
+    "pages/find/total_rank/index",
+    "pages/information/index",
+    "pages/information/system/index",
+    "pages/information/comment/index",
+    "pages/information/fans/index",
+    "pages/information/praise/index",
+    "pages/user/index",
+    "pages/user/clock/index",
+    "pages/user/concern/index",
+    "pages/user/fans/index",
+    "pages/user/profile/index",
+    "pages/user/contact/index",
+    "pages/user/question/index",
+    "pages/user/question/detail",
+    "pages/user/about/index",
+    "pages/login/index",
+    "pages/details/habitDetails/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "晨夕",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3acc88",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/img/tabbar/home.png",
+        "selectedIconPath": "/img/tabbar/home_selected.png"
+      },
+      {
+        "pagePath": "pages/find/choice/index",
+        "text": "发现",
+        "iconPath": "/img/tabbar/discover.png",
+        "selectedIconPath": "/img/tabbar/discover_selected.png"
+      },
+      {
+        "pagePath": "pages/information/index",
+        "text": "消息",
+        "iconPath": "/img/tabbar/information.png",
+        "selectedIconPath": "/img/tabbar/information_selected.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "/img/tabbar/user.png",
+        "selectedIconPath": "/img/tabbar/user_selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,109 @@
+<!--pages/discover/index.wxml-->
+<view class='weui-navbar'>
+  <view class="weui-navbar__item weui-bar__item_on">
+    <view class="weui-navbar__title">精选</view>
+  </view>
+  <view class='weui-navbar__item'>
+    <view class='weui-navbar__title'>最新</view>
+  </view>
+  <view class='weui-navbar__item'>
+    <view class='weui-navbar__title'>关注</view>
+  </view>
+  <view class='weui-navbar__item'>
+    <view class='weui-navbar__title'>总榜</view>
+  </view>
+</view>
+<!-- 精选 -->
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <view class="weui-search-bar__text">搜索</view>
+    </label>
+  </view>
+  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+</view>
+
+<swiper indicator-dots="{true}" indicator-color="#FFFFFF" indicator-active-color="#3ACC88" autoplay="{ture}" circular="{true}">
+  <block wx:for="{{imgUrls}}" wx:key="*this">
+    <swiper-item>
+      <image mode='widthFix' src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='weui-panel'>
+  <view class='weui-panel__head'>
+    <view class='weui-panel-head__bd'>习惯精选</view>
+    <view class='weui-panel-head__ft weui-cell__ft_in-access'>更多</view>
+  </view>
+  <view class='weui-panel__bd'>
+    <view class='weui-grid'>
+      <image class="weui-grid__icon" src="/uploads/discover/tuoyuan.png" />
+      <view class="weui-grid__label">早睡早起早睡早起</view>
+    </view>
+    <view class='weui-grid'>
+      <image class="weui-grid__icon" src="/uploads/discover/tuoyuan.png" />
+      <view class="weui-grid__label">早睡</view>
+    </view>
+    <view class='weui-grid'>
+      <image class="weui-grid__icon" src="/uploads/discover/tuoyuan.png" />
+      <view class="weui-grid__label">跑步</view>
+    </view>
+    <view class='weui-grid'>
+      <image class="weui-grid__icon" src="/uploads/discover/tuoyuan.png" />
+      <view class="weui-grid__label">健身</view>
+    </view>
+  </view>
+</view>
+
+<view class='weui-panel'>
+  <view class='weui-panel__head'>
+    <view class='weui-panel-head__bd'>动态精选</view>
+  </view>
+  <view class='weui-panel__bd'>
+    <view class='weui-information'>
+      <view class='weui-cell information-head'>
+        <view class='weui-cell__hd'>
+          <image src='/img/information/system.png'></image>
+        </view>
+        <view class='weui-cell__bd'>
+          <view class='weui-cell__title'>
+            考拉
+            <view class='weui-badge male'>
+              <image src='/img/male.png'></image> 38</view>
+          </view>
+          <view class='weui-cell__desc'>2018/12/26 12:00</view>
+        </view>
+        <view class='weui-cell__ft'>
+          <button class='weui-btn' size='mini' type="primary">+ 关注</button>
+        </view>
+      </view>
+      <view class='information-body'>
+        <view class='information__desc'>嘿嘿嘿哈哈哈嘿我爱吃考拉，考拉我最爱，哈哈哈哈哈哈哈哈我的呵呵呵哒王凯是个傻逼呵呵哒呵呵哒王凯是个傻逼呵呵哒呵呵哒王凯是个傻逼</view>
+        <view class='weui-well weui-flex'>
+          <view class='weui-flex__item'>
+            坚持
+            <text class='weui-color__green'> 喝酒 </text>60天
+          </view>
+          <view>600人在坚持</view>
+        </view>
+      </view>
+      <view class='information-footer'>
+        <view>
+          <text class='weui-color__green'>句号：</text>能够坚持的人都是了不起的人。
+        </view>
+        <view>
+          <text class='weui-color__green'>kaisa哈怂:</text>自古评论出人才，千古绝句随手来 ，原谅小生没文化，一句卧槽行天下！
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

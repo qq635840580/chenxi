@@ -1,0 +1,99 @@
+/* pages/user/index.wxss */
+
+.page__hd {
+  position: relative;
+  padding-top: 26rpx;
+  padding-bottom: 80rpx;
+  background-color: #3acc88;
+}
+
+.page__hd::after {
+  position: absolute;
+  bottom: -30rpx;
+  left: 0;
+  right: 0;
+  content: "";
+  height: 60rpx;
+  background-color: #3acc88;
+  border-radius: 50%;
+}
+
+.user {
+  text-align: center;
+  color: #fff;
+  line-height: 1;
+}
+
+.user_avatar {
+  width: 166rpx;
+  height: 166rpx;
+  border-radius: 50%;
+}
+
+.user_name {
+  margin-top: 40rpx;
+  font-size: 36rpx;
+}
+
+.user_info {
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.page__bd_spacing {
+  position: relative;
+  top: -30rpx;
+  z-index: 10rpx;
+}
+
+.weui-info {
+  margin-bottom: 20rpx;
+  display: flex;
+  border-radius: 15rpx;
+  background-color: #fff;
+  text-align: center;
+}
+
+.weui-info>.weui-flex__item {
+  padding: 30rpx 0;
+}
+
+.weui-info__desc {
+  font-size: 32rpx;
+  color: #555;
+}
+
+.weui-info__label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.weui-cells {
+  margin-top: 10rpx;
+  border-radius: 15rpx;
+}
+
+.weui-cells:after, .weui-cells:before {
+  border-width: 0;
+}
+
+.weui-cells_after-title {
+  margin-top: 0;
+}
+
+.weui-cell {
+  padding: 20rpx;
+  color: #555;
+  font-size: 30rpx;
+}
+
+.weui-cell:before {
+  border-top-color: #f2f3f5;
+}
+
+.weui-cell__hd>image {
+  width: 66rpx;
+  height: 66rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}

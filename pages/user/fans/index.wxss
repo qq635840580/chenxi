@@ -1,0 +1,52 @@
+/* pages/user/fans/index.wxss */
+.weui-cell::before{
+  left: 0;
+}
+.weui-cell .weui-cell__hd>image {
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+
+.weui-cell .weui-cell__title {
+  font-size: 28rpx;
+  color: #555;
+}
+
+.weui-cell .weui-badge {
+  display: inline-block;
+  font-size: 20rpx;
+}
+
+.weui-badge>image {
+  width: 18rpx;
+  height: 18rpx;
+  vertical-align: middle;
+}
+
+.weui-badge.male {
+  background-color: #3fb8e8;
+}
+
+.weui-badge.woman {
+  background-color: #ea3d84;
+}
+
+button.weui-btn {
+  font-size: 28rpx;
+  min-width: 140rpx;
+  border-radius: 200rpx;
+  line-height: 2;
+  padding: 0 16rpx;
+  vertical-align: middle;
+}
+
+button[type=default][plain] {
+  color: #999;
+  border: 1px solid #999;
+}
+
+button[type=primary] {
+  background-color: #3acc88;
+}

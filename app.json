@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/details/habitDetails/index",
     "pages/index/index",
     "pages/index/search",
     "pages/habit/create",
@@ -21,8 +22,7 @@
     "pages/user/question/index",
     "pages/user/question/detail",
     "pages/user/about/index",
-    "pages/login/index",
-    "pages/details/habitDetails/index"
+    "pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

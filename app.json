@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/details/clockIn/index",
+    "pages/details/habitDetailsMy/index",
     "pages/details/habitDetails/index",
     "pages/index/index",
     "pages/index/search",

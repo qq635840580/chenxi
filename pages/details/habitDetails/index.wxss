@@ -32,11 +32,31 @@
   padding-top: 20rpx;
 }
 
+.habit-details-top-nav {
+  height: 108rpx;
+  background: #fff;
+  display: flex;
+}
+
+.habit-details-top-nav view {
+  flex:1;
+  text-align: center;
+  line-height: 108rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.habit-details-top-nav view:nth-child(1) {
+  color:#3ACC88;
+  border-bottom: 2rpx solid #3ACC88;
+}
+
 .habit-details-nav {
   width: 90%;
   margin: auto;
   background: #fff;
   margin-top: 50rpx;
+  border-radius: 10rpx;
 }
 
 .habit-details-nav-top{
@@ -49,24 +69,23 @@
 }
 
 .habit-details-nav-top-btn image{
-  display: inline-block;
-  text-align: center;
+  display: block;
+  margin: 0 auto;
   width: 100rpx;
   height: 100rpx;
 }
 
 .habit-details-nav-top-btn view {
   text-align: center;
-  font-size: 26rpx;
+  font-size: 30rpx;
   color:#555;
   font-weight: bold;
 }
 
 .habit-details-nav-line {
-  width: 90%;
-  background: #555;
+  background: #F2F3F5;
   height: 1rpx;
-  margin: auto;
+  margin: 10rpx 0;
 }
 
 .habit-details-nav-bottom{
@@ -76,6 +95,14 @@
 .habit-details-nav-bottom view {
   flex: 1;
   text-align: center;
+  font-size: 30rpx;
+  color:#555;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.habit-details-nav-bottom view:nth-child(1) {
+  border-right: 1px solid #F2F3F5;
 }
 
 .habit-details-text {
@@ -87,3 +114,149 @@
   width: 500rpx;
   height: 200rpx;
 }
+
+.habit-details-text view {
+  color: #999;
+  font-size: 36rpx;
+}
+
+.habit-details-dynamic {
+  width: 90%;
+  background: #fff;
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+}
+
+.habit-details-dynamic-one-img {
+ 
+}
+
+.habit-details-dynamic-one-img-top {
+  padding: 20rpx;
+}
+
+.habit-details-dynamic-one-img-avatar {
+  display: inline-block;
+}
+
+.habit-details-dynamic-one-img-avatar image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.habit-details-dynamic-one-img-total {
+  display: inline-block;
+}
+
+.habit-details-dynamic-one-img-total-top view:nth-child(1) {
+  font-size: 30rpx;
+  color: #555;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.habit-details-dynamic-one-img-total-bottom {
+  font-size: 26rpx;
+  color:#999;
+  margin-top: 5rpx;
+}
+
+.habit-details-dynamic-one-img-right {
+  float: right;
+  background: #3ACC88;
+  border-radius:30rpx 0rpx 0rpx 30rpx;
+  margin-right: -20rpx;
+  margin-top: 15rpx;
+}
+
+.habit-details-dynamic-one-img-right view {
+  color: #fff;
+  font-size: 30rpx;
+  padding: 15rpx;
+}
+
+.habit-details-dynamic-one-img-text {
+  color: #555;
+  font-size: 30rpx;
+  font-weight: medium;
+  padding: 0 20rpx 0 20rpx;
+}
+
+.habit-details-dynamic-one-img-text .habit-details-dynamic-one-img-text-one-img {
+  height:370rpx;
+  background:#CECCCC;
+}
+
+.habit-details-dynamic-one-img-text-img {
+  /* padding: 0 10rpx; */
+}
+
+.habit-details-dynamic-one-img-text-img view {
+  width: 33.33%;
+  display: inline-block;
+}
+
+.habit-details-dynamic-one-img-text-img view view {
+  background: #cecccc;
+  display: block;
+  width: 190rpx;
+  height: 190rpx;
+  margin: 1rpx auto;
+}
+
+.habit-details-dynamic-one-img-bottom {
+  padding: 10rpx 20rpx;
+}
+
+.habit-details-dynamic-one-img-bottom-left {
+  display: inline-block;
+}
+
+.habit-details-dynamic-one-img-bottom-left view {
+  display: inline-block;
+  padding-right: 50rpx;
+}
+
+.habit-details-dynamic-one-img-bottom-left view .icon{
+  display: inline-block;
+  font-size: 34rpx;
+  font-weight: 400;
+  margin-right: 10rpx;
+  color:#555;
+}
+
+.habit-details-dynamic-one-img-bottom-left view .iconfont-size {
+  display: inline-block;
+  font-size: 30rpx;
+  color:#555;
+  line-height: 36rpx;
+}
+
+.habit-details-dynamic-one-img-bottom-right {
+  float: right;
+}
+
+.habit-details-dynamic-one-img-bottom-right text{
+  display: inline-block;
+  color: #555;
+}
+
+.habit-details-dynamic-one-img-comments {
+  margin: 10rpx auto;
+  border-top: 1rpx solid #F2F3F5;
+  width: 90%;
+}
+
+.habit-details-dynamic-one-img-comments-detail text:nth-child(1) {
+  font-size: 28rpx;
+  color:#3ACC88;
+}
+
+.habit-details-dynamic-one-img-comments-detail text:nth-child(2) {
+  font-size: 28rpx;
+  color:#555;
+}
+
+
+

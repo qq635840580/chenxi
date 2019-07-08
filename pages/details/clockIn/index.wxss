@@ -1,0 +1,33 @@
+/* pages/details/clockIn/index.wxss */
+.habit-clock-statics {
+  background: #fff;
+}
+
+.habit-clock-statics .habit-clock-statics-top {
+  border-bottom: 1rpx solid #F2F3F5;
+  padding: 20rpx 0;
+}
+
+.habit-clock-statics-top-left {
+  display: inline-block;
+}
+
+.habit-clock-statics .habit-clock-statics-top image {
+  width: 46rpx;
+  height: 46rpx;
+  vertical-align: top;
+}
+
+.habit-clock-statics .habit-clock-statics-top .message {
+  color:#212121;
+  font-size: 30rpx;
+  font-weight: bold;
+  line-height: 46rpx;
+}
+.habit-clock-statics habit-clock-statics-top-right text {
+  font-size: 24rpx;
+  color:#999;
+  float: right;
+  margin-right: 20rpx;
+  line-height: 46rpx;
+}

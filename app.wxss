@@ -1,6 +1,44 @@
 /**app.wxss**/
 @import 'style/weui-rpx.wxss';
 
+@font-face {
+  font-family: 'iconfont';  /* project id 1283069 */
+  src: url('//at.alicdn.com/t/font_1283069_52rq0tvjtlr.eot');
+  src: url('//at.alicdn.com/t/font_1283069_52rq0tvjtlr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1283069_52rq0tvjtlr.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1283069_52rq0tvjtlr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1283069_52rq0tvjtlr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1283069_52rq0tvjtlr.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-aixin:before {
+  content: "\e61f";
+}
+
+.icon-fenxiang:before {
+  content: "\e661";
+}
+
+.icon-liaotian:before {
+  content: "\e60f";
+}
+
+.icon-aixin1:before {
+  content: "\e757";
+}
+
+.icon-gengduo:before {
+  content: "\e6fc";
+}
+
 button::after{
   border-width: 0;
 }

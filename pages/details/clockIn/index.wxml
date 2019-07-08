@@ -1,0 +1,15 @@
+<!--pages/details/clockIn/index.wxml-->
+<view class='habit-clock'>
+  <!-- 统计 -->
+  <view class='habit-clock-statics'>
+     <view class='habit-clock-statics-top'>
+      <view class='habit-clock-statics-top-left'>
+        <image src='/img/myHabit/tongji.png'/>
+        <text class='message'>统计信息</text>
+      </view>
+      <view class='habit-clock-statics-top-right'>
+        <text class='date'>2018年12月17日加入</text>
+      </view>
+    </view>
+  </view>
+</view>

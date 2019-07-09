@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/details/ranking/index",
+    "pages/details/person/index",
     "pages/index/index",
     "pages/index/search",
     "pages/habit/create",
@@ -25,7 +25,8 @@
     "pages/login/index",
     "pages/details/clockIn/index",
     "pages/details/habitDetailsMy/index",
-    "pages/details/habitDetails/index"
+    "pages/details/habitDetails/index",
+    "pages/details/ranking/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

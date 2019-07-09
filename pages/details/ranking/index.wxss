@@ -75,6 +75,8 @@
 .ranking-me .ranking-me-left-img {
   display: inline-block;
   margin-left: 100rpx;
+  vertical-align: top;
+  margin-top: 20rpx;
 }
 
 .ranking-me .ranking-me-left-img image {
@@ -86,6 +88,7 @@
 .ranking-me .ranking-me-left-name {
   display: inline-block;
   margin-left: 40rpx;
+  margin-top: 20rpx;
 }
 
 .ranking-me .ranking-me-left-name view:nth-child(1) {
@@ -97,4 +100,78 @@
 .ranking-me .ranking-me-left-name view:nth-child(2) {
   font-size: 24rpx;
   color: #999;
+}
+
+.ranking-me-right {
+  float: right;
+  margin-top: 15rpx;
+}
+
+.ranking-me-center {
+  float: right;
+  margin-top: 30rpx;
+}
+
+.ranking-me-center .ranking-me-center-num {
+  display: inline-block;
+  margin-right: 80rpx;
+}
+
+.ranking-me-center .ranking-me-center-num text:nth-child(1) {
+  color: #3ACC88;
+  font-size: 38rpx;
+  margin-right: 5rpx;
+}
+.ranking-me-center .ranking-me-center-num text:nth-child(2) {
+  color:#999;
+  font-size: 24rpx;
+}
+
+.ranking-me-right .ranking-me-right-img {
+  display: inline-block;
+  margin-right: 40rpx;
+}
+
+.ranking-me-right .ranking-me-right-img text {
+  display: block;
+  color:#999;
+  font-size: 24rpx;
+}
+
+.ranking-me-right .ranking-me-right-img image {
+  width: 30rpx;
+  height: 28rpx;
+}
+
+.ranking-list {
+  margin-top: 20rpx;
+}
+
+.ranking-list .ranking-medlas {
+  display: inline-block;
+  margin-left: 30rpx;
+}
+
+.ranking-list .ranking-medlas image {
+  width: 48rpx;
+  height: 64rpx;
+}
+
+.ranking-list .ranking-list-left-img {
+  display: inline-block;
+  margin-left: 22rpx;
+  vertical-align: top;
+  margin-top: 20rpx;
+}
+
+.ranking-list .ranking-list-left-img image {
+  width: 80rpx;
+  height:80rpx;
+  vertical-align: top;
+}
+
+.ranking-list .ranking-list-left-name {
+  display: inline-block;
+  margin-left: 40rpx;
+  margin-top: 20rpx;
 }

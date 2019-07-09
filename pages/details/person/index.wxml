@@ -1,0 +1,58 @@
+<!--pages/details/person/index.wxml-->
+<!-- 提醒参与人数 -->
+<view class='person-num'>
+  <view class='person-num-box'>
+    <text></text>
+    <text>已有123123123人参与</text>
+    <text></text>
+  </view>
+</view>
+
+<!-- 列表 -->
+<view class='person-list'>
+  <view class='person-list-box'>
+    <view class='person-list-box-left'>
+      <image src='/img/information/system.png'/>
+      <text>姓名</text>
+    </view>
+    <view class='person-list-box-right-yiguanzhu'>
+      <text>已关注</text>
+    </view>
+  </view>
+</view>
+
+<view class='person-list'>
+  <view class='person-list-box'>
+    <view class='person-list-box-left'>
+      <image src='/img/information/system.png'/>
+      <text>姓名</text>
+    </view>
+    <view class='person-list-box-right-yiguanzhu'>
+      <text>互相关注</text>
+    </view>
+  </view>
+</view>
+
+<view class='person-list'>
+  <view class='person-list-box'>
+    <view class='person-list-box-left'>
+      <image src='/img/information/system.png'/>
+      <text>姓名</text>
+    </view>
+    <view class='person-list-box-right-guanzhu'>
+      <text class='iconfont icon-jiahao'>关注</text>
+    </view>
+  </view>
+</view>
+
+<view class='person-list'>
+  <view class='person-list-box'>
+    <view class='person-list-box-left'>
+      <image src='/img/information/system.png'/>
+      <text>姓名</text>
+    </view>
+    <view class='person-list-box-right-guanzhu'>
+      <text class='iconfont icon-jiahao'>关注</text>
+    </view>
+  </view>
+</view>

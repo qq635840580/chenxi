@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    days_style:[],
 
   },
 
@@ -12,7 +13,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let days_style = new Array;
+    days_style.push(
+      { month: 'current', day: 12, color: 'white', background: '#3ACC88' },
+      { month: 'current', day: 17, color: 'white', background: '#3ACC88' },
+      { month: 'current', day: 20, color: 'white', background: '#3ACC88' },
+      { month: 'current', day: 25, color: 'white', background: '#3ACC88' },
+    );
+    this.setData({ days_style: days_style});
   },
 
   /**

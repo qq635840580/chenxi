@@ -1,15 +1,59 @@
 <!--pages/details/clockIn/index.wxml-->
 <view class='habit-clock'>
-  <!-- 统计 -->
-  <view class='habit-clock-statics'>
-     <view class='habit-clock-statics-top'>
-      <view class='habit-clock-statics-top-left'>
+  <!-- 日历板 -->
+  <calendar 
+    calendar-style="calendar" 
+    weeks-type='cn'
+    days-color="{{days_style}}"
+    board-style="board"
+  />
+</view>
+
+<view class='habit-detailsMy-top-caledar'>
+  <view class='habit-detailsMy-top-caledar-detail'>
+    <!-- 顶部样式 -->
+    <view class='habit-detailsMy-top-caledar-detail-top'>
+      <!-- 左侧 -->
+      <view class='habit-detailsMy-top-caledar-detail-top-left'>
         <image src='/img/myHabit/tongji.png'/>
-        <text class='message'>统计信息</text>
+        <text>打卡统计</text>
       </view>
-      <view class='habit-clock-statics-top-right'>
-        <text class='date'>2018年12月17日加入</text>
+      <!-- 右侧 -->
+      <view class='habit-detailsMy-top-caledar-detail-top-right'>
+        <text>已坚持666天</text>
       </view>
+    </view> 
+
+    <view class='habit-detailsMy-top-caledar-detail-line'></view>
+    
+    <!-- 打卡数据统计 -->
+    <view class='habit-clock-data'>
+      <!--  -->
+      <view class='habit-clock-data-details'>
+        <text>●</text>
+        <text>累计打卡</text>
+        <text>60天</text>
+      </view>
+
+      <view class='habit-clock-data-details'>
+        <text>●</text>
+        <text>打卡率</text>
+        <text>33.33%</text>
+      </view>
+
+      <view class='habit-clock-data-details'>
+        <text>●</text>
+        <text>当前连续打卡</text>
+        <text>60天</text>
+      </view>
+
+      <view class='habit-clock-data-details'>
+        <text>●</text>
+        <text>最高连续打卡</text>
+        <text>60天</text>
+      </view>
+
+
     </view>
   </view>
 </view>

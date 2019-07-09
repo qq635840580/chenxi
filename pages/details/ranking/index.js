@@ -1,13 +1,11 @@
-// pages/details/habitDetailsMy/index.js
+// pages/details/ranking/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    newsList:[
-      { content: '这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容', time:'2019-09-09'},
-    ]
+
   },
 
   /**
@@ -64,19 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  /**
-   * 跳转
-   */
-  gotoDynamic:() => {
-    wx.navigateTo({
-      url: '../habitDetails/index',
-    })
-  },
-
-  gotoClock:() => {
-    wx.navigateTo({
-      url: '../clockIn/index',
-    })
   }
 })

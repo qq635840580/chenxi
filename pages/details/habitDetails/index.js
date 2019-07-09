@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  
+  gotoMy:() => {
+    wx.navigateTo({
+      url: '../habitDetailsMy/index',
+    })
   }
 })

@@ -1,7 +1,7 @@
 <!--pages/details/habitDetailsMy/index.wxml-->
 <!-- 导航顶部 -->
 <view class='habit-detailsMy-top-nav'>
-  <view>动态</view>
+  <view bindtap='gotoDynamic'>动态</view>
   <view>我的</view>
 </view>
 
@@ -16,7 +16,7 @@
         <text>打卡统计</text>
       </view>
       <!-- 右侧 -->
-      <view>
+      <view bindtap='gotoClock'>
         <text>已坚持666天</text>
         <image src='/img/myHabit/chakan.png'/>
       </view>

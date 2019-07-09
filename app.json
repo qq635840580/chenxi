@@ -1,8 +1,6 @@
 {
   "pages": [
-    "pages/details/clockIn/index",
-    "pages/details/habitDetailsMy/index",
-    "pages/details/habitDetails/index",
+    "pages/details/ranking/index",
     "pages/index/index",
     "pages/index/search",
     "pages/habit/create",
@@ -24,7 +22,10 @@
     "pages/user/question/index",
     "pages/user/question/detail",
     "pages/user/about/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/details/clockIn/index",
+    "pages/details/habitDetailsMy/index",
+    "pages/details/habitDetails/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -64,5 +65,11 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "calendar": {
+      "version": "1.1.3",
+      "provider": "wx92c68dae5a8bb046"
+    }
+  }
 }

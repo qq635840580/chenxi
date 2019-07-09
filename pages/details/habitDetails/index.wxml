@@ -10,7 +10,7 @@
   <!-- 导航顶部 -->
   <view class='habit-details-top-nav'>
     <view>动态</view>
-    <view>我的</view>
+    <view bindtap='gotoMy'>我的</view>
   </view>
 
   <!-- 导航 -->

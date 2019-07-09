@@ -1,0 +1,9 @@
+<!--pages/details/ranking/index.wxml-->
+<!-- 背景图 -->
+<view class='ranking-bg'>
+  <view>早睡早起排行榜</view>
+  <view>
+    <text>榜单规则</text>
+    <image src='/img/ranking/arrowRight.png'/>
+  </view>
+</view>

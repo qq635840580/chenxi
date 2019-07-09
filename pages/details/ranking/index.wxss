@@ -1,0 +1,37 @@
+/* pages/details/ranking/index.wxss */
+.ranking-bg {
+  height: 460rpx;
+  width: 100%;
+  background: url('http://chuantu.xyz/t6/702/1562660086x2073530527.png') no-repeat center;
+  background-size: 100% 460rpx;
+  position: relative;
+}
+
+.ranking-bg view:nth-child(1) {
+  position: absolute;
+  top: 200rpx;
+  left: 50rpx;
+  color: #FEFEFE;
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.ranking-bg view:nth-child(2) {
+  position: absolute;
+  top: 270rpx;
+  left: 50rpx;
+  height: 32rpx;
+}
+
+.ranking-bg view:nth-child(2) text {
+  font-size: 32rpx;
+  color: #FEFEFE;
+  line-height: 32rpx;
+  padding-right: 10rpx;
+}
+
+.ranking-bg view:nth-child(2) image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}

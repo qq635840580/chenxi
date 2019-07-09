@@ -35,3 +35,66 @@
   height: 32rpx;
   vertical-align: middle;
 }
+
+.ranking-bg view:nth-child(3) {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  bottom: 10rpx;
+}
+
+.ranking-bg-nav text{
+  flex: 1;
+  text-align: center;
+  height: 36px;
+  line-height: 36px;
+  color: #FEFEFE;
+}
+
+.ranking-bg-nav .ranking-bg-nav-action{
+  color: #FEFEFE;
+  font-weight: bold;
+}
+
+.sanjiao_down{
+  width:0;
+  height:0;
+  overflow:hidden;
+  font-size: 0;     /*是因为, 虽然宽高度为0, 但在IE6下会具有默认的 */
+  line-height: 0;  /* 字体大小和行高, 导致盒子呈现被撑开的长矩形 */
+  border-width:15rpx;
+  border-style:dashed dashed solid dashed;/*IE6下, 设置余下三条边的border-style为dashed,即可达到透明的效果*/
+  border-color:transparent transparent #FEFEFE transparent;
+}
+
+.ranking-me {
+  height: 120rpx;
+  background: #fff;
+}
+
+.ranking-me .ranking-me-left-img {
+  display: inline-block;
+  margin-left: 100rpx;
+}
+
+.ranking-me .ranking-me-left-img image {
+  width: 80rpx;
+  height:80rpx;
+  vertical-align: top;
+}
+
+.ranking-me .ranking-me-left-name {
+  display: inline-block;
+  margin-left: 40rpx;
+}
+
+.ranking-me .ranking-me-left-name view:nth-child(1) {
+  font-size: 28rpx;
+  color: #555;
+
+}
+
+.ranking-me .ranking-me-left-name view:nth-child(2) {
+  font-size: 24rpx;
+  color: #999;
+}

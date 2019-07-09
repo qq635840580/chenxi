@@ -6,4 +6,26 @@
     <text>榜单规则</text>
     <image src='/img/ranking/arrowRight.png'/>
   </view>
+  <view class='ranking-bg-nav'>
+    <text bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'ranking-bg-nav-action':''}}">周榜</text>
+    <text bindtap='saveNav' data-tabflag='2' class="{{tabflag==2?'ranking-bg-nav-action':''}}">日榜</text>
+    <text bindtap='saveNav' data-tabflag='3' class="{{tabflag==3?'ranking-bg-nav-action':''}}">年榜</text>
+  </view>
+  <!-- 三角 暂时留存 -->
+  <!-- <text class='sanjiao_down'></text> -->
 </view>
+
+<!-- 排行榜本人 -->
+<view class='ranking-me'>
+  <view class='ranking-me-left-img'>
+    <image src='/img/information/system.png'/>
+  </view>
+  
+  <view class='ranking-me-left-name'>
+    <view>姓名</view>
+    <view>99岁</view>
+  </view>
+
+</view>
+
+

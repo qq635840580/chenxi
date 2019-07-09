@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tabflag: 1
+  },
 
+  saveNav: function (e) {
+    const { tabflag } = e.target.dataset
+    this.setData({
+      tabflag
+    })
   },
 
   /**

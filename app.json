@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/details/person/index",
+    "pages/details/clockInDetails/index",
     "pages/index/index",
     "pages/index/search",
     "pages/habit/create",
@@ -26,7 +26,9 @@
     "pages/details/clockIn/index",
     "pages/details/habitDetailsMy/index",
     "pages/details/habitDetails/index",
-    "pages/details/ranking/index"
+    "pages/details/ranking/index",
+    "pages/details/person/index",
+    "pages/details/install/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

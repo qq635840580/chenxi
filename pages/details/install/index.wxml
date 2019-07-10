@@ -1,0 +1,40 @@
+<!--pages/details/install/index.wxml-->
+<!-- 提醒 -->
+<view class='install-first'>
+  <view class='install-first-box'>
+    <view>提醒</view>
+    <view>
+      <switch class="tui-fr" color="#3ACC88" checked="{{isChecked}}" />
+    </view>
+  </view>
+</view>
+
+<!-- 提醒时间 -->
+<view class='install-second'>
+  <view class='install-second-box'>
+    <view>提醒时间</view>
+
+    <view>
+      <picker mode="time" value="{{time}}" start="00:00" end="59:00"  bindchange="bindDateChange">
+        {{time}}
+      </picker>
+      <image src='/img/myHabit/chakan.png'/>
+    </view>
+
+  </view>
+</view>
+
+<!-- 字体 -->
+<view class='install-text'>
+  提醒时间每天通过“晨夕习惯”公众号提醒
+</view>
+
+<!-- 是否公开 -->
+<view class='install-first'>
+  <view class='install-first-box'>
+    <view>是否公开</view>
+    <view>
+      <switch class="tui-fr" color="#3ACC88" checked="{{isChecked}}" />
+    </view>
+  </view>
+</view>

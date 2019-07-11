@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "Choice": "../choice/index"
+    "Choice": "../choice/index",
+    "Latest": "../latest/index",
+    "Follow": "../follow/index",
+    "TotalRank": "../total_rank/index"
   }
 }

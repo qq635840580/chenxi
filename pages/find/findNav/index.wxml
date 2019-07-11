@@ -1,19 +1,31 @@
 <!--pages/find/findNav/index.wxml-->
 <view class='weui-navbar'>
-  <view class="weui-navbar__item weui-bar__item_on">
+  <view bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">
     <view class="weui-navbar__title">精选</view>
   </view>
-  <view class='weui-navbar__item'>
+  <view bindtap='saveNav' data-tabflag='2' class="{{tabflag==2?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">
     <view class='weui-navbar__title'>最新</view>
   </view>
-  <view class='weui-navbar__item'>
+  <view bindtap='saveNav' data-tabflag='3' class="{{tabflag==3?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">
     <view class='weui-navbar__title'>关注</view>
   </view>
-  <view class='weui-navbar__item'>
+  <view bindtap='saveNav' data-tabflag='4' class="{{tabflag==4?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">
     <view class='weui-navbar__title'>总榜</view>
   </view>
 </view>
 
-<view>
+<view wx-if="{{tabflag==1}}">
   <Choice/>
+</view>
+
+<view wx-if="{{tabflag==2}}">
+  <Latest/>
+</view>
+
+<view wx-if="{{tabflag==3}}">
+  <Follow/>
+</view>
+
+<view wx-if="{{tabflag==4}}">
+  <TotalRank/>
 </view>

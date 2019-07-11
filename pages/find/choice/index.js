@@ -95,5 +95,10 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+  },
+  gotoHabit: () => {
+    wx.navigateTo({
+      url: '../choiceHabit/index',
+    })
   }
 })

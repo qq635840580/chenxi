@@ -32,7 +32,8 @@
     "pages/details/praise/index",
     "pages/details/install/index",
     "pages/details/detailsNav/index",
-    "pages/details/clock/index"
+    "pages/details/clock/index",
+    "pages/find/choiceHabit/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -53,7 +54,7 @@
         "selectedIconPath": "/img/tabbar/home_selected.png"
       },
       {
-        "pagePath": "pages/find/choice/index",
+        "pagePath": "pages/find/findNav/index",
         "text": "发现",
         "iconPath": "/img/tabbar/discover.png",
         "selectedIconPath": "/img/tabbar/discover_selected.png"

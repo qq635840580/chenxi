@@ -1,2 +1,39 @@
-<!--pages/find/latest/index.wxml-->
-<text>pages/find/latest/index.wxml</text>
+<view class='latest'>
+  <view class='weui-panel'>
+  <view class='weui-panel__bd'>
+    <view class='weui-information' wx:for="lists" wx:key="*this">
+      <view class='weui-cell information-head'>
+        <view class='weui-cell__hd'>
+          <image src='/img/information/system.png'></image>
+        </view>
+        <view class='weui-cell__bd'>
+          <view class='weui-cell__title'>
+            考拉
+            <view class='weui-badge male'>
+              <image src='/img/male.png'></image> 38</view>
+          </view>
+          <view class='weui-cell__desc'>{{item.date}}{{item.time}}</view>
+        </view>
+        <view class='weui-cell__ft'>
+          <button class='weui-btn' size='mini' type="primary">+ 关注</button>
+        </view>
+      </view>
+      <view class='information-body'>
+        <view class='information__desc'>{{item.content}}</view>
+        <view class='weui-well weui-flex'>
+          <view class='weui-flex__item'>
+            坚持
+            <text class='weui-color__green'> 喝酒 </text>{{item.continuity_days}}天
+          </view>
+          <view>{{item.support_count}}人在坚持</view>
+        </view>
+      </view>
+      <view class='information-footer'>
+        <view wx:for="item.comment_data" wx:key="uid" wx:for-item="comment">
+          <text class='weui-color__green'>{{comment.nickname}}：</text>{{comment.content}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</view>

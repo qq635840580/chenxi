@@ -1,18 +1,4 @@
 <!--pages/find/choice/index.wxml-->
-<view class='weui-navbar'>
-  <view class="weui-navbar__item weui-bar__item_on">
-    <view class="weui-navbar__title">精选</view>
-  </view>
-  <view class='weui-navbar__item'>
-    <view class='weui-navbar__title'>最新</view>
-  </view>
-  <view class='weui-navbar__item'>
-    <view class='weui-navbar__title'>关注</view>
-  </view>
-  <view class='weui-navbar__item'>
-    <view class='weui-navbar__title'>总榜</view>
-  </view>
-</view>
 <!-- 精选 -->
 <view class="weui-search-bar">
   <view class="weui-search-bar__form">
@@ -42,7 +28,7 @@
 <view class='weui-panel'>
   <view class='weui-panel__head'>
     <view class='weui-panel-head__bd'>习惯精选</view>
-    <view class='weui-panel-head__ft weui-cell__ft_in-access'>更多</view>
+    <view class='weui-panel-head__ft weui-cell__ft_in-access' bindtap='gotoHabit'>更多</view>
   </view>
   <view class='weui-panel__bd'>
     <view class='weui-grid' wx:for="{{habitList}}" wx:key="id">

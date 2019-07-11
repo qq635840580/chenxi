@@ -1,4 +1,5 @@
 /* pages/discover/index.wxss */
+@import '/style/weui-rpx.wxss';
 
 .weui-navbar {
   position: static;

@@ -1,0 +1,12 @@
+<!--pages/details/clock/index.wxml-->
+<!-- 打卡内容区域 -->
+<view class='clock-text'>
+  <view class='clock-text-box'>
+    <textarea placeholder='说说今天的感想...'></textarea>
+  </view>
+</view>
+
+<!-- 按钮 -->
+<view class='clock-button'>
+  <button>发布</button>
+</view>

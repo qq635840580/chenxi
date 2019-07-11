@@ -70,3 +70,16 @@
   color: #555;
   padding: 20rpx;
 }
+
+.install-button {
+  width: 70%;
+  margin: 100rpx auto auto auto;
+}
+
+.install-button button {
+  background: #3ACC88;
+  color: white;
+  font: 36rpx;
+  font-weight: bold;
+  border-radius: 44rpx;
+}

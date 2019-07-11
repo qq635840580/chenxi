@@ -1,0 +1,19 @@
+<!--pages/find/findNav/index.wxml-->
+<view class='weui-navbar'>
+  <view class="weui-navbar__item weui-bar__item_on">
+    <view class="weui-navbar__title">精选</view>
+  </view>
+  <view class='weui-navbar__item'>
+    <view class='weui-navbar__title'>最新</view>
+  </view>
+  <view class='weui-navbar__item'>
+    <view class='weui-navbar__title'>关注</view>
+  </view>
+  <view class='weui-navbar__item'>
+    <view class='weui-navbar__title'>总榜</view>
+  </view>
+</view>
+
+<view>
+  <Choice/>
+</view>

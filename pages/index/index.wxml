@@ -3,7 +3,7 @@
   <navigator url="search" class='weui-habit__btn'>+ 添加习惯</navigator>
 
   <block wx:for="{{list}}" wx:key="id">
-    <navigator url='/pages/details/habitDetails/index?type={{item.title}}' open-type='redirect'	class='weui-habit'>
+    <navigator url='/pages/details/detailsNav/index?type={{item.title}}' open-type='redirect'	class='weui-habit'>
       <view class='weui-habit__hd'>
         <image src='{{item.img}}'></image>
       </view>

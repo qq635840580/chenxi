@@ -127,7 +127,7 @@
 }
 
 .habit-details-dynamic-one-img-comments {
-  margin: 30rpx auto 98rpx auto;
+  margin: 0 auto 98rpx auto;
   padding: 10rpx 20rpx 0 20rpx;
   border-top: 1rpx solid #F2F3F5;
   width: 100%;
@@ -205,4 +205,121 @@
   display: inline-block;
   color: #fff;
 }
+
+.clock-in-details-text-top {
+  width: 100%;
+  height: 88rpx;
+  background: #fff;
+  margin: 0 auto;
+  border-bottom: 2prx solid #F2F3F5;
+}
+
+.clock-in-details-text-top .clock-in-details-text-top-box {
+  padding: 20rpx;
+}
+
+.clock-in-details-text-top .clock-in-details-text-top-box text {
+  color: #212121;
+  font-size: 30rpx;
+}
+
+.clock-in-details-text-top .clock-in-details-text-top-box text:nth-child(1) {
+  float: left;
+}
+
+.clock-in-details-text-top .clock-in-details-text-top-box text:nth-child(2) {
+  float: right;
+}
+
+.clock-in-details-white-comments {
+  height: 173rpx;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background: #fff;
+  border-top: 2rpx solid #F2F3F5;
+}
+
+.clock-in-details-white-comments text {
+  font-size: 30rpx;
+  color:#999;
+  line-height: 173rpx;
+}
+
+.clock-in-details-text-comments {
+  width: 100%;
+  background: #fff;
+  margin: 0 auto;
+  border-top: 2rpx solid #F2F3F5;
+  margin-bottom: 108rpx;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box {
+  padding: 20rpx;
+  margin: 0 auto;
+  /* display: flex; */
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box view {
+  /* flex: 1; */
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-left {
+  width: 15%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-left image {
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: top;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right {
+  display: inline-block;
+  width: 85%;
+} 
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right .clock-in-details-text-comments-right-top text:nth-child(1) {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right .clock-in-details-text-comments-right-top text:nth-child(2) {
+  color:#999;
+  font-size: 24rpx;
+  float: right;
+  margin-top: 15rpx;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right-text {
+  font-size: 28rpx;
+  color: #555;
+  line-height: 48rpx;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right-reply {
+  background: #F2F3F5;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right-reply .clock-in-details-text-comments-right-reply-box {
+  padding: 10rpx;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right-reply .clock-in-details-text-comments-right-reply-box text {
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right-reply .clock-in-details-text-comments-right-reply-box text:nth-child(1) {
+  color:#3ACC88;
+}
+
+.clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right-reply .clock-in-details-text-comments-right-reply-box text:nth-child(2) {
+  color:#555;
+}
+
+
 

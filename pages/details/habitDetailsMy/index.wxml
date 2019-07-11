@@ -1,10 +1,4 @@
 <!--pages/details/habitDetailsMy/index.wxml-->
-<!-- 导航顶部 -->
-<view class='habit-detailsMy-top-nav'>
-  <view bindtap='gotoDynamic'>动态</view>
-  <view>我的</view>
-</view>
-
 <!-- 打卡周日历 -->
 <view class='habit-detailsMy-top-caledar'>
   <view class='habit-detailsMy-top-caledar-detail'>

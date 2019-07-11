@@ -38,3 +38,9 @@
     </view>
   </view>
 </view>
+
+<!-- 按钮 -->
+<view class='install-button'>
+  <button>完成创建</button>
+</view>
+

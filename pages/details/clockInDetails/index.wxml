@@ -57,25 +57,47 @@
 </view>
 </view>
 
+<!-- 点赞和评论数量部分 -->
+<view class='clock-in-details-text-top'>
+  <view class='clock-in-details-text-top-box'>
+    <text>评论 999</text>
+    <text>赞 888</text>
+  </view>
+</view>
+
 <!-- 空白页评论部分 -->
-<view>
-  
+<view class='clock-in-details-white-comments'>
+  <text>快来发表你的评论吧</text>
 </view>
-<!-- 评论部分 -->
-<view class='habit-details-dynamic-one-img-comments'>
-  <view class='habit-details-dynamic-one-img-comments-detail'>
-    <text>名字：</text>
-    <text>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</text>
-  </view>
-  <view class='habit-details-dynamic-one-img-comments-detail'>
-    <text>名字：</text>
-    <text>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</text>
-  </view>
-  <view class='habit-details-dynamic-one-img-comments-detail'>
-    <text>名字：</text>
-    <text>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</text>
+
+<!--头像评论部分 -->
+<view class='clock-in-details-text-comments'>
+  <view class='clock-in-details-text-comments-box'>
+
+    <view class='clock-in-details-text-comments-left'><image src='/img/information/system.png'/></view>
+
+    <view class='clock-in-details-text-comments-right'>
+      <!-- 头部姓名和评论时间 -->
+      <view class='clock-in-details-text-comments-right-top'>
+        <text>姓名</text>
+        <text>x分钟前</text>
+      </view>
+      <!-- 评论内容 -->
+      <view class='clock-in-details-text-comments-right-text'>
+        这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容
+      </view>
+      <!-- 回复区域 -->
+      <view class='clock-in-details-text-comments-right-reply'>
+        <view class='clock-in-details-text-comments-right-reply-box'>
+          <text>姓名：</text>
+        <text>回复内容回复内容回复内容回复内容回复内容回复内容回复内容</text>
+        </view>
+      </view>
+    </view>
+
   </view>
 </view>
+
 
 <!-- 底部 -->
 <view class='clock-footer'>

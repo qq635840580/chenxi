@@ -1,0 +1,21 @@
+/* pages/find/findNav/index.wxss */
+.weui-navbar {
+  position: static;
+  background-color: #fff;
+  border-bottom-width: 0;
+}
+
+.weui-navbar .weui-bar__item_on::after {
+  position: absolute;
+  bottom: 20rpx;
+  left: 50%;
+  width: 30rpx;
+  height: 6rpx;
+  margin-left: -15rpx;
+  content: ' ';
+  background-color: #3acc88;
+}
+
+.weui-navbar__title {
+  font-size: 36rpx;
+}

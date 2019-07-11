@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Dynamic": "../habitDetails/index",
+    "My": "../habitDetailsMy/index"
+  }
+}

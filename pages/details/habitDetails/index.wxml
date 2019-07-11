@@ -1,18 +1,5 @@
 <!--pages/details/habitDetails/index.wxml-->
 <view>
-  <!-- 顶部是否加入 -->
-  <view class='habit-details-top'>
-    <image class='habit-details-top-left' src='/uploads/home/jianshen.png'/>
-    <view class='habit-details-top-text'>早睡早起</view>
-    <image class='habit-details-top-right' src='/uploads/habit/lijijiaru.png'/>
-  </view>
-
-  <!-- 导航顶部 -->
-  <view class='habit-details-top-nav'>
-    <view>动态</view>
-    <view bindtap='gotoMy'>我的</view>
-  </view>
-
   <!-- 导航 -->
   <view class='habit-details-nav'>
     <view class='habit-details-nav-top'>

@@ -11,7 +11,7 @@
         <image src='/uploads/habit/chengyuan.png'/>
         <view>成员</view>
       </view>
-      <view class='habit-details-nav-top-btn'>
+      <view class='habit-details-nav-top-btn' bindtap='openPerson'>
         <image src='/uploads/habit/yaoqinghaoyou.png'/>
         <view>邀请好友</view>
       </view>

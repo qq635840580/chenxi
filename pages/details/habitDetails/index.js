@@ -159,6 +159,13 @@ Component({
         url: '../clockInDetails/index',
       })
     },
+
+    /**
+     * 点击邀请好友
+     */
+    openPerson: function() {
+      
+    }
   },
   // ...
 })

@@ -43,9 +43,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: (options) => {
+  onLoad: function (options) {
     that = this
-    console.log(options)
+    Util.request(Api.HabitList).then(res => {
+      this.setData({
+        list: res.data
+      })
+    });
   },
 
   /**

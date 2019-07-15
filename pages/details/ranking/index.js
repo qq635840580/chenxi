@@ -1,4 +1,7 @@
 // pages/details/ranking/index.js
+var Util = require("../../../utils/util.js");
+var Api = require("../../../config/api.js");
+var that;
 Page({
 
   /**
@@ -19,7 +22,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const data = { habit_id: 2 };
+    Util.request(Api.HabitRankineWeek, data).then(res => {
+      // this.setData({
+      //   list: res.data
+      // })
+    });
   },
 
   /**

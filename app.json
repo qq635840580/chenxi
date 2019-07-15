@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/find/findNav/index",
     "pages/index/index",
     "pages/index/search",
     "pages/habit/create",
@@ -33,7 +32,8 @@
     "pages/details/install/index",
     "pages/details/detailsNav/index",
     "pages/details/clock/index",
-    "pages/find/choiceHabit/index"
+    "pages/find/choiceHabit/index",
+    "pages/find/findNav/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

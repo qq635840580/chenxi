@@ -1,4 +1,46 @@
 /* pages/details/habitDetails/index.wxss */
+@font-face {
+  font-family: 'iconfont';  /* project id 1283069 */
+  src: url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.eot');
+  src: url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-aixin:before {
+  content: "\e61f";
+}
+
+.icon-fenxiang:before {
+  content: "\e661";
+}
+
+.icon-liaotian:before {
+  content: "\e60f";
+}
+
+.icon-jiahao:before {
+  content: "\eaf3";
+}
+
+.icon-aixin1:before {
+  content: "\e757";
+}
+
+.icon-gengduo:before {
+  content: "\e6fc";
+}
+
 .habit-details-top{
   width:100%;
   height: 100rpx;

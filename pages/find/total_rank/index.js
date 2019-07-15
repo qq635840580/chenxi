@@ -1,11 +1,14 @@
 // pages/find/total_rank/index.js
+var Util = require("../../../utils/util.js");
+var Api = require("../../../config/api.js");
+var that
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    rankingTotalList: [],
   },
 
   /**
@@ -63,4 +66,24 @@ Page({
   onShareAppMessage: function () {
 
   }
+})
+
+Component({
+  lifetimes: {
+    attached: function () {
+      Util.request(Api.FindTotalRank).then(res => {
+        this.setData({
+          rankingTotalList: res.data
+        })
+      });
+    },
+    detached: function () {
+      // 在组件实例被从页面节点树移除时执行
+    },
+
+  },
+  methods: {
+
+  },
+  // ...
 })

@@ -16,7 +16,7 @@ Page({
   },
 
   saveNav: function (e) {
-    const { tabflag } = e.target.dataset
+    const { tabflag } = e.currentTarget.dataset;
     this.setData({
       tabflag
     })

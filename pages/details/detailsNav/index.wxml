@@ -7,12 +7,21 @@
 </view>
 
 <!-- 导航顶部 -->
-<view class='habit-details-top-nav'>
+<!-- <view class='habit-details-top-nav'>
   <view class='habit-details-top-nav-action'>
     <text  bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'action-color ':''}}">动态</text>
   </view>  
   <view class='habit-details-top-nav-action'>
     <text  bindtap='saveNav' data-tabflag='2' class="{{tabflag==2?'action-color':''}}">我的</text>
+  </view>
+</view> -->
+
+<view class='weui-navbar'>
+  <view bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">
+    <view class="weui-navbar__title">动态</view>
+  </view>
+  <view bindtap='saveNav' data-tabflag='2' class="{{tabflag==2?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">
+    <view class='weui-navbar__title'>我的</view>
   </view>
 </view>
 

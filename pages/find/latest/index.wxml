@@ -1,7 +1,7 @@
 <view class='latest'>
   <view class='weui-panel'>
   <view class='weui-panel__bd'>
-    <view class='weui-information' wx:for="lists" wx:key="*this">
+    <view class='weui-information' wx:for="{{latestList}}" wx:key="*this" wx:if="{{latestList.length>0}}">
       <view class='weui-cell information-head'>
         <view class='weui-cell__hd'>
           <image src='/img/information/system.png'></image>
@@ -9,13 +9,13 @@
         <view class='weui-cell__bd'>
           <view class='weui-cell__title'>
             考拉
-            <view class='weui-badge male'>
-              <image src='/img/male.png'></image> 38</view>
+            <!-- <view class='weui-badge male'>
+              <image src='/img/male.png'></image> 38</view> -->
           </view>
-          <view class='weui-cell__desc'>{{item.date}}{{item.time}}</view>
+          <view class='weui-cell__desc'>{{item.date}}  {{item.time}}</view>
         </view>
         <view class='weui-cell__ft'>
-          <button class='weui-btn' size='mini' type="primary">+ 关注</button>
+          <button class='weui-btn' size='mini'>+ 关注</button>
         </view>
       </view>
       <view class='information-body'>
@@ -36,4 +36,11 @@
     </view>
   </view>
 </view>
+</view>
+
+<!-- 无数据时 -->
+<view class='habit-details-text' wx:if="{{latestList.length==0}}">
+  <image src='/uploads/habit/dongtai.png'/>
+  <view>一片荒芜</view>
+    <view>还没有任何动态</view>
 </view>

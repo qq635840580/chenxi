@@ -3,7 +3,7 @@
   <navigator url="search" class='weui-habit__btn'>+ 添加习惯</navigator>
 
   <block wx:for="{{list}}" wx:key="id">
-    <navigator url='/pages/details/detailsNav/index?type={{item.title}}' open-type='redirect'	class='weui-habit'>
+    <navigator url='/pages/details/detailsNav/index?type={{item.title}}' open-type='navigate'	class='weui-habit'>
       <view class='weui-habit__hd'>
         <image src='{{item.img}}'></image>
       </view>
@@ -12,7 +12,7 @@
           <view class='weui-flex__item'>{{item.name}}</view>
         </view>
         <view class='weui-flex weui-habit__desc'>
-          <view style='padding-right:50rpx'>已坚持{{item.days}}天</view>
+          <view style='padding-right:50rpx'>已坚持{{item.total_clock}}天</view>
           <view class='weui-flex__item' hidden='{{!item.remind}}'>提醒{{item.remind}}</view>
         </view>
       </view>

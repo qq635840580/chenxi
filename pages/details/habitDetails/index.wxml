@@ -3,11 +3,11 @@
   <!-- 导航 -->
   <view class='habit-details-nav'>
     <view class='habit-details-nav-top'>
-      <view class='habit-details-nav-top-btn'>
+      <view class='habit-details-nav-top-btn' bindtap='gotoRanking'>
         <image src='/uploads/habit/paihangbang.png'/>
         <view>排行榜</view>
       </view>
-      <view class='habit-details-nav-top-btn'>
+      <view class='habit-details-nav-top-btn' bindtap='gotoPerson'>
         <image src='/uploads/habit/chengyuan.png'/>
         <view>成员</view>
       </view>
@@ -15,7 +15,7 @@
         <image src='/uploads/habit/yaoqinghaoyou.png'/>
         <view>邀请好友</view>
       </view>
-      <view class='habit-details-nav-top-btn'>
+      <view class='habit-details-nav-top-btn'  bindtap='gotoInstall'>
         <image src='/uploads/habit/shezhi.png'/>
         <view>设置</view>
       </view>
@@ -28,152 +28,87 @@
   </view>
 
   <!-- 动态(有数据时) -->
-  <view class='habit-details-dynamic'>
-    <!-- 大图模式 -->
-    <view class='habit-details-dynamic-one-img'>
-      <view class='habit-details-dynamic-one-img-top'>
-        <!-- 头像avatar -->
-        <view class='habit-details-dynamic-one-img-avatar'>
-          <image src='/img/information/system.png'/>
-        </view>
-        <!-- 姓名、年龄、性别、发布日期 -->
-        <view class='habit-details-dynamic-one-img-total'>
-          <!-- 上半部分 -->
-          <view class='habit-details-dynamic-one-img-total-top'>
-            <view>考拉</view>
+  <block wx:for="{{list}}" wx:key="id">
+    <view class='habit-details-dynamic' bindtap='gotoDetails'>
+      <view class='habit-details-dynamic-one-img'>
+        <view class='habit-details-dynamic-one-img-top'>
+          <!-- 头像avatar -->
+          <view class='habit-details-dynamic-one-img-avatar'>
+            <image src='/img/information/system.png'/>
           </view>
-          <!-- 下半部分 -->
-          <view class='habit-details-dynamic-one-img-total-bottom'>
-            <view>1分钟前</view>
+          <!-- 姓名、年龄、性别、发布日期 -->
+          <view class='habit-details-dynamic-one-img-total'>
+            <!-- 上半部分 -->
+            <view class='habit-details-dynamic-one-img-total-top'>
+              <view>考拉</view>
+            </view>
+            <!-- 下半部分 -->
+            <view class='habit-details-dynamic-one-img-total-bottom'>
+              <view>{{item.time}}</view>
+            </view>
+          </view>
+          <!-- 右边部分 -->
+          <view class='habit-details-dynamic-one-img-right'>
+            <view>第{{item.continuity_days}}天</view>
           </view>
         </view>
-        <!-- 右边部分 -->
-        <view class='habit-details-dynamic-one-img-right'>
-          <view>第111天</view>
-        </view>
-      </view>
-      <!-- 内容部分 -->
-      <view class='habit-details-dynamic-one-img-text'>
-        <!-- 文字区域 -->
-        <view>
-           内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-        </view>
-        <!-- 图片区域 -->
-        <view class='habit-details-dynamic-one-img-text-one-img'>
-          <image/>
-        </view>
-      </view>
-      <!-- 分享、评论部分 -->
-      <view class='habit-details-dynamic-one-img-bottom'>
-        <view class='habit-details-dynamic-one-img-bottom-left'>
-          <view>
-            <text class='iconfont icon-aixin icon'></text>
-            <text class='iconfont-size'>10</text>
+        <!-- 内容部分 -->
+        <view class='habit-details-dynamic-one-img-text'>
+          <!-- 文字区域 -->
+          <view>{{content}}</view>
+          <!-- 图片区域 1、判断是否为大图 2、判断是否为多图 3、判断是否为空-->
+          <view class='habit-details-dynamic-one-img-text-one-img' wx:if="{{item.clock_record_image.length==1}}">
+            <image/>
           </view>
-          <view>
-            <text class='iconfont icon-liaotian icon'></text>
-            <text class='iconfont-size'>10</text>
+          <view class='habit-details-dynamic-one-img-text-img' wx:if="{{item.clock_record_image.length>1}}">
+            <view> <view></view> </view>
+            <view> <view></view></view>
+            <view> <view></view></view>
+            <view> <view></view></view>
+            <view> <view></view></view>
+            <view> <view></view></view>
+            <view> <view></view></view>
+            <view> <view></view></view>
+            <view> <view></view></view>
           </view>
-          <text class='iconfont icon-fenxiang'></text>
         </view>
-        <view class='habit-details-dynamic-one-img-bottom-right'>
-           <text class='iconfont icon-gengduo'></text>
+        <!-- 分享、点赞部分 -->
+        <view class='habit-details-dynamic-one-img-bottom'>
+          <view class='habit-details-dynamic-one-img-bottom-left'>
+            <view>
+              <text class='iconfont icon-aixin icon'></text>
+              <text class='iconfont-size'>10</text>
+            </view>
+            <view>
+              <text class='iconfont icon-liaotian icon'></text>
+              <text class='iconfont-size'>10</text>
+            </view>
+            <text class='iconfont icon-fenxiang'></text>
+          </view>
+          <view class='habit-details-dynamic-one-img-bottom-right'>
+            <text class='iconfont icon-gengduo'></text>
+          </view>
         </view>
-      </view>
-      <!-- 评论部分 -->
-      <view class='habit-details-dynamic-one-img-comments'>
-        <view class='habit-details-dynamic-one-img-comments-detail'>
-          <text>名字：</text>
-          <text>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</text>
+        <!-- 评论部分 -->
+        <view class='habit-details-dynamic-one-img-comments' wx:if="{{item.comment_count.length>0}}">
+          <view class='habit-details-dynamic-one-img-comments-detail'>
+            <text>名字：</text>
+            <text>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</text>
+          </view>
+          <view class='habit-details-dynamic-one-img-comments-detail'>
+            <text>名字：</text>
+            <text>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</text>
+          </view>
         </view>
-         <view class='habit-details-dynamic-one-img-comments-detail'>
-          <text>名字：</text>
-          <text>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</text>
-        </view>
-      </view>
 
+      </view>
     </view>
-  </view>
+  </block>
 
-  <!-- 组合图模式 -->
-  <view class='habit-details-dynamic'>
-    <!-- 大图模式 -->
-    <view class='habit-details-dynamic-one-img'>
-      <!-- 上半部分 -->
-      <view class='habit-details-dynamic-one-img-top'>
-        <!-- 头像avatar -->
-        <view class='habit-details-dynamic-one-img-avatar'>
-          <image src='/img/information/system.png'/>
-        </view>
-        <!-- 姓名、年龄、性别、发布日期 -->
-        <view class='habit-details-dynamic-one-img-total'>
-          <!-- 上半部分 -->
-          <view class='habit-details-dynamic-one-img-total-top'>
-            <view>考拉</view>
-          </view>
-          <!-- 下半部分 -->
-          <view class='habit-details-dynamic-one-img-total-bottom'>
-            <view>1分钟前</view>
-          </view>
-        </view>
-        <!-- 右边部分 -->
-        <view class='habit-details-dynamic-one-img-right'>
-          <view>第111天</view>
-        </view>
-      </view>
-      <!-- 内容部分 -->
-      <view class='habit-details-dynamic-one-img-text'>
-        <!-- 文字区域 -->
-        <view>
-           内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-        </view>
-        <!-- 图片区域 -->
-        <view class='habit-details-dynamic-one-img-text-img'>
-          <view> <view></view> </view>
-          <view> <view></view></view>
-          <view> <view></view></view>
-          <view> <view></view></view>
-          <view> <view></view></view>
-          <view> <view></view></view>
-          <view> <view></view></view>
-          <view> <view></view></view>
-          <view> <view></view></view>
-        </view>
-      </view>
-      <!-- 分享、评论部分 -->
-      <view class='habit-details-dynamic-one-img-bottom'>
-        <view class='habit-details-dynamic-one-img-bottom-left'>
-          <view>
-            <text class='iconfont icon-aixin icon'></text>
-            <text class='iconfont-size'>10</text>
-          </view>
-          <view>
-            <text class='iconfont icon-liaotian icon'></text>
-            <text class='iconfont-size'>10</text>
-          </view>
-          <text class='iconfont icon-fenxiang'></text>
-        </view>
-        <view class='habit-details-dynamic-one-img-bottom-right'>
-           <text class='iconfont icon-gengduo'></text>
-        </view>
-      </view>
-      <!-- 评论部分 -->
-      <view class='habit-details-dynamic-one-img-comments'>
-        <view class='habit-details-dynamic-one-img-comments-detail'>
-          <text>名字：</text>
-          <text>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</text>
-        </view>
-         <view class='habit-details-dynamic-one-img-comments-detail'>
-          <text>名字：</text>
-          <text>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</text>
-        </view>
-      </view>
 
-    </view>
-  </view>
 
   <!-- 无数据时 -->
-  <view class='habit-details-text'>
+  <view class='habit-details-text' wx:if="{{list.length==0}}">
     <image src='/uploads/habit/dongtai.png'/>
     <view>一片荒芜</view>
      <view>还没有任何动态</view>

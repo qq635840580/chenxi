@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    latestList: [],
   },
 
   /**
@@ -70,4 +70,25 @@ Page({
   onShareAppMessage: function () {
 
   }
+})
+
+
+Component({
+  lifetimes: {
+    attached: function () {
+      Util.request(Api.FindLatest).then(res => {
+        this.setData({
+          latestList: res.data
+        })
+      });
+    },
+    detached: function () {
+      // 在组件实例被从页面节点树移除时执行
+    },
+
+  },
+  methods: {
+
+  },
+  // ...
 })

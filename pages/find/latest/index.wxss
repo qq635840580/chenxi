@@ -7,6 +7,7 @@
 .weui-panel {
   margin: 30rpx 30rpx 0 30rpx;
   border-radius: 10rpx;
+  background: #f2f3f5;
 }
 
 .weui-panel:before,
@@ -21,6 +22,7 @@
   -webkit-align-items: center;
   align-items: center;
   border-bottom: 1rpx solid #f2f3f5;
+  background: #fff;
 }
 
 .weui-panel-head__bd {
@@ -145,13 +147,21 @@ button.weui-btn {
   line-height: 2;
   padding: 0 16rpx;
   vertical-align: middle;
+  background: #3acc88;
+  color: #fff;
 }
 
-button[type=default][plain] {
+.habit-details-text {
+  margin-top: 100rpx;
+  text-align: center;
+}
+
+.habit-details-text image {
+  width: 500rpx;
+  height: 200rpx;
+}
+
+.habit-details-text view {
   color: #999;
-  border: 1px solid #999;
-}
-
-button[type=primary] {
-  background-color: #3acc88;
+  font-size: 36rpx;
 }

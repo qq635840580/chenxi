@@ -16,7 +16,10 @@ module.exports = {
   About: ApiRootUrl + 'backend/about', //关于我们
 
   HabitList: ApiRootUrl + 'habit/lists', //习惯列表
-  HabitSave: ApiRootUrl + 'habit/save', //创建习惯 
+  HabitSave: ApiRootUrl + 'habit/save', //创建习惯
+  HabitDynamicList: ApiRootUrl + 'habit/trends' ,//习惯动态详情列表
+  HabitMy: ApiRootUrl + 'users/ownClockList',//习惯-我的
+  HabitRankineWeek: ApiRootUrl + 'habit/WeekRank', //排行榜-周榜
 
   FindHabit: ApiRootUrl + 'find/habits', //发现_精选习惯
   FindDynamic: ApiRootUrl + 'find/dynamic', //发现_精选动态

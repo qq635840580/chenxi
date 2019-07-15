@@ -6,7 +6,7 @@
     <text>榜单规则</text>
     <image src='/img/ranking/arrowRight.png'/>
   </view>
-  <view class='ranking-bg-nav'>
+  <view class='ranking-bg-nav ranking-me-bottom'>
     <text bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'ranking-bg-nav-action':''}}">周榜</text>
     <text bindtap='saveNav' data-tabflag='2' class="{{tabflag==2?'ranking-bg-nav-action':''}}">日榜</text>
     <text bindtap='saveNav' data-tabflag='3' class="{{tabflag==3?'ranking-bg-nav-action':''}}">年榜</text>

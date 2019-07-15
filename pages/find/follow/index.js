@@ -1,11 +1,14 @@
 // pages/find/follow/index.js
+var Util = require("../../../utils/util.js");
+var Api = require("../../../config/api.js");
+var that
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    followList: [],
   },
 
   /**
@@ -63,4 +66,24 @@ Page({
   onShareAppMessage: function () {
 
   }
+})
+
+Component({
+  lifetimes: {
+    attached: function () {
+      Util.request(Api.FindFollow).then(res => {
+        this.setData({
+          followList: res.data
+        })
+      });
+    },
+    detached: function () {
+      // 在组件实例被从页面节点树移除时执行
+    },
+
+  },
+  methods: {
+
+  },
+  // ...
 })

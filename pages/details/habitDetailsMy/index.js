@@ -1,4 +1,7 @@
 // pages/details/habitDetailsMy/index.js
+var Util = require("../../../utils/util.js");
+var Api = require("../../../config/api.js");
+var that;
 Page({
 
   /**
@@ -7,7 +10,7 @@ Page({
   data: {
     newsList:[
       { content: '这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容', time:'2019-09-09'},
-    ]
+    ],
   },
 
   /**
@@ -79,4 +82,33 @@ Page({
       url: '../clockIn/index',
     })
   }
+})
+
+Component({
+  lifetimes: {
+    attached: function () {
+      // 在组件实例进入页面节点树时执行
+      Util.request(Api.HabitMy).then(res => {
+        // this.setData({
+        //   list: res.data
+        // })
+      });
+      this.setData({
+        newsList: [
+          { content: '这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容', time: '2019-09-09' },
+        ]
+      })
+    },
+    detached: function () {
+      // 在组件实例被从页面节点树移除时执行
+    },
+  },
+  // 以下是旧式的定义方式，可以保持对 <2.2.3 版本基础库的兼容
+  attached: function () {
+    // 在组件实例进入页面节点树时执行
+  },
+  detached: function () {
+    // 在组件实例被从页面节点树移除时执行
+  },
+  // ...
 })

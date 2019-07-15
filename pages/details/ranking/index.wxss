@@ -2,7 +2,7 @@
 .ranking-bg {
   height: 460rpx;
   width: 100%;
-  background: url('http://chuantu.xyz/t6/702/1562660086x2073530527.png') no-repeat center;
+  background: url('http://chenxixiguan.cn/uploads/20190712/4fd434414e5280d1819fd4366b64f94e.png') no-repeat center;
   background-size: 100% 460rpx;
   position: relative;
 }
@@ -70,6 +70,10 @@
 .ranking-me {
   height: 120rpx;
   background: #fff;
+}
+
+.ranking-me-bottom {
+  margin-bottom: 20rpx;
 }
 
 .ranking-me .ranking-me-left-img {
@@ -144,7 +148,8 @@
 }
 
 .ranking-list {
-  margin-top: 20rpx;
+  /* margin-top: 20rpx; */
+  border-bottom: 1rpx solid #f2f3f5;
 }
 
 .ranking-list .ranking-medlas {

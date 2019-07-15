@@ -19,7 +19,7 @@ Page({
    * 菜单切换
    */
   saveNav: function (e) {
-    const { tabflag } = e.currentTarget.dataset
+    const { tabflag } = e.currentTarget.dataset;
     this.setData({
       tabflag
     })

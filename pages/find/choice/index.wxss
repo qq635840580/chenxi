@@ -55,6 +55,12 @@ swiper image {
   margin-left: 30rpx;
   margin-right: 30rpx;
   border-radius: 10rpx;
+  background: #f2f3f5;
+}
+
+.habit-select {
+  background: #fff;
+  margin-bottom: 20rpx;
 }
 
 .weui-panel:before,
@@ -69,6 +75,7 @@ swiper image {
   -webkit-align-items: center;
   align-items: center;
   border-bottom: 1rpx solid #f2f3f5;
+  background: #fff;
 }
 
 .weui-panel-head__bd {
@@ -98,6 +105,7 @@ swiper image {
   width: 25%;
   border-width: 0;
   padding: 30rpx 30rpx;
+  background: #fff;
 }
 
 .weui-grid__icon {
@@ -193,13 +201,15 @@ button.weui-btn {
   line-height: 2;
   padding: 0 16rpx;
   vertical-align: middle;
+  background: #3acc88;
+  color: #fff;
 }
 
-button[type=default][plain] {
+/* button[type=default][plain] {
   color: #999;
   border: 1px solid #999;
-}
+} */
 
-button[type=primary] {
+/* button[type=primary] {
   background-color: #3acc88;
-}
+} */

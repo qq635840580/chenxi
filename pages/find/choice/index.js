@@ -14,7 +14,9 @@ Page({
       '/uploads/discover/pic_01.jpg',
       '/uploads/discover/pic_01.jpg',
       '/uploads/discover/pic_01.jpg'
-    ]
+    ],
+    habitList: [],
+    dynamicList: [],
   },
 
   /**
@@ -28,17 +30,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    Util.request(Api.FindHabit).then(res => {
-      that.setData({
-        habitList: res.data
-      })
-    });
-
-    Util.request(Api.FindDynamic).then(res => {
-      that.setData({
-        dynamicList: res.data
-      })
-    });
+    
   },
 
   /**
@@ -100,5 +92,63 @@ Page({
     wx.navigateTo({
       url: '../choiceHabit/index',
     })
-  }
+  },
+})
+
+Component({
+  lifetimes: {
+    attached: function () {
+      Util.request(Api.FindHabit).then(res => {
+        this.setData({
+          habitList: res.data
+        })
+      });
+
+      Util.request(Api.FindDynamic).then(res => {
+        this.setData({
+          dynamicList: res.data
+        })
+      });
+      this.setData({
+        imgUrls: [
+          '/uploads/discover/pic_01.jpg',
+          '/uploads/discover/pic_01.jpg',
+          '/uploads/discover/pic_01.jpg'
+        ],
+      })
+    },
+    detached: function () {
+      // 在组件实例被从页面节点树移除时执行
+    },
+
+  },
+  methods: {
+    showInput: function () {
+      this.setData({
+        inputShowed: true
+      });
+    },
+    hideInput: function () {
+      this.setData({
+        inputVal: "",
+        inputShowed: false
+      });
+    },
+    clearInput: function () {
+      this.setData({
+        inputVal: ""
+      });
+    },
+    inputTyping: function (e) {
+      this.setData({
+        inputVal: e.detail.value
+      });
+    },
+    gotoHabit: () => {
+      wx.navigateTo({
+        url: '../choiceHabit/index',
+      })
+    },
+  },
+  // ...
 })

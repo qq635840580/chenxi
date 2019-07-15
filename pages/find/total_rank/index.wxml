@@ -1,2 +1,124 @@
 <!--pages/find/total_rank/index.wxml-->
-<text>pages/find/total_rank/index.wxml</text>
+<view class='ranking-top-text'>
+  <text>每月1号重新统计排名（仅显示前100名）</text>
+  <text>本月</text>
+</view>
+<!-- 排行榜本人 -->
+<view class='ranking-me ranking-me-bottom'>
+  <!-- 头像部分 -->
+  <view class='ranking-me-left-img'>
+    <image src='/img/information/system.png'/>
+  </view>
+  <!-- 姓名年龄部分 -->
+  <view class='ranking-me-left-name'>
+    <view>姓名</view>
+    <view>99岁</view>
+  </view>
+  <!-- 点赞部分 -->
+  <view class='ranking-me-right'>
+    <view class='ranking-me-right-img'>
+      <text>11</text>
+      <image src='/img/ranking/huise.png'/> 
+    </view>
+  </view>
+  <!-- 次数部分 -->
+  <view class='ranking-me-center'>
+     <view class='ranking-me-center-num'>
+      <text>666</text>
+      <text>次</text>
+    </view>
+  </view>
+</view>
+
+<view class='ranking-me ranking-list'>
+  <!-- 1、2、3名奖牌部分 -->
+  <view class='ranking-medlas' >
+    <image src='/img/ranking/one.png'/>
+  </view>
+  <!-- 头像部分 -->
+  <view class='ranking-list-left-img'>
+    <image src='/img/information/system.png'/>
+  </view>
+  <!-- 姓名年龄部分 -->
+  <view class='ranking-me-left-name'>
+    <view>姓名</view>
+    <view>99岁</view>
+  </view>
+  <!-- 点赞部分 -->
+  <view class='ranking-me-right'>
+    <view class='ranking-me-right-img'>
+      <text>11</text>
+      <image src='/img/ranking/zan.png'/> 
+    </view>
+  </view>
+  <!-- 次数部分 -->
+  <view class='ranking-me-center'>
+     <view class='ranking-me-center-num'>
+      <text>666</text>
+      <text>次</text>
+    </view>
+  </view>
+</view>
+
+<view class='ranking-me ranking-list'>
+  <!-- 1、2、3名奖牌部分 -->
+  <view class='ranking-medlas' >
+    <image src='/img/ranking/two.png'/>
+  </view>
+  <!-- 头像部分 -->
+  <view class='ranking-list-left-img'>
+    <image src='/img/information/system.png'/>
+  </view>
+  <!-- 姓名年龄部分 -->
+  <view class='ranking-me-left-name'>
+    <view>姓名</view>
+    <view>99岁</view>
+  </view>
+  <!-- 点赞部分 -->
+  <view class='ranking-me-right'>
+    <view class='ranking-me-right-img'>
+      <text>11</text>
+      <image src='/img/ranking/zan.png'/> 
+    </view>
+  </view>
+  <!-- 次数部分 -->
+  <view class='ranking-me-center'>
+     <view class='ranking-me-center-num'>
+      <text>666</text>
+      <text>次</text>
+    </view>
+  </view>
+</view>
+
+<view class='ranking-me ranking-list'>
+  <!-- 1、2、3名奖牌部分 -->
+  <view class='ranking-medlas' >
+    <image src='/img/ranking/three.png'/>
+  </view>
+  <!-- 头像部分 -->
+  <view class='ranking-list-left-img'>
+    <image src='/img/information/system.png'/>
+  </view>
+  <!-- 姓名年龄部分 -->
+  <view class='ranking-me-left-name'>
+    <view>姓名</view>
+    <view>99岁</view>
+  </view>
+  <!-- 点赞部分 -->
+  <view class='ranking-me-right'>
+    <view class='ranking-me-right-img'>
+      <text>11</text>
+      <image src='/img/ranking/zan.png'/> 
+    </view>
+  </view>
+  <!-- 次数部分 -->
+  <view class='ranking-me-center'>
+     <view class='ranking-me-center-num'>
+      <text>666</text>
+      <text>次</text>
+    </view>
+  </view>
+</view>
+
+
+

@@ -1,18 +1,33 @@
 // pages/details/detailsNav/index.js
+var Util = require("../../../utils/util.js");
+var Api = require("../../../config/api.js");
+var that;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabflag: 1
+    tabflag: 1,
+    habit_id: null,
+    is_join: false,
+    img: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      habit_id: options.habit_id
+    })
+    const data = { habit_id: options.habit_id};
+    Util.request(Api.HabitDynamicList, data).then(res => {
+      this.setData({
+        is_join: res.data.is_join,
+        img: res.data.icon,
+      })
+    });
   },
 
   saveNav: function (e) {

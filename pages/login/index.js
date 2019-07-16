@@ -15,7 +15,7 @@ Page({
           code: res.code,
           nickname: userInfo.nickName,
           avatarUrl: userInfo.avatarUrl,
-          sex: userInfo.gender
+          gender: userInfo.gender
         };
         wx.request({
           url: Api.LoginUrl,

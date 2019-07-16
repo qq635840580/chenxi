@@ -3,21 +3,21 @@
   <navigator url="search" class='weui-habit__btn'>+ 添加习惯</navigator>
 
   <block wx:for="{{list}}" wx:key="id">
-    <navigator url='/pages/details/detailsNav/index?type={{item.title}}' open-type='navigate'	class='weui-habit'>
+    <navigator url='/pages/details/detailsNav/index?habit_id={{item.habit_id}}' open-type='navigate'	class='weui-habit'>
       <view class='weui-habit__hd'>
-        <image src='{{item.img}}'></image>
+        <image src='{{item.habit_icon}}'></image>
       </view>
       <view class='weui-habit__bd'>
         <view class='weui-flex weui-habit__title'>
-          <view class='weui-flex__item'>{{item.name}}</view>
+          <view class='weui-flex__item'>{{item.habit_name}}</view>
         </view>
         <view class='weui-flex weui-habit__desc'>
-          <view style='padding-right:50rpx'>已坚持{{item.total_clock}}天</view>
-          <view class='weui-flex__item' hidden='{{!item.remind}}'>提醒{{item.remind}}</view>
+          <view style='padding-right:50rpx'>已坚持{{item.continuity_days}}天</view>
+          <view class='weui-flex__item' hidden='{{!item.is_remind}}'>提醒{{item.remind_time}}</view>
         </view>
       </view>
       <view class='weui-habit__ft'>
-        <icon hidden='{{!item.is_clock}}' type='success' size='35' color='#3ACC88'></icon>
+        <icon hidden='{{!item.continuity_days}}' type='success' size='35' color='#3ACC88'></icon>
       </view>
     </navigator>
   </block>  

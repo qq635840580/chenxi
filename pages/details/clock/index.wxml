@@ -2,11 +2,11 @@
 <!-- 打卡内容区域 -->
 <view class='clock-text'>
   <view class='clock-text-box'>
-    <textarea placeholder='说说今天的感想...'></textarea>
+    <textarea placeholder='说说今天的感想...' bindinput='eventhandle'></textarea>
   </view>
 </view>
 
 <!-- 按钮 -->
-<view class='clock-button'>
+<view class='clock-button' bindtap='release'>
   <button>发布</button>
 </view>

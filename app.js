@@ -4,37 +4,47 @@ var Api = require("/config/api.js");
 
 App({
   onLaunch: function () {
-    console.log('onLaunch')
+    //查询本地是否有值
     wx.getStorage({
-      key: 'userinfo',
+      key: 'token',
       success: function (res) {
         console.log(res)
-        if (res) {
-
-          this.globalData.userinfo = res.data
-        }
+        // if (res) {
+        //   this.globalData.userinfo = res.data
+        // }
       },
       fail: (e) => {
         console.log(e)
         // 查看是否授权
         wx.getSetting({
           success: function (res1) {
-            console.log(res1)
             if (res1.authSetting['scope.userInfo']) {
               wx.getUserInfo({
                 success: function (res2) {
-                  console.log(res2)
                   wx.login({
                     success: res3 => {
-                      console.log(res3)
-                      console.log("用户的code:" + res3.code);
                       let data = {
-                        appid,
-                        secret,
-                        js_code: res3.code,
+                        code: res3.code,
+                        nickname: res2.userInfo.nickName,
+                        avatarUrl: res2.userInfo.avatarUrl,
+                        gender: res2.userInfo.gender,
+                        province: res2.userInfo.province,
+                        city: res2.userInfo.city,
                       }
-                      Util.request(Api.LoginUrl).then(res => {
-                        wx.setStorageSync(userinfo, res.data)
+                      wx.request({
+                        url: Api.LoginUrl,
+                        data: data,
+                        method: 'POST',
+                        success(res) {
+                          if (res.data.code === '200') {
+                            wx.setStorageSync('token', res.data.data.token)
+                            wx.setStorageSync('uid', res.data.data.uid)
+                            wx.setStorageSync('openid', res.data.data.openid)
+                            wx.switchTab({
+                              url: '/pages/index/index',
+                            })
+                          }
+                        }
                       })
                     }
                   });

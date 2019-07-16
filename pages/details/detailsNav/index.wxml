@@ -1,7 +1,7 @@
 <!--pages/details/detailsNav/index.wxml-->
 <!-- 顶部是否加入 -->
-<view class='habit-details-top'>
-  <image class='habit-details-top-left' src='/uploads/home/jianshen.png'/>
+<view class='habit-details-top' wx:if="{{is_join==0}}">
+  <image class='habit-details-top-left' src='{{img}}'/>
   <view class='habit-details-top-text'>早睡早起</view>
   <image class='habit-details-top-right' src='/uploads/habit/lijijiaru.png'/>
 </view>
@@ -26,9 +26,10 @@
 </view>
 
 <view wx-if="{{tabflag==1}}">
-  <Dynamic/>
+  <!--  -->
+  <Dynamic habit_id="{{habit_id}}"/>
 </view>
 
 <view wx-if="{{tabflag==2}}">
-  <My/>
+  <My habit_id="{{habit_id}}"/>
 </view>

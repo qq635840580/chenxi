@@ -9,12 +9,15 @@ Page({
    */
   data: {
     list: [],
+    total_user: 0,
+    total_clock: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     Util.request(Api.HabitDynamicList).then(res => {
       // this.setData({
       //   list: res.data
@@ -110,15 +113,23 @@ Page({
 })
 
 Component({
+  properties: {
+    habit_id: {
+      type: Number,
+      observer: function (newVal, oldVal) {
+        this.fetchData();
+      }
+    }
+  },
   lifetimes: {
     attached: function () {
-      // 在组件实例进入页面节点树时执行
-      const data = { habit_id: 1};
-      Util.request(Api.HabitDynamicList, data).then(res => {
-        this.setData({
-          list: res.data
-        })
-      });
+      // // 在组件实例进入页面节点树时执行
+      // const data = { habit_id: 12};
+      // Util.request(Api.HabitDynamicList, data).then(res => {
+      //   this.setData({
+      //     list: res.data
+      //   })
+      // });
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
@@ -126,6 +137,20 @@ Component({
     
   },
   methods: {
+    /**
+     * 初始化页面值
+     */
+    fetchData: function() {
+      // console.log(this.data.habit_id)
+      const data = { habit_id: this.data.habit_id};
+      Util.request(Api.HabitDynamicList, data).then(res => {
+        this.setData({
+          list: res.data.list,
+          total_user: res.data.total_user,
+          total_clock: res.data.total_clock,
+        });
+      });
+    },
 
     gotoRanking: () => {
       wx.navigateTo({
@@ -165,6 +190,16 @@ Component({
      */
     openPerson: function() {
       
+    },
+
+    /**
+     * 点击打卡
+     */
+    gotoClock: function() {
+      const habit_id = this.data.habit_id;
+      wx.navigateTo({
+        url: '../clock/index?habit_id='+ habit_id,
+      })
     }
   },
   // ...

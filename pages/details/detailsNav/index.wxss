@@ -7,8 +7,8 @@
 }
 
 .habit-details-top-left{
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   margin-right: 40rpx;
   vertical-align: middle;
   display: inline-block;

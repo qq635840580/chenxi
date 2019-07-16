@@ -1,18 +1,37 @@
 // pages/details/clock/index.js
+var Util = require("../../../utils/util.js");
+var Api = require("../../../config/api.js");
+var that;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    habit_id: null,
+    textVal: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      habit_id: options.habit_id,
+    })
+  },
 
+  /**
+   * 发布
+   */
+  release: function() {
+    const {habit_id, textVal} = this.data;
+    const data = { habit_id, content:textVal};
+    Util.request(Api.ClockSave, data).then(res => {
+      // this.setData({
+      //   list: res.data
+      // })
+    });
   },
 
   /**
@@ -27,6 +46,13 @@ Page({
    */
   onShow: function () {
 
+  },
+
+  eventhandle: function (e) {
+    console.log(e)
+    this.setData({
+      textVal: e.detail.value,
+    })
   },
 
   /**

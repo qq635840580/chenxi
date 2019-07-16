@@ -162,8 +162,13 @@
   font-size: 36rpx;
 }
 
+.habit-nav-color {
+  color:#3ACC88;
+  font-size: 38rpx;
+}
+
 .habit-details-dynamic {
-  width: 90%;
+  width: 92%;
   background: #fff;
   margin: 20rpx auto;
   border-radius: 10rpx;
@@ -298,6 +303,35 @@
 .habit-details-dynamic-one-img-comments-detail text:nth-child(2) {
   font-size: 28rpx;
   color:#555;
+}
+
+.habit-clock {
+  position: fixed;
+  bottom: 70rpx;
+  right: 4%;
+}
+
+.habit-clock .habit-clock-box {
+  width: 216rpx;
+  height: 88rpx;
+  background: #3ACC88;
+  border-radius: 44rpx;
+  vertical-align: top;
+  text-align: center;
+}
+
+.habit-clock .habit-clock-box text {
+  color: #fff;
+  line-height: 88rpx;
+  text-align: center;
+  margin-right: 10rpx;
+}
+
+.habit-clock .habit-clock-box image {
+  width: 42rpx;
+  height: 42rpx;
+  vertical-align: top;
+  margin-top: 24rpx;
 }
 
 

@@ -22,8 +22,8 @@
     </view>
     <view class='habit-details-nav-line'></view>
     <view class='habit-details-nav-bottom'>
-      <view>0人参与</view>
-      <view>0次打卡</view>
+      <view><text class='habit-nav-color'>{{total_user}}</text> 人参与</view>
+      <view><text class='habit-nav-color'>{{total_clock}}</text> 次打卡</view>
     </view>
   </view>
 
@@ -44,7 +44,7 @@
             </view>
             <!-- 下半部分 -->
             <view class='habit-details-dynamic-one-img-total-bottom'>
-              <view>{{item.time}}</view>
+              <view>{{item.date}}  {{item.time}}</view>
             </view>
           </view>
           <!-- 右边部分 -->
@@ -55,7 +55,7 @@
         <!-- 内容部分 -->
         <view class='habit-details-dynamic-one-img-text'>
           <!-- 文字区域 -->
-          <view>{{content}}</view>
+          <view>{{item.content}}</view>
           <!-- 图片区域 1、判断是否为大图 2、判断是否为多图 3、判断是否为空-->
           <view class='habit-details-dynamic-one-img-text-one-img' wx:if="{{item.clock_record_image.length==1}}">
             <image/>
@@ -112,6 +112,14 @@
     <image src='/uploads/habit/dongtai.png'/>
     <view>一片荒芜</view>
      <view>还没有任何动态</view>
+  </view>
+
+  <!-- 打卡 -->
+  <view class='habit-clock' bindtap='gotoClock'>
+    <view class='habit-clock-box'>
+      <text>打卡</text>
+      <image src='/uploads/habit/xiayibu.png'/>
+    </view>
   </view>
 
 </view>

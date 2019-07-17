@@ -56,6 +56,17 @@
   font-weight: bold;
 }
 
+.ranking-bg-nav-action::after {
+  width:0;
+  height:0;
+  overflow:hidden;
+  font-size: 0;     /*是因为, 虽然宽高度为0, 但在IE6下会具有默认的 */
+  line-height: 0;  /* 字体大小和行高, 导致盒子呈现被撑开的长矩形 */
+  border-width:15rpx;
+  border-style:dashed dashed solid dashed;/*IE6下, 设置余下三条边的border-style为dashed,即可达到透明的效果*/
+  border-color:transparent transparent #FEFEFE transparent;
+}
+
 .sanjiao_down{
   width:0;
   height:0;
@@ -70,6 +81,10 @@
 .ranking-me {
   height: 120rpx;
   background: #fff;
+}
+
+.ranking-bottom {
+  margin-bottom: 20rpx;
 }
 
 .ranking-me-bottom {
@@ -87,6 +102,7 @@
   width: 80rpx;
   height:80rpx;
   vertical-align: top;
+  border-radius: 50%;
 }
 
 .ranking-me .ranking-me-left-name {
@@ -109,16 +125,19 @@
 .ranking-me-right {
   float: right;
   margin-top: 15rpx;
+  text-align: center;
 }
 
 .ranking-me-center {
   float: right;
   margin-top: 30rpx;
+  text-align: center;
 }
 
 .ranking-me-center .ranking-me-center-num {
   display: inline-block;
   margin-right: 80rpx;
+  text-align: center;
 }
 
 .ranking-me-center .ranking-me-center-num text:nth-child(1) {
@@ -173,10 +192,71 @@
   width: 80rpx;
   height:80rpx;
   vertical-align: top;
+  border-radius: 50%;
 }
 
 .ranking-list .ranking-list-left-name {
   display: inline-block;
   margin-left: 40rpx;
   margin-top: 20rpx;
+}
+
+
+.ys-mask{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.ys-dialog{
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  text-align: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.ys-dialog-title{
+  padding: 50rpx 220rpx 0 220rpx;
+  color:#212121;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight: 400;
+}
+.ys-dialog-content{
+  padding: 56rpx 77rpx 0 77rpx;
+  min-height: 40px;
+  font-size: 30rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #555555;
+  text-align: left;
+  line-height: 46rpx;
+}
+
+.ys-dialog-content view {
+  margin-bottom: 30rpx;
+}
+
+.ys-dialog-bottom{
+  margin-bottom: 66rpx;
+}
+
+.ys-dialog-bottom button {
+  box-shadow:0px 10px 24px 0px rgba(58, 136, 204, 0.35);
+  background: #3ACC88;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  width: 430rpx;
 }

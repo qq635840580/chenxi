@@ -159,6 +159,13 @@
   border-radius:10rpx 10rpx 0rpx 0rpx;
 }
 
+.content-image image {
+  height: 290rpx;
+  width: 100%;
+  border-radius:10rpx 10rpx 0rpx 0rpx;
+}
+
+
 /*时间轴下侧天数和习惯*/
 .playlog-item .content .bottom-btn {
   height: 96rpx;

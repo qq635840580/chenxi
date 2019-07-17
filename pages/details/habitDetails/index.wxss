@@ -239,6 +239,12 @@
   /* padding: 0 10rpx; */
 }
 
+.habit-details-dynamic-one-img-text-img image {
+  width: 210rpx;
+  height: 210rpx;
+  margin-right: 20rpx;
+}
+
 .habit-details-dynamic-one-img-text-img view {
   width: 33.33%;
   display: inline-block;

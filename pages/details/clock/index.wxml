@@ -11,7 +11,7 @@
   <block wx:for="{{imgAry}}" wx:key="id">
   <image src='{{item}}'></image>
   </block>
-  <image class='clock-img-add' src='/uploads/habit/zhanwei.png' wx:if="{{imgAry.length<3}}" bindtap="addImg"></image>
+  <image class='clock-img-add' src='/uploads/habit/zhanwei.png' wx:if="{{imgAry.length<9}}" bindtap="addImg"></image>
 </view>
 
 <!-- 按钮 -->

@@ -8,7 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabflag: 1
+    tabflag: 1,
+    weekList: [],
+    me: {},
+    isShow: false,
   },
 
   saveNav: function (e) {
@@ -22,12 +25,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const data = { habit_id: 2 };
+    const data = { habit_id: options.habit_id };
+    //查询周榜
     Util.request(Api.HabitRankineWeek, data).then(res => {
-      // this.setData({
-      //   list: res.data
-      // })
+      let list = res.data.list;
+      // 长度为1、2、3时分别插入image，
+      if(list.length ==1) {
+        list[0].image = '/img/ranking/one.png';
+      }else if(list.length ==2) {
+        list[0].image = '/img/ranking/one.png';
+        list[1].image = '/img/ranking/two.png';
+      }else if(list.length >=3) {
+        list[0].image = '/img/ranking/one.png';
+        list[1].image = '/img/ranking/two.png';
+        list[2].image = '/img/ranking/three.png';
+      }
+      this.setData({
+        weekList: list,
+        me: res.data.own
+      })
     });
+    //查询月榜
+    
+    //查询年榜
+  },
+
+  /**
+   * 是否显示dialog
+   */
+  isShowDialog:function() {
+    this.setData({
+      isShow: !this.data.isShow,
+    })
   },
 
   /**

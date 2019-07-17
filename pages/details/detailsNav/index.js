@@ -8,10 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabflag: 1,
+    tabflag: 0,
     habit_id: null,
     is_join: false,
     img: null,
+    loadOptions: null,
   },
 
   /**
@@ -19,7 +20,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      habit_id: options.habit_id
+      habit_id: options.habit_id,
+      loadOptions: options,
+      tabflag: 1,
     })
     const data = { habit_id: options.habit_id};
     Util.request(Api.HabitDynamicList, data).then(res => {
@@ -48,7 +51,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // this.onLoad();
+    this.onLoad(this.data.loadOptions);
   },
 
   /**

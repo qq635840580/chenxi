@@ -61,15 +61,9 @@
             <image/>
           </view>
           <view class='habit-details-dynamic-one-img-text-img' wx:if="{{item.clock_record_image.length>1}}">
-            <view> <view></view> </view>
-            <view> <view></view></view>
-            <view> <view></view></view>
-            <view> <view></view></view>
-            <view> <view></view></view>
-            <view> <view></view></view>
-            <view> <view></view></view>
-            <view> <view></view></view>
-            <view> <view></view></view>
+            <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList">
+              <image src='{{imgList.path}}'/>
+            </block>
           </view>
         </view>
         <!-- 分享、点赞部分 -->
@@ -77,11 +71,11 @@
           <view class='habit-details-dynamic-one-img-bottom-left'>
             <view>
               <text class='iconfont icon-aixin icon'></text>
-              <text class='iconfont-size'>10</text>
+              <text class='iconfont-size'>{{item.support_count}}</text>
             </view>
             <view>
               <text class='iconfont icon-liaotian icon'></text>
-              <text class='iconfont-size'>10</text>
+              <text class='iconfont-size'>{{item.comment_count}}</text>
             </view>
             <text class='iconfont icon-fenxiang'></text>
           </view>

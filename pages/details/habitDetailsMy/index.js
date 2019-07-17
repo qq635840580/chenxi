@@ -8,9 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    newsList:[
-      { content: '这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容', time:'2019-09-09'},
-    ],
+    newsList:[],
+    continuity_days: 0,
+    week_statistics: [],
   },
 
   /**
@@ -85,32 +85,46 @@ Page({
 })
 
 Component({
+  properties: {
+    habit_id: {
+      type: Number,
+    }
+  },
   lifetimes: {
     attached: function () {
       // 在组件实例进入页面节点树时执行
-      Util.request(Api.HabitMy).then(res => {
-        // this.setData({
-        //   list: res.data
-        // })
-      });
-      this.setData({
-        newsList: [
-          { content: '这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容', time: '2019-09-09' },
-        ]
-      })
+      this.fetchData();
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
     },
   },
-  // 以下是旧式的定义方式，可以保持对 <2.2.3 版本基础库的兼容
-  attached: function () {
-    // 在组件实例进入页面节点树时执行
-  },
-  detached: function () {
-    // 在组件实例被从页面节点树移除时执行
+  pageLifetimes: {
+    // 组件所在页面的生命周期函数
+    show: function () {
+      console.log(`进入`)
+    },
+    hide: function () { 
+    },
+    resize: function () { },
   },
   methods: {
+    fetchData: function() {
+      const data = { habit_id: this.data.habit_id };
+      //获取时间轴信息
+      Util.request(Api.HabitMy).then(res => {
+        this.setData({
+          newsList: res.data
+        })
+      });
+      //获取打卡周列表
+      Util.request(Api.ClockWeek, data).then(res => {
+        this.setData({
+          continuity_days: res.data.continuity_days,
+          week_statistics: res.data.week_statistics,
+        });
+      });
+    },
     gotoClock: () => {
       wx.navigateTo({
         url: '../clockIn/index',

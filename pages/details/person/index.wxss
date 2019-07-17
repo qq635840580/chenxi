@@ -54,6 +54,7 @@
   width: 80rpx;
   height:80rpx;
   vertical-align: top;
+  border-radius: 50%;
 }
 
 .person-list .person-list-box .person-list-box-left text {

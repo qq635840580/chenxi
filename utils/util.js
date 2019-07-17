@@ -35,6 +35,8 @@ function request(url, data = {}, method = "POST") {
             wx.navigateTo({
               url: '/pages/login/index'
             })
+          } else if(res.data.code == 400) {
+            reject(res.data);
           } else {
             resolve(res.data);
           }

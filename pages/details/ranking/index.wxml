@@ -2,11 +2,11 @@
 <!-- 背景图 -->
 <view class='ranking-bg'>
   <view>早睡早起排行榜</view>
-  <view>
+  <view bindtap='isShowDialog'>
     <text>榜单规则</text>
     <image src='/img/ranking/arrowRight.png'/>
   </view>
-  <view class='ranking-bg-nav ranking-me-bottom'>
+  <view class='ranking-bg-nav'>
     <text bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'ranking-bg-nav-action':''}}">周榜</text>
     <text bindtap='saveNav' data-tabflag='2' class="{{tabflag==2?'ranking-bg-nav-action':''}}">日榜</text>
     <text bindtap='saveNav' data-tabflag='3' class="{{tabflag==3?'ranking-bg-nav-action':''}}">年榜</text>
@@ -16,15 +16,15 @@
 </view>
 
 <!-- 排行榜本人 -->
-<view class='ranking-me'>
+<view class='ranking-me ranking-bottom'>
   <!-- 头像部分 -->
   <view class='ranking-me-left-img'>
-    <image src='/img/information/system.png'/>
+    <image src='{{me.user.avatarUrl}}'/>
   </view>
   <!-- 姓名年龄部分 -->
   <view class='ranking-me-left-name'>
-    <view>姓名</view>
-    <view>99岁</view>
+    <view>{{me.user.nickname}}</view>
+    <view>{{me.user.age}}</view>
   </view>
   <!-- 点赞部分 -->
   <view class='ranking-me-right'>
@@ -36,100 +36,58 @@
   <!-- 次数部分 -->
   <view class='ranking-me-center'>
      <view class='ranking-me-center-num'>
-      <text>666</text>
+      <text>{{me.week_clock_count}}</text>
       <text>次</text>
     </view>
   </view>
 </view>
 
-<view class='ranking-me ranking-list'>
-  <!-- 1、2、3名奖牌部分 -->
-  <view class='ranking-medlas' >
-    <image src='/img/ranking/one.png'/>
-  </view>
-  <!-- 头像部分 -->
-  <view class='ranking-list-left-img'>
-    <image src='/img/information/system.png'/>
-  </view>
-  <!-- 姓名年龄部分 -->
-  <view class='ranking-me-left-name'>
-    <view>姓名</view>
-    <view>99岁</view>
-  </view>
-  <!-- 点赞部分 -->
-  <view class='ranking-me-right'>
-    <view class='ranking-me-right-img'>
-      <text>11</text>
-      <image src='/img/ranking/zan.png'/> 
+<!-- 列表区域 周榜 部分 -->
+<block wx:for="{{weekList}}" wx:key='id'>
+  <view class='ranking-me ranking-list'>
+    <!-- 1、2、3名奖牌部分 -->
+    <view class='ranking-medlas' wx:if="{{item.image}}">
+      <image src='{{item.image}}'/>
+    </view>
+    <!-- 头像部分 -->
+    <view class='ranking-list-left-img'>
+      <image src='{{item.user.avatarUrl}}'/>
+    </view>
+    <!-- 姓名年龄部分 -->
+    <view class='ranking-me-left-name'>
+      <view>{{item.user.nickname}}</view>
+      <view>{{item.user.age}}</view>
+    </view>
+    <!-- 点赞部分 -->
+    <view class='ranking-me-right'>
+      <view class='ranking-me-right-img'>
+        <text>{{item.week_clock_count}}</text>
+        <image src='/img/ranking/zan.png'/> 
+      </view>
+    </view>
+    <!-- 次数部分 -->
+    <view class='ranking-me-center'>
+      <view class='ranking-me-center-num'>
+        <text>{{item.week_clock_count}}</text>
+        <text>次</text>
+      </view>
     </view>
   </view>
-  <!-- 次数部分 -->
-  <view class='ranking-me-center'>
-     <view class='ranking-me-center-num'>
-      <text>666</text>
-      <text>次</text>
+</block>
+
+
+<view wx:if="{{isShow}}">
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog">
+    <view class="ys-dialog-title">榜单规则</view>
+    <view class="ys-dialog-content">              
+      <view>1.周榜、月榜统计本周、本月的打卡数据。</view>
+      <view>2.参与官方活动的目标，打卡数据均会被统计到排行信息中。</view>
+      <view>3.位于排行榜前列的小伙伴，将不定期获得惊喜哦！</view>
+    </view>
+    <view class="ys-dialog-bottom">
+      <button bindtap='isShowDialog'>知道了</button>
     </view>
   </view>
 </view>
-
-<view class='ranking-me ranking-list'>
-  <!-- 1、2、3名奖牌部分 -->
-  <view class='ranking-medlas' >
-    <image src='/img/ranking/two.png'/>
-  </view>
-  <!-- 头像部分 -->
-  <view class='ranking-list-left-img'>
-    <image src='/img/information/system.png'/>
-  </view>
-  <!-- 姓名年龄部分 -->
-  <view class='ranking-me-left-name'>
-    <view>姓名</view>
-    <view>99岁</view>
-  </view>
-  <!-- 点赞部分 -->
-  <view class='ranking-me-right'>
-    <view class='ranking-me-right-img'>
-      <text>11</text>
-      <image src='/img/ranking/zan.png'/> 
-    </view>
-  </view>
-  <!-- 次数部分 -->
-  <view class='ranking-me-center'>
-     <view class='ranking-me-center-num'>
-      <text>666</text>
-      <text>次</text>
-    </view>
-  </view>
-</view>
-
-<view class='ranking-me ranking-list'>
-  <!-- 1、2、3名奖牌部分 -->
-  <view class='ranking-medlas' >
-    <image src='/img/ranking/three.png'/>
-  </view>
-  <!-- 头像部分 -->
-  <view class='ranking-list-left-img'>
-    <image src='/img/information/system.png'/>
-  </view>
-  <!-- 姓名年龄部分 -->
-  <view class='ranking-me-left-name'>
-    <view>姓名</view>
-    <view>99岁</view>
-  </view>
-  <!-- 点赞部分 -->
-  <view class='ranking-me-right'>
-    <view class='ranking-me-right-img'>
-      <text>11</text>
-      <image src='/img/ranking/zan.png'/> 
-    </view>
-  </view>
-  <!-- 次数部分 -->
-  <view class='ranking-me-center'>
-     <view class='ranking-me-center-num'>
-      <text>666</text>
-      <text>次</text>
-    </view>
-  </view>
-</view>
-
 

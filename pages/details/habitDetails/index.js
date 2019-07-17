@@ -116,25 +116,25 @@ Component({
   properties: {
     habit_id: {
       type: Number,
-      observer: function (newVal, oldVal) {
-        this.fetchData();
-      }
     }
   },
   lifetimes: {
     attached: function () {
       // // 在组件实例进入页面节点树时执行
-      // const data = { habit_id: 12};
-      // Util.request(Api.HabitDynamicList, data).then(res => {
-      //   this.setData({
-      //     list: res.data
-      //   })
-      // });
+      this.fetchData();
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
     },
     
+  },
+  pageLifetimes: {
+    // 组件所在页面的生命周期函数
+    show: function () { 
+      
+    },
+    hide: function () { },
+    resize: function () { },
   },
   methods: {
     /**
@@ -152,18 +152,20 @@ Component({
       });
     },
 
-    gotoRanking: () => {
+    gotoRanking:function () {
+      const habit_id = this.data.habit_id;
       wx.navigateTo({
-        url: '../ranking/index',
+        url: '../ranking/index?habit_id='+ habit_id,
       })
     },
 
     /**
      * 跳转成员
      */
-    gotoPerson: () => {
+    gotoPerson:function () {
+      const habit_id = this.data.habit_id;
       wx.navigateTo({
-        url: '../person/index',
+        url: '../person/index?habit_id='+ habit_id,
       })
     },
 

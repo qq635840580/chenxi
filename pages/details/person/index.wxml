@@ -9,17 +9,19 @@
 </view>
 
 <!-- 列表 -->
-<view class='person-list'>
-  <view class='person-list-box'>
-    <view class='person-list-box-left'>
-      <image src='/img/information/system.png'/>
-      <text>姓名</text>
-    </view>
-    <view class='person-list-box-right-yiguanzhu'>
-      <text>已关注</text>
+<block wx:for='{{list}}'>
+  <view class='person-list'>
+    <view class='person-list-box'>
+      <view class='person-list-box-left'>
+        <image src='{{item.avatarUrl}}'/>
+        <text>{{item.nickname}}</text>
+      </view>
+      <view class='person-list-box-right-yiguanzhu'>
+        <text>已关注</text>
+      </view>
     </view>
   </view>
-</view>
+</block>
 
 <view class='person-list'>
   <view class='person-list-box'>

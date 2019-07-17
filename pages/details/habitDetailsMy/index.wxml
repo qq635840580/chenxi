@@ -11,7 +11,7 @@
       </view>
       <!-- 右侧 -->
       <view bindtap='gotoClock'>
-        <text>已坚持666天</text>
+        <text>已坚持{{continuity_days}}天</text>
         <image src='/img/myHabit/chakan.png'/>
       </view>
     </view> 
@@ -21,31 +21,38 @@
     <view class='habit-detailsMy-top-caledar-detail-week'>
       <view>
         <view>一</view>
-        <view><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[0]==0}}"><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[0]==1}}"><image src='/img/myHabit/daguoka.png'/></view>
       </view>
       <view>
         <view>二</view>
-        <view><image src='/img/myHabit/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[1]==0}}"><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[1]==1}}"><image src='/img/myHabit/daguoka.png'/></view>
       </view>
       <view>
         <view>三</view>
-        <view><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[2]==0}}"><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[2]==1}}"><image src='/img/myHabit/daguoka.png'/></view>
       </view>
       <view>
         <view>四</view>
-        <view><image src='/img/myHabit/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[3]==0}}"><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[3]==1}}"><image src='/img/myHabit/daguoka.png'/></view>
       </view>
       <view>
         <view>五</view>
-        <view><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[4]==0}}"><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[4]==1}}"><image src='/img/myHabit/daguoka.png'/></view>
       </view>
       <view>
         <view>六</view>
-        <view><image src='/img/myHabit/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[5]==0}}"><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[5]==1}}"><image src='/img/myHabit/daguoka.png'/></view>
       </view>
       <view>
         <view>日</view>
-        <view><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[6]==0}}"><image src='/img/myHabit/weidaka.png'/></view>
+        <view wx:if="{{week_statistics[6]==1}}"><image src='/img/myHabit/daguoka.png'/></view>
       </view>
     </view>
   </view>
@@ -63,11 +70,14 @@
         <!-- 时间戳 -->
       </view>
       <view class="content">
-        <text class="course">{{item.time}}</text>
-        <text class="chapter">{{item.content}}</text>
+        <text class="course">{{item.date}}  {{item.time}}</text>
+        <text class="chapter" wx:if='{{item.clock_record_image.length==0}}'>{{item.content}}</text>
+        <view class='content-image' wx:if='{{item.clock_record_image.length>0}}'>
+          <image src='{{item.clock_record_image[0].path}}'/>
+        </view>
         <view class='bottom-btn'>
-          <text>早起</text>
-          <text>第10天</text>
+          <text>{{item.habits.name}}</text>
+          <text>第{{item.continuity_days}}天</text>
         </view>
       </view>
     </view>

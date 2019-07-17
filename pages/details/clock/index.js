@@ -26,12 +26,9 @@ Page({
    * 发布
    */
   release: function() {
-    const {habit_id, textVal} = this.data;
-    const data = { habit_id, content:textVal};
+    const {habit_id, textVal, imgAry} = this.data;
+    const data = { habit_id, content: textVal, images:imgAry};
     Util.request(Api.ClockSave, data).then(res => {
-      // this.setData({
-      //   list: res.data
-      // })
       wx.navigateBack({
         delta: 1,
       });
@@ -41,34 +38,28 @@ Page({
   /**
    * 点击上传图片
    */
-  addImg:function() {
+  /**
+   * 点击上传图片
+   */
+  addImg: function () {
     let that = this;
     wx.chooseImage({
       success: function (res) {
         var tempFilePaths = res.tempFilePaths;
         tempFilePaths.forEach(item => {
-          let listImg = that.data.imgAry;
-          console.log(listImg)
-          console.log(item)
-          let newListImg = listImg.push(item);
-          console.log(newListImg)
-          that.setData({
-            imgAry: newListImg,
-          })
           wx.uploadFile({
             url: Api.UploadImg,
             filePath: item,
-            name: 'file',
+            name: 'fileId',
             header: {
               'token': wx.getStorageSync('token'),
               'uid': wx.getStorageSync('uid')
             },
-            // body: {
-            //   field:item,
-            // },
-            success: function (res) {
-              // util.debug(res);
-              console.log(res)
+            success: function (res1) {
+              let newRes = JSON.parse(res1.data);
+              that.setData({
+                imgAry: [...that.data.imgAry, newRes.data.msg]
+              })
             }
           })
         });
@@ -91,7 +82,6 @@ Page({
   },
 
   eventhandle: function (e) {
-    console.log(e)
     this.setData({
       textVal: e.detail.value,
     })

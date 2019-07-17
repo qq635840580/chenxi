@@ -33,9 +33,10 @@ page {
   margin: 0 auto;
 }
 
-.clock-img .clock-img-add {
+.clock-img image {
   width: 200rpx;
   height: 200rpx;
   background: #f2f3f5;
   display: inline-block;
+  margin-right:  20rpx;
 }

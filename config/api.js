@@ -22,6 +22,7 @@ module.exports = {
   HabitMy: ApiRootUrl + 'users/ownClockList',//习惯-我的
   HabitRankineWeek: ApiRootUrl + 'habit/WeekRank', //排行榜-周榜
   ClockSave: ApiRootUrl + 'clock/save', //打卡
+  UploadImg: ApiRootUrl + 'upload/upload', //上传图片
 
   FindHabit: ApiRootUrl + 'find/habits', //发现_精选习惯
   FindDynamic: ApiRootUrl + 'find/dynamic', //发现_精选动态

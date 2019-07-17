@@ -27,3 +27,15 @@ page {
   font-weight: bold;
   border-radius: 44rpx;
 }
+
+.clock-img {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.clock-img .clock-img-add {
+  width: 200rpx;
+  height: 200rpx;
+  background: #f2f3f5;
+  display: inline-block;
+}

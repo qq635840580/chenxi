@@ -6,6 +6,14 @@
   </view>
 </view>
 
+<!-- 图片区域操作 -->
+<view class='clock-img'>
+  <block wx:for="{{imgAry}}" wx:key="id">
+  <image src='{{item}}'></image>
+  </block>
+  <image class='clock-img-add' src='/uploads/habit/zhanwei.png' wx:if="{{imgAry.length<3}}" bindtap="addImg"></image>
+</view>
+
 <!-- 按钮 -->
 <view class='clock-button' bindtap='release'>
   <button>发布</button>

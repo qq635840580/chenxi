@@ -10,6 +10,7 @@ Page({
   data: {
     habit_id: null,
     textVal: null,
+    imgAry: [],
   },
 
   /**
@@ -31,7 +32,48 @@ Page({
       // this.setData({
       //   list: res.data
       // })
+      wx.navigateBack({
+        delta: 1,
+      });
     });
+  },
+
+  /**
+   * 点击上传图片
+   */
+  addImg:function() {
+    let that = this;
+    wx.chooseImage({
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths;
+        tempFilePaths.forEach(item => {
+          let listImg = that.data.imgAry;
+          console.log(listImg)
+          console.log(item)
+          let newListImg = listImg.push(item);
+          console.log(newListImg)
+          that.setData({
+            imgAry: newListImg,
+          })
+          wx.uploadFile({
+            url: Api.UploadImg,
+            filePath: item,
+            name: 'file',
+            header: {
+              'token': wx.getStorageSync('token'),
+              'uid': wx.getStorageSync('uid')
+            },
+            // body: {
+            //   field:item,
+            // },
+            success: function (res) {
+              // util.debug(res);
+              console.log(res)
+            }
+          })
+        });
+      }
+    })
   },
 
   /**

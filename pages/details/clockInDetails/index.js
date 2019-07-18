@@ -1,18 +1,26 @@
 // pages/details/clockInDetails/index.js
+var Util = require("../../../utils/util.js");
+var Api = require("../../../config/api.js");
+var that;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    detail: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const data = { clock_record_id:options.id,}
+    Util.request(Api.ListDetails, data).then(res => {
+      this.setData({
+        detail: res.data,
+      })
+    });
   },
 
   /**

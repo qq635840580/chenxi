@@ -25,7 +25,8 @@ module.exports = {
   UploadImg: ApiRootUrl + 'upload/upload', //上传图片
   HabitPerson: ApiRootUrl + 'habit/member', //成员
   ClockWeek: ApiRootUrl + 'clock/weekStatistics', //我的打卡周统计
-  ClockMonth: ApiRootUrl + 'clock/monthStatistics', //我的打卡周统计
+  ClockMonth: ApiRootUrl + 'clock/monthStatistics', //我的打卡月统计
+  ListDetails: ApiRootUrl + 'clock/detail', //打卡详情
 
   FindHabit: ApiRootUrl + 'find/habits', //发现_精选习惯
   FindDynamic: ApiRootUrl + 'find/dynamic', //发现_精选动态

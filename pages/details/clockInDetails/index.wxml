@@ -6,13 +6,13 @@
     <view class='habit-details-dynamic-one-img-top'>
       <!-- 头像avatar -->
       <view class='habit-details-dynamic-one-img-avatar'>
-        <image src='/img/information/system.png'/>
+        <image src='{{detail.user.avatarUrl}}'/>
       </view>
       <!-- 姓名、年龄、性别、发布日期 -->
       <view class='habit-details-dynamic-one-img-total'>
         <!-- 上半部分 -->
         <view class='habit-details-dynamic-one-img-total-top'>
-          <view>考拉</view>
+          <view>{{detail.user.nickname}}</view>
         </view>
       </view>
       <!-- 右边部分 -->
@@ -23,9 +23,7 @@
     <!-- 内容部分 -->
     <view class='habit-details-dynamic-one-img-text'>
       <!-- 文字区域 -->
-      <view>
-          内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-      </view>
+      <view>{{detail.content}}</view>
       <!-- 图片区域 -->
       <view class='habit-details-dynamic-one-img-text-one-img'>
         <image/>
@@ -37,7 +35,7 @@
         <view>
           <text>坚持 </text>
           <text class='clock-in-jianchi-box-type'>早睡早起</text>
-          <text> 99天</text>
+          <text> {{continuity_days}}天</text>
         </view>
         <view>
           <text>600</text>

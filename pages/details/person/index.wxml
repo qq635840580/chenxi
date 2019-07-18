@@ -3,7 +3,7 @@
 <view class='person-num'>
   <view class='person-num-box'>
     <text></text>
-    <text>已有123123123人参与</text>
+    <text>已有{{total_user}}人参与</text>
     <text></text>
   </view>
 </view>
@@ -16,45 +16,22 @@
         <image src='{{item.avatarUrl}}'/>
         <text>{{item.nickname}}</text>
       </view>
-      <view class='person-list-box-right-yiguanzhu'>
+
+      <!-- 已关注 -->
+      <view class='person-list-box-right-yiguanzhu' wx:if="{{item.is_attention==1}}">
         <text>已关注</text>
       </view>
+
+      <!-- 互相关注 -->
+      <view class='person-list-box-right-yiguanzhu' wx:if="{{item.is_attention==2}}">
+        <text>互相关注</text>
+      </view>
+
+      <!-- 未关注 -->
+      <view class='person-list-box-right-guanzhu' wx:if="{{item.is_attention==0}}">
+        <text class='iconfont icon-jiahao'>关注</text>
+      </view>
+      
     </view>
   </view>
 </block>
-
-<view class='person-list'>
-  <view class='person-list-box'>
-    <view class='person-list-box-left'>
-      <image src='/img/information/system.png'/>
-      <text>姓名</text>
-    </view>
-    <view class='person-list-box-right-yiguanzhu'>
-      <text>互相关注</text>
-    </view>
-  </view>
-</view>
-
-<view class='person-list'>
-  <view class='person-list-box'>
-    <view class='person-list-box-left'>
-      <image src='/img/information/system.png'/>
-      <text>姓名</text>
-    </view>
-    <view class='person-list-box-right-guanzhu'>
-      <text class='iconfont icon-jiahao'>关注</text>
-    </view>
-  </view>
-</view>
-
-<view class='person-list'>
-  <view class='person-list-box'>
-    <view class='person-list-box-left'>
-      <image src='/img/information/system.png'/>
-      <text>姓名</text>
-    </view>
-    <view class='person-list-box-right-guanzhu'>
-      <text class='iconfont icon-jiahao'>关注</text>
-    </view>
-  </view>
-</view>

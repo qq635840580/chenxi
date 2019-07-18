@@ -24,6 +24,7 @@
   margin-right: 20rpx;
   vertical-align: top;
   margin-top: 10rpx;
+  border-radius: 50%;
 }
 
 .habit-details-dynamic-one-img-total {

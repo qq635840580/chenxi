@@ -125,9 +125,10 @@ Component({
         });
       });
     },
-    gotoClock: () => {
+    gotoClock: function() {
+      const habit_id = this.data.habit_id;
       wx.navigateTo({
-        url: '../clockIn/index',
+        url: `../clockIn/index?habit_id=${habit_id}`,
       })
     }
   },

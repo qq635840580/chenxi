@@ -9,6 +9,7 @@ Page({
    */
   data: {
     list: [],
+    total_user: 0,
   },
 
   /**
@@ -18,7 +19,8 @@ Page({
     const data = { habit_id: options.habit_id};
     Util.request(Api.HabitPerson, data).then(res => {
       this.setData({
-        list: res.data
+        list: res.data.list,
+        total_user: res.data.total_user,
       })
     });
   },

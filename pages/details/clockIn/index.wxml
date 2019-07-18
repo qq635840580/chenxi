@@ -6,6 +6,9 @@
     weeks-type='cn'
     days-color="{{days_style}}"
     board-style="board"
+    bindprevMonth='prevMonth'
+    bindnextMonth='nextMonth'
+    binddateChange='dateChange'
   />
 </view>
 
@@ -32,25 +35,25 @@
       <view class='habit-clock-data-details'>
         <text>●</text>
         <text>累计打卡</text>
-        <text>60天</text>
+        <text>{{bottomData.total_clock}}天</text>
       </view>
 
       <view class='habit-clock-data-details'>
         <text>●</text>
         <text>打卡率</text>
-        <text>33.33%</text>
+        <text>{{bottomData.rate}}</text>
       </view>
 
       <view class='habit-clock-data-details'>
         <text>●</text>
         <text>当前连续打卡</text>
-        <text>60天</text>
+        <text>{{bottomData.now_con}}天</text>
       </view>
 
       <view class='habit-clock-data-details'>
         <text>●</text>
         <text>最高连续打卡</text>
-        <text>60天</text>
+        <text>{{bottomData.total_con}}天</text>
       </view>
 
 

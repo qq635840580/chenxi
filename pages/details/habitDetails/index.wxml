@@ -29,18 +29,18 @@
 
   <!-- 动态(有数据时) -->
   <block wx:for="{{list}}" wx:key="id">
-    <view class='habit-details-dynamic' bindtap='gotoDetails'>
+    <navigator class='habit-details-dynamic' url='/pages/details/clockInDetails/index?id={{item.id}}'>
       <view class='habit-details-dynamic-one-img'>
         <view class='habit-details-dynamic-one-img-top'>
           <!-- 头像avatar -->
           <view class='habit-details-dynamic-one-img-avatar'>
-            <image src='/img/information/system.png'/>
+            <image src='{{item.user.avatarUrl}}'/>
           </view>
           <!-- 姓名、年龄、性别、发布日期 -->
           <view class='habit-details-dynamic-one-img-total'>
             <!-- 上半部分 -->
             <view class='habit-details-dynamic-one-img-total-top'>
-              <view>考拉</view>
+              <view>{{item.user.nickname}}</view>
             </view>
             <!-- 下半部分 -->
             <view class='habit-details-dynamic-one-img-total-bottom'>
@@ -96,7 +96,7 @@
         </view>
 
       </view>
-    </view>
+    </navigator>
   </block>
 
 

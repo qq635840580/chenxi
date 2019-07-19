@@ -38,6 +38,9 @@ Page({
     let nowDate = `${year}-${month}`
     let habit_id = this.data.habit_id;
     let data = { habit_id, month: nowDate};
+    this.setData({
+      days_style: [],
+    })
     this.fetchData(data);
   },
 
@@ -50,6 +53,9 @@ Page({
     let nowDate = `${year}-${month}`
     let habit_id = this.data.habit_id;
     let data = { habit_id, month: nowDate };
+    this.setData({
+      days_style: [],
+    })
     this.fetchData(data);
   },
 
@@ -62,6 +68,9 @@ Page({
     let nowDate = `${year}-${month}`
     let habit_id = this.data.habit_id;
     let data = { habit_id, month: nowDate };
+    this.setData({
+      days_style: [],
+    })
     this.fetchData(data);
   },
 

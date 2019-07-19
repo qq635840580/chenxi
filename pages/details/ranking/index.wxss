@@ -2,7 +2,7 @@
 .ranking-bg {
   height: 460rpx;
   width: 100%;
-  background: url('http://chenxixiguan.cn/uploads/20190712/4fd434414e5280d1819fd4366b64f94e.png') no-repeat center;
+  background: url('https://chenxixiguan.cn/uploads/20190712/4fd434414e5280d1819fd4366b64f94e.png') no-repeat center;
   background-size: 100% 460rpx;
   position: relative;
 }

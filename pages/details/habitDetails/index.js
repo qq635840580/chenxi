@@ -101,15 +101,6 @@ Page({
     })
   },
 
-  /**
-   * 跳转动态详情
-   */
-  gotoDetails: () => {
-    wx.navigateTo({
-      url: '../clockInDetails/index',
-    })
-  },
-
 })
 
 Component({
@@ -172,9 +163,10 @@ Component({
     /**
      * 跳转设置
      */
-    gotoInstall: () => {
+    gotoInstall: function() {
+      const habit_id = this.data.habit_id;
       wx.navigateTo({
-        url: '../install/index',
+        url: '../install/index?habit_id=' + habit_id,
       })
     },
 

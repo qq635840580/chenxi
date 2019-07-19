@@ -1,5 +1,5 @@
 //生产
-var ApiRootUrl = 'http://chenxixiguan.cn/';
+var ApiRootUrl = 'https://chenxixiguan.cn/';
 
 module.exports = {
   LoginUrl: ApiRootUrl + 'wechat/getOpenid', //登录
@@ -20,13 +20,19 @@ module.exports = {
   HabitSave: ApiRootUrl + 'habit/save', //创建习惯
   HabitDynamicList: ApiRootUrl + 'habit/trends' ,//习惯动态详情列表
   HabitMy: ApiRootUrl + 'users/ownClockList',//习惯-我的
-  HabitRankineWeek: ApiRootUrl + 'habit/WeekRank', //排行榜-周榜
+  HabitRankingWeek: ApiRootUrl + 'habit/WeekRank', //排行榜-周榜
+  HabitRankingMonth: ApiRootUrl + 'habit/MonthRank', //排行榜-月榜
+  HabitRankingYear: ApiRootUrl + 'habit/YearRank', //排行榜-年榜
   ClockSave: ApiRootUrl + 'clock/save', //打卡
   UploadImg: ApiRootUrl + 'upload/upload', //上传图片
   HabitPerson: ApiRootUrl + 'habit/member', //成员
   ClockWeek: ApiRootUrl + 'clock/weekStatistics', //我的打卡周统计
   ClockMonth: ApiRootUrl + 'clock/monthStatistics', //我的打卡月统计
   ListDetails: ApiRootUrl + 'clock/detail', //打卡详情
+  HabitCate: ApiRootUrl + 'habit/cate', //习惯分类
+  HabitJoin: ApiRootUrl + 'habit/join', //加入习惯
+  HabitSettingSearch: ApiRootUrl + 'habit/settingDetail', //习惯设置查询
+  HabitSetting: ApiRootUrl + 'habit/setting', //习惯设置
 
   FindHabit: ApiRootUrl + 'find/habits', //发现_精选习惯
   FindDynamic: ApiRootUrl + 'find/dynamic', //发现_精选动态

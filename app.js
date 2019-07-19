@@ -4,17 +4,11 @@ var Api = require("/config/api.js");
 
 App({
   onLaunch: function () {
-    //查询本地是否有值
+    // 查询本地是否有值
     wx.getStorage({
       key: 'token',
-      success: function (res) {
-        console.log(res)
-        // if (res) {
-        //   this.globalData.userinfo = res.data
-        // }
-      },
+      success: function (res) {},
       fail: (e) => {
-        console.log(e)
         // 查看是否授权
         wx.getSetting({
           success: function (res1) {
@@ -39,7 +33,6 @@ App({
                           if (res.data.code === '200') {
                             wx.setStorageSync('token', res.data.data.token)
                             wx.setStorageSync('uid', res.data.data.uid)
-                            wx.setStorageSync('openid', res.data.data.openid)
                             wx.switchTab({
                               url: '/pages/index/index',
                             })
@@ -62,7 +55,6 @@ App({
         });
       }
     })
-
   },
   globalData: {
     userInfo: null

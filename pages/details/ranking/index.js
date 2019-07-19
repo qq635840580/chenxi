@@ -10,14 +10,24 @@ Page({
   data: {
     tabflag: 1,
     weekList: [],
-    me: {},
+    monthList: [],
+    yearList: [],
+    weekMe: {},
+    monthMe: {},
+    yearMe: {},
     isShow: false,
+    week: true,
+    month: false,
+    year: false,
   },
 
   saveNav: function (e) {
     const { tabflag } = e.target.dataset
     this.setData({
-      tabflag
+      tabflag,
+      week: tabflag==1,
+      month: tabflag==2,
+      year: tabflag==3,
     })
   },
 
@@ -27,7 +37,7 @@ Page({
   onLoad: function (options) {
     const data = { habit_id: options.habit_id };
     //查询周榜
-    Util.request(Api.HabitRankineWeek, data).then(res => {
+    Util.request(Api.HabitRankingWeek, data).then(res => {
       let list = res.data.list;
       // 长度为1、2、3时分别插入image，
       if(list.length ==1) {
@@ -42,12 +52,47 @@ Page({
       }
       this.setData({
         weekList: list,
-        me: res.data.own
+        weekMe: res.data.own,
       })
     });
     //查询月榜
-    
+    Util.request(Api.HabitRankingMonth, data).then(res => {
+      let list = res.data.list;
+      // 长度为1、2、3时分别插入image，
+      if (list.length == 1) {
+        list[0].image = '/img/ranking/one.png';
+      } else if (list.length == 2) {
+        list[0].image = '/img/ranking/one.png';
+        list[1].image = '/img/ranking/two.png';
+      } else if (list.length >= 3) {
+        list[0].image = '/img/ranking/one.png';
+        list[1].image = '/img/ranking/two.png';
+        list[2].image = '/img/ranking/three.png';
+      }
+      this.setData({
+        monthList: list,
+        monthMe: res.data.own,
+      })
+    });
     //查询年榜
+    Util.request(Api.HabitRankingYear, data).then(res => {
+      let list = res.data.list;
+      // 长度为1、2、3时分别插入image，
+      if (list.length == 1) {
+        list[0].image = '/img/ranking/one.png';
+      } else if (list.length == 2) {
+        list[0].image = '/img/ranking/one.png';
+        list[1].image = '/img/ranking/two.png';
+      } else if (list.length >= 3) {
+        list[0].image = '/img/ranking/one.png';
+        list[1].image = '/img/ranking/two.png';
+        list[2].image = '/img/ranking/three.png';
+      }
+      this.setData({
+        yearList: list,
+        yearMe: res.data.own,
+      })
+    });
   },
 
   /**

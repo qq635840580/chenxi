@@ -4,7 +4,7 @@
   <view class='install-first-box'>
     <view>提醒</view>
     <view>
-      <switch class="tui-fr" color="#3ACC88" checked="{{isChecked}}" />
+      <switch bindchange='isRemind' class="tui-fr" color="#3ACC88" checked="{{remindFlag}}" />
     </view>
   </view>
 </view>
@@ -34,13 +34,13 @@
   <view class='install-first-box'>
     <view>是否公开</view>
     <view>
-      <switch class="tui-fr" color="#3ACC88" checked="{{isChecked}}" />
+      <switch class="tui-fr" color="#3ACC88" checked="{{publicFlag}}" bindchange='isPublic'/>
     </view>
   </view>
 </view>
 
 <!-- 按钮 -->
 <view class='install-button'>
-  <button>完成创建</button>
+  <button bindtap='update'>保存设置</button>
 </view>
 

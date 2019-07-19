@@ -25,8 +25,10 @@
       <!-- 文字区域 -->
       <view>{{detail.content}}</view>
       <!-- 图片区域 -->
-      <view class='habit-details-dynamic-one-img-text-one-img'>
-        <image/>
+      <view class='habit-details-dynamic-one-img-text-one-img' wx:if='{{detail.clock_record_image.length>0}}'>
+        <block wx:for="{{detail.clock_record_image}}">
+          <image src='{{item.path}}'/>
+        </block>
       </view>
     </view>
     <!-- 坚持区域 -->
@@ -34,8 +36,8 @@
       <view class='clock-in-jianchi-box'>
         <view>
           <text>坚持 </text>
-          <text class='clock-in-jianchi-box-type'>早睡早起</text>
-          <text> {{continuity_days}}天</text>
+          <text class='clock-in-jianchi-box-type'>{{detail.habits.name}}</text>
+          <text> {{detail.continuity_days}}天</text>
         </view>
         <view>
           <text>600</text>
@@ -46,7 +48,7 @@
     <!-- 分享部分 -->
     <view class='habit-details-dynamic-one-img-bottom'>
       <view class='habit-details-dynamic-one-img-bottom-left'>
-        <text>10秒前</text>
+        <text>{{detail.date}} {{detail.time}}</text>
       </view>
       <view class='habit-details-dynamic-one-img-bottom-right'>
           <text class='iconfont icon-gengduo'></text>
@@ -58,18 +60,18 @@
 <!-- 点赞和评论数量部分 -->
 <view class='clock-in-details-text-top'>
   <view class='clock-in-details-text-top-box'>
-    <text>评论 999</text>
-    <text>赞 888</text>
+    <text>评论 {{detail.comment_count}}</text>
+    <text>赞 {{detail.support_count}}</text>
   </view>
 </view>
 
 <!-- 空白页评论部分 -->
-<view class='clock-in-details-white-comments'>
+<view class='clock-in-details-white-comments'wx:if='{{detail.comment_count==0}}'>
   <text>快来发表你的评论吧</text>
 </view>
 
 <!--头像评论部分 -->
-<view class='clock-in-details-text-comments'>
+<view class='clock-in-details-text-comments' wx:if='{{detail.comment_count>0}}'>
   <view class='clock-in-details-text-comments-box'>
 
     <view class='clock-in-details-text-comments-left'><image src='/img/information/system.png'/></view>
@@ -99,8 +101,8 @@
 
 <!-- 底部 -->
 <view class='clock-footer'>
-  <text class='iconfont icon-aixin'>999</text>
-  <text class='iconfont icon-liaotian'>999</text>
+  <text class='iconfont icon-aixin'>{{detail.support_count}}</text>
+  <text class='iconfont icon-liaotian'>{{detail.comment_count}}</text>
   <text>
     <text class='iconfont icon-fenxiang clock-footer-fenxiang'>分享</text>
   </text>

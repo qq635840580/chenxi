@@ -39,6 +39,16 @@ Page({
       tabflag
     })
   },
+  
+  /**
+   * 加入
+   */
+  addClick:function() {
+    const data = {habit_id: this.data.habit_id};
+    Util.request(Api.HabitJoin, data).then(res => {
+      this.onLoad(this.data.loadOptions)
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

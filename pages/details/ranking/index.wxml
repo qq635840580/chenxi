@@ -8,71 +8,200 @@
   </view>
   <view class='ranking-bg-nav'>
     <text bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'ranking-bg-nav-action':''}}">周榜</text>
-    <text bindtap='saveNav' data-tabflag='2' class="{{tabflag==2?'ranking-bg-nav-action':''}}">日榜</text>
+    <text bindtap='saveNav' data-tabflag='2' class="{{tabflag==2?'ranking-bg-nav-action':''}}">月榜</text>
     <text bindtap='saveNav' data-tabflag='3' class="{{tabflag==3?'ranking-bg-nav-action':''}}">年榜</text>
   </view>
   <!-- 三角 暂时留存 -->
   <!-- <text class='sanjiao_down'></text> -->
 </view>
 
-<!-- 排行榜本人 -->
-<view class='ranking-me ranking-bottom'>
-  <!-- 头像部分 -->
-  <view class='ranking-me-left-img'>
-    <image src='{{me.user.avatarUrl}}'/>
-  </view>
-  <!-- 姓名年龄部分 -->
-  <view class='ranking-me-left-name'>
-    <view>{{me.user.nickname}}</view>
-    <view>{{me.user.age}}</view>
-  </view>
-  <!-- 点赞部分 -->
-  <view class='ranking-me-right'>
-    <view class='ranking-me-right-img'>
-      <text>11</text>
-      <image src='/img/ranking/huise.png'/> 
-    </view>
-  </view>
-  <!-- 次数部分 -->
-  <view class='ranking-me-center'>
-     <view class='ranking-me-center-num'>
-      <text>{{me.week_clock_count}}</text>
-      <text>次</text>
-    </view>
-  </view>
-</view>
-
-<!-- 列表区域 周榜 部分 -->
-<block wx:for="{{weekList}}" wx:key='id'>
-  <view class='ranking-me ranking-list'>
-    <!-- 1、2、3名奖牌部分 -->
-    <view class='ranking-medlas' wx:if="{{item.image}}">
-      <image src='{{item.image}}'/>
-    </view>
+<!-- 周榜 -->
+<block wx:if="{{week}}">
+  <!-- 排行榜本人 -->
+  <view class='ranking-me ranking-bottom'>
     <!-- 头像部分 -->
-    <view class='ranking-list-left-img'>
-      <image src='{{item.user.avatarUrl}}'/>
+    <view class='ranking-me-left-img'>
+      <image src='{{weekMe.user.avatarUrl}}'/>
     </view>
     <!-- 姓名年龄部分 -->
     <view class='ranking-me-left-name'>
-      <view>{{item.user.nickname}}</view>
-      <view>{{item.user.age}}</view>
+      <view>{{weekMe.user.nickname}}周</view>
+      <view>{{weekMe.user.age}}</view>
     </view>
     <!-- 点赞部分 -->
     <view class='ranking-me-right'>
       <view class='ranking-me-right-img'>
-        <text>{{item.week_clock_count}}</text>
-        <image src='/img/ranking/zan.png'/> 
+        <text>{{weekMe.week_clock_count}}</text>
+        <image src='/img/ranking/huise.png'/> 
       </view>
     </view>
     <!-- 次数部分 -->
     <view class='ranking-me-center'>
       <view class='ranking-me-center-num'>
-        <text>{{item.week_clock_count}}</text>
+        <text>{{weekMe.week_clock_count}}</text>
         <text>次</text>
       </view>
     </view>
   </view>
+
+  <!-- 列表区域 周榜 部分 -->
+  <block wx:for="{{weekList}}" wx:key='id'>
+    <view class='ranking-me ranking-list'>
+      <!-- 1、2、3名奖牌部分 -->
+      <view class='ranking-medlas' wx:if="{{item.image}}">
+        <image src='{{item.image}}'/>
+      </view>
+      <!-- 头像部分 -->
+      <view class='ranking-list-left-img'>
+        <image src='{{item.user.avatarUrl}}'/>
+      </view>
+      <!-- 姓名年龄部分 -->
+      <view class='ranking-me-left-name'>
+        <view>{{item.user.nickname}}</view>
+        <view>{{item.user.age}}</view>
+      </view>
+      <!-- 点赞部分 -->
+      <view class='ranking-me-right'>
+        <view class='ranking-me-right-img'>
+          <text>{{item.week_clock_count}}</text>
+          <image src='/img/ranking/zan.png'/> 
+        </view>
+      </view>
+      <!-- 次数部分 -->
+      <view class='ranking-me-center'>
+        <view class='ranking-me-center-num'>
+          <text>{{item.week_clock_count}}</text>
+          <text>次</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</block>
+
+<!-- 月榜 -->
+<block wx:if="{{month}}">
+  <!-- 排行榜本人 -->
+  <view class='ranking-me ranking-bottom'>
+    <!-- 头像部分 -->
+    <view class='ranking-me-left-img'>
+      <image src='{{monthMe.user.avatarUrl}}'/>
+    </view>
+    <!-- 姓名年龄部分 -->
+    <view class='ranking-me-left-name'>
+      <view>{{monthMe.user.nickname}}月</view>
+      <view>{{monthMe.user.age}}</view>
+    </view>
+    <!-- 点赞部分 -->
+    <view class='ranking-me-right'>
+      <view class='ranking-me-right-img'>
+        <text>{{monthMe.week_clock_count}}</text>
+        <image src='/img/ranking/huise.png'/> 
+      </view>
+    </view>
+    <!-- 次数部分 -->
+    <view class='ranking-me-center'>
+      <view class='ranking-me-center-num'>
+        <text>{{monthMe.week_clock_count}}</text>
+        <text>次</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表区域 周榜 部分 -->
+  <block wx:for="{{monthList}}" wx:key='id'>
+    <view class='ranking-me ranking-list'>
+      <!-- 1、2、3名奖牌部分 -->
+      <view class='ranking-medlas' wx:if="{{item.image}}">
+        <image src='{{item.image}}'/>
+      </view>
+      <!-- 头像部分 -->
+      <view class='ranking-list-left-img'>
+        <image src='{{item.user.avatarUrl}}'/>
+      </view>
+      <!-- 姓名年龄部分 -->
+      <view class='ranking-me-left-name'>
+        <view>{{item.user.nickname}}</view>
+        <view>{{item.user.age}}</view>
+      </view>
+      <!-- 点赞部分 -->
+      <view class='ranking-me-right'>
+        <view class='ranking-me-right-img'>
+          <text>{{item.week_clock_count}}</text>
+          <image src='/img/ranking/zan.png'/> 
+        </view>
+      </view>
+      <!-- 次数部分 -->
+      <view class='ranking-me-center'>
+        <view class='ranking-me-center-num'>
+          <text>{{item.week_clock_count}}</text>
+          <text>次</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</block>
+
+<!-- 年榜 -->
+<block wx:if="{{year}}">
+  <!-- 排行榜本人 -->
+  <view class='ranking-me ranking-bottom'>
+    <!-- 头像部分 -->
+    <view class='ranking-me-left-img'>
+      <image src='{{yearMe.user.avatarUrl}}'/>
+    </view>
+    <!-- 姓名年龄部分 -->
+    <view class='ranking-me-left-name'>
+      <view>{{yearMe.user.nickname}}年</view>
+      <view>{{yearMe.user.age}}</view>
+    </view>
+    <!-- 点赞部分 -->
+    <view class='ranking-me-right'>
+      <view class='ranking-me-right-img'>
+        <text>{{yearMe.year_clock_count}}</text>
+        <image src='/img/ranking/huise.png'/> 
+      </view>
+    </view>
+    <!-- 次数部分 -->
+    <view class='ranking-me-center'>
+      <view class='ranking-me-center-num'>
+        <text>{{monthMe.year_clock_count}}</text>
+        <text>次</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表区域 周榜 部分 -->
+  <block wx:for="{{yearList}}" wx:key='id'>
+    <view class='ranking-me ranking-list'>
+      <!-- 1、2、3名奖牌部分 -->
+      <view class='ranking-medlas' wx:if="{{item.image}}">
+        <image src='{{item.image}}'/>
+      </view>
+      <!-- 头像部分 -->
+      <view class='ranking-list-left-img'>
+        <image src='{{item.user.avatarUrl}}'/>
+      </view>
+      <!-- 姓名年龄部分 -->
+      <view class='ranking-me-left-name'>
+        <view>{{item.user.nickname}}</view>
+        <view>{{item.user.age}}</view>
+      </view>
+      <!-- 点赞部分 -->
+      <view class='ranking-me-right'>
+        <view class='ranking-me-right-img'>
+          <text>{{item.year_clock_count}}</text>
+          <image src='/img/ranking/zan.png'/> 
+        </view>
+      </view>
+      <!-- 次数部分 -->
+      <view class='ranking-me-center'>
+        <view class='ranking-me-center-num'>
+          <text>{{item.year_clock_count}}</text>
+          <text>次</text>
+        </view>
+      </view>
+    </view>
+  </block>
 </block>
 
 

@@ -14,14 +14,14 @@
 <scroll-view scroll-x class='weui-cate'>
   <view scroll-x class='weui-flex'>
     <view class="weui-navbar__item {{cateIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="cateClick" wx:for="{{cateList}}" wx:key="*this" data-index="{{index}}">
-      <view class="weui-navbar__title">{{item}}</view>
+      <view class="weui-navbar__title">{{item.name}}</view>
     </view>
   </view>
 </scroll-view>
 
 <view class='weui-cells'>
   <block wx:for="{{list}}" wx:key="id">
-    <navigator class='weui-cell weui-habit' url='/pages/details/detailsNav/index?type={{item.title}}'>
+    <navigator class='weui-cell weui-habit' url='/pages/details/detailsNav/index?habit_id={{item.id}}'>
       <view class='weui-habit__hd'>
         <image src='{{item.icon}}'></image>
       </view>

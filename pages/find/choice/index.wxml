@@ -32,7 +32,7 @@
   </view>
   <view class='weui-panel__bd'>
     <view class='weui-grid' wx:for="{{habitList}}" wx:key="id">
-      <image class="weui-grid__icon" src="/uploads/discover/tuoyuan.png" />
+      <image class="weui-grid__icon" src="{{item.icon}}" />
       <view class="weui-grid__label">{{item.name}}</view>
     </view>
   </view>

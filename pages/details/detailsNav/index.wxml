@@ -3,7 +3,7 @@
 <view class='habit-details-top' wx:if="{{is_join==0}}">
   <image class='habit-details-top-left' src='{{img}}'/>
   <view class='habit-details-top-text'>早睡早起</view>
-  <image class='habit-details-top-right' src='/uploads/habit/lijijiaru.png'/>
+  <image bindtap='addClick' class='habit-details-top-right' src='/uploads/habit/lijijiaru.png'/>
 </view>
 
 <!-- 导航顶部 -->
@@ -16,7 +16,7 @@
   </view>
 </view> -->
 
-<view class='weui-navbar'>
+<view class='weui-navbar' wx:if="{{is_join==1}}">
   <view bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">
     <view class="weui-navbar__title">动态</view>
   </view>

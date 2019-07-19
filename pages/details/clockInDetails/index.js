@@ -18,7 +18,7 @@ Page({
     const data = { clock_record_id:options.id,}
     Util.request(Api.ListDetails, data).then(res => {
       this.setData({
-        detail: res.data,
+        detail: res.data[0],
       })
     });
   },

@@ -69,7 +69,7 @@ Page({
       habit_id: this.data.habit_id, 
       is_remind: this.data.remindFlag? 1: 0,
       is_public: this.data.publicFlag? 1: 0,
-      remind_time: this.data.time,
+      remind_time: this.data.remindFlag? this.data.time: undefined,
     };
     Util.request(Api.HabitSetting, data).then(res => {
       wx.navigateBack({

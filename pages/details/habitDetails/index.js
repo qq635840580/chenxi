@@ -11,6 +11,7 @@ Page({
     list: [],
     total_user: 0,
     total_clock: 0,
+    habitName: null,
   },
 
   /**
@@ -139,14 +140,16 @@ Component({
           list: res.data.list,
           total_user: res.data.total_user,
           total_clock: res.data.total_clock,
+          habitName: res.data.name
         });
       });
     },
 
     gotoRanking:function () {
       const habit_id = this.data.habit_id;
+      const name = this.data.habitName;
       wx.navigateTo({
-        url: '../ranking/index?habit_id='+ habit_id,
+        url: `../ranking/index?habit_id=${habit_id}&name=${name}`,
       })
     },
 

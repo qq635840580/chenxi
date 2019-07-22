@@ -33,7 +33,8 @@
     "pages/details/detailsNav/index",
     "pages/details/clock/index",
     "pages/find/choiceHabit/index",
-    "pages/find/findNav/index"
+    "pages/find/findNav/index",
+    "pages/homePage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

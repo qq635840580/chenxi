@@ -1,7 +1,7 @@
 <!--pages/details/ranking/index.wxml-->
 <!-- 背景图 -->
 <view class='ranking-bg'>
-  <view>早睡早起排行榜</view>
+  <view>{{name}}排行榜</view>
   <view bindtap='isShowDialog'>
     <text>榜单规则</text>
     <image src='/img/ranking/arrowRight.png'/>
@@ -26,7 +26,6 @@
     <!-- 姓名年龄部分 -->
     <view class='ranking-me-left-name'>
       <view>{{weekMe.user.nickname}}周</view>
-      <view>{{weekMe.user.age}}</view>
     </view>
     <!-- 点赞部分 -->
     <view class='ranking-me-right'>
@@ -58,7 +57,6 @@
       <!-- 姓名年龄部分 -->
       <view class='ranking-me-left-name'>
         <view>{{item.user.nickname}}</view>
-        <view>{{item.user.age}}</view>
       </view>
       <!-- 点赞部分 -->
       <view class='ranking-me-right'>
@@ -89,7 +87,6 @@
     <!-- 姓名年龄部分 -->
     <view class='ranking-me-left-name'>
       <view>{{monthMe.user.nickname}}月</view>
-      <view>{{monthMe.user.age}}</view>
     </view>
     <!-- 点赞部分 -->
     <view class='ranking-me-right'>
@@ -121,7 +118,6 @@
       <!-- 姓名年龄部分 -->
       <view class='ranking-me-left-name'>
         <view>{{item.user.nickname}}</view>
-        <view>{{item.user.age}}</view>
       </view>
       <!-- 点赞部分 -->
       <view class='ranking-me-right'>
@@ -152,7 +148,6 @@
     <!-- 姓名年龄部分 -->
     <view class='ranking-me-left-name'>
       <view>{{yearMe.user.nickname}}年</view>
-      <view>{{yearMe.user.age}}</view>
     </view>
     <!-- 点赞部分 -->
     <view class='ranking-me-right'>
@@ -184,7 +179,6 @@
       <!-- 姓名年龄部分 -->
       <view class='ranking-me-left-name'>
         <view>{{item.user.nickname}}</view>
-        <view>{{item.user.age}}</view>
       </view>
       <!-- 点赞部分 -->
       <view class='ranking-me-right'>
@@ -210,8 +204,8 @@
   <view class="ys-dialog">
     <view class="ys-dialog-title">榜单规则</view>
     <view class="ys-dialog-content">              
-      <view>1.周榜、月榜统计本周、本月的打卡数据。</view>
-      <view>2.参与官方活动的目标，打卡数据均会被统计到排行信息中。</view>
+      <view>1.周榜、月榜、年榜分表统计本周、本月、本年的打卡数据。</view>
+      <view>2.每天多次打卡只计算1次。</view>
       <view>3.位于排行榜前列的小伙伴，将不定期获得惊喜哦！</view>
     </view>
     <view class="ys-dialog-bottom">

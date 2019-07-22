@@ -3,18 +3,18 @@
   <view class="weui-search-bar__form">
     <view class="weui-search-bar__box">
       <icon class="weui-icon-search_in-box" type="search" size="16" color='#ffffff'></icon>
-      <input type="text" class="weui-search-bar__input" placeholder="搜索" placeholder-style="color:#ffffff" value="{{inputVal}}" bindinput="inputTyping" />
+      <input type="text" class="weui-search-bar__input" placeholder="搜索" placeholder-style="color:#ffffff" value="{{inputVal}}" bindinput="inputTyping" bindconfirm='searchType'/>
       <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
         <icon type="clear" size="14" color='#ffffff'></icon>
       </view>
     </view>
   </view>
-  <navigator url='../habit/create' class="weui-search-bar__btn" bindtap="">+ 创建</navigator>
+  <navigator url='../habit/create?name={{inputVal}}' class="weui-search-bar__btn" bindtap="">+ 创建</navigator>
 </view>
 
 <scroll-view scroll-x class='weui-cate'>
   <view scroll-x class='weui-flex'>
-    <view class="weui-navbar__item {{cateIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="cateClick" wx:for="{{cateList}}" wx:key="{{index}}" data-index="{{index}}">
+    <view class="weui-navbar__item {{cateIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="cateClick" wx:for="{{cateList}}" wx:key="{{index}}" data-index="{{index}}" data-id='{{item.id}}'>
       <view class="weui-navbar__title">{{item.name}}</view>
     </view>
   </view>

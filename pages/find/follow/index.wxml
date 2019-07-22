@@ -2,36 +2,71 @@
 <view class='follow'>
   <view class='weui-panel'>
   <view class='weui-panel__bd'>
-    <view class='weui-information' wx:for="{{followList}}" wx:key="*this">
+    <view class='weui-information' wx:for="{{followList}}" wx:key="{{index}}" wx:if="{{followList.length>0}}">
       <view class='weui-cell information-head'>
-        <view class='weui-cell__hd'>
-          <image src='/img/information/system.png'></image>
+        <view class='weui-cell__hd' data-uid='{{item.uid}}' bindtap='gotoHomePage'>
+          <image src='{{item.user.avatarUrl}}'></image>
         </view>
         <view class='weui-cell__bd'>
           <view class='weui-cell__title'>
-            考拉
-            <!-- <view class='weui-badge male'>
-              <image src='/img/male.png'></image> 38</view> -->
+            {{item.user.nickname}}
           </view>
           <view class='weui-cell__desc'>{{item.date}}  {{item.time}}</view>
         </view>
-        <view class='weui-cell__ft'>
+        <view class='weui-cell__ft' wx:if='{{item.user.is_attention==0}}' bindtap='followHandler' data-uid='{{item.uid}}'>
           <button class='weui-btn' size='mini'>+ 关注</button>
+        </view>
+        <view class='weui-cell__ft' wx:if='{{item.user.is_attention==1}}'>
+          <button class='weui-btn1' size='mini'>已关注</button>
+        </view>
+        <view class='weui-cell__ft' wx:if='{{item.user.is_attention==2}}'>
+          <button class='weui-btn1' size='mini'>互相关注</button>
         </view>
       </view>
       <view class='information-body'>
         <view class='information__desc'>{{item.content}}</view>
+        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
+          <view class='information__desc_one_img'>
+            <image src='{{imgList.path}}' mode="widthFix"/>
+          </view>
+        </block>
+
+        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length>1}}" wx:key="{{index}}">
+          <view class='information__desc_img' wx:if="{{imgList.length>1}}">
+            <image src='{{imgList.path}}' mode="widthFix"/>
+          </view>
+        </block>
+
         <view class='weui-well weui-flex'>
           <view class='weui-flex__item'>
             坚持
-            <text class='weui-color__green'> 喝酒 </text>{{item.continuity_days}}天
+            <text class='weui-color__green'> {{item.habits.name}} </text>{{item.continuity_days}}天
           </view>
           <view>{{item.support_count}}人在坚持</view>
         </view>
+        <view class='weui-tool'>
+          <text class='tool-dianzan' bindtap='support' data-id="{{item.id}}">
+            <text class='iconfont iconaixin' wx:if="{{item.is_praise==0}}"></text>
+            <text class='iconfont iconaixin1 icon-back' wx:if="{{item.is_praise==1}}"></text>
+            <text>{{item.support_count}}</text>
+          </text>
+          <label bindtap='saveIsInput' data-id="{{item.id}}">       
+            <text class='tool-pinglun'>
+              <text class='iconfont iconxinxi pinglun-icon'></text>
+              <text>{{item.comment_count}}</text>
+            </text>
+          </label>
+             
+          <text class='iconfont iconfenxiang tool-fenxiang'></text>
+          <text class='iconfont icongengduo tool-gengduo'></text>
+        </view>
       </view>
       <view class='information-footer'>
-        <view wx:for="item.comment_data" wx:key="uid" wx:for-item="comment">
-          <text class='weui-color__green'>{{comment.nickname}}：</text>{{comment.content}}
+        <view wx:for="{{item.comment_data}}" wx:key="{{index}}" wx:for-item="comment">
+          <view class='information-footer-box' data-clockId='{{item.id}}' data-contentId='{{comment.id}}' bindtap='clickContent' >
+            <text>{{comment.nickname}}：</text>
+            <text>{{comment.content}}</text>
+          </view>
         </view>
       </view>
     </view>
@@ -39,8 +74,11 @@
 </view>
 </view>
 
+<view class='pinglun-input' wx:if='{{isInput}}'>
+  <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindblur='blurHandler'/>
+</view>
 <!-- 无数据时 -->
-<view class='habit-details-text' wx:if="{{followList.length==0}}">
+<view class='habit-details-text' wx:if="{{latestList.length==0}}">
   <image src='/uploads/habit/dongtai.png'/>
   <view>一片荒芜</view>
     <view>还没有任何动态</view>

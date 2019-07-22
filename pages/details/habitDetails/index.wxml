@@ -55,7 +55,7 @@
         <!-- 内容部分 -->
         <view class='habit-details-dynamic-one-img-text'>
           <!-- 文字区域 -->
-          <view>{{item.content}}</view>
+          <view class='habit-details-content'>{{item.content}}</view>
           <!-- 图片区域 1、判断是否为大图 2、判断是否为多图 3、判断是否为空-->
           <view class='habit-details-dynamic-one-img-text-one-img' wx:if="{{item.clock_record_image.length==1}}">
             <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:key="{{index}}">

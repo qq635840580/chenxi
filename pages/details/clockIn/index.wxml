@@ -23,7 +23,7 @@
       </view>
       <!-- 右侧 -->
       <view class='habit-detailsMy-top-caledar-detail-top-right'>
-        <text>已坚持666天</text>
+        <text>{{bottomData.join_time}}加入</text>
       </view>
     </view> 
 

@@ -15,9 +15,13 @@ module.exports = {
   QuestionDetail: ApiRootUrl + 'backend/question_info', //常见问题详情
   About: ApiRootUrl + 'backend/about', //关于我们
 
+  CommenteSave: ApiRootUrl + 'comment/save', //评论
+  FollowSave: ApiRootUrl + 'follow/save', //关注
+
   HabitMyList: ApiRootUrl + 'habit/myList', //加入的习惯列表
   HabitList: ApiRootUrl + 'habit/lists', //习惯列表
   HabitSave: ApiRootUrl + 'habit/save', //创建习惯
+  HabitTypeSearch: ApiRootUrl + 'habit/search', //习惯分类搜索
   HabitDynamicList: ApiRootUrl + 'habit/trends' ,//习惯动态详情列表
   HabitMy: ApiRootUrl + 'users/ownClockList',//习惯-我的
   HabitRankingWeek: ApiRootUrl + 'habit/WeekRank', //排行榜-周榜

@@ -10,9 +10,10 @@ Page({
   data: {
     tabflag: 0,
     habit_id: null,
-    is_join: false,
+    is_join: 0,
     img: null,
     loadOptions: null,
+    name: null,
   },
 
   /**
@@ -29,6 +30,7 @@ Page({
       this.setData({
         is_join: res.data.is_join,
         img: res.data.icon,
+        name: res.data.name
       })
     });
   },
@@ -61,7 +63,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.onLoad(this.data.loadOptions);
+    // this.onLoad(this.data.loadOptions);
   },
 
   /**

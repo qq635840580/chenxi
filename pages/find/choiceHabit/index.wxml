@@ -2,16 +2,16 @@
 <block wx:for="{{list}}" wx:key="id">
   <view class='weui-habit'>
     <view class='weui-habit__hd'>
-      <image src='{{item.img}}'></image>
+      <image src='{{item.icon}}'></image>
     </view>
     <view class='weui-habit__bd'>
       <view class='weui-flex weui-habit__title'>
-        <view class='weui-flex__item'>{{item.name}}</view>
+        <view class='weui-flex__item'></view>
       </view>
       <view class='weui-flex weui-habit__desc'>
         <view class='weui-habit__title'>
-          <view>标题</view>
-          <view>已有xxx人参加</view>
+          <view>{{item.name}}</view>
+          <view>已有{{item.total_user}}人参加</view>
         </view>
       </view>
     </view>

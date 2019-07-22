@@ -2,13 +2,13 @@
 @import '/style/weui-rpx.wxss';
 
 @font-face {
-  font-family: 'iconfont';  /* project id 1283069 */
-  src: url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.eot');
-  src: url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 1282975 */
+  src: url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.eot');
+  src: url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -19,28 +19,32 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-aixin:before {
-  content: "\e61f";
+.icongengduo:before {
+  content: "\e610";
 }
 
-.icon-fenxiang:before {
-  content: "\e661";
+.iconxinxi:before {
+  content: "\e612";
 }
 
-.icon-liaotian:before {
-  content: "\e60f";
+.iconaixin:before {
+  content: "\e617";
 }
 
-.icon-jiahao:before {
-  content: "\eaf3";
+.iconshoucang:before {
+  content: "\e618";
 }
 
-.icon-aixin1:before {
-  content: "\e757";
+.iconfenxiang:before {
+  content: "\e61b";
 }
 
-.icon-gengduo:before {
-  content: "\e6fc";
+.iconxinxi1:before {
+  content: "\e632";
+}
+
+.iconaixin1:before {
+  content: "\e635";
 }
 
 .latest {
@@ -156,11 +160,11 @@
 }
 
 .information-body .information__desc_one_img image {
-  width: 40%;
+  width: 430rpx;
 }
 
 .information-body .information__desc_img image {
-  width: 30%;
+  width: 210rpx;
   margin-right: 10rpx;
 }
 
@@ -204,6 +208,18 @@ button.weui-btn {
   color: #fff;
 }
 
+button.weui-btn1 {
+  font-size: 28rpx;
+  min-width: 140rpx;
+  border-radius: 200rpx;
+  line-height: 2;
+  padding: 0 16rpx;
+  vertical-align: middle;
+  color: #999;
+  background: #fff;
+  border: 1rpx solid #999999;
+}
+
 .habit-details-text {
   margin-top: 100rpx;
   text-align: center;
@@ -241,6 +257,10 @@ button.weui-btn {
   margin-right: 10rpx;
 }
 
+.pinglun-icon {
+  margin-right: 10rpx;
+}
+
 .weui-tool .tool-gengduo {
   float: right;
   margin-top: 5rpx;
@@ -248,4 +268,24 @@ button.weui-btn {
 
 .icon-back {
   color: #f65c5c;
+}
+
+.pinglun-input {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+
+.information-footer-box {
+  font-size: 28rpx;
+}
+
+.information-footer-box text:nth-child(1) {
+  color: #3ACC88;
+}
+
+.information-footer-box text:nth-child(2) {
+  color: #555;
 }

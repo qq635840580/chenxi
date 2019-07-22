@@ -1,8 +1,56 @@
 /* pages/discover/index.wxss */
 @import '/style/weui-rpx.wxss';
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1282975 */
+  src: url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.eot');
+  src: url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 30rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icongengduo:before {
+  content: "\e610";
+}
+
+.iconxinxi:before {
+  content: "\e612";
+}
+
+.iconaixin:before {
+  content: "\e617";
+}
+
+.iconshoucang:before {
+  content: "\e618";
+}
+
+.iconfenxiang:before {
+  content: "\e61b";
+}
+
+.iconxinxi1:before {
+  content: "\e632";
+}
+
+.iconaixin1:before {
+  content: "\e635";
+}
+
 .latest {
   margin-top: 30rpx;
 }
+
 
 .weui-panel {
   margin: 30rpx 30rpx 0 30rpx;
@@ -75,6 +123,7 @@
   height: 80rpx;
   vertical-align: middle;
   margin-right: 20rpx;
+  border-radius: 50%;
 }
 
 .information-head .weui-cell__title {
@@ -109,6 +158,15 @@
 
 .information-body {
   padding: 0 30rpx 20rpx 30rpx;
+}
+
+.information-body .information__desc_one_img image {
+  width: 430rpx;
+}
+
+.information-body .information__desc_img image {
+  width: 210rpx;
+  margin-right: 10rpx;
 }
 
 .weui-well {
@@ -151,6 +209,18 @@ button.weui-btn {
   color: #fff;
 }
 
+button.weui-btn1 {
+  font-size: 28rpx;
+  min-width: 140rpx;
+  border-radius: 200rpx;
+  line-height: 2;
+  padding: 0 16rpx;
+  vertical-align: middle;
+  color: #999;
+  background: #fff;
+  border: 1rpx solid #999999;
+}
+
 .habit-details-text {
   margin-top: 100rpx;
   text-align: center;
@@ -164,4 +234,59 @@ button.weui-btn {
 .habit-details-text view {
   color: #999;
   font-size: 36rpx;
+}
+
+.weui-tool {
+  font-size: 30rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+.weui-tool .tool-dianzan {
+  margin-right: 50rpx;
+}
+
+.weui-tool .tool-dianzan text:nth-child(1) {
+  margin-right: 10rpx;
+}
+
+.weui-tool .tool-pinglun {
+  margin-right: 50rpx;
+}
+
+.weui-tool .tool-pinglun label text:nth-child(1) {
+  margin-right: 10rpx;
+}
+
+.pinglun-icon {
+  margin-right: 10rpx;
+}
+
+.weui-tool .tool-gengduo {
+  float: right;
+  margin-top: 5rpx;
+}
+
+.icon-back {
+  color: #f65c5c;
+}
+
+.pinglun-input {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+
+.information-footer-box {
+  font-size: 28rpx;
+}
+
+.information-footer-box text:nth-child(1) {
+  color: #3ACC88;
+}
+
+.information-footer-box text:nth-child(2) {
+  color: #555;
 }

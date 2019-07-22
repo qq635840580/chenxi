@@ -19,6 +19,7 @@ Page({
     week: true,
     month: false,
     year: false,
+    name: null,
   },
 
   saveNav: function (e) {
@@ -36,6 +37,9 @@ Page({
    */
   onLoad: function (options) {
     const data = { habit_id: options.habit_id };
+    this.setData({
+      name: options.name
+    })
     //查询周榜
     Util.request(Api.HabitRankingWeek, data).then(res => {
       let list = res.data.list;

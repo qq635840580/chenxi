@@ -18,6 +18,7 @@
 
 .habit-detailsMy-top-caledar-detail-top {
   margin-top: 10rpx;
+  margin-left: 20rpx;
 }
 
 .habit-detailsMy-top-caledar-detail-top view:nth-child(1) {
@@ -39,6 +40,7 @@
   font-size: 30rpx;
   font-weight: bold;
   padding-left: 5rpx;
+  margin-left: 20rpx;
 }
 
 .habit-detailsMy-top-caledar-detail-top .habit-detailsMy-top-caledar-detail-top-right text {
@@ -64,13 +66,16 @@
 
 .habit-clock-data .habit-clock-data-details {
   /* border: 1rpx solid #212121; */
+  margin-left: 20rpx;
+  padding: 5rpx 0;
 }
 
 .habit-clock-data .habit-clock-data-details text:nth-child(1) {
-  font-size: 36rpx;
+  font-size: 30rpx;
   color:#3ACC88;
   line-height: 40rpx;
   display: inline-block;
+  margin-right: 15rpx;
 }
 
 .habit-clock-data .habit-clock-data-details text:nth-child(2) {

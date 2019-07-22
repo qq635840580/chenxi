@@ -2,7 +2,7 @@
 <!-- 顶部是否加入 -->
 <view class='habit-details-top' wx:if="{{is_join==0}}">
   <image class='habit-details-top-left' src='{{img}}'/>
-  <view class='habit-details-top-text'>早睡早起</view>
+  <view class='habit-details-top-text'>{{name}}</view>
   <image bindtap='addClick' class='habit-details-top-right' src='/uploads/habit/lijijiaru.png'/>
 </view>
 

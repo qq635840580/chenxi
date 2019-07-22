@@ -1,52 +1,24 @@
-// pages/find/choiceHabit/index.js
-var Util = require("../../../utils/util.js");
-var Api = require("../../../config/api.js");
+// pages/homePage/index.js
+var Util = require("../../utils/util.js");
+var Api = require("../../config/api.js");
 var that
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      {
-        img: '/uploads/home/zaoqi.png',
-        title: '早起',
-        is_clock: true,
-        days: '618',
-        remind: '5:00'
-      },
-      {
-        img: '/uploads/home/zaoshui.png',
-        title: '早睡',
-        is_clock: false,
-        days: '618',
-        remind: '21:00'
-      },
-      {
-        img: '/uploads/home/paobu.png',
-        title: '跑步',
-        is_clock: true,
-        days: '618',
-        remind: null
-      },
-      {
-        img: '/uploads/home/jianshen.png',
-        title: '健身',
-        is_clock: false,
-        days: '618',
-        remind: null
-      },
-    ]
+    userInfo: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    Util.request(Api.FindHabit).then(res => {
-      this.setData({
-        list: res.data
+    Util.request(Api.MainPage).then(res => {
+      that.setData({
+        userInfo: res.data
       })
     });
   },

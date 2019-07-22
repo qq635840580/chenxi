@@ -10,7 +10,7 @@
 </view>
 
 <!-- 提醒时间 -->
-<view class='install-second'>
+<view class='install-second' wx:if='{{remindFlag}}'>
   <view class='install-second-box'>
     <view>提醒时间</view>
 

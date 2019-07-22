@@ -108,6 +108,7 @@
 
 .habit-details-nav-top-btn {
   flex:1;
+  margin-top: 15rpx;
 }
 
 .habit-details-nav-top-btn image{
@@ -139,7 +140,6 @@
   text-align: center;
   font-size: 30rpx;
   color:#555;
-  font-weight: bold;
   margin-bottom: 10rpx;
 }
 
@@ -213,7 +213,7 @@
 .habit-details-dynamic-one-img-right {
   float: right;
   background: #3ACC88;
-  border-radius:30rpx 0rpx 0rpx 30rpx;
+  border-radius:40rpx 0rpx 0rpx 40rpx;
   margin-right: -20rpx;
   margin-top: 15rpx;
 }
@@ -226,14 +226,15 @@
 
 .habit-details-dynamic-one-img-text {
   color: #555;
-  font-size: 30rpx;
+  font-size: 36rpx;
   font-weight: medium;
   padding: 0 20rpx 0 20rpx;
 }
 
-.habit-details-dynamic-one-img-text .habit-details-dynamic-one-img-text-one-img {
-  /* height:370rpx; */
+.habit-details-dynamic-one-img-text .habit-details-content {
+  margin-bottom: 20rpx;
 }
+
 .habit-details-dynamic-one-img-text .habit-details-dynamic-one-img-text-one-img image {
   width: 30%;
 }

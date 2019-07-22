@@ -12,10 +12,10 @@
     <view class='weui-cell weui-cell_switch'>
       <view class='weui-cell__bd'>提醒</view>
       <view class='weui-cell__ft'>
-        <switch color='#3ACC88' name="is_remind" checked />
+        <switch color='#3ACC88' name="is_remind" checked bindchange='isRemind'/>
       </view>
     </view>
-    <view class='weui-cell weui-cell_select'>
+    <view class='weui-cell weui-cell_select' wx:if="{{isRemind}}">
       <view class="weui-cell__hd weui-cell__hd_in-select-after">
         <view class="weui-label">提醒时间</view>
       </view>

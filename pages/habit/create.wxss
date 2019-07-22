@@ -2,6 +2,26 @@
 .weui-cells{
   margin-top: 20rpx;
 }
+
+.weui-cells:before {
+  top: 0;
+  border-top: 1rpx solid #f2f3f5;
+}
+
+.weui-cells:after, .weui-cells:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2rpx;
+  color: #f2f3f5;
+}
+
+.weui-cells:after {
+  bottom: 0;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
 .weui-cells_after-title{
   margin-top: 0;
 }

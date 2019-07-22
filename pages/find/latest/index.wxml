@@ -1,7 +1,7 @@
 <view class='latest'>
   <view class='weui-panel'>
   <view class='weui-panel__bd'>
-    <view class='weui-information' wx:for="{{latestList}}" wx:key="*this" wx:if="{{latestList.length>0}}">
+    <view class='weui-information' wx:for="{{latestList}}" wx:key="{{index}}" wx:if="{{latestList.length>0}}">
       <view class='weui-cell information-head'>
         <view class='weui-cell__hd'>
           <image src='{{item.user.avatarUrl}}'></image>
@@ -18,13 +18,13 @@
       </view>
       <view class='information-body'>
         <view class='information__desc'>{{item.content}}</view>
-        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}">
+        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
           <view class='information__desc_one_img'>
             <image src='{{imgList.path}}' mode="widthFix"/>
           </view>
         </block>
 
-        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length>1}}">
+        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length>1}}" wx:key="{{index}}">
           <view class='information__desc_img' wx:if="{{imgList.length>1}}">
             <image src='{{imgList.path}}' mode="widthFix"/>
           </view>
@@ -43,12 +43,11 @@
             <text class='iconfont icon-aixin1 icon-back' wx:if="{{item.is_praise==1}}"></text>
             <text>{{item.support_count}}</text>
           </text>
-          <text class='tool-pinglun'  bindtap='clickMessage'>
-            <text class='iconfont icon-liaotian'>
-              <label for='message'>
-              <input id='message'/>
+          <text class='tool-pinglun'>
+            <label for='message'>       
+            <text class='iconfont icon-liaotian'></text>
             </label>
-            </text>
+            <input name='message' id='message'/>
             <text>{{item.comment_count}}</text>
           </text>
           <text class='iconfont icon-fenxiang tool-fenxiang'></text>

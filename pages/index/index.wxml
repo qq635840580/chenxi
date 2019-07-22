@@ -2,7 +2,7 @@
 <view class='page__bd_spacing'>
   <navigator url="search" class='weui-habit__btn'>+ 添加习惯</navigator>
 
-  <block wx:for="{{list}}" wx:key="id">
+  <block wx:for="{{list}}" wx:key="{{item.habit_id}}">
     <navigator url='/pages/details/detailsNav/index?habit_id={{item.habit_id}}' open-type='navigate'	class='weui-habit'>
       <view class='weui-habit__hd'>
         <image src='{{item.habit_icon}}'></image>

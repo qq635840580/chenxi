@@ -9,7 +9,8 @@ Page({
    */
   data: {
     name: '',
-    time: '05:00'
+    time: '05:00',
+    isRemind: true,
   },
 
   /**
@@ -53,5 +54,13 @@ Page({
         })
       }
     });
-  }
+  },
+  /**
+   * 提醒
+   */
+  isRemind:function(e) {
+    this.setData({
+      isRemind: e.detail.value
+    })
+  },
 })

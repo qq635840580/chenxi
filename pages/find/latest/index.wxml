@@ -4,13 +4,11 @@
     <view class='weui-information' wx:for="{{latestList}}" wx:key="*this" wx:if="{{latestList.length>0}}">
       <view class='weui-cell information-head'>
         <view class='weui-cell__hd'>
-          <image src='/img/information/system.png'></image>
+          <image src='{{item.user.avatarUrl}}'></image>
         </view>
         <view class='weui-cell__bd'>
           <view class='weui-cell__title'>
-            考拉
-            <!-- <view class='weui-badge male'>
-              <image src='/img/male.png'></image> 38</view> -->
+            {{item.user.nickname}}
           </view>
           <view class='weui-cell__desc'>{{item.date}}  {{item.time}}</view>
         </view>
@@ -20,17 +18,46 @@
       </view>
       <view class='information-body'>
         <view class='information__desc'>{{item.content}}</view>
+        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}">
+          <view class='information__desc_one_img'>
+            <image src='{{imgList.path}}' mode="widthFix"/>
+          </view>
+        </block>
+
+        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length>1}}">
+          <view class='information__desc_img' wx:if="{{imgList.length>1}}">
+            <image src='{{imgList.path}}' mode="widthFix"/>
+          </view>
+        </block>
+
         <view class='weui-well weui-flex'>
           <view class='weui-flex__item'>
             坚持
-            <text class='weui-color__green'> 喝酒 </text>{{item.continuity_days}}天
+            <text class='weui-color__green'> {{item.habits.name}} </text>{{item.continuity_days}}天
           </view>
           <view>{{item.support_count}}人在坚持</view>
+        </view>
+        <view class='weui-tool'>
+          <text class='tool-dianzan' bindtap='support' data-id="{{item.id}}">
+            <text class='iconfont icon-aixin' wx:if="{{item.is_praise==0}}"></text>
+            <text class='iconfont icon-aixin1 icon-back' wx:if="{{item.is_praise==1}}"></text>
+            <text>{{item.support_count}}</text>
+          </text>
+          <text class='tool-pinglun'  bindtap='clickMessage'>
+            <text class='iconfont icon-liaotian'>
+              <label for='message'>
+              <input id='message'/>
+            </label>
+            </text>
+            <text>{{item.comment_count}}</text>
+          </text>
+          <text class='iconfont icon-fenxiang tool-fenxiang'></text>
+          <text class='iconfont icon-gengduo tool-gengduo'></text>
         </view>
       </view>
       <view class='information-footer'>
         <view wx:for="item.comment_data" wx:key="uid" wx:for-item="comment">
-          <text class='weui-color__green'>{{comment.nickname}}：</text>{{comment.content}}
+          
         </view>
       </view>
     </view>

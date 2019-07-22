@@ -19,6 +19,7 @@
   height: 60rpx;
   line-height: 60rpx;
   color: #fff;
+  font-size: 32rpx;
 }
 
 .weui-search-bar__btn {

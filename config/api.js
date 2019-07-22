@@ -33,6 +33,7 @@ module.exports = {
   HabitJoin: ApiRootUrl + 'habit/join', //加入习惯
   HabitSettingSearch: ApiRootUrl + 'habit/settingDetail', //习惯设置查询
   HabitSetting: ApiRootUrl + 'habit/setting', //习惯设置
+  SupportSave: ApiRootUrl + 'support/save', //点赞
 
   FindHabit: ApiRootUrl + 'find/habits', //发现_精选习惯
   FindDynamic: ApiRootUrl + 'find/dynamic', //发现_精选动态

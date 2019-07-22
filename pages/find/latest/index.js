@@ -76,11 +76,7 @@ Page({
 Component({
   lifetimes: {
     attached: function () {
-      Util.request(Api.FindLatest).then(res => {
-        this.setData({
-          latestList: res.data
-        })
-      });
+      this.fetchData();
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
@@ -88,7 +84,22 @@ Component({
 
   },
   methods: {
-
+    fetchData: function() {
+      Util.request(Api.FindLatest).then(res => {
+        this.setData({
+          latestList: res.data
+        })
+      });
+    },
+    support: function(e) {
+      const data = { clock_record_id: e.target.dataset.id, type: 1, }
+      Util.request(Api.SupportSave, data).then(res => {
+        this.fetchData()
+      });
+    },
+    clickMessage: function(e) {
+      console.log(e)
+    },
   },
   // ...
 })

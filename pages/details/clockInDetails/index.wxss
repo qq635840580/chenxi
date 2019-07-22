@@ -203,6 +203,10 @@
   color: #999;
 }
 
+.clock-footer .back-color {
+  color: #F65C5C;
+}
+
 .clock-footer text:nth-child(3) .clock-footer-fenxiang {
   width: 150rpx;
   height: 56rpx;

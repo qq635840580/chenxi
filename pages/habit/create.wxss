@@ -6,11 +6,12 @@
   margin-top: 0;
 }
 .weui-cell{
-  padding: 40rpx 30rpx;
+  /* padding: 40rpx 30rpx; */
+  border: 0;
 }
 .weui-cell_input{
-  padding-bottom: 0;
-  padding-top: 0;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
 }
 .weui-cell::before{
   left: 0;

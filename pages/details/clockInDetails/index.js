@@ -9,6 +9,7 @@ Page({
    */
   data: {
     detail: null,
+    id: null,
   },
 
   /**
@@ -19,7 +20,18 @@ Page({
     Util.request(Api.ListDetails, data).then(res => {
       this.setData({
         detail: res.data[0],
+        id: options.id,
       })
+    });
+  },
+
+  /**
+   * 点赞
+   */
+  support:function(e) {
+    const data = { clock_record_id: this.data.id, type: 1,}
+    Util.request(Api.SupportSave, data).then(res => {
+      this.onLoad(data)
     });
   },
 

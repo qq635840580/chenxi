@@ -1,5 +1,48 @@
 /* pages/discover/index.wxss */
 @import '/style/weui-rpx.wxss';
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1283069 */
+  src: url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.eot');
+  src: url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 30rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-aixin:before {
+  content: "\e61f";
+}
+
+.icon-fenxiang:before {
+  content: "\e661";
+}
+
+.icon-liaotian:before {
+  content: "\e60f";
+}
+
+.icon-jiahao:before {
+  content: "\eaf3";
+}
+
+.icon-aixin1:before {
+  content: "\e757";
+}
+
+.icon-gengduo:before {
+  content: "\e6fc";
+}
+
 .latest {
   margin-top: 30rpx;
 }
@@ -75,6 +118,7 @@
   height: 80rpx;
   vertical-align: middle;
   margin-right: 20rpx;
+  border-radius: 50%;
 }
 
 .information-head .weui-cell__title {
@@ -109,6 +153,15 @@
 
 .information-body {
   padding: 0 30rpx 20rpx 30rpx;
+}
+
+.information-body .information__desc_one_img image {
+  width: 40%;
+}
+
+.information-body .information__desc_img image {
+  width: 30%;
+  margin-right: 10rpx;
 }
 
 .weui-well {
@@ -164,4 +217,35 @@ button.weui-btn {
 .habit-details-text view {
   color: #999;
   font-size: 36rpx;
+}
+
+.weui-tool {
+  font-size: 30rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+.weui-tool .tool-dianzan {
+  margin-right: 50rpx;
+}
+
+.weui-tool .tool-dianzan text:nth-child(1) {
+  margin-right: 10rpx;
+}
+
+.weui-tool .tool-pinglun {
+  margin-right: 50rpx;
+}
+
+.weui-tool .tool-pinglun label text:nth-child(1) {
+  margin-right: 10rpx;
+}
+
+.weui-tool .tool-gengduo {
+  float: right;
+  margin-top: 5rpx;
+}
+
+.icon-back {
+  color: #f65c5c;
 }

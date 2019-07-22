@@ -27,7 +27,7 @@
       <!-- 图片区域 -->
       <view class='habit-details-dynamic-one-img-text-one-img' wx:if='{{detail.clock_record_image.length>0}}'>
         <block wx:for="{{detail.clock_record_image}}">
-          <image src='{{item.path}}'/>
+          <image src='{{item.path}}' mode="widthFix"/>
         </block>
       </view>
     </view>
@@ -101,8 +101,15 @@
 
 <!-- 底部 -->
 <view class='clock-footer'>
-  <text class='iconfont icon-aixin'>{{detail.support_count}}</text>
-  <text class='iconfont icon-liaotian'>{{detail.comment_count}}</text>
+  <text bindtap='support'>
+    <text class='iconfont icon-aixin'></text>
+    <text class='iconfont icon-aixin1 back-color'></text>
+    <text>{{detail.support_count}}</text>
+  </text>
+  <text>
+    <text class='iconfont icon-liaotian'></text>
+    <text>{{detail.comment_count}}</text>
+  </text>
   <text>
     <text class='iconfont icon-fenxiang clock-footer-fenxiang'>分享</text>
   </text>

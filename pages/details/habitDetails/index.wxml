@@ -59,12 +59,12 @@
           <!-- 图片区域 1、判断是否为大图 2、判断是否为多图 3、判断是否为空-->
           <view class='habit-details-dynamic-one-img-text-one-img' wx:if="{{item.clock_record_image.length==1}}">
             <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList">
-              <image src='{{imgList.path}}'/>
+              <image src='{{imgList.path}}' mode="widthFix"/>
             </block>
           </view>
           <view class='habit-details-dynamic-one-img-text-img' wx:if="{{item.clock_record_image.length>1}}">
             <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList">
-              <image src='{{imgList.path}}'/>
+              <image src='{{imgList.path}}' mode="widthFix"/>
             </block>
           </view>
         </view>
@@ -107,7 +107,7 @@
   <view class='habit-details-text' wx:if="{{list.length==0}}">
     <image src='/uploads/habit/dongtai.png'/>
     <view>一片荒芜</view>
-     <view>还没有任何动态</view>
+     <view>快来打卡吧！改变从此开始...</view>
   </view>
 
   <!-- 打卡 -->

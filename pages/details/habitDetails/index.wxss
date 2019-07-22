@@ -232,17 +232,15 @@
 }
 
 .habit-details-dynamic-one-img-text .habit-details-dynamic-one-img-text-one-img {
-  height:370rpx;
-  background:#CECCCC;
+  /* height:370rpx; */
+}
+.habit-details-dynamic-one-img-text .habit-details-dynamic-one-img-text-one-img image {
+  width: 30%;
 }
 
-.habit-details-dynamic-one-img-text-img {
-  /* padding: 0 10rpx; */
-}
 
 .habit-details-dynamic-one-img-text-img image {
   width: 210rpx;
-  height: 210rpx;
   margin-right: 20rpx;
 }
 

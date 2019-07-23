@@ -16,8 +16,14 @@
         </view>
       </view>
       <!-- 右边部分 -->
-      <view class='habit-details-dynamic-one-img-right'>
-        <text class='iconfont icon-jiahao'>关注</text>
+      <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==0}}' data-uid='{{detail.uid}}' bindtap='followHandler'>
+        <text class='iconfont icon-jiahao focus-on'>+关注</text>
+      </view>
+      <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==1}}'>
+        <text class='focus-on1'>已关注</text>
+      </view>
+      <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==2}}'>
+        <text class='focus-on1'>互相关注</text>
       </view>
     </view>
     <!-- 内容部分 -->
@@ -26,8 +32,8 @@
       <view>{{detail.content}}</view>
       <!-- 图片区域 -->
       <view class='habit-details-dynamic-one-img-text-one-img' wx:if='{{detail.clock_record_image.length>0}}'>
-        <block wx:for="{{detail.clock_record_image}}">
-          <image src='{{item.path}}' mode="widthFix"/>
+        <block wx:for="{{detail.clock_record_image}}" wx:key='{{index}}'>
+          <image src='{{item.path}}' mode="aspectFill"/>
         </block>
       </view>
     </view>
@@ -71,46 +77,54 @@
 </view>
 
 <!--头像评论部分 -->
-<view class='clock-in-details-text-comments' wx:if='{{detail.comment_count>0}}'>
-  <view class='clock-in-details-text-comments-box'>
-
-    <view class='clock-in-details-text-comments-left'><image src='/img/information/system.png'/></view>
-
-    <view class='clock-in-details-text-comments-right'>
-      <!-- 头部姓名和评论时间 -->
-      <view class='clock-in-details-text-comments-right-top'>
-        <text>姓名</text>
-        <text>x分钟前</text>
-      </view>
-      <!-- 评论内容 -->
-      <view class='clock-in-details-text-comments-right-text'>
-        这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容这是评论内容
-      </view>
-      <!-- 回复区域 -->
-      <view class='clock-in-details-text-comments-right-reply'>
-        <view class='clock-in-details-text-comments-right-reply-box'>
-          <text>姓名：</text>
-        <text>回复内容回复内容回复内容回复内容回复内容回复内容回复内容</text>
+<block wx:if='{{detail.comment_data.length>0}}'>
+  <view class='clock-in-details-text-comments'>
+    <view class='clock-in-details-text-comments-box'  wx:key='{{index}}' wx:for='{{detail.comment_data}}' >
+      <view class='clock-in-details-text-comments-left'><image src='{{item.avatarUrl}}'/></view>
+      <view class='clock-in-details-text-comments-right'>
+        <!-- 头部姓名和评论时间 -->
+        <view class='clock-in-details-text-comments-right-top'>
+          <text>{{item.nickname}}</text>
+          <text>{{create_time}}</text>
+        </view>
+        <!-- 评论内容 -->
+        <view class='clock-in-details-text-comments-right-text'>
+          {{item.content}}
+        </view>
+        <!-- 回复区域 -->
+        <view class='clock-in-details-text-comments-right-reply'>
+          <view class='clock-in-details-text-comments-right-reply-box'>
+            <text>姓名：</text>
+          <text>回复内容回复内容回复内容回复内容回复内容回复内容回复内容</text>
+          </view>
         </view>
       </view>
-    </view>
 
+    </view>
   </view>
+</block>
+
+
+<!-- 点击评论部分 -->
+<view class='pinglun-input' wx:if='{{isInput}}'>
+  <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindblur='blurHandler'/>
 </view>
 
 
 <!-- 底部 -->
 <view class='clock-footer'>
   <text bindtap='support'>
-    <text class='iconfont icon-aixin'></text>
-    <text class='iconfont icon-aixin1 back-color'></text>
-    <text>{{detail.support_count}}</text>
+    <text class='iconfont iconaixin' wx:if='{{detail.is_praise==0}}'></text>
+    <text class='iconfont iconaixin1 back-color' wx:if='{{detail.is_praise==1}}'></text>
+    <text> {{detail.support_count}}</text>
   </text>
+  <label bindtap='saveIsInput' data-id="{{id}}">       
+    <text>
+      <text class='iconfont iconxinxi'></text>
+      <text> {{detail.comment_count}}</text>
+    </text>
+  </label>
   <text>
-    <text class='iconfont icon-liaotian'></text>
-    <text>{{detail.comment_count}}</text>
-  </text>
-  <text>
-    <text class='iconfont icon-fenxiang clock-footer-fenxiang'>分享</text>
+    <text class='iconfont iconfenxiang clock-footer-fenxiang'>分享</text>
   </text>
 </view>

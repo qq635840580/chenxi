@@ -7,118 +7,57 @@
 <view class='ranking-me ranking-me-bottom'>
   <!-- 头像部分 -->
   <view class='ranking-me-left-img'>
-    <image src='/img/information/system.png'/>
+    <image src='{{own.user.avatarUrl}}'/>
   </view>
   <!-- 姓名年龄部分 -->
   <view class='ranking-me-left-name'>
-    <view>姓名</view>
-    <view>99岁</view>
+    <view>{{own.user.nickname}}</view>
   </view>
   <!-- 点赞部分 -->
-  <view class='ranking-me-right'>
+  <view class='ranking-me-right' data-id='{{own.id}}' bindtap='pariseClick'>
     <view class='ranking-me-right-img'>
-      <text>11</text>
-      <image src='/img/ranking/huise.png'/> 
+      <text>{{own.total_praise_count}}</text>
+      <image src='/img/ranking/huise.png' wx:if='{{own.is_praise==0}}'/> 
+      <image src='/img/ranking/zan.png' wx:if='{{own.is_praise==1}}'/> 
     </view>
   </view>
   <!-- 次数部分 -->
   <view class='ranking-me-center'>
      <view class='ranking-me-center-num'>
-      <text>666</text>
+      <text>{{own.total_clock_count}}</text>
       <text>次</text>
     </view>
   </view>
 </view>
 
-<view class='ranking-me ranking-list'>
+
+<view class='ranking-me ranking-list' wx:for='{{rankingTotalList}}' wx:key='{{index}}'>
   <!-- 1、2、3名奖牌部分 -->
-  <view class='ranking-medlas' >
-    <image src='/img/ranking/one.png'/>
+  <view class='ranking-medlas'>
+    <image src='{{item.image}}' wx:if='{{item.image}}'/>
   </view>
   <!-- 头像部分 -->
   <view class='ranking-list-left-img'>
-    <image src='/img/information/system.png'/>
+    <image src='{{item.user.avatarUrl}}'/>
   </view>
   <!-- 姓名年龄部分 -->
   <view class='ranking-me-left-name'>
-    <view>姓名</view>
-    <view>99岁</view>
+    <view>{{item.user.nickname}}</view>
   </view>
   <!-- 点赞部分 -->
-  <view class='ranking-me-right'>
+  <view class='ranking-me-right' data-id='{{item.id}}' bindtap='pariseClick'>
     <view class='ranking-me-right-img'>
-      <text>11</text>
-      <image src='/img/ranking/zan.png'/> 
+      <text>{{item.total_praise_count}}</text>
+      <image src='/img/ranking/huise.png' wx:if='{{item.is_praise==0}}'/> 
+      <image src='/img/ranking/zan.png' wx:if='{{item.is_praise==1}}'/> 
     </view>
   </view>
   <!-- 次数部分 -->
   <view class='ranking-me-center'>
      <view class='ranking-me-center-num'>
-      <text>666</text>
+      <text>{{item.total_clock_count}}</text>
       <text>次</text>
     </view>
   </view>
 </view>
-
-<view class='ranking-me ranking-list'>
-  <!-- 1、2、3名奖牌部分 -->
-  <view class='ranking-medlas' >
-    <image src='/img/ranking/two.png'/>
-  </view>
-  <!-- 头像部分 -->
-  <view class='ranking-list-left-img'>
-    <image src='/img/information/system.png'/>
-  </view>
-  <!-- 姓名年龄部分 -->
-  <view class='ranking-me-left-name'>
-    <view>姓名</view>
-    <view>99岁</view>
-  </view>
-  <!-- 点赞部分 -->
-  <view class='ranking-me-right'>
-    <view class='ranking-me-right-img'>
-      <text>11</text>
-      <image src='/img/ranking/zan.png'/> 
-    </view>
-  </view>
-  <!-- 次数部分 -->
-  <view class='ranking-me-center'>
-     <view class='ranking-me-center-num'>
-      <text>666</text>
-      <text>次</text>
-    </view>
-  </view>
-</view>
-
-<view class='ranking-me ranking-list'>
-  <!-- 1、2、3名奖牌部分 -->
-  <view class='ranking-medlas' >
-    <image src='/img/ranking/three.png'/>
-  </view>
-  <!-- 头像部分 -->
-  <view class='ranking-list-left-img'>
-    <image src='/img/information/system.png'/>
-  </view>
-  <!-- 姓名年龄部分 -->
-  <view class='ranking-me-left-name'>
-    <view>姓名</view>
-    <view>99岁</view>
-  </view>
-  <!-- 点赞部分 -->
-  <view class='ranking-me-right'>
-    <view class='ranking-me-right-img'>
-      <text>11</text>
-      <image src='/img/ranking/zan.png'/> 
-    </view>
-  </view>
-  <!-- 次数部分 -->
-  <view class='ranking-me-center'>
-     <view class='ranking-me-center-num'>
-      <text>666</text>
-      <text>次</text>
-    </view>
-  </view>
-</view>
-
-
 

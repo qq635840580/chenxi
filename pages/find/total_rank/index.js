@@ -9,6 +9,7 @@ Page({
    */
   data: {
     rankingTotalList: [],
+    own: {},
   },
 
   /**
@@ -71,11 +72,7 @@ Page({
 Component({
   lifetimes: {
     attached: function () {
-      Util.request(Api.FindTotalRank).then(res => {
-        this.setData({
-          rankingTotalList: res.data
-        })
-      });
+      this.fetchData();
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
@@ -83,7 +80,35 @@ Component({
 
   },
   methods: {
-
+    /**
+     * 请求数据
+     */
+    fetchData:function() {
+      Util.request(Api.FindTotalRank).then(res => {
+        let list = res.data.list;
+        // 长度为1、2、3时分别插入image，
+        if (list.length == 1) {
+          list[0].image = '/img/ranking/one.png';
+        } else if (list.length == 2) {
+          list[0].image = '/img/ranking/one.png';
+          list[1].image = '/img/ranking/two.png';
+        } else if (list.length >= 3) {
+          list[0].image = '/img/ranking/one.png';
+          list[1].image = '/img/ranking/two.png';
+          list[2].image = '/img/ranking/three.png';
+        }
+        this.setData({
+          rankingTotalList: list,
+          own: res.data.own
+        })
+      });
+    },
+    pariseClick: function(e) {
+      const data = { id: e.currentTarget.dataset.id, type: 8};
+      Util.request(Api.RankParise, data).then(res => {
+        this.fetchData()
+      });
+    }
   },
   // ...
 })

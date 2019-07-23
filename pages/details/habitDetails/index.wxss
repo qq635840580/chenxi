@@ -1,44 +1,50 @@
 /* pages/details/habitDetails/index.wxss */
+@import '/style/weui-rpx.wxss';
+
 @font-face {
-  font-family: 'iconfont';  /* project id 1283069 */
-  src: url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.eot');
-  src: url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1283069_jbq5w2kdj1.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 1282975 */
+  src: url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.eot');
+  src: url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.svg#iconfont') format('svg');
 }
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 24px;
+  font-size: 30rpx;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-aixin:before {
-  content: "\e61f";
+.icongengduo:before {
+  content: "\e610";
 }
 
-.icon-fenxiang:before {
-  content: "\e661";
+.iconxinxi:before {
+  content: "\e612";
 }
 
-.icon-liaotian:before {
-  content: "\e60f";
+.iconaixin:before {
+  content: "\e617";
 }
 
-.icon-jiahao:before {
-  content: "\eaf3";
+.iconshoucang:before {
+  content: "\e618";
 }
 
-.icon-aixin1:before {
-  content: "\e757";
+.iconfenxiang:before {
+  content: "\e61b";
 }
 
-.icon-gengduo:before {
-  content: "\e6fc";
+.iconxinxi1:before {
+  content: "\e632";
+}
+
+.iconaixin1:before {
+  content: "\e635";
 }
 
 .habit-details-top{
@@ -318,19 +324,20 @@
 }
 
 .habit-clock .habit-clock-box {
-  width: 216rpx;
-  height: 88rpx;
+  width: 166rpx;
+  height: 66rpx;
   background: #3ACC88;
-  border-radius: 44rpx;
+  border-radius: 33rpx;
   vertical-align: top;
   text-align: center;
 }
 
 .habit-clock .habit-clock-box text {
   color: #fff;
-  line-height: 88rpx;
+  line-height: 66rpx;
   text-align: center;
   margin-right: 10rpx;
+  font-size: 34rpx;
 }
 
 .habit-clock .habit-clock-box image {
@@ -338,6 +345,256 @@
   height: 42rpx;
   vertical-align: top;
   margin-top: 24rpx;
+}
+
+
+.weui-panel {
+  margin: 30rpx 30rpx 0 30rpx;
+  border-radius: 10rpx;
+  background: #f2f3f5;
+}
+
+.weui-panel:before,
+.weui-panel:after {
+  border-width: 0;
+}
+
+.weui-panel__head {
+  padding: 20rpx;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  border-bottom: 1rpx solid #f2f3f5;
+  background: #fff;
+}
+
+.weui-panel-head__bd {
+  position: relative;
+  flex: 1;
+  font-size: 30rpx;
+  padding-left: 18rpx;
+}
+
+.weui-panel-head__bd::before{
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -15rpx;
+  width: 6rpx;
+  height: 30rpx;
+  background-color: #3ACC88;
+}
+
+.weui-panel-head__ft {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.weui-grid {
+  width: 25%;
+  border-width: 0;
+  padding: 30rpx 30rpx;
+}
+
+.weui-grid__icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.weui-grid__label {
+  font-size: 26rpx;
+}
+
+
+.weui-information {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.information-head .weui-cell__hd>image {
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.information-head .weui-cell__title {
+  font-size: 28rpx;
+  color: #555;
+}
+
+.information-head .weui-badge {
+  display: inline-block;
+  font-size: 20rpx;
+}
+
+.weui-badge>image {
+  width: 18rpx;
+  height: 18rpx;
+  vertical-align: middle;
+}
+
+.weui-badge.male {
+  background-color: #3fb8e8;
+}
+
+.weui-badge.woman {
+  background-color: #ea3d84;
+}
+
+.information-head .weui-cell__desc {
+  font-size: 24rpx;
+  line-height: 1;
+  color: #999;
+}
+
+.information-body {
+  padding: 0 30rpx 20rpx 30rpx;
+}
+
+.information-body .information__desc_one_img image {
+  width: 430rpx;
+  max-height: 572rpx;
+}
+
+.information-body .information__desc_img {
+  display: inline-block;
+}
+
+.information-body .information__desc_img image {
+  width: 210rpx;
+  max-height: 210rpx;
+  margin-right: 10rpx;
+}
+
+.weui-well {
+  background-color: #f2f3f5;
+  color: #666;
+  font-size: 24rpx;
+  padding: 24rpx 20rpx;
+}
+
+.information__desc {
+  font-size: 30rpx;
+  color: #555;
+  margin-bottom: 10rpx;
+}
+
+.information-footer {
+  border-top: 1rpx solid #f2f3f5;
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  color: #555;
+}
+
+.information-footer::before {
+  left: 0;
+  border-color: #f2f3f5;
+}
+
+.weui-color__green {
+  color: #3acc88;
+}
+
+button.weui-btn {
+  font-size: 28rpx;
+  min-width: 140rpx;
+  border-radius: 200rpx;
+  line-height: 2;
+  padding: 0 16rpx;
+  vertical-align: middle;
+  background: #3acc88;
+  color: #fff;
+}
+
+button.weui-btn1 {
+  font-size: 28rpx;
+  min-width: 140rpx;
+  border-radius: 200rpx;
+  line-height: 2;
+  padding: 0 16rpx;
+  vertical-align: middle;
+  color: #999;
+  background: #fff;
+  border: 1rpx solid #999999;
+}
+
+.habit-details-text {
+  margin-top: 100rpx;
+  text-align: center;
+}
+
+.habit-details-text image {
+  width: 500rpx;
+  height: 200rpx;
+}
+
+.habit-details-text view {
+  color: #999;
+  font-size: 36rpx;
+}
+
+.weui-tool {
+  font-size: 30rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+.weui-tool .tool-dianzan {
+  margin-right: 50rpx;
+}
+
+.weui-tool .tool-dianzan text:nth-child(1) {
+  margin-right: 10rpx;
+}
+
+.weui-tool .tool-pinglun {
+  margin-right: 50rpx;
+}
+
+.weui-tool .tool-pinglun label text:nth-child(1) {
+  margin-right: 10rpx;
+}
+
+.pinglun-icon {
+  margin-right: 10rpx;
+}
+
+.weui-tool .tool-gengduo {
+  float: right;
+  margin-top: 5rpx;
+}
+
+.icon-back {
+  color: #f65c5c;
+}
+
+.pinglun-input {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+
+.information-footer-box {
+  font-size: 28rpx;
+}
+
+.information-footer-box text:nth-child(1) {
+  color: #3ACC88;
+}
+
+.information-footer-box text:nth-child(2) {
+  color: #555;
+}
+
+.weui-cell__ft {
+  margin-right: -10rpx;
 }
 
 

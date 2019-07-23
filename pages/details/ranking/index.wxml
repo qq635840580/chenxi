@@ -16,7 +16,7 @@
 </view>
 
 <!-- 周榜 -->
-<block wx:if="{{week}}">
+<block wx:if="{{isWeek && week}}">
   <!-- 排行榜本人 -->
   <view class='ranking-me ranking-bottom'>
     <!-- 头像部分 -->
@@ -28,13 +28,14 @@
       <view>{{weekMe.user.nickname}}周</view>
     </view>
     <!-- 点赞部分 -->
-    <view class='ranking-me-right'>
+    <view class='ranking-me-right' data-id='{{weekMe.id}}' data-type='5'  bindtap='pariseClick'>
       <view class='ranking-me-right-img'>
-        <text>{{weekMe.week_clock_count}}</text>
-        <image src='/img/ranking/huise.png'/> 
+        <text>{{weekMe.week_praise_count}}</text>
+        <image src='/img/ranking/huise.png' wx:if="{{weekMe.is_praise==0}}"/> 
+        <image src='/img/ranking/zan.png' wx:if="{{weekMe.is_praise==1}}"/> 
       </view>
     </view>
-    <!-- 次数部分 -->
+    <!-- 打卡次数部分 -->
     <view class='ranking-me-center'>
       <view class='ranking-me-center-num'>
         <text>{{weekMe.week_clock_count}}</text>
@@ -59,10 +60,11 @@
         <view>{{item.user.nickname}}</view>
       </view>
       <!-- 点赞部分 -->
-      <view class='ranking-me-right'>
+      <view class='ranking-me-right'  data-id='{{item.id}}' data-type='5'    bindtap='pariseClick'>
         <view class='ranking-me-right-img'>
-          <text>{{item.week_clock_count}}</text>
-          <image src='/img/ranking/zan.png'/> 
+          <text>{{item.week_praise_count}}</text>
+          <image src='/img/ranking/huise.png' wx:if="{{item.is_praise==0}}"/> 
+          <image src='/img/ranking/zan.png' wx:if="{{item.is_praise==1}}"/> 
         </view>
       </view>
       <!-- 次数部分 -->
@@ -77,7 +79,7 @@
 </block>
 
 <!-- 月榜 -->
-<block wx:if="{{month}}">
+<block wx:if="{{isMonth && month}}">
   <!-- 排行榜本人 -->
   <view class='ranking-me ranking-bottom'>
     <!-- 头像部分 -->
@@ -89,16 +91,17 @@
       <view>{{monthMe.user.nickname}}月</view>
     </view>
     <!-- 点赞部分 -->
-    <view class='ranking-me-right'>
+    <view class='ranking-me-right' data-id='{{monthMe.id}}' data-type='6'    bindtap='pariseClick'>
       <view class='ranking-me-right-img'>
-        <text>{{monthMe.week_clock_count}}</text>
-        <image src='/img/ranking/huise.png'/> 
+        <text>{{monthMe.month_praise_count}}</text>
+        <image src='/img/ranking/huise.png' wx:if="{{monthMe.is_praise==0}}"/> 
+          <image src='/img/ranking/zan.png' wx:if="{{monthMe.is_praise==1}}"/> 
       </view>
     </view>
     <!-- 次数部分 -->
     <view class='ranking-me-center'>
       <view class='ranking-me-center-num'>
-        <text>{{monthMe.week_clock_count}}</text>
+        <text>{{monthMe.month_clock_count}}</text>
         <text>次</text>
       </view>
     </view>
@@ -120,16 +123,17 @@
         <view>{{item.user.nickname}}</view>
       </view>
       <!-- 点赞部分 -->
-      <view class='ranking-me-right'>
+      <view class='ranking-me-right'  data-id='{{item.id}}' data-type='6'  bindtap='pariseClick'>
         <view class='ranking-me-right-img'>
-          <text>{{item.week_clock_count}}</text>
-          <image src='/img/ranking/zan.png'/> 
+          <text>{{item.month_praise_count}}</text>
+          <image src='/img/ranking/huise.png' wx:if="{{item.is_praise==0}}"/> 
+          <image src='/img/ranking/zan.png' wx:if="{{item.is_praise==1}}"/> 
         </view>
       </view>
       <!-- 次数部分 -->
       <view class='ranking-me-center'>
         <view class='ranking-me-center-num'>
-          <text>{{item.week_clock_count}}</text>
+          <text>{{item.month_clock_count}}</text>
           <text>次</text>
         </view>
       </view>
@@ -138,7 +142,7 @@
 </block>
 
 <!-- 年榜 -->
-<block wx:if="{{year}}">
+<block wx:if="{{isYear && year}}">
   <!-- 排行榜本人 -->
   <view class='ranking-me ranking-bottom'>
     <!-- 头像部分 -->
@@ -150,10 +154,11 @@
       <view>{{yearMe.user.nickname}}年</view>
     </view>
     <!-- 点赞部分 -->
-    <view class='ranking-me-right'>
+    <view class='ranking-me-right'  data-id='{{yearMe.id}}'  data-type='7'  bindtap='pariseClick'>
       <view class='ranking-me-right-img'>
-        <text>{{yearMe.year_clock_count}}</text>
-        <image src='/img/ranking/huise.png'/> 
+        <text>{{yearMe.year_praise_count}}</text>
+        <image src='/img/ranking/huise.png' wx:if="{{yearMe.is_praise==0}}"/> 
+        <image src='/img/ranking/zan.png' wx:if="{{yearMe.is_praise==1}}"/>  
       </view>
     </view>
     <!-- 次数部分 -->
@@ -181,10 +186,11 @@
         <view>{{item.user.nickname}}</view>
       </view>
       <!-- 点赞部分 -->
-      <view class='ranking-me-right'>
+      <view class='ranking-me-right' data-id='{{weekMe.id}}' data-type='7'  bindtap='pariseClick'>
         <view class='ranking-me-right-img'>
-          <text>{{item.year_clock_count}}</text>
-          <image src='/img/ranking/zan.png'/> 
+          <text>{{item.year_praise_count}}</text>
+          <image src='/img/ranking/huise.png' wx:if="{{item.is_praise==0}}"/> 
+          <image src='/img/ranking/zan.png' wx:if="{{item.is_praise==1}}"/>  
         </view>
       </view>
       <!-- 次数部分 -->

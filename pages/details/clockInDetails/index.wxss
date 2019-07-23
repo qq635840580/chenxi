@@ -3,11 +3,7 @@
 .habit-details-dynamic {
   width: 100%;
   background: #fff;
-  margin: 20rpx auto;
-}
-
-.habit-details-dynamic-one-img {
- 
+  margin: auto;
 }
 
 .habit-details-dynamic-one-img-top {
@@ -16,6 +12,7 @@
 
 .habit-details-dynamic-one-img-avatar {
   display: inline-block;
+  vertical-align: top;
 }
 
 .habit-details-dynamic-one-img-avatar image{
@@ -32,7 +29,7 @@
 }
 
 .habit-details-dynamic-one-img-total-top {
-
+  margin-top: 14rpx;
 }
 
 .habit-details-dynamic-one-img-total-top view:nth-child(1) {
@@ -55,7 +52,7 @@
   margin-top: 10rpx;
 }
 
-.habit-details-dynamic-one-img-right text {
+.habit-details-dynamic-one-img-right .focus-on {
   font-size: 28rpx;
   color:#fff;
   border-radius:28px;
@@ -64,8 +61,21 @@
   line-height: 56rpx;
   width: 140rpx;
   height: 56rpx;
-  border: 2rpx solid #3ACC88;
+  border: 1rpx solid #3ACC88;
   background: #3ACC88;
+}
+
+.habit-details-dynamic-one-img-right .focus-on1 {
+  font-size: 28rpx;
+  color:#999;
+  border-radius:28px;
+  display: inline-block;
+  text-align: center;
+  line-height: 56rpx;
+  width: 140rpx;
+  height: 56rpx;
+  border: 1rpx solid #999;
+  background: #fff;
 }
 
 .habit-details-dynamic-one-img-right view {
@@ -87,8 +97,8 @@
 }
 
 .habit-details-dynamic-one-img-text .habit-details-dynamic-one-img-text-one-img image {
-  width: 210rpx;
-  height: 210rpx;
+  width: 430rpx;
+  max-height: 570rpx;
   margin-right: 20rpx;
 }
 
@@ -203,6 +213,11 @@
   color: #999;
 }
 
+.clock-footer label {
+  flex: 1;
+  text-align: center;
+}
+
 .clock-footer .back-color {
   color: #F65C5C;
 }
@@ -268,6 +283,7 @@
 .clock-in-details-text-comments .clock-in-details-text-comments-box {
   padding: 20rpx;
   margin: 0 auto;
+  border-bottom: 1rpx solid #F2F3F5;
   /* display: flex; */
 }
 
@@ -284,6 +300,7 @@
 .clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-left image {
   width: 80rpx;
   height: 80rpx;
+  border-radius: 50%;
   vertical-align: top;
 }
 

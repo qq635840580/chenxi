@@ -46,6 +46,7 @@
   width: 80rpx;
   height:80rpx;
   vertical-align: top;
+  border-radius: 50%;
 }
 
 .ranking-me .ranking-me-left-name {
@@ -57,7 +58,7 @@
 .ranking-me .ranking-me-left-name view:nth-child(1) {
   font-size: 28rpx;
   color: #555;
-
+  margin-top: 17rpx;
 }
 
 .ranking-me .ranking-me-left-name view:nth-child(2) {
@@ -93,6 +94,7 @@
 .ranking-me-right .ranking-me-right-img {
   display: inline-block;
   margin-right: 40rpx;
+  text-align: center;
 }
 
 .ranking-me-right .ranking-me-right-img text {
@@ -114,11 +116,15 @@
 .ranking-list .ranking-medlas {
   display: inline-block;
   margin-left: 30rpx;
+  vertical-align: top;
+  width: 50rpx;
 }
 
 .ranking-list .ranking-medlas image {
   width: 48rpx;
   height: 64rpx;
+  vertical-align: top;
+  margin-top: 30rpx;
 }
 
 .ranking-list .ranking-list-left-img {
@@ -132,6 +138,7 @@
   width: 80rpx;
   height:80rpx;
   vertical-align: top;
+  border-radius: 50%;
 }
 
 .ranking-list .ranking-list-left-name {

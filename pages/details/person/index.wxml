@@ -9,26 +9,26 @@
 </view>
 
 <!-- 列表 -->
-<block wx:for='{{list}}'>
+<block wx:for='{{list}}' wx:key='{{index}}'>
   <view class='person-list'>
     <view class='person-list-box'>
       <view class='person-list-box-left'>
-        <image src='{{item.avatarUrl}}'/>
-        <text>{{item.nickname}}</text>
+        <image src='{{item.user.avatarUrl}}'/>
+        <text>{{item.user.nickname}}</text>
       </view>
 
       <!-- 已关注 -->
-      <view class='person-list-box-right-yiguanzhu' wx:if="{{item.is_attention==1}}">
+      <view class='person-list-box-right-yiguanzhu' wx:if="{{item.user.is_attention==1}}">
         <text>已关注</text>
       </view>
 
       <!-- 互相关注 -->
-      <view class='person-list-box-right-yiguanzhu' wx:if="{{item.is_attention==2}}">
+      <view class='person-list-box-right-yiguanzhu' wx:if="{{item.user.is_attention==2}}">
         <text>互相关注</text>
       </view>
 
       <!-- 未关注 -->
-      <view class='person-list-box-right-guanzhu' wx:if="{{item.is_attention==0}}">
+      <view class='person-list-box-right-guanzhu' wx:if="{{item.user.is_attention==0}}">
         <text class='iconfont icon-jiahao'>关注</text>
       </view>
       

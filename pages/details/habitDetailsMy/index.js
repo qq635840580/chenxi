@@ -102,7 +102,7 @@ Component({
   pageLifetimes: {
     // 组件所在页面的生命周期函数
     show: function () {
-      console.log(`进入`)
+      this.fetchData();
     },
     hide: function () { 
     },
@@ -125,10 +125,22 @@ Component({
         });
       });
     },
+    /**
+     * 跳转到月打卡详情
+     */
     gotoClock: function() {
       const habit_id = this.data.habit_id;
       wx.navigateTo({
         url: `../clockIn/index?habit_id=${habit_id}`,
+      })
+    },
+    /**
+     * 跳转到动态详情
+     */
+    gotoDetails:function(e) {
+      const id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: `../clockInDetails/index?id=${id}`,
       })
     }
   },

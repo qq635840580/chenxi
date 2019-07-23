@@ -26,7 +26,7 @@ page{
 
 .wxapp-name {
   font-size: 38rpx;
-  color: #212121;
+  color: #666;
 }
 
 .usermotto {
@@ -39,4 +39,9 @@ button{
   color: #fff;
   border-radius: 200rpx;
   box-shadow: 0 0 30rpx #3ACC88;
+}
+
+.click-btn {
+  color: #fff;
+  background: #34b679;
 }

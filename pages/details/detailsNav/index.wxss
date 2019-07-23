@@ -1,4 +1,11 @@
 /* pages/details/detailsNav/index.wxss */
+.habit-fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 10;
+}
 .habit-details-top{
   width:100%;
   height: 100rpx;

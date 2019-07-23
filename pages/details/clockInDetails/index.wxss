@@ -102,6 +102,12 @@
   margin-right: 20rpx;
 }
 
+.habit-details-dynamic-one-img-text .habit-details-dynamic-one-img-text-desc-img image {
+  width: 210rpx;
+  max-height: 210rpx;
+  margin-right: 10rpx;
+}
+
 .habit-details-dynamic-one-img-text-img {
   /* padding: 0 10rpx; */
 }

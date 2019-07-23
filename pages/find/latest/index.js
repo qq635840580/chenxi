@@ -170,6 +170,21 @@ Component({
         url: `../../homePage/index?uid=${uid}`,
       })
     },
+    /**
+    * 点击图片 查看全屏图片
+    */
+    viewImage: function (e) {
+      const cueerntImg = e.currentTarget.dataset.imgcurrent;
+      let imgList = e.currentTarget.dataset.imglist;
+      let newImgList = [];
+      imgList.forEach(item => {
+        newImgList.push(item.path)
+      })
+      wx.previewImage({
+        current: cueerntImg, // 当前显示图片的http链接
+        urls: newImgList // 需要预览的图片http链接列表
+      })
+    },
   },
   // ...
 })

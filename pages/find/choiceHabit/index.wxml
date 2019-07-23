@@ -11,7 +11,7 @@
       <view class='weui-flex weui-habit__desc'>
         <view class='weui-habit__title'>
           <view>{{item.name}}</view>
-          <view>已有{{item.total_user}}人参加</view>
+          <view>已有{{item.total_user}}人加入</view>
         </view>
       </view>
     </view>

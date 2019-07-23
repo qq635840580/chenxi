@@ -10,7 +10,7 @@ Page({
   data: {
     tabflag: 0,
     habit_id: null,
-    is_join: 0,
+    is_join: 1,
     img: null,
     loadOptions: null,
     name: null,
@@ -31,6 +31,10 @@ Page({
         is_join: res.data.is_join,
         img: res.data.icon,
         name: res.data.name
+      })
+      //设置动态标题
+      wx.setNavigationBarTitle({
+        title: res.data.name
       })
     });
   },

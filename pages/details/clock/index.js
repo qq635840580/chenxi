@@ -68,6 +68,20 @@ Page({
   },
 
   /**
+   * 删除图片
+   */
+  delImage:function(e) {
+    console.log(e)
+    const index = e.currentTarget.dataset.index;
+    let list = this.data.imgAry;
+    list.splice(index, 1)
+    console.log(list)
+    this.setData({
+      imgAry: list
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

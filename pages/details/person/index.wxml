@@ -12,7 +12,7 @@
 <block wx:for='{{list}}' wx:key='{{index}}'>
   <view class='person-list'>
     <view class='person-list-box'>
-      <view class='person-list-box-left'>
+      <view class='person-list-box-left' data-uid="{{item.uid}}" bindtap='gotoHomePage'>
         <image src='{{item.user.avatarUrl}}'/>
         <text>{{item.user.nickname}}</text>
       </view>

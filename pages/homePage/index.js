@@ -16,9 +16,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    Util.request(Api.MainPage).then(res => {
-      that.setData({
-        userInfo: res.data
+    this.fetchData();
+  },
+
+  /**
+   * 访问数据
+   */
+  fetchData:function(data) {
+    Util.request(Api.MainPage, data).then(res => {
+      this.setData({
+        userInfo: res.data,
       })
     });
   },

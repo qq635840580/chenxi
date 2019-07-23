@@ -1,6 +1,7 @@
 /* pages/find/findNav/index.wxss */
 .weui-navbar {
-  position: static;
+  position: fixed;
+  top: 0;
   background-color: #fff;
   border-bottom-width: 0;
 }

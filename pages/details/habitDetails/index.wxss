@@ -103,7 +103,7 @@
   width: 92%;
   margin: auto;
   background: #fff;
-  margin-top: 20rpx;
+  margin-top: 140rpx;
   border-radius: 10rpx;
 }
 

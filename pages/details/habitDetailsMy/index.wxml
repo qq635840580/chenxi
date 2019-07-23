@@ -69,11 +69,11 @@
         <view class="dot"></view>
         <!-- 时间戳 -->
       </view>
-      <view class="content">
+      <view class="content" data-id='{{item.id}}' bindtap='gotoDetails'>
         <text class="course">{{item.date}}  {{item.time}}</text>
         <text class="chapter" wx:if='{{item.clock_record_image.length==0}}'>{{item.content}}</text>
         <view class='content-image' wx:if='{{item.clock_record_image.length>0}}'>
-          <image src='{{item.clock_record_image[0].path}}'  mode="aspectFill"/>
+          <image src='{{item.clock_record_image[0].path}}' mode="aspectFill"/>
         </view>
         <view class='bottom-btn'>
           <text>{{item.habits.name}}</text>

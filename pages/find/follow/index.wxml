@@ -27,13 +27,13 @@
         <view class='information__desc'>{{item.content}}</view>
         <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
           <view class='information__desc_one_img'>
-            <image src='{{imgList.path}}' mode="widthFix"/>
+            <image src='{{imgList.path}}' mode="aspectFill" data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' catchtap='viewImage'/>
           </view>
         </block>
 
         <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length>1}}" wx:key="{{index}}">
           <view class='information__desc_img' wx:if="{{imgList.length>1}}">
-            <image src='{{imgList.path}}' mode="widthFix"/>
+            <image src='{{imgList.path}}' mode="aspectFill" data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' catchtap='viewImage'/>
           </view>
         </block>
 
@@ -61,7 +61,7 @@
           <text class='iconfont icongengduo tool-gengduo'></text>
         </view>
       </view>
-      <view class='information-footer'>
+      <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
         <view wx:for="{{item.comment_data}}" wx:key="{{index}}" wx:for-item="comment">
           <view class='information-footer-box' data-clockId='{{item.id}}' data-contentId='{{comment.id}}' bindtap='clickContent' >
             <text>{{comment.nickname}}：</text>

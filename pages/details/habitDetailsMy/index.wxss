@@ -21,7 +21,7 @@
 .habit-detailsMy-top-caledar {
   background: #fff;
   width: 90%;
-  margin: 20rpx auto;
+  margin: 140rpx auto 20rpx auto;
   border-radius: 10rpx;
 }
 .habit-detailsMy-top-caledar .habit-detailsMy-top-caledar-detail {

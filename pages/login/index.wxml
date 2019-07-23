@@ -1,11 +1,11 @@
 <!--index.wxml-->
 <view class="container">
   <view class="wxapp">
-    <image class="wxapp-logo" src="/img/logo.png" mode="cover"></image>
+    <image class="wxapp-logo" src="https://chenxixiguan.cn/uploads/20190704/de1b957971ce6b20b4627eff7016b879.png" mode="cover"></image>
     <text class="wxapp-name">自律改变生活</text>
   </view>
   <view class="usermotto">
-    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 微信授权登陆 </button>
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class='click-btn'> 微信授权登陆 </button>
     <view wx:else>请升级微信版本</view>
   </view>
 </view>

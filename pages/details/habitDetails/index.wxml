@@ -31,7 +31,7 @@
   <view class='weui-panel__bd'>
     <view class='weui-information' wx:for="{{list}}" wx:key="{{index}}" wx:if="{{list.length>0}}">
       <view class='weui-cell information-head'>
-        <view class='weui-cell__hd' data-uid='{{item.uid}}' bindtap='gotoHomePage'>
+        <view class='weui-cell__hd' data-uid='{{item.uid}}' catchtap='gotoHomePage'>
           <image src='{{item.user.avatarUrl}}'></image>
         </view>
         <view class='weui-cell__bd'>
@@ -40,24 +40,24 @@
           </view>
           <view class='weui-cell__desc'>{{item.date}}  {{item.time}}</view>
         </view>
-        <view class='weui-cell__ft' wx:if='{{item.user.is_attention==0}}' bindtap='followHandler' data-uid='{{item.uid}}'>
+        <view class='weui-cell__ft' wx:if='{{item.user.is_attention==0}}' catchtap='followHandler' data-uid='{{item.uid}}'>
           <view class='habit-details-dynamic-one-img-right'>
             <view>第{{item.continuity_days}}天</view>
           </view>
         </view>
       </view>
       <view class='information-body'>
-        <view  data-id='{{item.id}}' bindtap='gotoClockInDetails'>
+        <view  data-id='{{item.id}}' catchtap='gotoClockInDetails'>
           <view class='information__desc'>{{item.content}}</view>
           <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
             <view class='information__desc_one_img'>
-              <image src='{{imgList.path}}' mode="aspectFill"/>
+              <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}'/>
             </view>
           </block>
 
           <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length > 1}}" wx:key="{{index}}">
             <view class='information__desc_img'>
-              <image src='{{imgList.path}}' mode="aspectFill"/>
+              <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}'/>
             </view>
           </block>
         </view>
@@ -85,7 +85,7 @@
           <text class='iconfont icongengduo tool-gengduo'></text>
         </view>
       </view>
-      <view class='information-footer'>
+      <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
         <view wx:for="{{item.comment_data}}" wx:key="{{index}}" wx:for-item="comment">
           <view class='information-footer-box' data-clockId='{{item.id}}' data-contentId='{{comment.id}}' bindtap='clickContent' >
             <text>{{comment.nickname}}：</text>

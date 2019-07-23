@@ -26,6 +26,16 @@ Page({
   },
 
   /**
+   * 去往个人主页
+   */
+  gotoHomePage: function (e) {
+    const uid = e.currentTarget.dataset.uid;
+    wx.navigateTo({
+      url: `../../homePage/index?uid=${uid}`,
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

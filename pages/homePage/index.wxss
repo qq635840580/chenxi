@@ -1,1 +1,160 @@
 /* pages/homePage/index.wxss */
+page {
+  /* background: #fff; */
+}
+.page__hd {
+  position: relative;
+  /* padding-top: 26rpx;
+  padding-bottom: 80rpx; */
+  height: 265rpx;
+  background-color: #3acc88;
+}
+
+/* .page__hd::after {
+  position: absolute;
+  bottom: -30rpx;
+  left: 0;
+  right: 0;
+  content: "";
+  height: 60rpx;
+  background-color: #3acc88;
+  border-radius: 60%;
+} */
+
+.user {
+  z-index: 10;
+  text-align: center;
+  color: #212121;
+  position: absolute;
+  bottom: -200rpx;
+  left: 50%;
+  width: 100%;
+  margin-left: -50%;
+}
+
+.user_avatar {
+  width: 166rpx;
+  height: 166rpx;
+  border-radius: 50%;
+  border: 5rpx solid #fff;
+  vertical-align: top;
+}
+
+.user_name {
+  margin-top: 10rpx;
+  font-size: 34rpx;
+}
+
+.user_info {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.page__bd_spacing {
+  position: relative;
+  z-index: 10rpx;
+  margin-top: 200rpx;
+  padding: 0;
+}
+
+.weui-info {
+  display: flex;
+  background-color: #fff;
+  text-align: center;
+}
+
+.weui-info>.weui-flex__item {
+  padding: 30rpx 0;
+}
+
+.weui-info__desc {
+  font-size: 32rpx;
+  color: #555;
+}
+
+.weui-info__label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.weui-cells {
+  margin-top: 10rpx;
+  border-radius: 15rpx;
+}
+
+.weui-cells:after, .weui-cells:before {
+  border-width: 0;
+}
+
+.weui-cells_after-title {
+  margin-top: 0;
+}
+
+.weui-cell {
+  padding: 20rpx;
+  color: #555;
+  font-size: 30rpx;
+}
+
+.weui-cell:before {
+  border-top-color: #f2f3f5;
+}
+
+.weui-cell__hd>image {
+  width: 66rpx;
+  height: 66rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+
+.homt-page__block {
+  height: 40rpx;
+  background: #f2f3f5;
+}
+
+.home-page {
+  width: 100%;
+  margin: 20rpx auto;
+  background: #fff;
+}
+
+.home-page .home-page__box {
+  padding: 30rpx;
+}
+
+.home-page .home-page__box .home-page__title {
+  font-size: 32rpx;
+  color: #212121;
+}
+
+.home-page .home-page__box .home-page__time {
+  font-size: 26rpx;
+  color: #555;
+  display: inline-block;
+}
+
+.home-page .home-page__box .home-page__time text:nth-child(1) {
+  margin-right: 30rpx;
+}
+
+.home-page .home-page__box .home-page__right {
+  float: right;
+  vertical-align: top;
+}
+
+.home-page .home-page__box .home-page__right image {
+  width: 25rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+
+.home-page__list .home-page__list__li {
+  width: 220rpx;
+  height: 220rpx;
+  margin-right: 10rpx;
+  background: #F9F7E2;
+  display: inline-block;
+  font-size: 30rpx;
+  line-height: 48rpx;
+  color:#555;
+}

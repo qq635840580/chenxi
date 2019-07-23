@@ -48,7 +48,7 @@
 }
 
 .latest {
-  margin-top: 30rpx;
+  margin-top: 110rpx;
 }
 
 .weui-panel {
@@ -115,6 +115,7 @@
 .weui-information {
   margin-top: 20rpx;
   background-color: #fff;
+  border-radius: 10rpx;
 }
 
 .information-head .weui-cell__hd>image {
@@ -161,10 +162,12 @@
 
 .information-body .information__desc_one_img image {
   width: 430rpx;
+  max-height: 570rpx;
 }
 
 .information-body .information__desc_img image {
   width: 210rpx;
+  max-height: 210rpx;
   margin-right: 10rpx;
 }
 

@@ -31,7 +31,12 @@
       <!-- 文字区域 -->
       <view>{{detail.content}}</view>
       <!-- 图片区域 -->
-      <view class='habit-details-dynamic-one-img-text-one-img' wx:if='{{detail.clock_record_image.length>0}}'>
+      <view class='habit-details-dynamic-one-img-text-one-img' wx:if='{{detail.clock_record_image.length==1}}'>
+        <block wx:for="{{detail.clock_record_image}}" wx:key='{{index}}'>
+          <image src='{{item.path}}' mode="aspectFill"/>
+        </block>
+      </view>
+      <view class='habit-details-dynamic-one-img-text-desc-img' wx:if='{{detail.clock_record_image.length>1}}'>
         <block wx:for="{{detail.clock_record_image}}" wx:key='{{index}}'>
           <image src='{{item.path}}' mode="aspectFill"/>
         </block>
@@ -125,6 +130,6 @@
     </text>
   </label>
   <text>
-    <text class='iconfont iconfenxiang clock-footer-fenxiang'>分享</text>
+    <text class='clock-footer-fenxiang'>分享</text>
   </text>
 </view>

@@ -1,4 +1,7 @@
 /* pages/details/clockInDetails/index.wxss */
+page {
+  /* background: #fff; */
+}
 
 .habit-details-dynamic {
   width: 100%;
@@ -28,10 +31,6 @@
   display: inline-block;
 }
 
-.habit-details-dynamic-one-img-total-top {
-  margin-top: 14rpx;
-}
-
 .habit-details-dynamic-one-img-total-top view:nth-child(1) {
   font-size: 30rpx;
   color: #555;
@@ -39,6 +38,11 @@
   display: inline-block;
   line-height: 28rpx;
   /* margin-top: 20rpx; */
+}
+
+.habit-details-dynamic-one-img-total-top view:nth-child(2) {
+  font-size: 24rpx;
+  color: #999;
 }
 
 .habit-details-dynamic-one-img-total-bottom {
@@ -224,11 +228,12 @@
   text-align: center;
 }
 
+
 .clock-footer .back-color {
   color: #F65C5C;
 }
 
-.clock-footer text:nth-child(3) .clock-footer-fenxiang {
+.clock-footer text:nth-child(3) text {
   width: 150rpx;
   height: 56rpx;
   background: #3ACC88;
@@ -354,6 +359,178 @@
 .clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right-reply .clock-in-details-text-comments-right-reply-box text:nth-child(2) {
   color:#555;
 }
+
+/* dialog */
+.ys-mask{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.ys-dialog{
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  text-align: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.ys-dialog-btn{
+  position: fixed;
+  z-index: 5000;
+  width: 90%;
+  /* max-width: 300px; */
+  bottom: -10%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.ys-dialog-fenxiang{
+  position: fixed;
+  z-index: 5000;
+  width: 101%;
+  /* max-width: 300px; */
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  text-align: center;
+  /* border-radius: 16rpx; */
+  /* overflow: hidden; */
+}
+
+.ys-dialog-title{
+  padding: 50rpx 220rpx 0 220rpx;
+  color:#212121;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight: 400;
+  position: relative;
+}
+
+.ys-dialog-title image {
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.ys-dialog-btn{
+  /* padding: 50rpx 220rpx 0 220rpx; */
+  color:#212121;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight: 400;
+}
+
+.ys-dialog-content{
+  padding: 56rpx 77rpx 0 77rpx;
+  min-height: 40px;
+  font-size: 30rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #555555;
+  text-align: left;
+  line-height: 46rpx;
+}
+
+.ys-dialog-content view {
+  margin-bottom: 30rpx;
+}
+
+.ys-dialog-bottom{
+  margin-bottom: 66rpx;
+}
+
+.ys-dialog-bottom button {
+  box-shadow: 0 0 30rpx #3ACC88;
+  background: #3ACC88;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  width: 430rpx;
+}
+
+.ys-dialog-btn__del {
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  color: #F65C5C;
+  font-size: 40rpx;
+  height: 110rpx;
+}
+
+.ys-dialog-btn__cancel {
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  color: #212121;
+  font-size: 40rpx;
+  height: 110rpx;
+}
+
+.ys-dialog-fenxiang__cancel {
+  color: #555;
+  font-size: 36rpx;
+  height: 100rpx;
+  border-radius: 0rpx;
+  background: #fff;
+  border-top: 1rpx solid #f2f3f5;
+}
+
+.checkbox__box {
+  padding: 30rpx;
+}
+
+.checkbox__list {
+  display: block;
+  text-align: left;
+  color: #555;
+  border-bottom: 2rpx solid #f2f3f5;
+  padding: 20rpx;
+  font-size: 30rpx;
+}
+
+.ys-dialog-fenxiang__list {
+  width: 100%;
+  background: #fff;
+  /* height: 270rpx; */
+  display: flex;
+}
+
+.ys-dialog-fenxiang__list .ys-dialog-fenxiang__list-item {
+  flex: 1;
+  display: inline-block;
+  text-align: center;
+  font-size: 22rpx;
+  color: #555;
+  padding: 30rpx 0;
+  background: #fff;
+}
+
+.ys-dialog-fenxiang__list .ys-dialog-fenxiang__list-item image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+checkbox {
+  margin-right: 20rpx;
+}
+
 
 
 

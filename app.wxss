@@ -113,3 +113,36 @@ button::after{
   font-size: 28rpx;
   color: #999;
 }
+
+checkbox {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 20rpx;
+}
+
+checkbox .wx-checkbox-input {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+}
+
+
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #3ACC88;
+  border: 1rpx solid #3ACC88;
+}
+
+
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

@@ -24,16 +24,17 @@
       </view>
       <view class='information-body'>
         <view class='information__desc'>{{item.content}}</view>
-        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
+
+        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length == 1}}" wx:key="{{index}}">
           <view class='information__desc_one_img'>
             <image src='{{imgList.path}}' mode="aspectFill" data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' catchtap='viewImage'/>
           </view>
         </block>
-
-        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length>1}}" wx:key="{{index}}">
-          <view class='information__desc_img' wx:if="{{imgList.length>1}}">
-            <image src='{{imgList.path}}' mode="aspectFill" data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' catchtap='viewImage'/>
-          </view>
+        
+        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length > 1}}" wx:key="{{index}}">
+            <view class='information__desc_img'>
+              <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}'/>
+            </view>
         </block>
 
         <view class='weui-well weui-flex'>
@@ -55,9 +56,8 @@
               <text>{{item.comment_count}}</text>
             </text>
           </label>
-             
-          <text class='iconfont iconfenxiang tool-fenxiang'></text>
-          <text class='iconfont icongengduo tool-gengduo'></text>
+          <button class='iconfont iconfenxiang tool-fenxiang' open-type='share' ></button>
+          <text class='iconfont icongengduo tool-gengduo' catchtap='clickMore' data-is_attention='{{item.user.is_attention}}' data-clock_id='{{item.id}}'></text>
         </view>
       </view>
       <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
@@ -76,9 +76,43 @@
 <view class='pinglun-input' wx:if='{{isInput}}'>
   <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindblur='blurHandler'/>
 </view>
+
+
 <!-- 无数据时 -->
 <view class='habit-details-text' wx:if="{{latestList.length==0}}">
   <image src='/uploads/habit/dongtai.png'/>
   <view>一片荒芜</view>
     <view>还没有任何动态</view>
+</view>
+
+<!-- 点击更多弹出层 -->
+<view wx:if='{{isShow}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog-btn">
+    <view>
+      <button class='ys-dialog-btn__del' wx:if='{{isDel}}' catchtap='delClick' data-clock_id='{{clock_id}}'>删除</button>
+      <button class='ys-dialog-btn__del' wx:if='{{!isDel}}' catchtap='reportClick'>举报</button>
+      <button class='ys-dialog-btn__cancel' catchtap='cancelClick'>取消</button>
+    </view>
+  </view>
+</view>
+
+<!-- 点击举报弹出层 -->
+<view wx:if='{{isReport}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog">
+    <view class="ys-dialog-title">举报原因
+      <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' catchtap='closeReport'/>
+    </view>
+    <view class='checkbox__box'>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox__list" wx:for="{{checkboxData}}" wx:key='{{index}}'>
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="ys-dialog-bottom">
+      <button bindtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+    </view>
+  </view>
 </view>

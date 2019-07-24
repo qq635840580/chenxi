@@ -61,13 +61,7 @@
             </view>
           </block>
         </view>
-        <view class='weui-well weui-flex'>
-          <view class='weui-flex__item'>
-            坚持
-            <text class='weui-color__green'> {{item.habits.name}} </text>{{item.continuity_days}}天
-          </view>
-          <view>{{item.support_count}}人在坚持</view>
-        </view>
+        
         <view class='weui-tool'>
           <text class='tool-dianzan' bindtap='support' data-id="{{item.id}}">
             <text class='iconfont iconaixin' wx:if="{{item.is_praise==0}}"></text>
@@ -81,8 +75,8 @@
             </text>
           </label>
              
-          <text class='iconfont iconfenxiang tool-fenxiang'></text>
-          <text class='iconfont icongengduo tool-gengduo'></text>
+          <button class='iconfont iconfenxiang tool-fenxiang' open-type='share' ></button>
+          <text class='iconfont icongengduo tool-gengduo' catchtap='clickMore' data-is_attention='{{item.user.is_attention}}' data-clock_id='{{item.id}}'></text>
         </view>
       </view>
       <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
@@ -112,8 +106,42 @@
   <!-- 打卡 -->
   <view class='habit-clock' bindtap='gotoClock'>
     <view class='habit-clock-box'>
-      <text>打卡</text>
+      <text wx:if='{{is_clock==0}}'>打卡</text>
+      <text wx:if='{{is_clock==1}}'>记录心情</text>
     </view>
   </view>
-
 </view>
+
+
+<view wx:if='{{isShow}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog-btn">
+    <view>
+      <button class='ys-dialog-btn__del' wx:if='{{isDel}}' catchtap='delClick' data-clock_id='{{clock_id}}'>删除</button>
+      <button class='ys-dialog-btn__del' wx:if='{{!isDel}}' catchtap='reportClick'>举报</button>
+      <button class='ys-dialog-btn__cancel' catchtap='cancelClick'>取消</button>
+    </view>
+  </view>
+</view>
+
+<view wx:if='{{isReport}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog">
+    <view class="ys-dialog-title">举报原因
+      <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' catchtap='closeReport'/>
+    </view>
+    <view class='checkbox__box'>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox__list" wx:for="{{checkboxData}}" wx:key='{{index}}'>
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="ys-dialog-bottom">
+      <button bindtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+    </view>
+  </view>
+</view>
+
+
+

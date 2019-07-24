@@ -11,6 +11,7 @@ Page({
     newsList:[],
     continuity_days: 0,
     week_statistics: [],
+    is_clock: 0,
   },
 
   /**
@@ -93,6 +94,9 @@ Component({
   lifetimes: {
     attached: function () {
       // 在组件实例进入页面节点树时执行
+      this.setData({
+        is_clock: 0,
+      })
       this.fetchData();
     },
     detached: function () {
@@ -110,15 +114,16 @@ Component({
   },
   methods: {
     fetchData: function() {
-      const data = { habit_id: this.data.habit_id };
+      const datas = { habit_id: this.data.habit_id };
       //获取时间轴信息
-      Util.request(Api.HabitMy).then(res => {
+      Util.request(Api.HabitMy, datas).then(res => {
         this.setData({
           newsList: res.data
         })
       });
       //获取打卡周列表
-      Util.request(Api.ClockWeek, data).then(res => {
+      console.log(datas)
+      Util.request(Api.ClockWeek, datas).then(res => {
         this.setData({
           continuity_days: res.data.continuity_days,
           week_statistics: res.data.week_statistics,
@@ -142,7 +147,16 @@ Component({
       wx.navigateTo({
         url: `../clockInDetails/index?id=${id}`,
       })
-    }
+    },
+    /**
+     * 点击打卡
+     */
+    gotoClock: function () {
+      const habit_id = this.data.habit_id;
+      wx.navigateTo({
+        url: '../clock/index?habit_id=' + habit_id,
+      })
+    },
   },
   // ...
 })

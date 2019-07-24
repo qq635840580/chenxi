@@ -18,6 +18,8 @@ module.exports = {
   CommenteSave: ApiRootUrl + 'comment/save', //评论
   FollowSave: ApiRootUrl + 'follow/save', //关注
   RankParise: ApiRootUrl + 'support/rankPraise', //排行榜点赞
+  DeleteDetails: ApiRootUrl + 'clock/del', //删除动态
+  TipofDetails: ApiRootUrl + 'clock/tipOff', //举报动态
 
   HabitMyList: ApiRootUrl + 'habit/myList', //加入的习惯列表
   HabitList: ApiRootUrl + 'habit/lists', //习惯列表

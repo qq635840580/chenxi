@@ -83,3 +83,11 @@
     </view>
   </block>
 </view>
+
+<!-- 打卡 -->
+<view class='habit-clock' bindtap='gotoClock'>
+  <view class='habit-clock-box'>
+    <text wx:if='{{is_clock==0}}'>打卡</text>
+    <text wx:if='{{is_clock==1}}'>记录心情</text>
+  </view>
+</view>

@@ -94,7 +94,7 @@
 /*外部容器*/
 .listview-container {
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 50rpx auto;
 }
 
 /*行样式*/
@@ -202,4 +202,26 @@
   font-size: 28rpx;
   line-height: 56rpx;
   color: #999;
+}
+
+.habit-clock {
+  position: fixed;
+  bottom: 70rpx;
+  right: 4%;
+}
+
+.habit-clock .habit-clock-box {
+  width: 180rpx;
+  height: 76rpx;
+  background: #3ACC88;
+  border-radius: 38rpx;
+  vertical-align: top;
+  text-align: center;
+}
+
+.habit-clock .habit-clock-box text {
+  color: #fff;
+  line-height: 76rpx;
+  text-align: center;
+  font-size: 34rpx;
 }

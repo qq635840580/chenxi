@@ -7,6 +7,7 @@
   height: 80rpx;
   vertical-align: middle;
   margin-right: 20rpx;
+  border-radius: 50%;
 }
 
 .weui-cell .weui-cell__title {

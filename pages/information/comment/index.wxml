@@ -7,15 +7,15 @@
     <view class='weui-cell__bd'>
       <view class='weui-cell__title'>
         {{item.user.nickname}} 
-        <view wx:if="{{item.user.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.user.age}}</view>
-        <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.user.age}}</view>
+        <!-- <view wx:if="{{item.user.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.user.age}}</view>
+        <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.user.age}}</view> -->
       </view>
-      <view class='weui-cell__desc'>{{item.update_time}}</view>
+      <view class='weui-cell__desc'>{{item.create_time}}</view>
     </view>
     <view class='weui-cell__ft'></view>
   </view>
   <view class='information-body'>
-    <view class='information__desc'>评论了你：{{item.comment_content}}</view>
+    <view class='information__desc'>{{item.content}}</view>
   </view>
   <navigator url="" class='weui-cell information-footer'>
     <view class='weui-cell__bd'>坚持 <text class='weui-color__green'> {{item.comment_content}} </text>{{item.continuity_days}}天</view>

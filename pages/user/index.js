@@ -10,6 +10,7 @@ Page({
    */
   data: {
     userInfo: {},
+    isShow: false,
   },
 
   /**
@@ -38,6 +39,37 @@ Page({
         userInfo: res.data
       })
     });
+  },
+
+  /**
+   * 点击关联小程序
+   */
+  associatedClick: function(e) {
+    this.setData({
+      isShow: true,
+    })
+  },
+
+  /**
+   * 点击复制 关闭dialog并且复制appid
+   */
+  copyAppId: function(e) {
+    let that = this;
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.appid,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            that.setData({
+              isShow: false,
+            });
+            wx.showToast({
+              title: '复制成功'
+            })
+          }
+        })
+      }
+    })
   },
 
   /**

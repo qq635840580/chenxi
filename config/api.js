@@ -9,6 +9,7 @@ module.exports = {
   MyFans: ApiRootUrl + 'users/myFans', //我的粉丝
   MyFollow: ApiRootUrl + 'users/myFollow', //我的关注
   FollowSave: ApiRootUrl + 'follow/save', //我的关注
+  ClockRecords: ApiRootUrl + 'users/clockRecord', //打卡记录
 
   Contact: ApiRootUrl + 'backend/contact', //联系我们
   Question: ApiRootUrl + 'backend/question', //常见问题

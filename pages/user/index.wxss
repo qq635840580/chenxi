@@ -97,3 +97,72 @@
   vertical-align: middle;
   margin-right: 20rpx;
 }
+
+.weui-cell__bd {
+  background: #fff;
+  text-align: left;
+  color:#555;
+  font-size: 30rpx;
+  padding: 0;
+}
+
+.ys-mask{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.ys-dialog{
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  text-align: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.ys-dialog-title{
+  padding: 40rpx 40rpx 0 40rpx;
+  color:#555;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.ys-dialog-content{
+  padding: 20rpx 40rpx 0 40rpx;
+  min-height: 40px;
+  font-size: 28rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #555555;
+  text-align: left;
+  line-height: 46rpx;
+  margin-bottom: 20rpx;
+}
+
+.ys-dialog-bottom{
+  /* margin-bottom: 66rpx; */
+  font-size: 36rpx;
+  color: #3acc88;
+  line-height: 46rpx;
+  border-top: 1rpx solid #f2f3f5;
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+/* .ys-dialog-bottom button {
+  box-shadow: 0 0 30rpx #3ACC88;
+  background: #3ACC88;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  width: 430rpx;
+} */

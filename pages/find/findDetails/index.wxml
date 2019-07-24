@@ -1,0 +1,188 @@
+<!--pages/find/findDetails/index.wxml-->
+<view class='habit-details-dynamic'>
+  <!-- 大图模式 -->
+  <view class='habit-details-dynamic-one-img'>
+    <view class='habit-details-dynamic-one-img-top'>
+      <!-- 头像avatar -->
+      <view class='habit-details-dynamic-one-img-avatar'>
+        <image src='{{detail.user.avatarUrl}}'/>
+      </view>
+      <!-- 姓名、年龄、性别、发布日期 -->
+      <view class='habit-details-dynamic-one-img-total'>
+        <!-- 上半部分 -->
+        <view class='habit-details-dynamic-one-img-total-top'>
+          <view>{{detail.user.nickname}}</view>
+        </view>
+      </view>
+      <!-- 右边部分 -->
+      <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==0}}' data-uid='{{detail.uid}}' bindtap='followHandler'>
+        <text class='iconfont icon-jiahao focus-on'>+关注</text>
+      </view>
+      <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==1}}'>
+        <text class='focus-on1'>已关注</text>
+      </view>
+      <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==2}}'>
+        <text class='focus-on1'>互相关注</text>
+      </view>
+    </view>
+    <!-- 内容部分 -->
+    <view class='habit-details-dynamic-one-img-text'>
+      <!-- 文字区域 -->
+      <view>{{detail.content}}</view>
+      <!-- 图片区域 -->
+      <view class='habit-details-dynamic-one-img-text-one-img' wx:if='{{detail.clock_record_image.length==1}}'>
+        <block wx:for="{{detail.clock_record_image}}" wx:key='{{index}}'>
+          <image src='{{item.path}}' mode="aspectFill"/>
+        </block>
+      </view>
+      <view class='habit-details-dynamic-one-img-text-desc-img' wx:if='{{detail.clock_record_image.length>1}}'>
+        <block wx:for="{{detail.clock_record_image}}" wx:key='{{index}}'>
+          <image src='{{item.path}}' mode="aspectFill"/>
+        </block>
+      </view>
+    </view>
+    <!-- 坚持区域 -->
+    <view class='clock-in-jianchi'>
+      <view class='clock-in-jianchi-box'>
+        <view>
+          <text>坚持 </text>
+          <text class='clock-in-jianchi-box-type' data-habit_id='{{detail.habit_id}}' catchtap='gotoHabitDetails'>{{detail.habits.name}}</text>
+          <text> {{detail.continuity_days}}天</text>
+        </view>
+        <view>
+          <text>600</text>
+          <text>人在坚持</text>
+        </view>
+      </view>
+    </view>
+    <!-- 分享部分 -->
+    <view class='habit-details-dynamic-one-img-bottom'>
+      <view class='habit-details-dynamic-one-img-bottom-left'>
+        <text>{{detail.date}} {{detail.time}}</text>
+      </view>
+      <view class='habit-details-dynamic-one-img-bottom-right'>
+          <text class='iconfont icongengduo' catchtap='clickMore' data-is_attention='{{detail.user.is_attention}}' data-clock_id='{{id}}'></text>
+      </view>
+    </view>
+</view>
+</view>
+
+<!-- 点赞和评论数量部分 -->
+<view class='clock-in-details-text-top'>
+  <view class='clock-in-details-text-top-box'>
+    <text>评论 {{detail.comment_count}}</text>
+    <text>赞 {{detail.support_count}}</text>
+  </view>
+</view>
+
+<!-- 空白页评论部分 -->
+<view class='clock-in-details-white-comments'wx:if='{{detail.comment_count==0}}'>
+  <text>快来发表你的评论吧</text>
+</view>
+
+<!--头像评论部分 -->
+<block wx:if='{{detail.comment_data.length>0}}'>
+  <view class='clock-in-details-text-comments'>
+    <view class='clock-in-details-text-comments-box'  wx:key='{{index}}' wx:for='{{detail.comment_data}}' >
+      <view class='clock-in-details-text-comments-left'><image src='{{item.avatarUrl}}'/></view>
+      <view class='clock-in-details-text-comments-right'>
+        <!-- 头部姓名和评论时间 -->
+        <view class='clock-in-details-text-comments-right-top'>
+          <text>{{item.nickname}}</text>
+          <text>{{create_time}}</text>
+        </view>
+        <!-- 评论内容 -->
+        <view class='clock-in-details-text-comments-right-text'>
+          {{item.content}}
+        </view>
+        <!-- 回复区域 -->
+        <!-- <view class='clock-in-details-text-comments-right-reply'>
+          <view class='clock-in-details-text-comments-right-reply-box'>
+            <text>姓名：</text>
+          <text>回复内容回复内容回复内容回复内容回复内容回复内容回复内容</text>
+          </view>
+        </view> -->
+      </view>
+
+    </view>
+  </view>
+</block>
+
+
+<!-- 点击评论部分 -->
+<view class='pinglun-input' wx:if='{{isInput}}'>
+  <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindblur='blurHandler'/>
+</view>
+
+
+<!-- 底部 -->
+<view class='clock-footer'>
+  <text bindtap='support'>
+    <text class='iconfont iconaixin' wx:if='{{detail.is_praise==0}}'></text>
+    <text class='iconfont iconaixin1 back-color' wx:if='{{detail.is_praise==1}}'></text>
+    <text> {{detail.support_count}}</text>
+  </text>
+  <label bindtap='saveIsInput' data-id="{{id}}">       
+    <text>
+      <text class='iconfont iconxinxi'></text>
+      <text> {{detail.comment_count}}</text>
+    </text>
+  </label>
+  <text bindtap='clickShare'>
+    <text class='clock-footer-fenxiang'>分享</text>
+  </text>
+</view>
+
+<view wx:if='{{isShow}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog-btn">
+    <view>
+      <button class='ys-dialog-btn__del' wx:if='{{isDel}}' catchtap='delClick' data-clock_id='{{clock_id}}'>删除</button>
+      <button class='ys-dialog-btn__del' wx:if='{{!isDel}}' catchtap='reportClick'>举报</button>
+      <button class='ys-dialog-btn__cancel' catchtap='cancelClick'>取消</button>
+    </view>
+  </view>
+</view>
+
+<view wx:if='{{isReport}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog">
+    <view class="ys-dialog-title">举报原因
+      <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' catchtap='closeReport'/>
+    </view>
+    <view class='checkbox__box'>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox__list" wx:for="{{checkboxData}}" wx:key='{{index}}'>
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="ys-dialog-bottom">
+      <button bindtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+    </view>
+  </view>
+</view>
+
+
+<!-- 分享遮罩层 -->
+<view wx:if='{{isShare}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog-fenxiang">
+    <view>
+      <view class='ys-dialog-fenxiang__list'>
+
+        <button class='ys-dialog-fenxiang__list-item' open-type='share' catchtap='clickShareBtn'>
+          <image src='/img/detail/haoyou.png'/>
+          <view>微信好友</view>
+        </button>
+
+        <button class='ys-dialog-fenxiang__list-item'>
+          <image src='/img/detail/pengyouquan.png'/>
+          <view>朋友圈</view>
+        </button>
+
+      </view>
+      <button class='ys-dialog-fenxiang__cancel' catchtap='cancelClickShare'>取消</button>
+    </view>
+  </view>
+</view>

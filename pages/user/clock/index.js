@@ -8,25 +8,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    newsList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    that = this
+    console.log(options)
+    const data = {user_id:options.user_id,}
+    Util.request(Api.ClockRecords, data).then(res => {
+      this.setData({
+        newsList: res.data
+      })
+    });
+  },
+
+  /**
+    * 跳转到动态详情
+    */
+  gotoDetails: function (e) {
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `../../details/clockInDetails/index?id=${id}`,
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    Util.request(Api.ClockIn, {
-      clock_record_id: 1
-    }).then(res => {
-      console.log(res)
-    });
+    
   },
 
   /**

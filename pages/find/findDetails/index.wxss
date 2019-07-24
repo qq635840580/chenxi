@@ -1,3 +1,4 @@
+/* pages/find/findDetails/index.wxss */
 /* pages/details/clockInDetails/index.wxss */
 page {
   /* background: #fff; */
@@ -29,6 +30,10 @@ page {
 
 .habit-details-dynamic-one-img-total {
   display: inline-block;
+}
+
+.habit-details-dynamic-one-img-total-top {
+  margin-top: 14rpx;
 }
 
 .habit-details-dynamic-one-img-total-top view:nth-child(1) {

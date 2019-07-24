@@ -1,1 +1,137 @@
 /* pages/user/clock/index.wxss */
+/*时间轴*/
+
+/*外部容器*/
+.listview-container {
+  width: 90%;
+  margin: 50rpx auto 50rpx auto;
+}
+
+/*行样式*/
+.playlog-item {
+    display: flex;
+}
+
+/*时间轴*/
+.playlog-item .dotline {
+    width: 35px;
+    position: relative;
+}
+
+/*竖线*/
+.playlog-item .dotline .line {
+    width: 1px;
+    height: 100%;
+    background: #ccc;
+    position: absolute;
+    top: 0;
+    left: 15px; 
+}
+
+/*圆点*/
+.playlog-item .dotline .dot {
+    width: 11px;
+    height: 11px; 
+    background: #3ACC88;
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    border-radius: 50%; 
+}
+
+/*时间戳*/
+.playlog-item .dotline .time {
+    width: 100%;
+    position: absolute;
+    margin-top: 30px;
+    z-index: 99;
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+}
+
+/*右侧主体内容*/
+.playlog-item .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 3px 0;
+}
+
+/*章节部分*/
+.playlog-item .content .chapter {
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color: #444;
+  white-space: normal;
+  padding: 30rpx;
+  background: #F9F7E2;
+  display: block;
+  border-radius:10rpx 10rpx 0rpx 0rpx;
+}
+
+.content-image {
+  height: 290rpx;
+  background: #555;
+  border-radius:10rpx 10rpx 0rpx 0rpx;
+}
+
+.content-image image {
+  height: 290rpx;
+  width: 100%;
+  border-radius:10rpx 10rpx 0rpx 0rpx;
+}
+
+
+/*时间轴下侧天数和习惯*/
+.playlog-item .content .bottom-btn {
+  height: 96rpx;
+  background: #fff;
+  border-radius:0rpx 0rpx 10rpx 10rpx;
+}
+
+.playlog-item .content .bottom-btn text:nth-child(1) {
+  color:#3ACC88;
+  font-size: 30rpx;
+  font-weight: bold;
+  line-height: 96rpx;
+  padding-left: 20rpx;
+}
+
+.playlog-item .content .bottom-btn text:nth-child(2) {
+  color:#555;
+  font-size: 30rpx;
+  float: right;
+  line-height: 96rpx;
+  padding-right: 20rpx;
+}
+
+
+/*课程部分*/
+.playlog-item .content .course {
+  font-size: 28rpx;
+  line-height: 56rpx;
+  color: #999;
+}
+
+.habit-clock {
+  position: fixed;
+  bottom: 70rpx;
+  right: 4%;
+}
+
+.habit-clock .habit-clock-box {
+  width: 180rpx;
+  height: 76rpx;
+  background: #3ACC88;
+  border-radius: 38rpx;
+  vertical-align: top;
+  text-align: center;
+}
+
+.habit-clock .habit-clock-box text {
+  color: #fff;
+  line-height: 76rpx;
+  text-align: center;
+  font-size: 34rpx;
+}

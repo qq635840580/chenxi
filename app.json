@@ -34,7 +34,8 @@
     "pages/details/clock/index",
     "pages/find/choiceHabit/index",
     "pages/find/findNav/index",
-    "pages/homePage/index"
+    "pages/homePage/index",
+    "pages/find/findDetails/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

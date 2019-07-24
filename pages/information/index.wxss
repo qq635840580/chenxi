@@ -1,9 +1,21 @@
 /* pages/information/index.wxss */
+.weui-cells:after {
+  bottom: 0;
+  border: 0;
+}
+
+.weui-cells:before {
+  top: 0;
+  border-top: 1rpx solid #fff;
+}
+
 .weui-cell{
   padding: 28rpx 30rpx;
 }
+
 .weui-cell::before{
   left: 0;
+  border-color: #f2f3f5;
 }
 .weui-cell__hd{
   position: relative;

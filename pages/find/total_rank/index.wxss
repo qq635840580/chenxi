@@ -4,6 +4,7 @@
   font-family:PingFang-SC-Medium;
   line-height: 60rpx;
   padding: 0 30rpx;
+  margin-top: 110rpx;
 }
 .ranking-top-text text:nth-child(1) {
   float: left;

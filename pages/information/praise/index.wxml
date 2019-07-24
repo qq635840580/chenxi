@@ -7,10 +7,10 @@
     <view class='weui-cell__bd'>
       <view class='weui-cell__title'>
         {{item.user.nickname}} 
-        <view wx:if="{{item.user.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.user.age}}</view>
-        <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.user.age}}</view>
+        <!-- <view wx:if="{{item.user.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.user.age}}</view>
+        <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.user.age}}</view> -->
       </view>
-      <view class='weui-cell__desc'>{{item.update_time}}</view>
+      <view class='weui-cell__desc'>{{item.create_time}}</view>
     </view>
     <view class='weui-cell__ft'></view>
   </view>
@@ -18,7 +18,9 @@
     <view class='information__desc'>{{item.clock_content}}</view>
   </view>
   <navigator url="" class='weui-cell information-footer'>
-    <view class='weui-cell__bd'>坚持 <text class='weui-color__green'> 喝酒 </text>{{item.continuity_days}}天</view>
+    <view class='weui-cell__bd'>坚持 
+    <!-- <text class='weui-color__green'> 喝酒 </text> -->
+    {{item.continuity_days}}天</view>
     <view class='weui-cell__ft weui-cell__ft_in-access'></view>
   </navigator>
 </view>

@@ -24,23 +24,26 @@
         </view>
       </view>
       <view class='information-body'>
-        <view class='information__desc'>{{item.content}}</view>
-        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
-          <view class='information__desc_one_img'>
-            <image src='{{imgList.path}}' mode="aspectFill" data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' catchtap='viewImage'/>
-          </view>
-        </block>
-
-        <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length > 1}}" wx:key="{{index}}">
-            <view class='information__desc_img'>
-              <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}'/>
+        <view catchtap='gotoFindDetails' data-id='{{item.id}}'>
+          <view class='information__desc'>{{item.content}}</view>
+          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
+            <view class='information__desc_one_img'>
+              <image src='{{imgList.path}}' mode="aspectFill" data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' catchtap='viewImage'/>
             </view>
-        </block>
+          </block>
+
+          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length > 1}}" wx:key="{{index}}">
+              <view class='information__desc_img'>
+                <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}'/>
+              </view>
+          </block>
+        </view>
+        
 
         <view class='weui-well weui-flex'>
           <view class='weui-flex__item'>
             坚持
-            <text class='weui-color__green'> {{item.habits.name}} </text>{{item.continuity_days}}天
+            <text class='weui-color__green' data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'> {{item.habits.name}} </text>{{item.continuity_days}}天
           </view>
           <view>{{item.support_count}}人在坚持</view>
         </view>

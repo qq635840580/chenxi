@@ -297,6 +297,25 @@ Component({
         });
       });
     },
+    /**
+     * 跳转到动态的详情
+     */
+    gotoFindDetails: function (e) {
+      const id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: `../findDetails/index?id=${id}`,
+      })
+    },
+    
+    /**
+     * 跳转到习惯列表
+     */
+    gotoHabitDetails: function (e) {
+      const habit_id = e.currentTarget.dataset.habit_id;
+      wx.navigateTo({
+        url: `../../details/detailsNav/index?habit_id=${habit_id}`
+      })
+    },
   },
   // ...
 })

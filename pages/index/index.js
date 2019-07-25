@@ -18,11 +18,17 @@ Page({
    */
   onLoad: function (options) {
     that = this
-    Util.request(Api.HabitMyList).then(res => {
-      this.setData({
-        list: res.data
-      })
-    });
+    wx.getStorage({
+      key: 'uid',
+      success: function (res) {
+        const data = { user_id: res.data };
+        Util.request(Api.HabitMyList, data).then(res => {
+          that.setData({
+            list: res.data
+          })
+        });
+      },
+    })
   },
 
   /**

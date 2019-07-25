@@ -58,7 +58,7 @@
     <!-- 分享部分 -->
     <view class='habit-details-dynamic-one-img-bottom'>
       <view class='habit-details-dynamic-one-img-bottom-left'>
-        <text>{{detail.date}} {{detail.time}}</text>
+        <text>{{item.create_time}}</text>
       </view>
       <view class='habit-details-dynamic-one-img-bottom-right'>
           <text class='iconfont icongengduo' catchtap='clickMore' data-is_attention='{{detail.user.is_attention}}' data-clock_id='{{id}}'></text>

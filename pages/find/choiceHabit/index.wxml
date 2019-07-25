@@ -1,7 +1,7 @@
 <!--pages/find/choiceHabit/index.wxml-->
 <block wx:for="{{list}}" wx:key="id">
   <view class='weui-habit'>
-    <view class='weui-habit__hd'>
+    <view class='weui-habit__hd' data-habit_id='{{item.id}}' catchtap='gotoHabitDetails'>
       <image src='{{item.icon}}'></image>
     </view>
     <view class='weui-habit__bd'>
@@ -16,7 +16,8 @@
       </view>
     </view>
     <view class='weui-habit__ft'>
-      <button>加入</button>
+      <button wx:if='{{item.is_join==0}}' data-habit_id='{{item.id}}' catchtap='joinClick'>加入</button>
+      <text wx:if='{{item.is_join==1}}'>已加入</text>
     </view>
   </view>
 </block> 

@@ -115,6 +115,7 @@
 .habit-details-nav-top-btn {
   flex:1;
   margin-top: 15rpx;
+  background: #fff;
 }
 
 .habit-details-nav-top-btn image{
@@ -129,6 +130,7 @@
   font-size: 30rpx;
   color:#555;
   font-weight: bold;
+  line-height: 50rpx;
 }
 
 .habit-details-nav-line {
@@ -634,12 +636,12 @@ button.weui-btn1 {
 .ys-dialog-btn{
   position: fixed;
   z-index: 5000;
-  width: 90%;
+  width: 95%;
   /* max-width: 300px; */
-  bottom: -10%;
+  bottom: 0;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -5%);
+  transform: translate(-50%, -5%);
   text-align: center;
   border-radius: 16rpx;
   overflow: hidden;

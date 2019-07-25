@@ -1,5 +1,5 @@
 <!--pages/information/fans/index.wxml-->
-<view class='weui-information' wx:for="{{list}}" wx:key="id">
+<view class='weui-information' wx:for="{{list}}" wx:key="id" catchtap='gotoHomePage' data-uid='{{item.from_uid}}'>
   <view class='weui-cell information-head'>
     <view class='weui-cell__hd'>
       <image src='{{item.user.avatarUrl}}'></image>
@@ -7,10 +7,10 @@
     <view class='weui-cell__bd'>
       <view class='weui-cell__title'>
         {{item.user.nickname}} 
-        <view wx:if="{{item.user.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.user.age}}</view>
-        <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.user.age}}</view>
+        <!-- <view wx:if="{{item.user.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.user.age}}</view>
+        <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.user.age}}</view> -->
       </view>
-      <view class='weui-cell__desc'>{{item.update_time}}</view>
+      <view class='weui-cell__desc'>{{item.create_time}}</view>
     </view>
     <view class='weui-cell__ft'>
       <button class='weui-btn' size='mini' type="primary" hidden="{{item.is_attention != 2}}" data-id="{{item.user.id}}" bindtap='followSave'>+ 关注</button>

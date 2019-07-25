@@ -36,7 +36,7 @@ Page({
    */
   submitForm: function(e) {
     const params = e.detail.value
-    params.is_remind = Number(params.is_remind)
+    params.is_remind = Number(params.is_remind) ==0 ? '0': 1;
     params.is_public = Number(params.is_public)
 
     Util.request(Api.HabitSave, params, 'POST').then(res => {

@@ -16,7 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.fetchData();
+    console.log(options)
+    const data = {user_id: options.uid,}
+    this.fetchData(data);
   },
 
   /**
@@ -27,6 +29,35 @@ Page({
       this.setData({
         userInfo: res.data,
       })
+    });
+  },
+
+  /**
+   * 点击进入动态详情
+   */
+  gotoFindDetails:function(e) {
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `../find/findDetails/index?id=${id}`,
+    })
+  },
+
+  /**
+   * 跳转到习惯列表
+   */
+  gotoHabitDetails: function (e) {
+    const habit_id = e.currentTarget.dataset.habit_id;
+    wx.navigateTo({
+      url: `../details/detailsNav/index?habit_id=${habit_id}`
+    })
+  },
+
+  /**
+   * 点击返回按钮
+   */
+  goBack: function(e) {
+    wx.navigateBack({
+      delta: 1,
     });
   },
 

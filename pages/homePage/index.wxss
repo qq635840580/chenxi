@@ -10,6 +10,31 @@ page {
   background-color: #3acc88;
 }
 
+.page__back {
+  position: absolute;
+  top: 15%;
+  left: 5rpx;
+}
+
+.page__back image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.bg_block {
+  background: #3acc88;
+  height: 280rpx;
+  width: 100%;
+  z-index: 11;
+}
+
+.bg_white_block {
+  background: #fff;
+  height: 200rpx;
+  width: 100%;
+  z-index: 9;
+}
+
 /* .page__hd::after {
   position: absolute;
   bottom: -30rpx;
@@ -36,7 +61,7 @@ page {
   width: 166rpx;
   height: 166rpx;
   border-radius: 50%;
-  border: 5rpx solid #fff;
+  border: 7rpx solid #fff;
   vertical-align: top;
 }
 
@@ -125,6 +150,8 @@ page {
 .home-page .home-page__box .home-page__title {
   font-size: 32rpx;
   color: #212121;
+  font-weight: bold;
+  line-height: 26rpx;
 }
 
 .home-page .home-page__box .home-page__time {
@@ -157,4 +184,52 @@ page {
   font-size: 30rpx;
   line-height: 48rpx;
   color:#555;
+  overflow: hidden;
+}
+
+.home-page__list .home-page__list__li text {
+  padding: 20rpx;
+  display: inline-block;
+}
+
+.home-page__list .home-page__list__li image {
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.person-num {
+  width: 100%;
+  margin: 0 atuo;
+  text-align: center;
+}
+
+.person-num .person-num-box {
+  display: inline-block;
+  text-align: center;
+}
+
+.person-num .person-num-box text:nth-child(1) {
+  height: 2rpx;
+  background:#999;
+  width: 65rpx;
+  display: inline-block;
+  margin-bottom: 6rpx;
+  margin-right: 10rpx;
+}
+
+.person-num .person-num-box text:nth-child(2) {
+  color:#999;
+  font-size: 24rpx;
+  text-align: center;
+  display: inline-block;
+  line-height: 36rpx;
+}
+
+.person-num .person-num-box text:nth-child(3) {
+  height: 2rpx;
+  background:#999;
+  width: 65rpx;
+  display: inline-block;
+  margin-bottom: 6rpx;
+  margin-left: 10rpx;
 }

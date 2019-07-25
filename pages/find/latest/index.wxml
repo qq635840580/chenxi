@@ -10,7 +10,7 @@
           <view class='weui-cell__title'>
             {{item.user.nickname}}
           </view>
-          <view class='weui-cell__desc'>{{item.date}}  {{item.time}}</view>
+          <view class='weui-cell__desc'>{{item.create_time}}</view>
         </view>
         <view class='weui-cell__ft' wx:if='{{item.user.is_attention==0}}' bindtap='followHandler' data-uid='{{item.uid}}'>
           <button class='weui-btn' size='mini'>+ 关注</button>

@@ -34,11 +34,17 @@ Page({
     //     url: '/pages/login/index',
     //   })
     // }
-    Util.request(Api.MainPage).then(res => {
-      that.setData({
-        userInfo: res.data
-      })
-    });
+    wx.getStorage({
+      key: 'uid',
+      success: function (res) { 
+        const data = { user_id: res.data};
+        Util.request(Api.MainPage, data).then(res => {
+          that.setData({
+            userInfo: res.data
+          })
+        });
+      },
+    })
   },
 
   /**

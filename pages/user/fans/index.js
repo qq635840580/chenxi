@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    ltst: [],
   },
 
   /**
@@ -16,13 +16,32 @@ Page({
    */
   onLoad: function(options) {
     that = this
+    if (options.user_id) {
+      const data = { user_id: options.user_id };
+      that.fetchData(data)
+    } else {
+      wx.getStorage({
+        key: 'uid',
+        success: function (res) {
+          const data = { user_id: res.data };
+          that.fetchData(data)
+        },
+      })
+    } 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    Util.request(Api.MyFans).then(res => {
+    
+  },
+
+  /**
+   * 查询数据
+   */
+  fetchData:function(data) {
+    Util.request(Api.MyFans, data).then(res => {
       that.setData({
         list: res.data
       })

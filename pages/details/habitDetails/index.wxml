@@ -11,10 +11,10 @@
         <image src='/uploads/habit/chengyuan.png'/>
         <view>成员</view>
       </view>
-      <view class='habit-details-nav-top-btn' bindtap='openPerson'>
+      <button class='habit-details-nav-top-btn' open-type='share'>
         <image src='/uploads/habit/yaoqinghaoyou.png'/>
         <view>邀请好友</view>
-      </view>
+      </button>
       <view class='habit-details-nav-top-btn'  bindtap='gotoInstall'>
         <image src='/uploads/habit/shezhi.png'/>
         <view>设置</view>
@@ -38,7 +38,7 @@
           <view class='weui-cell__title'>
             {{item.user.nickname}}
           </view>
-          <view class='weui-cell__desc'>{{item.date}}  {{item.time}}</view>
+          <view class='weui-cell__desc'>{{item.create_time}}</view>
         </view>
         <view class='weui-cell__ft' wx:if='{{item.user.is_attention==0}}' catchtap='followHandler' data-uid='{{item.uid}}'>
           <view class='habit-details-dynamic-one-img-right'>

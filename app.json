@@ -35,7 +35,8 @@
     "pages/find/choiceHabit/index",
     "pages/find/findNav/index",
     "pages/homePage/index",
-    "pages/find/findDetails/index"
+    "pages/find/findDetails/index",
+    "pages/user/habit/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

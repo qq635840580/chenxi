@@ -12,7 +12,7 @@
 <block wx:for='{{list}}' wx:key='{{index}}'>
   <view class='person-list'>
     <view class='person-list-box'>
-      <view class='person-list-box-left' data-uid="{{item.uid}}" bindtap='gotoHomePage'>
+      <view class='person-list-box-left' data-uid="{{item.uid}}" catchtap='gotoHomePage'>
         <image src='{{item.user.avatarUrl}}'/>
         <text>{{item.user.nickname}}</text>
       </view>
@@ -28,7 +28,7 @@
       </view>
 
       <!-- 未关注 -->
-      <view class='person-list-box-right-guanzhu' wx:if="{{item.user.is_attention==0}}">
+      <view class='person-list-box-right-guanzhu' wx:if="{{item.user.is_attention==0}}" data-uid='{{item.uid}}' catchtap='attentClick'>
         <text class='iconfont icon-jiahao'>关注</text>
       </view>
       

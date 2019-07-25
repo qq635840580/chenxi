@@ -1,4 +1,4 @@
-/* pages/find/choiceHabit/index.wxss */
+/* pages/user/habit/index.wxss */
 
 .weui-habit__btn {
   font-size: 32rpx;
@@ -57,21 +57,6 @@
   border-radius: 28rpx;
   font-family:PingFang-SC-Medium;
 }
-
-.weui-habit__ft text {
-  width: 140rpx;
-  height: 56rpx;
-  background: #fff;
-  text-align: center;
-  line-height: 56rpx;
-  font-size: 28rpx;
-  color: #999;
-  border: 1rpx solid #999;
-  border-radius: 28rpx;
-  font-family:PingFang-SC-Medium;
-  padding: 9rpx 27rpx;
-}
-
 
 .weui-habit__title {
   padding-right:50rpx;

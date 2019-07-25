@@ -15,8 +15,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     const data = {user_id:options.user_id,}
+    this.fetchData(data)   
+  },
+
+  /**
+   * 数据查询
+   */
+  fetchData: function(data) {
     Util.request(Api.ClockRecords, data).then(res => {
       this.setData({
         newsList: res.data

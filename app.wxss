@@ -114,6 +114,12 @@ button::after{
   color: #999;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
 checkbox {
   width: 28rpx;
   height: 28rpx;

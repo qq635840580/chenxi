@@ -1,0 +1,24 @@
+<!--pages/user/habit/index.wxml-->
+<block wx:for="{{list}}" wx:key="id">
+  <view class='weui-habit'>
+    <view class='weui-habit__hd' data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'>
+      <image src='{{item.habit_icon}}'></image>
+    </view>
+    <view class='weui-habit__bd'>
+      <view class='weui-flex weui-habit__title'>
+        <view class='weui-flex__item'></view>
+      </view>
+      <view class='weui-flex weui-habit__desc'>
+        <view class='weui-habit__title'>
+          <view>{{item.habit.name}}</view>
+          <view>已坚持{{item.continuity_days}}天</view>
+        </view>
+      </view>
+    </view>
+    <view class='weui-habit__ft'>
+      <button wx:if='{{item.is_join==0}}'>加入</button>
+      <view wx:if='{{item.is_join==1}}'>已加入</view>
+    </view>
+  </view>
+</block> 
+

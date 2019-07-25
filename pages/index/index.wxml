@@ -9,7 +9,7 @@
       </view>
       <view class='weui-habit__bd'>
         <view class='weui-flex weui-habit__title'>
-          <view class='weui-flex__item'>{{item.habit_name}}</view>
+          <view class='weui-flex__item'>{{item.habit.name}}</view>
         </view>
         <view class='weui-flex weui-habit__desc'>
           <view style='padding-right:50rpx'>已坚持{{item.continuity_days}}天</view>

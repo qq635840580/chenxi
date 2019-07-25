@@ -10,6 +10,7 @@ Page({
   data: {
     list: [],
     total_user: 0,
+    habit_id: null,
   },
 
   /**
@@ -17,11 +18,33 @@ Page({
    */
   onLoad: function (options) {
     const data = { habit_id: options.habit_id};
+    this.setData({
+      habit_id: options.habit_id
+    })
+    this.fetchData(data)
+  },
+
+  /**
+   * 查询数据
+   */
+  fetchData: function(data) {
     Util.request(Api.HabitPerson, data).then(res => {
       this.setData({
         list: res.data.list,
         total_user: res.data.total_user,
       })
+    });
+  },
+
+  /**
+   * 点击关注
+   */
+  attentClick: function(e) {
+    // console.log(`触发`)
+    const data = { follow_id: e.currentTarget.dataset.uid, };
+    Util.request(Api.FollowSave, data).then(res => {
+      const datas = {habit_id: this.data.habit_id}
+      this.fetchData(datas)
     });
   },
 
@@ -34,6 +57,7 @@ Page({
       url: `../../homePage/index?uid=${uid}`,
     })
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

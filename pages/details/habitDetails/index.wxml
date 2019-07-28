@@ -40,7 +40,7 @@
           </view>
           <view class='weui-cell__desc'>{{item.create_time}}</view>
         </view>
-        <view class='weui-cell__ft' wx:if='{{item.user.is_attention==0}}' catchtap='followHandler' data-uid='{{item.uid}}'>
+        <view class='weui-cell__ft'>
           <view class='habit-details-dynamic-one-img-right'>
             <view>第{{item.continuity_days}}天</view>
           </view>
@@ -68,7 +68,7 @@
             <text class='iconfont iconaixin1 icon-back' wx:if="{{item.is_praise==1}}"></text>
             <text>{{item.support_count}}</text>
           </text>
-          <label bindtap='saveIsInput' data-id="{{item.id}}">       
+          <label data-id="{{item.id}}" catchtap='gotoClockInDetails'>       
             <text class='tool-pinglun'>
               <text class='iconfont iconxinxi pinglun-icon'></text>
               <text>{{item.comment_count}}</text>
@@ -81,7 +81,7 @@
       </view>
       <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
         <view wx:for="{{item.comment_data}}" wx:key="{{index}}" wx:for-item="comment">
-          <view class='information-footer-box' data-clockId='{{item.id}}' data-contentId='{{comment.id}}' bindtap='clickContent' >
+          <view class='information-footer-box' data-id="{{item.id}}" catchtap='gotoClockInDetails' >
             <text>{{comment.nickname}}：</text>
             <text>{{comment.content}}</text>
           </view>

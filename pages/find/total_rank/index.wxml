@@ -35,6 +35,7 @@
   <!-- 1、2、3名奖牌部分 -->
   <view class='ranking-medlas'>
     <image src='{{item.image}}' wx:if='{{item.image}}'/>
+    <text wx:if='{{!item.image}}'>{{index+1}}</text>
   </view>
   <!-- 头像部分 -->
   <view class='ranking-list-left-img'>

@@ -14,7 +14,7 @@
       <text class='clock-img-list-del' data-imgurl='{{item}}' data-index='{{index}}' bindtap='delImage'></text>
     </view>
   </block>
-  <image class='clock-img-add' src='/uploads/habit/zhanwei.png' wx:if="{{imgAry.length<9}}" bindtap="addImg"></image>
+  <image class='clock-img-add' src='/uploads/habit/zhanwei.png' wx:if="{{imgAry.length < 9}}" bindtap="addImg"></image>
 </view>
 
 <!-- 按钮 -->

@@ -233,3 +233,18 @@ page {
   margin-bottom: 6rpx;
   margin-left: 10rpx;
 }
+
+.home-page__footer {
+  font-size: 26rpx;
+  color: #999;
+  border-top: 1rpx solid #f2f3f5;
+  padding: 10rpx 30rpx;
+  vertical-align: top;
+}
+
+.home-page__footer image {
+  width: 23rpx;
+  height: 28rpx;
+  vertical-align: top;
+  margin-top: 5rpx;
+}

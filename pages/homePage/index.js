@@ -10,15 +10,33 @@ Page({
    */
   data: {
     userInfo: {},
+    isMy: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that = this;
     console.log(options)
-    const data = {user_id: options.uid,}
-    this.fetchData(data);
+    if(options.uid) {
+      console.log(`有`)
+      const data = { user_id: options.uid, }
+      this.fetchData(data);
+    } else {
+      console.log(`没有`)
+      wx.getStorage({
+        key: 'uid',
+        success: function (res) {
+          const data = { user_id: res.data };
+          that.setData({
+            user_id: res.data
+          })
+          that.fetchData(data)
+        },
+      })
+    }
+
   },
 
   /**

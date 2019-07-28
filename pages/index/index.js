@@ -8,27 +8,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[
-      
-    ]
+    list:[], //列表数据
+    user_id: null, //用户id
+    page: 1, // 页数
+    listRows: 10, //每页显示数量
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    that = this
-    wx.getStorage({
-      key: 'uid',
-      success: function (res) {
-        const data = { user_id: res.data };
-        Util.request(Api.HabitMyList, data).then(res => {
-          that.setData({
-            list: res.data
-          })
-        });
-      },
-    })
+    
+  },
+
+  /**
+   * 页面数据查询
+   */
+  fetchData() {
+    const data = {
+      user_id: this.data.user_id,
+      page: this.data.page,
+      listRows: this.data.listRows
+    };
+    Util.request(Api.HabitMyList, data).then(res => {
+      this.setData({
+        list: this.data.list.concat(res.data)
+      })
+    });
   },
 
   /**
@@ -42,7 +48,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.onLoad();
+    that = this
+    wx.getStorage({
+      key: 'uid',
+      success: function (res) {
+        that.setData({
+          user_id: res.data,
+          page: 1,
+          list: [],
+        })
+        that.fetchData();
+      },
+    })
   },
 
   /**
@@ -69,8 +86,11 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: function (e) {
+    this.setData({
+      page: this.data.page+1,
+    })
+    this.fetchData();
   },
 
   /**

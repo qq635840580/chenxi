@@ -1,5 +1,5 @@
 <!--pages/information/praise/index.wxml-->
-<view class='weui-information' wx:for="{{list}}" wx:key="id">
+<view class='weui-information' wx:for="{{list}}" wx:key="id" catchtap='gotoHomePage' data-uid='{{item.from_uid}}'>
   <view class='weui-cell information-head'>
     <view class='weui-cell__hd'>
       <image src='{{item.user.avatarUrl}}'></image>

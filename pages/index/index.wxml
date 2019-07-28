@@ -17,7 +17,7 @@
         </view>
       </view>
       <view class='weui-habit__ft'>
-        <icon hidden='{{!item.continuity_days}}' type='success' size='35' color='#3ACC88'></icon>
+        <icon hidden='{{item.is_clock==0}}' type='success' size='35' color='#3ACC88'></icon>
       </view>
     </navigator>
   </block>  

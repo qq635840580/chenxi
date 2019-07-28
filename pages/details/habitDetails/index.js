@@ -183,11 +183,15 @@ Component({
     //点击评论 input聚焦
     saveIsInput: function (e) {
       //每次先暂存点击评论的id，方便提交的时候获取到
-      this.setData({
-        isInput: true,
-        focusId: e.currentTarget.dataset.id,
+      // this.setData({
+      //   isInput: true,
+      //   focusId: e.currentTarget.dataset.id,
+      // })
+      // console.log(e)
+      const id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: `../clockInDetails/index?id=${id}`,
       })
-      console.log(e)
     },
     //评论触发的方法
     messageSubmit: function (e) {
@@ -200,6 +204,7 @@ Component({
       Util.request(Api.CommenteSave, data).then(res => {
         this.setData({
           isInput: false,
+          contentId: null,
         })
         this.fetchData()
       });
@@ -353,7 +358,7 @@ Component({
               wx.showToast({
                 title: '删除成功',
                 icon: 'success',
-                duration: 2000
+                duration: 3000,
               });
             });
           } else if (res.cancel) {
@@ -366,6 +371,9 @@ Component({
      * 点击举报确认
      */
     checkboxChange: function (e) {
+      this.setData({
+        reportContent: e.detail.value
+      });
       console.log('checkbox发生change事件，携带value值为：', e.detail.value)
     },
     /**
@@ -402,7 +410,7 @@ Component({
         wx.showToast({
           title: '举报成功',
           icon: 'success',
-          duration: 2000
+          duration: 3000,
         });
       });
     },

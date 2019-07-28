@@ -12,7 +12,7 @@ page {
 }
 
 .clock-text .clock-text-box textarea {
-  font-size: 28rpx;
+  font-size: 32rpx;
 }
 
 .clock-button {

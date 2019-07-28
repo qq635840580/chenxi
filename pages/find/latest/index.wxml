@@ -15,12 +15,12 @@
         <view class='weui-cell__ft' wx:if='{{item.user.is_attention==0}}' bindtap='followHandler' data-uid='{{item.uid}}'>
           <button class='weui-btn' size='mini'>+ 关注</button>
         </view>
-        <view class='weui-cell__ft' wx:if='{{item.user.is_attention==1}}'>
+        <!-- <view class='weui-cell__ft' wx:if='{{item.user.is_attention==1}}'>
           <button class='weui-btn1' size='mini'>已关注</button>
         </view>
         <view class='weui-cell__ft' wx:if='{{item.user.is_attention==2}}'>
           <button class='weui-btn1' size='mini'>互相关注</button>
-        </view>
+        </view> -->
       </view>
       <view class='information-body'>
         <view catchtap='gotoFindDetails' data-id='{{item.id}}'>
@@ -37,13 +37,13 @@
               </view>
           </block>
         </view>
-        <view class='weui-well weui-flex'>
+        <view class='weui-well weui-flex' data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'>
           <view class='weui-flex__item'>
             坚持
-            <text class='weui-color__green' data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'> {{item.habits.name}} </text>
+            <text class='weui-color__green'> {{item.habits.name}} </text>
             {{item.continuity_days}}天
           </view>
-          <view>{{item.support_count}}人在坚持</view>
+          <view>{{item.habits.total_user}}人在坚持</view>
         </view>
         <view class='weui-tool'>
           <text class='tool-dianzan' bindtap='support' data-id="{{item.id}}">
@@ -51,7 +51,7 @@
             <text class='iconfont iconaixin1 icon-back' wx:if="{{item.is_praise==1}}"></text>
             <text>{{item.support_count}}</text>
           </text>
-          <label bindtap='saveIsInput' data-id="{{item.id}}">       
+          <label catchtap='gotoFindDetails' data-id='{{item.id}}'>       
             <text class='tool-pinglun'>
               <text class='iconfont iconxinxi pinglun-icon'></text>
               <text>{{item.comment_count}}</text>
@@ -63,7 +63,7 @@
       </view>
       <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
         <view wx:for="{{item.comment_data}}" wx:key="{{index}}" wx:for-item="comment">
-          <view class='information-footer-box' data-clockId='{{item.id}}' data-contentId='{{comment.id}}' bindtap='clickContent' >
+          <view class='information-footer-box' catchtap='gotoFindDetails' data-id="{{item.id}}" >
             <text>{{comment.nickname}}：</text>
             <text>{{comment.content}}</text>
           </view>

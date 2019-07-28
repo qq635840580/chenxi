@@ -10,7 +10,7 @@
         <text>打卡统计</text>
       </view>
       <!-- 右侧 -->
-      <view bindtap='gotoClock'>
+      <view bindtap='gotoClockIn'>
         <text>已坚持{{continuity_days}}天</text>
         <image src='/img/myHabit/chakan.png'/>
       </view>
@@ -82,6 +82,16 @@
       </view>
     </view>
   </block>
+  <!-- <view class="playlog-item">
+    <view class="dotline">
+      <view class="line"></view>
+      <view class="dot"></view>
+    </view>
+    <view class="content">
+      <text class="course">2019-1-1-1-</text>
+      <text class='first-clock'>第1天</text>
+    </view>
+  </view> -->
 </view>
 
 <!-- 打卡 -->

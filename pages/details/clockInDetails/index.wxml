@@ -20,12 +20,12 @@
       <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==0}}' data-uid='{{detail.uid}}' bindtap='followHandler'>
         <text class='iconfont icon-jiahao focus-on'>+关注</text>
       </view>
-      <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==1}}'>
+      <!-- <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==1}}'>
         <text class='focus-on1'>已关注</text>
       </view>
       <view class='habit-details-dynamic-one-img-right'  wx:if='{{detail.user.is_attention==2}}'>
         <text class='focus-on1'>互相关注</text>
-      </view>
+      </view> -->
     </view>
     <!-- 内容部分 -->
     <view class='habit-details-dynamic-one-img-text'>
@@ -60,13 +60,17 @@
     <!-- 分享部分 -->
     <view class='habit-details-dynamic-one-img-bottom'>
       <view class='habit-details-dynamic-one-img-bottom-left'>
-        <text>{{item.create_time}}</text>
+        <text>{{detail.create_time}}</text>
       </view>
       <view class='habit-details-dynamic-one-img-bottom-right'>
           <text class='iconfont icongengduo' catchtap='clickMore' data-is_attention='{{detail.user.is_attention}}' data-clock_id='{{id}}'></text>
       </view>
     </view>
 </view>
+</view>
+
+<view class='clock-details-block'>
+
 </view>
 
 <!-- 点赞和评论数量部分 -->
@@ -94,14 +98,22 @@
           <text>{{create_time}}</text>
         </view>
         <!-- 评论内容 -->
-        <view class='clock-in-details-text-comments-right-text'>
+        <view class='clock-in-details-text-comments-right-text' data-contentid='{{item.id}}' bindtap='saveIsInput'>
           {{item.content}}
         </view>
         <!-- 回复区域 -->
-        <view class='clock-in-details-text-comments-right-reply'>
-          <view class='clock-in-details-text-comments-right-reply-box'>
-            <text>姓名：</text>
-          <text>回复内容回复内容回复内容回复内容回复内容回复内容回复内容</text>
+        <view class='clock-in-details-text-comments-right-reply' wx:if='{{item.reply.length>0}}' wx:for='{{item.reply}}' wx:for-item='commentList' wx:key="{{index}}">
+          <view class='clock-in-details-text-comments-right-reply-box' catchtap=''>
+            <view catchtap='saveIsInput' data-contentid='{{commentList.id}}'>
+              <text>{{commentList.nickname}}：</text>
+              {{commentList.content}}
+            </view>
+            <block wx:if='{{commentList.third.length > 0}}' wx:for='{{commentList.third}}' wx:for-item='thirdList' wx:key='{{index}}'>
+            <view>
+              <text>{{thirdList.nickname}}<text style='color:#555'>回复</text>：{{commentList.nickname}}</text>
+              {{thirdList.content}}
+            </view>
+            </block>
           </view>
         </view>
       </view>
@@ -111,9 +123,16 @@
 </block>
 
 
-<!-- 点击评论部分 -->
+<!-- 点击评论部分  -->
 <view class='pinglun-input' wx:if='{{isInput}}'>
-  <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindblur='blurHandler'/>
+
+  <view>
+    <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindinput='saveInputVal'/>
+  </view>
+
+  <view data-id='{{focusId}}' data-contentid='{{contentId}}' catchtap='publicHandler'>
+    <text>发表</text>
+  </view>
 </view>
 
 

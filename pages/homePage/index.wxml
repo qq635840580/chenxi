@@ -46,7 +46,7 @@
       <view class='home-page__title' data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'>{{item.habit_name}}</view>
       <view data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'>
         <view class='home-page__time'>
-          <text>2018/10/15-2019/01/01</text>
+          <text>{{item.start}}-{{item.end}}</text>
           <text>共坚持了{{item.continuity_days}}天</text>
         </view> 
         <view class='home-page__right'>
@@ -63,6 +63,10 @@
           </view>
         </block>
       </view>
+    </view>
+    <view class='home-page__footer' wx:if='{{item.is_public==0}}'>
+      <image src='/img/user/suo.png'/>
+      仅自己可见
     </view>
   </view>
 </block>

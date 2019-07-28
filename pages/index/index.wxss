@@ -45,6 +45,10 @@
   color: #999;
 }
 
+.weui-loadmore_line {
+  border-top: 2rpx solid #b2b2b2;
+}
+
 .weui-loadmore__tips {
   color: #b2b2b2;
 }

@@ -38,8 +38,9 @@ Page({
       follow_id: e.currentTarget.dataset.id
     }).then(res => {
       wx.showToast({
-        title: res.msg,
-        icon: 'none'
+        title: '关注成功',
+        icon: 'success',
+        duration: 3000,
       })
       that.onShow()
     });

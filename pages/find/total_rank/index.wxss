@@ -119,6 +119,11 @@
   margin-left: 30rpx;
   vertical-align: top;
   width: 50rpx;
+  height: 64rpx;
+  line-height: 128rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #555;
 }
 
 .ranking-list .ranking-medlas image {

@@ -25,7 +25,7 @@
     </view>
     <!-- 姓名年龄部分 -->
     <view class='ranking-me-left-name'>
-      <view>{{weekMe.user.nickname}}周</view>
+      <view>{{weekMe.user.nickname}}</view>
     </view>
     <!-- 点赞部分 -->
     <view class='ranking-me-right' data-id='{{weekMe.id}}' data-type='5'  bindtap='pariseClick'>
@@ -48,8 +48,9 @@
   <block wx:for="{{weekList}}" wx:key='id'>
     <view class='ranking-me ranking-list'>
       <!-- 1、2、3名奖牌部分 -->
-      <view class='ranking-medlas' wx:if="{{item.image}}">
-        <image src='{{item.image}}'/>
+      <view class='ranking-medlas'>
+        <image src='{{item.image}}' wx:if="{{item.image}}"/>
+        <text wx:if="{{!item.image}}">{{index+1}}</text>
       </view>
       <!-- 头像部分 -->
       <view class='ranking-list-left-img'>
@@ -88,7 +89,7 @@
     </view>
     <!-- 姓名年龄部分 -->
     <view class='ranking-me-left-name'>
-      <view>{{monthMe.user.nickname}}月</view>
+      <view>{{monthMe.user.nickname}}</view>
     </view>
     <!-- 点赞部分 -->
     <view class='ranking-me-right' data-id='{{monthMe.id}}' data-type='6'    bindtap='pariseClick'>
@@ -111,8 +112,9 @@
   <block wx:for="{{monthList}}" wx:key='id'>
     <view class='ranking-me ranking-list'>
       <!-- 1、2、3名奖牌部分 -->
-      <view class='ranking-medlas' wx:if="{{item.image}}">
-        <image src='{{item.image}}'/>
+      <view class='ranking-medlas'>
+        <image src='{{item.image}}' wx:if="{{item.image}}"/>
+        <text wx:if="{{!item.image}}">{{index+1}}</text>
       </view>
       <!-- 头像部分 -->
       <view class='ranking-list-left-img'>
@@ -151,7 +153,7 @@
     </view>
     <!-- 姓名年龄部分 -->
     <view class='ranking-me-left-name'>
-      <view>{{yearMe.user.nickname}}年</view>
+      <view>{{yearMe.user.nickname}}</view>
     </view>
     <!-- 点赞部分 -->
     <view class='ranking-me-right'  data-id='{{yearMe.id}}'  data-type='7'  bindtap='pariseClick'>
@@ -174,8 +176,9 @@
   <block wx:for="{{yearList}}" wx:key='id'>
     <view class='ranking-me ranking-list'>
       <!-- 1、2、3名奖牌部分 -->
-      <view class='ranking-medlas' wx:if="{{item.image}}">
-        <image src='{{item.image}}'/>
+      <view class='ranking-medlas'>
+        <image src='{{item.image}}' wx:if="{{item.image}}"/>
+        <text wx:if="{{!item.image}}">{{index+1}}</text>
       </view>
       <!-- 头像部分 -->
       <view class='ranking-list-left-img'>

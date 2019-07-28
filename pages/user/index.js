@@ -48,11 +48,31 @@ Page({
   },
 
   /**
+   * 去往个人首页
+   */
+  gotoHomePage: function (e) {
+    console.log(e)
+    const uid = e.currentTarget.dataset.uid;
+    wx.navigateTo({
+      url: `../homePage/index`,
+    })
+  },
+
+  /**
    * 点击关联小程序
    */
   associatedClick: function(e) {
     this.setData({
       isShow: true,
+    })
+  },
+
+  /**
+   * 关闭关联小程序
+   */
+  closeShow: function(e) {
+    this.setData({
+      isShow: false,
     })
   },
 
@@ -70,7 +90,8 @@ Page({
               isShow: false,
             });
             wx.showToast({
-              title: '复制成功'
+              title: '复制成功',
+              duration: 3000,
             })
           }
         })

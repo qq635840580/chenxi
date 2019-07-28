@@ -1,7 +1,26 @@
 /* pages/user/concern/index.wxss */
+.weui-cells::before{
+  left: 0;
+  top: 0;
+  border-top: 1rpx solid #fff;
+}
+
 .weui-cell::before{
   left: 0;
+  top: 0;
+  border-top: 1rpx solid #fff;
+  border-bottom: 1rpx solid #f2f3f5;
 }
+
+.weui-cells::after {
+  bottom: 0;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
+.weui-cell {
+  padding: 30rpx;
+}
+
 .weui-cell .weui-cell__hd>image {
   width: 80rpx;
   height: 80rpx;

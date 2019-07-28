@@ -78,7 +78,7 @@ Page({
     })
   },
 
-  gotoClock:() => {
+  gotoClockIn:function() {
     wx.navigateTo({
       url: '../clockIn/index',
     })
@@ -130,15 +130,7 @@ Component({
         });
       });
     },
-    /**
-     * 跳转到月打卡详情
-     */
-    gotoClock: function() {
-      const habit_id = this.data.habit_id;
-      wx.navigateTo({
-        url: `../clockIn/index?habit_id=${habit_id}`,
-      })
-    },
+    
     /**
      * 跳转到动态详情
      */
@@ -157,6 +149,16 @@ Component({
         url: '../clock/index?habit_id=' + habit_id,
       })
     },
+    /**
+     * 跳转到打卡坚持
+     */
+    gotoClockIn: function () {
+      const habit_id = this.data.habit_id;
+      wx.navigateTo({
+        url: '../clockIn/index?habit_id=' + habit_id,
+      })
+    },
+
   },
   // ...
 })

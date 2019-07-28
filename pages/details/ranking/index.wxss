@@ -118,6 +118,7 @@
   font-size: 28rpx;
   color: #555;
   margin-top: 18rpx;
+  font-weight: bold;
 }
 
 .ranking-me .ranking-me-left-name view:nth-child(2) {
@@ -178,10 +179,16 @@
   display: inline-block;
   margin-left: 30rpx;
   vertical-align: top;
+  width: 48rpx;
+  height: 64rpx;
+  line-height: 128rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #555;
 }
 
 .ranking-list .ranking-medlas image {
-  width: 48rpx;
+  width: 50rpx;
   height: 64rpx;
   vertical-align: top;
   margin-top: 30rpx;

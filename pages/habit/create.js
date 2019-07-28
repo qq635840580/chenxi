@@ -37,7 +37,7 @@ Page({
   submitForm: function(e) {
     const params = e.detail.value
     params.is_remind = Number(params.is_remind) ==0 ? '0': 1;
-    params.is_public = Number(params.is_public)
+    params.is_public = Number(params.is_remind) == 0 ? '0' : 1;
 
     Util.request(Api.HabitSave, params, 'POST').then(res => {
       if (res.code === '200') {
@@ -50,7 +50,8 @@ Page({
       } else {
         wx.showToast({
           title: res.msg,
-          icon: 'none'
+          icon: 'none',
+          duration: 3000,
         })
       }
     });

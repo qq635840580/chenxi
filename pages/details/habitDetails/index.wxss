@@ -3,17 +3,17 @@
 
 @font-face {
   font-family: 'iconfont';  /* project id 1282975 */
-  src: url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.eot');
-  src: url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1282975_l2ep9pkdjnn.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1282975_g2n3azsdhlq.eot');
+  src: url('//at.alicdn.com/t/font_1282975_g2n3azsdhlq.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1282975_g2n3azsdhlq.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1282975_g2n3azsdhlq.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1282975_g2n3azsdhlq.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1282975_g2n3azsdhlq.svg#iconfont') format('svg');
 }
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 30rpx;
+  font-size: 36rpx;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,11 +24,11 @@
 }
 
 .iconxinxi:before {
-  content: "\e612";
+  content: "\e62b";
 }
 
 .iconaixin:before {
-  content: "\e617";
+  content: "\e628";
 }
 
 .iconshoucang:before {
@@ -36,7 +36,7 @@
 }
 
 .iconfenxiang:before {
-  content: "\e61b";
+  content: "\e62a";
 }
 
 .iconxinxi1:before {
@@ -44,7 +44,7 @@
 }
 
 .iconaixin1:before {
-  content: "\e635";
+  content: "\e627";
 }
 
 .habit-details-top{
@@ -103,7 +103,7 @@
   width: 92%;
   margin: auto;
   background: #fff;
-  margin-top: 140rpx;
+  margin-top: 120rpx;
   border-radius: 10rpx;
 }
 
@@ -172,7 +172,6 @@
 
 .habit-nav-color {
   color:#3ACC88;
-  font-size: 38rpx;
 }
 
 .habit-details-dynamic {
@@ -332,6 +331,7 @@
   border-radius: 38rpx;
   vertical-align: top;
   text-align: center;
+  box-shadow: 0 0 30rpx #3ACC88;
 }
 
 .habit-clock .habit-clock-box text {
@@ -425,8 +425,9 @@
 }
 
 .information-head .weui-cell__title {
-  font-size: 28rpx;
+  font-size: 30rpx;
   color: #555;
+  font-weight: bold;
 }
 
 .information-head .weui-badge {
@@ -567,7 +568,7 @@ button.weui-btn1 {
   background:#fff;
   color:#999;
   padding:0;
-  line-height:23rpx;
+  line-height: 36rpx;
 }
 
 .pinglun-icon {

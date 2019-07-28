@@ -52,6 +52,11 @@ Page({
   addClick:function() {
     const data = {habit_id: this.data.habit_id};
     Util.request(Api.HabitJoin, data).then(res => {
+      wx.showToast({
+        title: '加入成功',
+        icon: 'success',
+        duration: 3000,
+      });
       this.onLoad(this.data.loadOptions)
     });
   },

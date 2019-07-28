@@ -19,12 +19,20 @@ Page({
     if (options.user_id) {
       const data = { user_id: options.user_id };
       that.fetchData(data)
+      //设置动态标题
+      wx.setNavigationBarTitle({
+        title: 'TA的关注'
+      })
     } else {
       wx.getStorage({
         key: 'uid',
         success: function (res) {
           const data = { user_id: res.data };
           that.fetchData(data)
+          //设置动态标题
+          wx.setNavigationBarTitle({
+            title: '我的关注'
+          })
         },
       })
     } 
@@ -58,9 +66,19 @@ Page({
     }).then(res => {
       wx.showToast({
         title: res.msg,
-        icon: 'none'
+        icon: '关注成功',
+        duration: 3000,
       })
       that.onShow()
     });
-  }
+  },
+  /**
+   * 点击跳转到个人主页
+   */
+  gotoHomePage: function (e) {
+    const uid = e.currentTarget.dataset.uid;
+    wx.navigateTo({
+      url: `../../homePage/index?uid=${uid}`,
+    })
+  },
 })

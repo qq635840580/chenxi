@@ -73,27 +73,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  showInput: function () {
-    this.setData({
-      inputShowed: true
-    });
-  },
-  hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
-  },
-  clearInput: function () {
-    this.setData({
-      inputVal: ""
-    });
-  },
-  inputTyping: function (e) {
-    this.setData({
-      inputVal: e.detail.value
-    });
-  },
+  
   gotoHabit: () => {
     wx.navigateTo({
       url: '../choiceHabit/index',
@@ -236,6 +216,11 @@ Component({
     followHandler: function (e) {
       const data = { follow_id: e.currentTarget.dataset.uid, };
       Util.request(Api.FollowSave, data).then(res => {
+        wx.showToast({
+          title: '关注成功',
+          icon: 'success',
+          duration: 3000,
+        });
         this.fetchData()
       });
     },
@@ -304,7 +289,7 @@ Component({
               wx.showToast({
                 title: '删除成功',
                 icon: 'success',
-                duration: 2000
+                duration: 3000,
               });
             });
           } else if (res.cancel) {
@@ -355,7 +340,7 @@ Component({
         wx.showToast({
           title: '举报成功',
           icon: 'success',
-          duration: 2000
+          duration: 3000,
         });
       });
     },
@@ -376,6 +361,35 @@ Component({
       wx.navigateTo({
         url: `../../details/detailsNav/index?habit_id=${habit_id}`
       })
+    },
+
+    gotoHabitList:function() {
+      console.log('a')
+      wx.navigateTo({
+        url: `../../index/search`
+      })
+    },
+
+    showInput: function () {
+      this.setData({
+        inputShowed: true
+      });
+    },
+    hideInput: function () {
+      this.setData({
+        inputVal: "",
+        inputShowed: false
+      });
+    },
+    clearInput: function () {
+      this.setData({
+        inputVal: ""
+      });
+    },
+    inputTyping: function (e) {
+      this.setData({
+        inputVal: e.detail.value
+      });
     },
   },
   // ...

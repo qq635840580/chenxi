@@ -9,6 +9,7 @@ Page({
    */
   data: {
     ltst: [],
+    user_id: null,
   },
 
   /**
@@ -18,16 +19,38 @@ Page({
     that = this
     if (options.user_id) {
       const data = { user_id: options.user_id };
-      that.fetchData(data)
+      that.setData({
+        user_id: options.user_id
+      })
+      that.fetchData(data);
+      wx.setNavigationBarTitle({
+        title: 'TA的粉丝'
+      })
     } else {
       wx.getStorage({
         key: 'uid',
         success: function (res) {
           const data = { user_id: res.data };
+          that.setData({
+            user_id: res.data
+          })
           that.fetchData(data)
+          wx.setNavigationBarTitle({
+            title: '我的粉丝'
+          })
         },
       })
     } 
+  },
+
+  /**
+   * 点击跳转到个人主页
+   */
+  gotoHomePage: function (e) {
+    const uid = e.currentTarget.dataset.uid;
+    wx.navigateTo({
+      url: `../../homePage/index?uid=${uid}`,
+    })
   },
 
   /**
@@ -57,10 +80,12 @@ Page({
       follow_id: e.currentTarget.dataset.id
     }).then(res => {
       wx.showToast({
-        title: res.msg,
-        icon: 'none'
+        title: 关注成功,
+        icon: 'success',
+        duration: 3000,
       })
-      that.onShow()
+      const data = {user_id: that.data.user_id};
+      that.fetchData(data)
     });
   }
 })

@@ -8,12 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail: null,
-    id: null,
-    isShow: false,
-    isDel: false,
-    clock_id: null,
-    checkboxData: [
+    detail: null, //页面详细信息
+    id: null, //页面id
+    isShow: false,  //是否展示遮罩层（删除、举报）
+    isDel: false, //是否点击删除
+    clock_id: null, //
+    checkboxData: [ //举报详细信息
       { name: '0', value: '色情低俗' },
       { name: '1', value: '不友善行为', },
       { name: '2', value: '涉政敏感' },
@@ -22,9 +22,11 @@ Page({
       { name: '5', value: '侵权盗用' },
       // { name: '6', value: '其他' },
     ],
-    isReport: false,
-    reportContent: null,
-    isShare: false,
+    isReport: false,  //举报层是否展示
+    reportContent: null,  //举报复选框值内容
+    isShare: false, //是否点击分享层
+    msgVal: null, //存储评论框值
+    contentId: null,  //如果是回复别人的评论 存储这条评论的id
   },
 
   /**
@@ -64,21 +66,23 @@ Page({
     //每次先暂存点击评论的id，方便提交的时候获取到
     this.setData({
       isInput: true,
-      focusId: e.currentTarget.dataset.id,
+      contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
     })
     console.log(e)
   },
+
   //评论触发的方法
   messageSubmit: function (e) {
     const datas = { clock_record_id: this.data.id };
     const data = {
-      clock_record_id: e.currentTarget.dataset.id,
+      clock_record_id: this.data.id,
       content: e.detail.value,
       parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({
         isInput: false,
+        contentId: null,
       })
       this.fetchData(datas)
     });
@@ -94,6 +98,8 @@ Page({
       isInput: true,
     })
   },
+
+
   /**
    * 失去焦点
    */
@@ -102,6 +108,36 @@ Page({
       isInput: false,
     })
   },
+
+  /**
+   * input框输入值的存储
+   */
+  saveInputVal: function (e) {
+    this.setData({
+      msgVal: e.detail.value
+    })
+  },
+
+  /**
+  * 增加发表按钮评论
+  */
+  publicHandler: function (e) {
+    console.log(e)
+    const datas = { clock_record_id: this.data.id };
+    const data = {
+      clock_record_id: this.data.id,
+      content: this.data.msgVal,
+      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
+    };
+    Util.request(Api.CommenteSave, data).then(res => {
+      this.setData({
+        isInput: false,
+        contentId: null,
+      })
+      this.fetchData(datas)
+    });
+  },
+
   /**
    * 关注
    */
@@ -162,7 +198,7 @@ Page({
             wx.showToast({
               title: '删除成功',
               icon: 'success',
-              duration: 2000
+              duration: 3000,
             });
             wx.navigateBack({
               delta: 1,
@@ -217,7 +253,7 @@ Page({
       wx.showToast({
         title: '举报成功',
         icon: 'success',
-        duration: 2000
+        duration: 3000,
       });
     });
   },

@@ -1,12 +1,25 @@
 /* pages/user/contact/index.wxss */
 
-.weui-cells {
-  font-size: 30rpx;
+.weui-cells::before{
+  left: 0;
+  top: 0;
+  border-top: 1rpx solid #fff;
 }
 
-.weui-cell::before {
+.weui-cell::before{
   left: 0;
-  border-color: #f2f3f5;
+  top: 0;
+  border-top: 1rpx solid #fff;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
+.weui-cells::after {
+  bottom: 0;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
+.weui-cells {
+  font-size: 30rpx;
 }
 
 .weui-cell__hd>image {

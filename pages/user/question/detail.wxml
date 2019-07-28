@@ -2,7 +2,8 @@
 <view class="page__title">{{title}}</view>
 <view class="weui-article">
   <text class="weui-article__section">
-    {{content}}
+  <rich-text nodes="{{content}}"></rich-text>
+    <!-- {{content}} -->
     <!-- <view class="weui-article__p">
       1.小程序内无法支付时，可通过微信进行充值,关注“晨夕习惯”公众号，对应充值金额。可通过微信进行充值,关注“晨夕习惯”公众号，
     </view> -->

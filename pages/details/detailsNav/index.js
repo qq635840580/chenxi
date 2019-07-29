@@ -60,6 +60,7 @@ Page({
       this.onLoad(this.data.loadOptions)
       //加入成功以后给一个表示 返回首页判断是否刷新
       wx.setStorageSync('isJoin', true)
+      this.selectComponent('#dynamic').fetchData();
     });
   },
 
@@ -67,7 +68,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

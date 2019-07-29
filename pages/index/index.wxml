@@ -28,7 +28,7 @@
     </view>
   </view>
 
-  <view class='weui-nothing' wx:if="{{list.length==0}}">
+  <view class='weui-nothing' wx:if="{{isNull}}">
     <image src='/img/nothing.png' mode='widthFix'></image>
     <view>自律改变习惯</view>
     <view>快去添加一个习惯吧</view>

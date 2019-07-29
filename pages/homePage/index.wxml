@@ -1,9 +1,9 @@
 <!--pages/homePage/index.wxml-->
 
 <view class='page__hd'>
-  <view class='page__back' catchtap='goBack'>
+  <!-- <view class='page__back' catchtap='goBack'>
     <image src='/img/user/back.png' />
-  </view>
+  </view> -->
   <view class='bg_block'>
   
   </view>
@@ -13,7 +13,7 @@
   <view class='user'>
     <image class='user_avatar' src='{{userInfo.avatarUrl}}'></image>
     <view class='user_name'>{{userInfo.nickname}}</view>
-    <view class='user_info'>遇到更好的自己</view>
+    <view class='user_info'>{{userInfo.sign}}</view>
   </view>
 </view>
 

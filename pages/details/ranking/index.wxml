@@ -19,6 +19,9 @@
 <block wx:if="{{isWeek && week}}">
   <!-- 排行榜本人 -->
   <view class='ranking-me ranking-bottom'>
+    <view class='ranking-medlas'>
+      <text>{{weekMe.sort}}</text>
+    </view>
     <!-- 头像部分 -->
     <view class='ranking-me-left-img'>
       <image src='{{weekMe.user.avatarUrl}}'/>

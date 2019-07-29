@@ -34,12 +34,12 @@
       <!-- 图片区域 -->
       <view class='habit-details-dynamic-one-img-text-one-img' wx:if='{{detail.clock_record_image.length==1}}'>
         <block wx:for="{{detail.clock_record_image}}" wx:key='{{index}}'>
-          <image src='{{item.path}}' mode="aspectFill"/>
+          <image src='{{item.path}}' mode="aspectFill" data-imgcurrent='{{item.path}}' data-imglist='{{detail.clock_record_image}}' catchtap='viewImage'/>
         </block>
       </view>
       <view class='habit-details-dynamic-one-img-text-desc-img' wx:if='{{detail.clock_record_image.length>1}}'>
         <block wx:for="{{detail.clock_record_image}}" wx:key='{{index}}'>
-          <image src='{{item.path}}' mode="aspectFill"/>
+          <image src='{{item.path}}' mode="aspectFill" data-imgcurrent='{{item.path}}' data-imglist='{{detail.clock_record_image}}' catchtap='viewImage'/>
         </block>
       </view>
     </view>
@@ -197,10 +197,10 @@
           <view>微信好友</view>
         </button>
 
-        <button class='ys-dialog-fenxiang__list-item'>
+        <!-- <button class='ys-dialog-fenxiang__list-item'>
           <image src='/img/detail/pengyouquan.png'/>
           <view>朋友圈</view>
-        </button>
+        </button> -->
 
       </view>
       <button class='ys-dialog-fenxiang__cancel' catchtap='cancelClickShare'>取消</button>

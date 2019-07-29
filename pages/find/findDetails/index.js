@@ -160,6 +160,22 @@ Page({
   },
 
   /**
+    * 点击图片 查看全屏图片
+    */
+  viewImage: function (e) {
+    const cueerntImg = e.currentTarget.dataset.imgcurrent;
+    let imgList = e.currentTarget.dataset.imglist;
+    let newImgList = [];
+    imgList.forEach(item => {
+      newImgList.push(item.path)
+    })
+    wx.previewImage({
+      current: cueerntImg, // 当前显示图片的http链接
+      urls: newImgList // 需要预览的图片http链接列表
+    })
+  },
+
+  /**
      * 点击更多 存储起来当前点击的id 赋值给删除按钮
      */
   clickMore: function (e) {

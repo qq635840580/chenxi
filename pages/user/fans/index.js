@@ -80,7 +80,7 @@ Page({
       follow_id: e.currentTarget.dataset.id
     }).then(res => {
       wx.showToast({
-        title: 关注成功,
+        title: '关注成功',
         icon: 'success',
         duration: 3000,
       })

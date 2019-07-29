@@ -18,6 +18,7 @@ Page({
     checkboxData: [],
     isReport :true,
     is_clock: 0,
+    is_join: 0,
   },
 
   /**
@@ -164,6 +165,7 @@ Component({
           total_clock: res.data.total_clock,
           habitName: res.data.name,
           is_clock: res.data.is_clock,
+          is_join: res.data.is_join,
         });
       });
     },

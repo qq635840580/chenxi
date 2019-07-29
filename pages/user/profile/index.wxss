@@ -30,3 +30,16 @@
   vertical-align: middle;
   border-radius: 50%
 }
+
+.weui__buttons {
+  width: 70%;
+  margin: 40rpx auto 0 auto;
+}
+
+.weui__buttons button {
+  background: #3ACC88;
+  color: white;
+  font: 36rpx;
+  font-weight: bold;
+  border-radius: 44rpx;
+}

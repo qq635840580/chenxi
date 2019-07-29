@@ -96,7 +96,7 @@
 
 .ranking-me .ranking-me-left-img {
   display: inline-block;
-  margin-left: 100rpx;
+  margin-left: 22rpx;
   vertical-align: top;
   margin-top: 20rpx;
 }
@@ -173,6 +173,18 @@
 .ranking-list {
   /* margin-top: 20rpx; */
   border-bottom: 1rpx solid #f2f3f5;
+}
+
+.ranking-me .ranking-medlas {
+  display: inline-block;
+  margin-left: 30rpx;
+  vertical-align: top;
+  width: 48rpx;
+  height: 64rpx;
+  line-height: 128rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #555;
 }
 
 .ranking-list .ranking-medlas {

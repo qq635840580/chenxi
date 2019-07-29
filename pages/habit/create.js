@@ -41,8 +41,10 @@ Page({
 
     Util.request(Api.HabitSave, params, 'POST').then(res => {
       if (res.code === '200') {
+        //创建成功以后给一个表示 返回首页判断是否刷新
+        wx.setStorageSync('isJoin', true)
         wx.showToast({
-          title: res.msg
+          title: '创建成功'
         })
         wx.switchTab({
           url: '/pages/index/index',

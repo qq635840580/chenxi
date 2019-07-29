@@ -5,6 +5,10 @@
 </view>
 <!-- 排行榜本人 -->
 <view class='ranking-me ranking-me-bottom'>
+  <!-- 1、2、3名奖牌部分 -->
+  <view class='ranking-medlas'>
+    <text>{{own.sort}}</text>
+  </view>
   <!-- 头像部分 -->
   <view class='ranking-me-left-img'>
     <image src='{{own.user.avatarUrl}}'/>

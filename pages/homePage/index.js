@@ -1,4 +1,6 @@
 // pages/homePage/index.js
+  // "navigationStyle":"custom" 
+
 var Util = require("../../utils/util.js");
 var Api = require("../../config/api.js");
 var that
@@ -43,10 +45,14 @@ Page({
    * 访问数据
    */
   fetchData:function(data) {
+    wx.showLoading({
+      title: '加载中',
+    })
     Util.request(Api.MainPage, data).then(res => {
       this.setData({
         userInfo: res.data,
       })
+      wx.hideLoading()
     });
   },
 

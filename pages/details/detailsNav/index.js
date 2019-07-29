@@ -58,6 +58,8 @@ Page({
         duration: 3000,
       });
       this.onLoad(this.data.loadOptions)
+      //加入成功以后给一个表示 返回首页判断是否刷新
+      wx.setStorageSync('isJoin', true)
     });
   },
 

@@ -102,10 +102,14 @@ Component({
      * 获取页面数据
      */
     fetchData: function () {
+      wx.showLoading({
+        title: '加载中',
+      })
       Util.request(Api.FindFollow).then(res => {
         this.setData({
           followList: res.data
         })
+        wx.hideLoading()
       });
     },
     /**

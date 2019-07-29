@@ -3,7 +3,7 @@
   <view class='user' catchtap='gotoHomePage'>
     <image class='user_avatar' src='{{userInfo.avatarUrl}}'></image>
     <view class='user_name'>{{userInfo.nickname}}</view>
-    <view class='user_info'>遇到更好的自己</view>
+    <view class='user_info'>{{userInfo.sign}}</view>
   </view>
 </view>
 <view class='page__bd_spacing'>

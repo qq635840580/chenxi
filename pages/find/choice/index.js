@@ -86,12 +86,8 @@ Component({
     attached: function () {
       this.fetchData();
       this.habitData();
+      this.getBgImg();
       this.setData({
-        imgUrls: [
-          '/uploads/discover/pic_01.jpg',
-          '/uploads/discover/pic_01.jpg',
-          '/uploads/discover/pic_01.jpg'
-        ],
         checkboxData: [
           { name: '0', value: '色情低俗' },
           { name: '1', value: '不友善行为', },
@@ -135,6 +131,16 @@ Component({
         url: '../choiceHabit/index',
       })
     },
+    /**
+     * 获取轮播图
+     */
+    getBgImg: function() {
+      Util.request(Api.BgImg).then(res => {
+        this.setData({
+          imgUrls: res.data
+        })
+      });
+    },  
     /**
      * 获取动态精选
      */

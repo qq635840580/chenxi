@@ -21,7 +21,7 @@
 <swiper indicator-dots="{true}" indicator-color="#FFFFFF" indicator-active-color="#3ACC88" autoplay="{ture}" circular="{true}">
   <block wx:for="{{imgUrls}}" wx:key="{{index}}">
     <swiper-item>
-      <image mode='widthFix' src="{{item}}" class="slide-image" />
+      <image mode='widthFix' src="{{item.image}}" class="slide-image" />
     </swiper-item>
   </block>
 </swiper>

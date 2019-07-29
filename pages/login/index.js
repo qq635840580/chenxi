@@ -25,6 +25,8 @@ Page({
             if (res.data.code === '200') {
               wx.setStorageSync('token', res.data.data.token)
               wx.setStorageSync('uid', res.data.data.uid)
+              //登录失效后重新登录，需要赋值列表页重新刷新
+              wx.setStorageSync('isJoin', true)
               wx.switchTab({
                 url: '/pages/index/index',
               })

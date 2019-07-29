@@ -11,6 +11,7 @@ module.exports = {
   FollowSave: ApiRootUrl + 'follow/save', //我的关注
   ClockRecords: ApiRootUrl + 'users/clockRecord', //打卡记录
   UsersEdit: ApiRootUrl + 'users/edit', //修改个人资料
+  BgImg: ApiRootUrl + 'backend/advert', //获取轮播图
 
   Contact: ApiRootUrl + 'backend/contact', //联系我们
   Question: ApiRootUrl + 'backend/question', //常见问题

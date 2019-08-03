@@ -1,24 +1,25 @@
 <!--pages/information/comment/index.wxml-->
 <view class='weui-information' wx:for="{{list}}" wx:key="id">
-  <view class='weui-cell information-head'>
+  <view class='weui-cell information-head' data-uid='{{item.from_uid}}' catchtap='gotoHomePage'>
     <view class='weui-cell__hd'>
       <image src='{{item.user.avatarUrl}}'></image>
     </view>
     <view class='weui-cell__bd'>
       <view class='weui-cell__title'>
         {{item.user.nickname}} 
-        <!-- <view wx:if="{{item.user.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.user.age}}</view>
-        <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.user.age}}</view> -->
       </view>
       <view class='weui-cell__desc'>{{item.create_time}}</view>
     </view>
     <view class='weui-cell__ft'></view>
   </view>
-  <view class='information-body'>
+  <view class='information-body' data-detailid='{{item.clock_record_id}}' catchtap='gotoDetails'>
     <view class='information__desc'>{{item.content}}</view>
+    <view class='weui-well' wx:if='{{item.from_content.length >0}}'>
+      <text class='weui-color__green'>{{item.from_nickname}}：</text>{{item.from_content}}
+    </view>
   </view>
-  <navigator url="" class='weui-cell information-footer'>
-    <view class='weui-cell__bd'>坚持 <text class='weui-color__green'> {{item.comment_content}} </text>{{item.continuity_days}}天</view>
+  <navigator url="/pages/find/findDetails/index?id={{item.clock_record_id}}" class='weui-cell information-footer'>
+    <view class='weui-cell__bd'>坚持 <text class='weui-color__green'> {{item.habits.name}} </text>{{item.continuity_days}}天</view>
     <view class='weui-cell__ft weui-cell__ft_in-access'></view>
   </navigator>
 </view>

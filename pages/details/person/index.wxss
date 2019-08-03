@@ -5,6 +5,19 @@
   text-align: center;
 }
 
+.person-null {
+  width: 100%;
+  margin-top: 300rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.person-null image {
+  width: 400rpx;
+  vertical-align: middle;
+}
+
 .person-num .person-num-box {
   display: inline-block;
   text-align: center;

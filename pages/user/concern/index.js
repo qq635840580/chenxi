@@ -8,14 +8,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    user_id: null, //存储user_id
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    that = this
+    that = this;
+    this.setData({
+      user_id: options.user_id,
+    })
     if (options.user_id) {
       const data = { user_id: options.user_id };
       that.fetchData(data)
@@ -65,11 +68,12 @@ Page({
       follow_id: e.currentTarget.dataset.id
     }).then(res => {
       wx.showToast({
-        title: res.msg,
-        icon: '关注成功',
-        duration: 3000,
+        title: '关注成功',
+        icon: 'success',
+        duration: 2500,
       })
-      that.onShow()
+      const data = { user_id: this.data.user_id };
+      this.fetchData(data)
     });
   },
   /**

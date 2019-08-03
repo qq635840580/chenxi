@@ -214,7 +214,7 @@ Page({
             wx.showToast({
               title: '删除成功',
               icon: 'success',
-              duration: 3000,
+              duration: 2500,
             });
             wx.navigateBack({
               delta: 1,
@@ -269,7 +269,7 @@ Page({
       wx.showToast({
         title: '举报成功',
         icon: 'success',
-        duration: 3000,
+        duration: 2500,
       });
     });
   },

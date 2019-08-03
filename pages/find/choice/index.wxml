@@ -44,6 +44,11 @@
     <view class='weui-panel-head__bd'>动态精选</view>
   </view>
   <view class='weui-panel__bd'>
+    <!-- 空白页 -->
+    <view class='person-null' wx:if='{{dynamicList.length==0}}'>
+      <image src='/img/null.png' mode='widthFix'/>
+      <view>暂无消息</view>
+    </view>
     <view class='weui-information' wx:for="{{dynamicList}}" wx:key="{{index}}" wx:if="{{dynamicList.length>0}}">
       <view class='weui-cell information-head'>
         <view class='weui-cell__hd' data-uid='{{item.uid}}' bindtap='gotoHomePage'>
@@ -104,7 +109,7 @@
           <text class='iconfont icongengduo tool-gengduo' catchtap='clickMore' data-is_attention='{{item.user.is_attention}}' data-clock_id='{{item.id}}'></text>
         </view>
       </view>
-      <view class='information-footer'>
+      <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
         <view wx:for="{{item.comment_data}}" wx:key="{{index}}" wx:for-item="comment">
           <view class='information-footer-box' catchtap='gotoFindDetails' data-id="{{item.id}}" >
             <text>{{comment.nickname}}：</text>

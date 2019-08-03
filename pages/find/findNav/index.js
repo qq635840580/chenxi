@@ -12,7 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.setNavigationBarTitle({
+      title: '发现'
+    })
   },
 
   /**
@@ -23,6 +25,23 @@ Page({
     this.setData({
       tabflag
     })
+    if (tabflag == 1) {
+      wx.setNavigationBarTitle({
+        title: '发现'
+      })
+    } else if(tabflag == 2) {
+      wx.setNavigationBarTitle({
+        title: '最新'
+      })
+    } else if (tabflag == 3) {
+      wx.setNavigationBarTitle({
+        title: '关注'
+      })
+    } else if (tabflag == 4) {
+      wx.setNavigationBarTitle({
+        title: '总榜'
+      })
+    }
   },
 
   /**

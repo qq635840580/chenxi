@@ -150,7 +150,7 @@ Page({
       wx.showToast({
         title: '关注成功',
         icon: 'success',
-        duration: 3000,
+        duration: 2500,
       });
       this.fetchData(datas)
     });
@@ -221,7 +221,7 @@ Page({
             wx.showToast({
               title: '删除成功',
               icon: 'success',
-              duration: 3000,
+              duration: 2500,
             });
             wx.navigateBack({
               delta: 1,
@@ -276,7 +276,7 @@ Page({
       wx.showToast({
         title: '举报成功',
         icon: 'success',
-        duration: 3000,
+        duration: 2500,
       });
     });
   },

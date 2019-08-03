@@ -246,7 +246,7 @@ Component({
               wx.showToast({
                 title: '删除成功',
                 icon: 'success',
-                duration: 3000,
+                duration: 2500,
               });
             });
           } else if (res.cancel) {
@@ -297,7 +297,7 @@ Component({
         wx.showToast({
           title: '举报成功',
           icon: 'success',
-          duration: 3000,
+          duration: 2500,
         });
       });
     },

@@ -1,11 +1,17 @@
 <!--pages/details/person/index.wxml-->
 <!-- 提醒参与人数 -->
-<view class='person-num'>
+<view class='person-num' wx:if='{{total_user>0}}'>
   <view class='person-num-box'>
     <text></text>
     <text>已有{{total_user}}人参与</text>
     <text></text>
   </view>
+</view>
+
+<!-- 空白页 -->
+<view class='person-null' wx:if='{{total_user==0}}'>
+  <image src='/img/null.png' mode='widthFix'/>
+  <view>暂无成员</view>
 </view>
 
 <!-- 列表 -->

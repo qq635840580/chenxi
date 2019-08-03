@@ -1,4 +1,10 @@
 <!--pages/user/clock/index.wxml-->
+<!-- 空白页 -->
+<view class='person-null' wx:if='{{newsList.length==0}}'>
+  <image src='/img/null.png' mode='widthFix'/>
+  <view>暂无消息</view>
+</view>
+
 <!-- 时间轴 -->
 <view class="listview-container">
   <block wx:for="{{newsList}}" wx:key="">

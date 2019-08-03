@@ -40,6 +40,12 @@
 </view>
 
 <!-- 习惯列表 -->
+<!-- 空白页 -->
+<view class='person-null' wx:if='{{userInfo.list.length==0}}'>
+  <image src='/img/null.png' mode='widthFix'/>
+  <view>暂无消息</view>
+</view>
+
 <block wx:if='{{userInfo.list.length>0}}' wx:for='{{userInfo.list}}' wx:key='{{index}}'>
   <view class='home-page'>
     <view class='home-page__box'>

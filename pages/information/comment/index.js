@@ -30,6 +30,26 @@ Page({
   },
 
   /**
+   * 点击跳转到个人主页
+   */
+  gotoHomePage: function (e) {
+    const uid = e.currentTarget.dataset.uid;
+    wx.navigateTo({
+      url: `../../homePage/index?uid=${uid}`,
+    })
+  },
+
+  /**
+   * 点击跳转动态详情
+   */
+  gotoDetails: function (e) {
+    const detailId = e.currentTarget.dataset.detailid;
+    wx.navigateTo({
+      url: `../../find/findDetails/index?id=${detailId}`,
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {

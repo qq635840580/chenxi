@@ -6,10 +6,12 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function() {},
+  //点击登录触发方法
   getUserInfo: function(e) {
     let userInfo = e.detail.userInfo;
     wx.login({
       success: res => {
+        console.log(res)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         var data = {
           code: res.code,
@@ -21,12 +23,11 @@ Page({
           url: Api.LoginUrl,
           data: data,
           method: 'POST',
-          success(res) {
-            if (res.data.code === '200') {
-              wx.setStorageSync('token', res.data.data.token)
-              wx.setStorageSync('uid', res.data.data.uid)
-              //登录失效后重新登录，需要赋值列表页重新刷新
-              wx.setStorageSync('isJoin', true)
+          success(res1) {
+            if (res1.data.code === '200') {
+              console.log(res1)
+              wx.setStorageSync('token', res1.data.data.token)
+              wx.setStorageSync('uid', res1.data.data.uid)
               wx.switchTab({
                 url: '/pages/index/index',
               })

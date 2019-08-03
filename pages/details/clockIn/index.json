@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "打卡详情",
   "usingComponents": {
     "calendar": "plugin://calendar/calendar"
   }

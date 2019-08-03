@@ -44,7 +44,9 @@ Page({
         //创建成功以后给一个表示 返回首页判断是否刷新
         wx.setStorageSync('isJoin', true)
         wx.showToast({
-          title: '创建成功'
+          title: '创建成功',
+          icon: 'success',
+          duration: 2500,
         })
         wx.switchTab({
           url: '/pages/index/index',
@@ -53,7 +55,7 @@ Page({
         wx.showToast({
           title: res.msg,
           icon: 'none',
-          duration: 3000,
+          duration: 2500,
         })
       }
     });

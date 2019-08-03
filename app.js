@@ -29,10 +29,10 @@ App({
                         url: Api.LoginUrl,
                         data: data,
                         method: 'POST',
-                        success(res) {
+                        success(res4) {
                           if (res.data.code === '200') {
-                            wx.setStorageSync('token', res.data.data.token)
-                            wx.setStorageSync('uid', res.data.data.uid)
+                            wx.setStorageSync('token', res4.data.data.token)
+                            wx.setStorageSync('uid', res4.data.data.uid)
                             wx.switchTab({
                               url: '/pages/index/index',
                             })

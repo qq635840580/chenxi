@@ -1,7 +1,7 @@
 <!--pages/user/concern/index.wxml-->
 <view class='weui-cells weui-cells_after-title'>
   <view class='weui-cell' wx:for="{{list}}" wx:key="id">
-    <view class='weui-cell__hd'  catchtap='gotoHomePage' data-uid='{{item.follow_id}}'>
+    <view class='weui-cell__hd' catchtap='gotoHomePage' data-uid='{{item.follow_id}}'>
       <image src='{{item.user.avatarUrl}}'></image>
     </view>
     <view class='weui-cell__bd'>

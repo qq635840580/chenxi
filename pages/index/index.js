@@ -20,17 +20,7 @@ Page({
    */
   onLoad: function (options) {
     that = this
-    wx.getStorage({
-      key: 'uid',
-      success: function (res) {
-        that.setData({
-          user_id: res.data,
-          page: 1,
-          list: [],
-        })
-        that.fetchData();
-      },
-    })
+    
   },
 
   /**
@@ -66,14 +56,14 @@ Page({
    */
   onShow: function () {
     wx.getStorage({
-      key: 'isJoin',
+      key: 'uid',
       success: function (res) {
-        console.log(res)
-        if(res.data) {
-          that.fetchData();
-          //当有习惯 加入、创建、 时刷新列表，刷新完再给一个false的标识
-          wx.setStorageSync('isJoin', false)
-        }
+        that.setData({
+          user_id: res.data,
+          page: 1,
+          list: [],
+        })
+        that.fetchData();
       },
     })
   },

@@ -249,3 +249,17 @@ page {
   vertical-align: top;
   margin-top: 5rpx;
 }
+
+.person-null {
+  width: 100%;
+  margin-top: 100rpx;
+  margin-bottom: 50rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.person-null image {
+  width: 400rpx;
+  vertical-align: middle;
+}

@@ -40,7 +40,7 @@ Page({
       wx.showToast({
         title: '关注成功',
         icon: 'success',
-        duration: 3000,
+        duration: 2500,
       })
       that.onShow()
     });

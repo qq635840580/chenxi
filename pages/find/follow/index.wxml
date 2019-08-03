@@ -2,6 +2,12 @@
 <view class='follow'>
   <view class='weui-panel'>
   <view class='weui-panel__bd'>
+    <!-- 空白页 -->
+    <view class='person-null' wx:if='{{followList.length==0}}'>
+      <image src='/img/null.png' mode='widthFix'/>
+      <view>暂无动态</view>
+      <view>快去关注你的好友吧</view>
+    </view>
     <view class='weui-information' wx:for="{{followList}}" wx:key="{{index}}" wx:if="{{followList.length>0}}">
       <view class='weui-cell information-head'>
         <view class='weui-cell__hd' data-uid='{{item.uid}}' bindtap='gotoHomePage'>

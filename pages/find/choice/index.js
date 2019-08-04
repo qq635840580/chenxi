@@ -145,10 +145,14 @@ Component({
      * 获取动态精选
      */
     fetchData: function(e) {
+      wx.showLoading({
+        title: '加载中',
+      })
       Util.request(Api.FindDynamic).then(res => {
         this.setData({
           dynamicList: res.data
         })
+        wx.hideLoading()
       });
     },
     /**

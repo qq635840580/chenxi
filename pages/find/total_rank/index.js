@@ -84,6 +84,9 @@ Component({
      * 请求数据
      */
     fetchData:function() {
+      wx.showLoading({
+        title: '加载中',
+      })
       Util.request(Api.FindTotalRank).then(res => {
         let list = res.data.list;
         // 长度为1、2、3时分别插入image，
@@ -101,6 +104,7 @@ Component({
           rankingTotalList: list,
           own: res.data.own
         })
+        wx.hideLoading()
       });
     },
     pariseClick: function(e) {

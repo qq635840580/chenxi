@@ -5,7 +5,7 @@ page {
 }
 
 .clock-details-block {
-  height: 30rpx;
+  height: 20rpx;
   background: #f2f3f5;
 }
 
@@ -13,7 +13,9 @@ page {
   width: 100%;
   background: #fff;
   margin: 0 auto;
-}.ranking-me .ranking-medlas {
+}
+
+.ranking-me .ranking-medlas {
   display: inline-block;
   margin-left: 30rpx;
   vertical-align: top;
@@ -318,16 +320,16 @@ page {
 
 .clock-in-details-text-comments {
   width: 100%;
-  background: #fff;
   margin: 0 auto;
+  padding-bottom: 138rpx;
   border-top: 2rpx solid #F2F3F5;
-  margin-bottom: 238rpx;
 }
 
 .clock-in-details-text-comments .clock-in-details-text-comments-box {
   padding: 20rpx;
   margin: 0 auto;
   border-bottom: 1rpx solid #F2F3F5;
+  background: #fff;
   /* display: flex; */
 }
 

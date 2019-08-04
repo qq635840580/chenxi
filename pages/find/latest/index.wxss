@@ -136,6 +136,7 @@
 .information-head .weui-cell__title {
   font-size: 28rpx;
   color: #555;
+  font-weight: bold;
 }
 
 .information-head .weui-badge {
@@ -442,4 +443,17 @@ button.weui-btn1 {
 
 checkbox {
   margin-right: 20rpx;
+}
+
+.person-null {
+  width: 100%;
+  margin-top: 200rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.person-null image {
+  width: 400rpx;
+  vertical-align: middle;
 }

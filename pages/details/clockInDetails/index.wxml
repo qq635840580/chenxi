@@ -109,7 +109,7 @@
               {{commentList.content}}
             </view>
             <block wx:if='{{commentList.third.length > 0}}' wx:for='{{commentList.third}}' wx:for-item='thirdList' wx:key='{{index}}'>
-            <view>
+            <view catchtap='saveIsInput' data-contentid='{{thirdList.id}}'>
               <text>{{thirdList.nickname}}<text style='color:#555'>回复</text>：{{commentList.nickname}}</text>
               {{thirdList.content}}
             </view>

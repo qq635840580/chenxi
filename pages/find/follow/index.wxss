@@ -137,6 +137,7 @@
 .information-head .weui-cell__title {
   font-size: 28rpx;
   color: #555;
+  font-weight: bold;
 }
 
 .information-head .weui-badge {

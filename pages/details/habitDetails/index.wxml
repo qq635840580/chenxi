@@ -97,10 +97,15 @@
 </view>
 
   <!-- 无数据时 -->
-  <view class='habit-details-text' wx:if="{{list.length==0}}">
+  <!-- <view class='habit-details-text' wx:if="{{list.length==0}}">
     <image src='/uploads/habit/dongtai.png'/>
     <view>一片荒芜</view>
      <view>快来打卡吧！改变从此开始...</view>
+  </view> -->
+  <!-- 空白页 -->
+  <view class='person-null' wx:if='{{list.length==0}}'>
+    <image src='/img/null.png' mode='widthFix'/>
+    <view>快来打卡吧！改变从此开始...</view>
   </view>
 
   <!-- 打卡 -->

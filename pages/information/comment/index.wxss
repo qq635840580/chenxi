@@ -40,8 +40,8 @@
 .weui-well{
   background-color: #f2f3f5;
   color: #666;
-  font-size: 24rpx;
-  padding: 24rpx 20rpx;
+  font-size: 28rpx;
+  padding: 20rpx 20rpx;
 }
 .information__desc{
   font-size: 30rpx;

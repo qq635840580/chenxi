@@ -12,7 +12,7 @@ page {
 .habit-details-dynamic {
   width: 100%;
   background: #fff;
-  margin: 0 auto 40rpx auto;
+  margin: 0 auto 20rpx auto;
 }
 
 .habit-details-dynamic-one-img-top {
@@ -37,13 +37,17 @@ page {
   display: inline-block;
 }
 
+.habit-details-dynamic-one-img-total-top {
+  margin-top: 15rpx;
+}
+
 .habit-details-dynamic-one-img-total-top view:nth-child(1) {
   font-size: 30rpx;
   color: #555;
   font-weight: bold;
   display: inline-block;
   line-height: 28rpx;
-  /* margin-top: 20rpx; */
+  margin-top: 20rpx;
 }
 
 .habit-details-dynamic-one-img-total-top view:nth-child(2) {
@@ -186,6 +190,7 @@ page {
   height: 70rpx;
   margin: 20rpx auto;
   background: #F2F3F5;
+  /* font-size: 28rpx; */
 }
 
 .clock-in-jianchi .clock-in-jianchi-box {
@@ -198,7 +203,7 @@ page {
 }
 
 .clock-in-jianchi .clock-in-jianchi-box view:nth-child(1) text {
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #999;
 }
 
@@ -210,7 +215,7 @@ page {
   float: right;
   margin-top: 20rpx;
   line-height: 30rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #999;
 }
 
@@ -298,15 +303,15 @@ page {
 
 .clock-in-details-text-comments {
   width: 100%;
-  background: #fff;
   margin: 0 auto;
+  padding-bottom: 138rpx;
   border-top: 2rpx solid #F2F3F5;
-  margin-bottom: 238rpx;
 }
 
 .clock-in-details-text-comments .clock-in-details-text-comments-box {
   padding: 20rpx;
   margin: 0 auto;
+  background: #fff;
   border-bottom: 1rpx solid #F2F3F5;
   /* display: flex; */
 }

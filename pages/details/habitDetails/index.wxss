@@ -735,6 +735,19 @@ checkbox {
   margin-right: 20rpx;
 }
 
+.person-null {
+  width: 100%;
+  margin-top: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.person-null image {
+  width: 400rpx;
+  vertical-align: middle;
+}
+
 
 
 

@@ -1,0 +1,13 @@
+<!--pages/habit/icon-list.wxml-->
+<view class='habit-icon'>
+  <block wx:for='{{iconList}}' wx:key='{{item.id}}'>
+    <view bindtap="currentClick" class='habit-icon__box {{iconid==item.id? "habit-icon__current" : ""}}' data-id='{{item.id}}' data-url='{{item.icon}}'>
+      <image src='{{item.icon}}'/>
+    </view>
+  </block>
+</view>
+
+<!-- 点击确认 -->
+<view class='clock-button' bindtap='gotoCreate'>
+  <button>确认</button>
+</view>

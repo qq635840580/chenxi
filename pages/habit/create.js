@@ -10,7 +10,9 @@ Page({
   data: {
     name: '',
     time: '05:00',
-    isRemind: true,
+    isRemind: false,
+    iconList: {},//存储图标
+
   },
 
   /**
@@ -20,8 +22,40 @@ Page({
     that = this
     this.setData({
       name: options.name
+    });
+    this.getHabitIcon(options);
+  },
+
+  /**
+   * 获取图标
+   */
+  getHabitIcon:function(options) {
+    console.log(options)
+    if(options.iconid) {
+      this.setData({
+        iconList: {
+          icon:options.url,
+          id: options.iconid
+        }
+      })
+    }else {
+      Util.request(Api.GetHabitIcon).then(res => {
+        this.setData({
+          iconList: res.data[0]
+        });
+      });
+    }
+  },
+
+  /**
+   * 存储填写名称
+   */
+  habitname:function(e) {
+    this.setData({
+      name: e.detail.value,
     })
   },
+
   /**
    * 选择时间
    */
@@ -35,10 +69,11 @@ Page({
    * 提交表单
    */
   submitForm: function(e) {
-    const params = e.detail.value
+    const params = e.detail.value;
+    console.log(this.data)
     params.is_remind = Number(params.is_remind) ==0 ? '0': 1;
     params.is_public = Number(params.is_remind) == 0 ? '0' : 1;
-
+    params.icon = this.data.iconList.icon;
     Util.request(Api.HabitSave, params, 'POST').then(res => {
       if (res.code === '200') {
         //创建成功以后给一个表示 返回首页判断是否刷新
@@ -66,6 +101,15 @@ Page({
   isRemind:function(e) {
     this.setData({
       isRemind: e.detail.value
+    })
+  },
+
+  /**
+   * 去往图标列表
+   */
+  gotoIconList:function() {
+    wx.navigateTo({
+      url: `./icon-list?name=${this.data.name}`,
     })
   },
 })

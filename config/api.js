@@ -1,5 +1,5 @@
 //生产
-var ApiRootUrl = 'https://chenxixiguan.cn/';
+var ApiRootUrl = 'https://chenxixiguan.cn/api/';
 
 module.exports = {
   LoginUrl: ApiRootUrl + 'wechat/getOpenid', //登录
@@ -44,6 +44,9 @@ module.exports = {
   HabitSettingSearch: ApiRootUrl + 'habit/settingDetail', //习惯设置查询
   HabitSetting: ApiRootUrl + 'habit/setting', //习惯设置
   SupportSave: ApiRootUrl + 'support/save', //点赞
+  DeleteHabit: ApiRootUrl + 'habit/deleteHabit', //删除习惯
+  BackgroundIndex: ApiRootUrl + 'index/background', //首页背景图
+  GetHabitIcon: ApiRootUrl + 'habit/getHabitIcon',//获取图标
 
   FindHabit: ApiRootUrl + 'find/habits', //发现_精选习惯
   FindDynamic: ApiRootUrl + 'find/dynamic', //发现_精选动态

@@ -13,6 +13,9 @@ Page({
     page: 1, // 页数
     listRows: 20, //每页显示数量
     isNull: false,//是否有数据
+    isShow: false,//是否展示删除习惯
+    habit_id: null,//暂存需要删除的习惯id
+    backgroundUrl: null,//背景图暂存区
   },
 
   /**
@@ -45,6 +48,16 @@ Page({
   },
 
   /**
+   * 获取背景图片
+   */
+  backgroundUrl:function() {
+    Util.request(Api.BackgroundIndex).then(res => {
+     
+    });
+  },
+
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
@@ -66,6 +79,81 @@ Page({
         that.fetchData();
       },
     })
+    this.timeFunc();
+    this.backgroundUrl();
+  },
+
+  /**
+   * 长按习惯
+   */
+  longPressHabit:function(e) {
+    if(e.type=='longpress') {
+      console.log(e)
+      this.setData({
+        isShow: true,
+        habit_id: e.currentTarget.dataset.habit_id,
+      });
+    }
+  },
+
+  /**
+   * 删除习惯操作
+   */
+  delClick:function(e) {
+    const data = { 
+      habit_id: e.currentTarget.dataset.habit_id, 
+      user_id: wx.getStorageSync('uid'),
+      };
+    Util.request(Api.DeleteHabit, data).then(res => {
+      this.setData({
+        isShow: false,
+      });
+      wx.showToast({
+        title: '删除成功',
+        icon: 'success',
+        duration: 2500,
+      });
+      this.fetchData();
+    });
+  },
+
+  /**
+   * 弹出层取消
+   */
+  cancelClick:function(e) {
+    this.setData({
+      isShow: false,
+    })
+  },
+
+  /**
+   * 倒计时方法
+   */
+  timeFunc: function() {
+    //获取当前时间
+    var date = new Date();
+    var now = date.getTime();
+    //设置截止时间  
+    var str = "2020/1/1 00:00:00";
+    var endDate = new Date(str);
+    var end = endDate.getTime();
+    //时间差  
+    var leftTime = end - now;
+    //定义变量 d,h,m,s保存倒计时的时间  
+    var d, h, m, s;
+    if (leftTime >= 0) {
+      d = Math.floor(leftTime / 1000 / 60 / 60 / 24);
+      h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
+      m = Math.floor(leftTime / 1000 / 60 % 60);
+      s = Math.floor(leftTime / 1000 % 60);
+    }
+    this.setData({
+      day: d,
+      hour: h,
+      minute: m,
+      seconds: s,
+    })
+    setTimeout(this.timeFunc, 1000)
   },
 
   /**

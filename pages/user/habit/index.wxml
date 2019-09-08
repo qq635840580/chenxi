@@ -1,7 +1,7 @@
 <!--pages/user/habit/index.wxml-->
 <block wx:for="{{list}}" wx:key="id">
-  <view class='weui-habit'>
-    <view class='weui-habit__hd' data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'>
+  <view class='weui-habit' data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'>
+    <view class='weui-habit__hd'>
       <image src='{{item.habit_icon}}'></image>
     </view>
     <view class='weui-habit__bd'>

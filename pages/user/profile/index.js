@@ -48,9 +48,10 @@ Page({
    * 更改性别
    */
   bindGenderChange: function(e) {
+    console.log(e)
     this.setData({
-      gender: e.detail.value,
-      genderName: e.detail.value ==1 ? '男': '女',
+      gender: e.detail.value == 0? 1: 2,
+      genderName: e.detail.value ==0 ? '男': '女',
     })
   },
 

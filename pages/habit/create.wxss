@@ -48,6 +48,7 @@
   font-size: 28rpx;
   color: #555;
   border-right-width: 0;
+  float: right;
 }
 
 .weui-btn-are{
@@ -60,4 +61,15 @@
   color: #fff;
   border-radius: 200rpx;
   box-shadow: 0 0 30rpx #3ACC88;
+}
+
+.weui-cell__bgimg {
+  width: 63rpx;
+  height: 63rpx;
+  vertical-align: top;
+  padding-top: 5rpx;
+}
+
+.weui-cell_icon {
+  padding-right: 0;
 }

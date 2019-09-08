@@ -1,6 +1,6 @@
 {
-  "navigationBarBackgroundColor": "#3ACC88",
+  "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "晨夕习惯",
-  "navigationBarTextStyle": "white",
+  "navigationBarTextStyle": "black",
   "usingComponents": {}
 }

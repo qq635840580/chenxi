@@ -26,7 +26,8 @@ function request(url, data = {}, method = "POST") {
       header: {
         'Content-Type': 'application/json',
         'token': wx.getStorageSync('token'),
-        'uid': wx.getStorageSync('uid')
+        'uid': wx.getStorageSync('uid'),
+        'openid': wx.getStorageSync('openid'),
       },
       success: function (res) {
         console.log(res.data);

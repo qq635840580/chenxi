@@ -5,16 +5,13 @@
     <image src='/img/user/back.png' />
   </view> -->
   <view class='bg_block'>
+    <view class='user'>
+      <image class='user_avatar' src='{{userInfo.avatarUrl}}'></image>
+      <view class='user_name'>{{userInfo.nickname}}</view>
+      <view class='user_info'>{{userInfo.sign}}</view>
+    </view>
+  </view>
   
-  </view>
-  <view class='bg_white_block'>
-  
-  </view>
-  <view class='user'>
-    <image class='user_avatar' src='{{userInfo.avatarUrl}}'></image>
-    <view class='user_name'>{{userInfo.nickname}}</view>
-    <view class='user_info'>{{userInfo.sign}}</view>
-  </view>
 </view>
 
 

@@ -53,7 +53,8 @@ Page({
             name: 'fileId',
             header: {
               'token': wx.getStorageSync('token'),
-              'uid': wx.getStorageSync('uid')
+              'uid': wx.getStorageSync('uid'),
+              'openid': wx.getStorageSync('openid'),
             },
             success: function (res1) {
               let newRes = JSON.parse(res1.data);

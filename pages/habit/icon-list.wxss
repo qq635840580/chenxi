@@ -1,0 +1,42 @@
+/* pages/habit/icon-list.wxss */
+page {
+  background: #fff
+}
+
+.habit-icon {
+  margin: 60rpx 20rpx 30rpx 65rpx;
+}
+
+.habit-icon__box {
+  width: 120rpx;
+  height: 120rpx;
+  background: #f2f3f5;
+  display: inline-block;
+  margin-right: 43rpx;
+  margin-bottom: 50rpx;
+}
+
+.habit-icon__box image {
+  height: 100rpx;
+  width: 100rpx;
+  vertical-align: center;
+  padding: 10rpx 0 0 10rpx;
+}
+
+.habit-icon__current {
+  border: 2rpx solid #3acc88;
+}
+
+.clock-button {
+  width: 70%;
+  margin: 30rpx auto auto auto;
+}
+
+.clock-button button {
+  background: #3ACC88;
+  color: white;
+  font: 36rpx;
+  font-weight: bold;
+  border-radius: 44rpx;
+}
+

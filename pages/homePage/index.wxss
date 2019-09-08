@@ -6,7 +6,7 @@ page {
   position: relative;
   /* padding-top: 26rpx;
   padding-bottom: 80rpx; */
-  height: 265rpx;
+  height: 450rpx;
   /* background-color: #3acc88; */
 }
 
@@ -24,7 +24,7 @@ page {
 .bg_block {
   background: url('https://chenxixiguan.cn/uploads/20190728/01890f015c8c08f972135ad92b99dbb6.jpeg') center no-repeat;
   background-size: 100% 280rpx;
-  height: 280rpx;
+  height: 450rpx;
   width: 100%;
   z-index: 11;
 }
@@ -52,8 +52,8 @@ page {
   text-align: center;
   color: #212121;
   position: absolute;
-  bottom: -200rpx;
   left: 50%;
+  top: 40rpx;
   width: 100%;
   margin-left: -50%;
 }
@@ -79,7 +79,6 @@ page {
 .page__bd_spacing {
   position: relative;
   z-index: 10rpx;
-  margin-top: 200rpx;
   padding: 0;
 }
 

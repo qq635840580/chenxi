@@ -9,6 +9,15 @@
       <image class='user_avatar' src='{{userInfo.avatarUrl}}'></image>
       <view class='user_name'>{{userInfo.nickname}}</view>
       <view class='user_info'>{{userInfo.sign}}</view>
+      <view class='user_focus' wx:if='{{userInfo.is_attention == 0}}' bindtap="followClick">
+        <button>+关注</button>
+      </view>
+      <view class='user_focus_already' wx:if='{{userInfo.is_attention == 1}}' bindtap="cancelFollow">
+        <button>已关注</button>
+      </view>
+      <view class='user_focus_already_double' wx:if='{{userInfo.is_attention == 2}}' bindtap="cancelFollow">
+        <button>互相关注</button>
+      </view>
     </view>
   </view>
   

@@ -17,7 +17,7 @@
   </view>
   <view class='weui-cells'>
     <view class='weui-cell weui-cell_switch'>
-      <view class='weui-cell__bd'>提醒</view>
+      <view class='weui-cell__bd'>是否提醒</view>
       <view class='weui-cell__ft'>
         <switch color='#3ACC88' name="is_remind" bindchange='isRemind'/>
       </view>

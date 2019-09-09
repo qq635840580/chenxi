@@ -23,7 +23,7 @@ page {
 
 .bg_block {
   background: url('https://chenxixiguan.cn/uploads/20190728/01890f015c8c08f972135ad92b99dbb6.jpeg') center no-repeat;
-  background-size: 100% 280rpx;
+  background-size: 100% 450rpx;
   height: 450rpx;
   width: 100%;
   z-index: 11;
@@ -67,14 +67,64 @@ page {
 }
 
 .user_name {
-  margin-top: 10rpx;
+  margin-top: 20rpx;
   font-size: 34rpx;
+  color: #fff;
 }
 
 .user_info {
   font-size: 28rpx;
-  color: #999;
+  color: #fff;
 }
+
+.user_focus {
+  margin-top: 20rpx;
+}
+
+.user_focus button {
+  width:140rpx;
+  height:56rpx;
+  background:rgba(58,204,136,1);
+  border-radius:28rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  text-align: center;
+}
+
+.user_focus_already {
+  margin-top: 20rpx;
+}
+
+.user_focus_already button {
+  width:140rpx;
+  height:56rpx;
+  background:#000;
+  border-radius:28rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  text-align: center;
+  opacity:0.5;
+}
+
+.user_focus_already_double {
+  margin-top: 20rpx;
+}
+
+.user_focus_already_double button {
+  width:170rpx;
+  height:56rpx;
+  background:#000;
+  border-radius:28rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  text-align: center;
+  opacity:0.5;
+}
+
+
 
 .page__bd_spacing {
   position: relative;

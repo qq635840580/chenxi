@@ -35,6 +35,9 @@ Page({
           //设置动态标题
           wx.setNavigationBarTitle({
             title: '我的关注'
+          });
+          that.setData({
+            user_id: res.data,
           })
         },
       })
@@ -72,10 +75,38 @@ Page({
         icon: 'success',
         duration: 2500,
       })
-      const data = { user_id: this.data.user_id };
-      this.fetchData(data)
+      const data = { user_id: that.data.user_id };
+      that.fetchData(data)
     });
   },
+
+  /**
+   * 取消关注
+   */
+  cancelFollow:function(e) {
+    wx.showModal({
+      title: '操作',
+      content: '是否要取消关注？',
+      success(res) {
+        if (res.confirm) {
+          Util.request(Api.CancelFollow, {
+            follow_id: e.currentTarget.dataset.id
+          }).then(res => {
+            wx.showToast({
+              title: '取消关注成功',
+              icon: 'success',
+              duration: 2500,
+            })
+            const data = { user_id: that.data.user_id };
+            that.fetchData(data)
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    });
+  },
+
   /**
    * 点击跳转到个人主页
    */

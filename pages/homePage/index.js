@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    user_id: null,//当访问别人的主页需要存储userid点击关注需要刷新
     userInfo: {},
     isMy: false,
   },
@@ -24,6 +25,9 @@ Page({
     if(options.uid) {
       console.log(`有`)
       const data = { user_id: options.uid, }
+      this.setData({
+        user_id: options.uid,
+      });
       this.fetchData(data);
     } else {
       console.log(`没有`)
@@ -38,7 +42,6 @@ Page({
         },
       })
     }
-
   },
 
   /**
@@ -53,6 +56,51 @@ Page({
         userInfo: res.data,
       })
       wx.hideLoading()
+    });
+  },
+
+  /**
+   * 点击关注
+   */
+  followClick:function(e) {
+    console.log(e)
+    Util.request(Api.FollowSave, {
+      follow_id: that.data.user_id,
+    }).then(res => {
+      wx.showToast({
+        title: '关注成功',
+        icon: 'success',
+        duration: 2500,
+      })
+      const data = { user_id: that.data.user_id };
+      that.fetchData(data)
+    });
+  },
+
+  /**
+   * 取消关注
+   */
+  cancelFollow:function(e) {
+    wx.showModal({
+      title: '操作',
+      content: '是否要取消关注？',
+      success(res) {
+        if (res.confirm) {
+          Util.request(Api.CancelFollow, {
+            follow_id: that.data.user_id
+          }).then(res => {
+            wx.showToast({
+              title: '取消关注成功',
+              icon: 'success',
+              duration: 2500,
+            })
+            const data = { user_id: that.data.user_id };
+            that.fetchData(data)
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     });
   },
 

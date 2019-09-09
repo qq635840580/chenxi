@@ -2,8 +2,8 @@
 <view class='page__bd_spacing'>
   <!-- <navigator url="search" class='weui-habit__btn'>+ 添加习惯</navigator> -->
   <!-- 顶部放倒计时 -->
-  <view class='top__box' style="background:">
-    <view class='top__title'>2020年倒计时</view>
+  <view class='top__box' style="background:url('{{backgroundUrl.back_image}}');background-size:100%">
+    <view class='top__title'>{{backgroundUrl.title}}</view>
     <view class='top__time'>
       <text class='top__time-bold'>{{day}}</text>
       <text>天</text>

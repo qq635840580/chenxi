@@ -23,6 +23,7 @@ module.exports = {
   RankParise: ApiRootUrl + 'support/rankPraise', //排行榜点赞
   DeleteDetails: ApiRootUrl + 'clock/del', //删除动态
   TipofDetails: ApiRootUrl + 'clock/tipOff', //举报动态
+  CancelFollow: ApiRootUrl + 'follow/cancel', //取消关注
 
   HabitMyList: ApiRootUrl + 'habit/myList', //加入的习惯列表
   HabitList: ApiRootUrl + 'habit/lists', //习惯列表

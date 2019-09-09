@@ -2,7 +2,7 @@
 <!-- 提醒 -->
 <view class='install-first'>
   <view class='install-first-box'>
-    <view>提醒</view>
+    <view>是否提醒</view>
     <view>
       <switch bindchange='isRemind' class="tui-fr" color="#3ACC88" checked="{{remindFlag}}" />
     </view>
@@ -25,9 +25,9 @@
 </view>
 
 <!-- 字体 -->
-<view class='install-text'>
+<!-- <view class='install-text'>
   提醒时间每天通过“晨夕习惯”公众号提醒
-</view>
+</view> -->
 
 <!-- 是否公开 -->
 <view class='install-first'>

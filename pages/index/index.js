@@ -48,11 +48,13 @@ Page({
   },
 
   /**
-   * 获取背景图片
+   * 获取倒计时区域相关信息
    */
   backgroundUrl:function() {
     Util.request(Api.BackgroundIndex).then(res => {
-     
+      this.setData({
+        backgroundUrl: res.data[0]
+      })
     });
   },
 

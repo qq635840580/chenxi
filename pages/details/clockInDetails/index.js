@@ -68,7 +68,7 @@ Page({
       isInput: true,
       contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid: undefined,
     })
-    console.log(e)
+    console.log(e.currentTarget.dataset)
   },
 
 

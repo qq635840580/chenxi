@@ -26,7 +26,8 @@ Page({
     reportContent: null,  //举报复选框值内容
     isShare: false, //是否点击分享层
     msgVal: null, //存储评论框值
-    contentId: null,  //如果是回复别人的评论 存储这条评论的id
+    contentId: null,  //存储顶层父级的id
+    commentId: null, //存储点击这条评论的id
   },
 
   /**
@@ -67,19 +68,19 @@ Page({
     this.setData({
       isInput: true,
       contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid: undefined,
+      commentId: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :undefined
     })
-    console.log(e.currentTarget.dataset)
   },
 
 
   //评论触发的方法
   messageSubmit: function (e) {
-    console.log(e)
     const datas = { clock_record_id: this.data.id};
     const data = {
       clock_record_id: this.data.id,
       content: e.detail.value,
       parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
+      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({

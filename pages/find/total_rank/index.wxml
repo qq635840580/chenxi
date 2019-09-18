@@ -10,15 +10,15 @@
     <text>{{own.sort}}</text>
   </view>
   <!-- 头像部分 -->
-  <view class='ranking-me-left-img'>
+  <view class='ranking-me-left-img' data-uid='{{own.uid}}' catchtap='gotoHomePage'>
     <image src='{{own.user.avatarUrl}}'/>
   </view>
   <!-- 姓名年龄部分 -->
-  <view class='ranking-me-left-name'>
+  <view class='ranking-me-left-name' data-uid='{{own.uid}}' catchtap='gotoHomePage'>
     <view>{{own.user.nickname}}</view>
   </view>
   <!-- 点赞部分 -->
-  <view class='ranking-me-right' data-id='{{own.id}}' bindtap='pariseClick'>
+  <view class='ranking-me-right' data-id='{{own.id}}' data-isown='1' data-praise='{{own.is_praise}}' bindtap='pariseClick'>
     <view class='ranking-me-right-img'>
       <text>{{own.total_praise_count}}</text>
       <image src='/img/ranking/huise.png' wx:if='{{own.is_praise==0}}'/> 
@@ -42,15 +42,15 @@
     <text wx:if='{{!item.image}}'>{{index+1}}</text>
   </view>
   <!-- 头像部分 -->
-  <view class='ranking-list-left-img'>
+  <view class='ranking-list-left-img' data-uid='{{item.uid}}' catchtap='gotoHomePage'>
     <image src='{{item.user.avatarUrl}}'/>
   </view>
   <!-- 姓名年龄部分 -->
-  <view class='ranking-me-left-name'>
+  <view class='ranking-me-left-name' data-uid='{{item.uid}}' catchtap='gotoHomePage'>
     <view>{{item.user.nickname}}</view>
   </view>
   <!-- 点赞部分 -->
-  <view class='ranking-me-right' data-id='{{item.id}}' bindtap='pariseClick'>
+  <view class='ranking-me-right' data-id='{{item.id}}' data-praise='{{item.is_praise}}' bindtap='pariseClick'>
     <view class='ranking-me-right-img'>
       <text>{{item.total_praise_count}}</text>
       <image src='/img/ranking/huise.png' wx:if='{{item.is_praise==0}}'/> 

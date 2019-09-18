@@ -25,7 +25,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     Util.request(Api.HabitDynamicList).then(res => {
       // this.setData({
       //   list: res.data

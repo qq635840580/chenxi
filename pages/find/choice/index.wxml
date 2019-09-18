@@ -1,10 +1,9 @@
 <!--pages/find/choice/index.wxml-->
 <!-- 精选 -->
-<view class="weui-search-bar">
+<!-- <view class="weui-search-bar">
   <view class="weui-search-bar__form" catchtap='gotoHabitList'>
     <view class="weui-search-bar__box">
       <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <!-- <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" /> -->
       <view class='weui-search-bar__input'></view>
       <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}">
         <icon type="clear" size="14"></icon>
@@ -16,7 +15,7 @@
     </label>
   </view>
   <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-</view>
+</view> -->
 
 <swiper indicator-dots="{true}" indicator-color="#FFFFFF" indicator-active-color="#3ACC88" autoplay="{ture}" circular="{true}">
   <block wx:for="{{imgUrls}}" wx:key="{{index}}">
@@ -93,7 +92,7 @@
           <view>{{item.habits.total_user}}人在坚持</view>
         </view>
         <view class='weui-tool'>
-          <text class='tool-dianzan' bindtap='support' data-id="{{item.id}}">
+          <text class='tool-dianzan' bindtap='support' data-id="{{item.id}}" data-praise="{{item.is_praise}}">
             <text class='iconfont iconaixin' wx:if="{{item.is_praise==0}}"></text>
             <text class='iconfont iconaixin1 icon-back' wx:if="{{item.is_praise==1}}"></text>
             <text>{{item.support_count}}</text>

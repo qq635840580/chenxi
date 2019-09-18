@@ -107,12 +107,59 @@ Component({
         wx.hideLoading()
       });
     },
+
+    /**
+     * 点赞
+     */
     pariseClick: function(e) {
       const data = { id: e.currentTarget.dataset.id, type: 8};
-      Util.request(Api.RankParise, data).then(res => {
-        this.fetchData()
-      });
-    }
+      let own = this.data.own;
+      let rankList = this.data.rankingTotalList;
+      let id = e.currentTarget.dataset.id;
+      let isPraise = e.currentTarget.dataset.praise;
+      let flag = e.currentTarget.dataset.isown? true : false;
+      if(flag) {
+        console.log('进来')
+        if(isPraise) {
+          own.total_praise_count = own.total_praise_count - 1;
+          own.is_praise = 0;
+        }else {
+          own.total_praise_count = own.total_praise_count + 1;
+          own.is_praise = 1;
+        }
+      }
+      rankList.forEach(item => {
+        if(item.id == id) {
+          if(isPraise) {
+            item.total_praise_count = item.total_praise_count - 1;
+            item.is_praise = 0;
+          }else {
+            item.total_praise_count = item.total_praise_count + 1;
+            item.is_praise = 1;
+          }
+        }
+      })
+      this.setData({
+        rankingTotalList: rankList,
+        own: own
+      })
+
+      if(isPraise) {
+        Util.request(Api.RankCancelParise, data);
+      }else {
+        Util.request(Api.RankParise, data);
+      }
+    },
+    /**
+     * 去往个人主页
+     */
+    gotoHomePage: function (e) {
+      const uid = e.currentTarget.dataset.uid;
+      wx.navigateTo({
+        url: `../../homePage/index?uid=${uid}`,
+      })
+    },
+
+
   },
-  // ...
 })

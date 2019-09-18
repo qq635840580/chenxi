@@ -117,9 +117,28 @@ Component({
      */
     support: function (e) {
       const data = { clock_record_id: e.target.dataset.id, type: 1, }
-      Util.request(Api.SupportSave, data).then(res => {
-        this.fetchData()
+      let list = this.data.followList;
+      let isPraise = e.target.dataset.praise;
+      let id = e.target.dataset.id;
+      list.forEach(item => {
+        if(item.id == id) {
+          if(isPraise) {
+            item.support_count = item.support_count - 1;
+            item.is_praise = 0;
+          }else {
+            item.support_count = item.support_count + 1;
+            item.is_praise = 1;
+          }
+        }
       });
+      this.setData({
+        followList: list
+      })
+      if(isPraise) {
+        Util.request(Api.CancelSupport, data);
+      }else {
+        Util.request(Api.SupportSave, data);
+      }
     },
     clickMessage: function (e) {
       console.log(e)

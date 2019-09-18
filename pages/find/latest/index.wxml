@@ -46,7 +46,7 @@
           <view>{{item.habits.total_user}}人在坚持</view>
         </view>
         <view class='weui-tool'>
-          <text class='tool-dianzan' bindtap='support' data-id="{{item.id}}">
+          <text class='tool-dianzan' bindtap='support' data-id="{{item.id}}" data-praise="{{item.is_praise}}">
             <text class='iconfont iconaixin' wx:if="{{item.is_praise==0}}"></text>
             <text class='iconfont iconaixin1 icon-back' wx:if="{{item.is_praise==1}}"></text>
             <text>{{item.support_count}}</text>

@@ -125,15 +125,108 @@ Page({
   },
 
   /**
+   * 去往个人主页
+   */
+  gotoHomePage: function (e) {
+    const uid = e.currentTarget.dataset.uid;
+    wx.navigateTo({
+      url: `../../homePage/index?uid=${uid}`,
+    })
+  },
+
+  /**
    * 点赞
    */
   pariseClick: function(e) {
-    console.log(e.currentTarget.dataset.id)
     const data = { id: e.currentTarget.dataset.id, type: e.currentTarget.dataset.type};
-    Util.request(Api.RankParise, data).then(res => {
-      const datas = { habit_id: this.data.habit_id};
-      this.fetchData(datas)
-    });
+    let weekMe = this.data.weekMe;
+    let weekList = this.data.weekList;
+    let monthMe = this.data.monthMe;
+    let monthList = this.data.monthList;
+    let yearMe = this.data.yearMe;
+    let yearList = this.data.yearList;
+    let id = e.currentTarget.dataset.id;
+    let type = e.currentTarget.dataset.type;
+    let isPraise = e.currentTarget.dataset.praise;
+    let flag = e.currentTarget.dataset.isown? true: false;
+    if(type == 5) {
+      if(flag) {
+        if(isPraise) {
+          weekMe.week_praise_count = weekMe.week_praise_count - 1;
+          weekMe.is_praise = 0;
+        }else {
+          weekMe.week_praise_count = weekMe.week_praise_count + 1;
+          weekMe.is_praise = 1;
+        }
+      }
+      weekList.forEach(item => {
+        if(item.id == id) {
+          if(isPraise) {
+            item.week_praise_count = item.week_praise_count - 1;
+            item.is_praise = 0;
+          }else {
+            item.week_praise_count = item.week_praise_count + 1;
+            item.is_praise = 1;
+          }
+        }
+      });
+    }else if(type == 6) {
+      if(flag) {
+        if(isPraise) {
+          monthMe.month_praise_count = monthMe.month_praise_count - 1;
+          monthMe.is_praise = 0;
+        }else {
+          monthMe.month_praise_count = monthMe.month_praise_count + 1;
+          monthMe.is_praise = 1;
+        }
+      }
+      monthList.forEach(item => {
+        if(item.id == id) {
+          if(isPraise) {
+            item.month_praise_count = item.month_praise_count - 1;
+            item.is_praise = 0;
+          }else {
+            item.month_praise_count = item.month_praise_count + 1;
+            item.is_praise = 1;
+          }
+        }
+      });
+    }else if(type == 7) {
+      if(flag) {
+        if(isPraise) {
+          yearMe.year_praise_count = yearMe.year_praise_count - 1;
+          yearMe.is_praise = 0;
+        }else {
+          yearMe.year_praise_count = yearMe.year_praise_count + 1;
+          yearMe.is_praise = 1;
+        }
+      }
+      yearList.forEach(item => {
+        if(item.id == id) {
+          if(isPraise) {
+            item.year_praise_count = item.year_praise_count - 1;
+            item.is_praise = 0;
+          }else {
+            item.year_praise_count = item.year_praise_count + 1;
+            item.is_praise = 1;
+          }
+        }
+      });
+    }
+    
+    this.setData({
+      weekMe: weekMe,
+      weekList: weekList,
+      monthMe: monthMe,
+      monthList: monthList,
+      yearMe: yearMe,
+      yearList: yearList
+    })
+    if(isPraise) {
+      Util.request(Api.RankCancelParise, data);
+    }else {
+      Util.request(Api.RankParise, data);
+    }
   },
 
   /**

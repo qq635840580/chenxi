@@ -1,4 +1,5 @@
 // pages/find/findNav/index.js
+var that;
 Page({
 
   /**
@@ -6,15 +7,25 @@ Page({
    */
   data: {
     tabflag: 1,
+    paddingTop: null,//存储paddingTop的值 试试
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that = this;
     wx.setNavigationBarTitle({
       title: '发现'
     })
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.statusBarHeight)
+        that.setData({
+          paddingTop: res.statusBarHeight * 2.5
+        })
+       }
+    });
   },
 
   /**
@@ -42,6 +53,16 @@ Page({
         title: '总榜'
       })
     }
+  },
+
+  /**
+   * 点击跳转习惯列表页
+   */
+  gotoHabitList:function() {
+    console.log('a')
+    wx.navigateTo({
+      url: `../../index/search`
+    })
   },
 
   /**

@@ -56,9 +56,19 @@ Page({
    */
   support:function(e) {
     const data = { clock_record_id: this.data.id, type: 1,};
-    Util.request(Api.SupportSave, data).then(res => {
-      this.fetchData(data)
-    });
+    let detail = this.data.detail;
+    if(detail.is_praise) {
+      detail.support_count = detail.support_count - 1;
+      detail.is_praise = 0;
+      Util.request(Api.CancelSupport, data);
+    }else {
+      detail.support_count = detail.support_count + 1;
+      detail.is_praise = 1;
+      Util.request(Api.SupportSave, data);
+    }
+    this.setData({
+      detail: detail
+    })
   },
 
   //点击评论 使input聚焦

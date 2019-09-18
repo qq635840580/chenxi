@@ -15,8 +15,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const data = {user_id:options.user_id,}
-    this.fetchData(data)   
+    that = this;
+    this.setData({
+      user_id: options.user_id,
+    })
+    if (options.user_id) {
+      const data = { user_id: options.user_id };
+      that.fetchData(data)
+    } else {
+      wx.getStorage({
+        key: 'uid',
+        success: function (res) {
+          const data = { user_id: res.data };
+          that.fetchData(data)
+          that.setData({
+            user_id: res.data,
+          })
+        },
+      })
+    } 
   },
 
   /**

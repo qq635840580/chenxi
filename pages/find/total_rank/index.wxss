@@ -4,7 +4,7 @@
   font-family:PingFang-SC-Medium;
   line-height: 60rpx;
   padding: 0 30rpx;
-  margin-top: 110rpx;
+  margin-top: 30rpx;
 }
 .ranking-top-text text:nth-child(1) {
   float: left;
@@ -54,6 +54,7 @@
   display: inline-block;
   margin-left: 40rpx;
   margin-top: 20rpx;
+  font-weight: bold;
 }
 
 .ranking-me .ranking-me-left-name view:nth-child(1) {

@@ -21,6 +21,7 @@ module.exports = {
   CommenteSave: ApiRootUrl + 'comment/save', //评论
   FollowSave: ApiRootUrl + 'follow/save', //关注
   RankParise: ApiRootUrl + 'support/rankPraise', //排行榜点赞
+  RankCancelParise: ApiRootUrl + 'support/cancelRankPraise', //排行榜取消点赞
   DeleteDetails: ApiRootUrl + 'clock/del', //删除动态
   TipofDetails: ApiRootUrl + 'clock/tipOff', //举报动态
   CancelFollow: ApiRootUrl + 'follow/cancel', //取消关注
@@ -45,6 +46,7 @@ module.exports = {
   HabitSettingSearch: ApiRootUrl + 'habit/settingDetail', //习惯设置查询
   HabitSetting: ApiRootUrl + 'habit/setting', //习惯设置
   SupportSave: ApiRootUrl + 'support/save', //点赞
+  CancelSupport: ApiRootUrl + 'support/cancel', //取消点赞
   DeleteHabit: ApiRootUrl + 'habit/deleteHabit', //删除习惯
   BackgroundIndex: ApiRootUrl + 'index/background', //首页背景图
   GetHabitIcon: ApiRootUrl + 'habit/getHabitIcon',//获取图标

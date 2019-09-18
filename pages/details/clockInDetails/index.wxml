@@ -104,16 +104,10 @@
         <!-- 回复区域 -->
         <view class='clock-in-details-text-comments-right-reply' wx:if='{{item.sub_list.length>0}}' wx:for='{{item.sub_list}}' wx:for-item='commentList' wx:key="{{index}}">
           <view class='clock-in-details-text-comments-right-reply-box' catchtap=''>
-            <view catchtap='saveIsInput' data-contentid='{{commentList.parent_id}}'>
+            <view catchtap='saveIsInput' data-contentid='{{commentList.parent_id}}' data-comment_id='{{commentList.id}}'>
               <text>{{commentList.nickname}}：<text wx:if='{{commentList.to_nickname}}' style='color:#555'>回复：</text> <text wx:if='{{commentList.to_nickname}}'>{{commentList.to_nickname}}</text> </text>
               {{commentList.content}}
             </view>
-            <block wx:if='{{commentList.third.length > 0}}' wx:for='{{commentList.third}}' wx:for-item='thirdList' wx:key='{{index}}'>
-            <view catchtap='saveIsInput' data-contentid='{{thirdList.id}}'>
-              <text>{{thirdList.nickname}}<text style='color:#555'>回复</text>：{{commentList.nickname}}</text>
-              {{thirdList.content}}
-            </view>
-            </block>
           </view>
         </view>
       </view>
@@ -127,7 +121,7 @@
 <view class='pinglun-input' wx:if='{{isInput}}'>
 
   <view>
-    <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindinput='saveInputVal'/>
+    <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' data-comment_id='{{commentId}}' bindconfirm='messageSubmit' bindinput='saveInputVal'/>
   </view>
 
   <view data-id='{{focusId}}' data-contentid='{{contentId}}' catchtap='publicHandler'>

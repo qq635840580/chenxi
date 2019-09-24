@@ -28,6 +28,15 @@ Page({
   },
 
   /**
+   * 保存图片
+   */
+  downloadImg:function(e) {
+    wx.previewImage({
+      url: [e.currentTarget.dataset.src],
+  });
+  },
+
+  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {

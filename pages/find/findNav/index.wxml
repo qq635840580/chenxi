@@ -1,9 +1,9 @@
 <!--pages/find/findNav/index.wxml-->
-<view class="weui-search-bar" style='padding-top: {{paddingTop}}rpx'>
+<!-- <view class="weui-search-bar" style='padding-top: {{paddingTop}}rpx'>
   <view class="weui-search-bar__form" catchtap='gotoHabitList'>
     <view class="weui-search-bar__box">
       <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <!-- <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" /> -->
+      
       <view class='weui-search-bar__input'></view>
       <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}">
         <icon type="clear" size="14"></icon>
@@ -15,7 +15,7 @@
     </label>
   </view>
   <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-</view>
+</view> -->
 
 <view class='weui-navbar'>
   <view bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">

@@ -29,5 +29,5 @@
 
 <view class='weui-saoma'>
   <image mode='widthFix' src='{{wechat_group_image}}' bindlongtap="downloadImg" data-src="{{wechat_group_image}}" show-menu-by-longpress='true'></image>
-  <view>扫码加入微信群</view>
+  <view>长按保存二维码</view>
 </view>

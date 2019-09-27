@@ -87,7 +87,7 @@
       <view class='clock-in-details-text-comments-left'><image src='{{item.avatarUrl}}'/></view>
       <view class='clock-in-details-text-comments-right'>
         <!-- 头部姓名和评论时间 -->
-        <view class='clock-in-details-text-comments-right-top'>
+        <view class='clock-in-details-text-comments-right-top' data-contentid='{{item.id}}' data-nickname="{{item.nickname}}" bindtap='saveIsInput'>
           <text>{{item.nickname}}</text>
           <text>{{create_time}}</text>
         </view>
@@ -101,7 +101,7 @@
             <view 
             catchtap='saveIsInput' 
             data-contentid='{{commentList.parent_id}}' 
-            data-nickname="{{item.nickname}}"   
+            data-nickname="{{commentList.nickname}}"   
             data-comment_id='{{commentList.id}}'>
              <text wx:if='{{commentList.to_nickname}}'>{{commentList.nickname}}<text style='color:#555'> 回复 </text> <text>{{commentList.to_nickname}}</text>： </text>
               {{commentList.content}}

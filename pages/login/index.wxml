@@ -3,6 +3,7 @@
   <view class="wxapp">
     <image class="wxapp-logo" src="https://chenxixiguan.cn/uploads/20190704/de1b957971ce6b20b4627eff7016b879.png" mode="cover"></image>
     <text class="wxapp-name">自律改变生活</text>
+    <!-- <text class="content">温馨提示：您必须先授权用户登录才能使用本程序，我们不会</text> -->
   </view>
   <view class="usermotto">
     <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="clickGetUserInfo" hover-class='click-btn'> 微信授权登陆 </button>

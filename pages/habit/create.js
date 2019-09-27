@@ -70,9 +70,8 @@ Page({
    */
   submitForm: function(e) {
     const params = e.detail.value;
-    console.log(this.data)
-    params.is_remind = Number(params.is_remind) ==0 ? '0': 1;
-    params.is_public = Number(params.is_remind) == 0 ? '0' : 1;
+    params.is_remind = Number(params.is_remind) == 0 ? '0': 1;
+    params.is_public = Number(params.is_public) == 0 ? '0' : 1;
     params.icon = this.data.iconList.icon;
     Util.request(Api.HabitSave, params, 'POST').then(res => {
       if (res.code === '200') {

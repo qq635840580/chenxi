@@ -27,14 +27,14 @@ Page({
    */
   release: function() {
     const {habit_id, textVal, imgAry} = this.data;
-    if (!textVal){
+    if (!textVal && !imgAry.length){
       wx.showModal({
         title: '温馨提示',
         content: '发布内容不能为空！',
         showCancel:false
       })
+      return;
     }
-    console.log(textVal, imgAry)
     const data = { habit_id, content: textVal, images:imgAry};
     Util.request(Api.ClockSave, data).then(res => {
       wx.navigateBack({

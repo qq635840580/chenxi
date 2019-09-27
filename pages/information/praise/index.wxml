@@ -16,8 +16,10 @@
     <view class='information__desc'>{{item.clock_content}}</view>
   </view>
   <navigator url="/pages/find/findDetails/index?id={{item.clock_record_id}}" class='weui-cell information-footer'>
-    <view class='weui-cell__bd'>坚持 
+    <view class='weui-cell__bd'>
+    坚持 
     <text class='weui-color__green'>{{item.habits.name}}</text>
+    习惯
     {{item.continuity_days}}天</view>
     <view class='weui-cell__ft weui-cell__ft_in-access'></view>
   </navigator>

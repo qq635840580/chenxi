@@ -81,11 +81,41 @@ Page({
     }).then(res => {
       wx.showToast({
         title: '关注成功',
-        icon: 'success',
-        duration: 2500,
+        icon: 'success'
       })
-      const data = {user_id: that.data.user_id};
-      that.fetchData(data)
+      setTimeout(()=>{
+        wx.hideToast();
+        const data = { user_id: that.data.user_id };
+        that.fetchData(data)
+      },1500)
     });
-  }
+  },
+    /**
+   * 取消关注
+   */
+  cancelFollow: function (e) {
+    wx.showModal({
+      title: '操作',
+      content: '是否要取消关注？',
+      success(res) {
+        if (res.confirm) {
+          Util.request(Api.CancelFollow, {
+            follow_id: e.currentTarget.dataset.id
+          }).then(res => {
+            wx.showToast({
+              title: '取消关注成功',
+              icon: 'success',
+            })
+            setTimeout(() => {
+              wx.hideToast();
+              const data = { user_id: that.data.user_id };
+              that.fetchData(data)
+            }, 1500)
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    });
+  },
 })

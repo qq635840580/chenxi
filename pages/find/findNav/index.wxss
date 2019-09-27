@@ -49,9 +49,14 @@
 }
 
 .weui-navbar {
-  position: static;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 99.8%;
+  margin: 0 auto;
   background-color: #fff;
   border-bottom-width: 0;
+
 }
 
 .weui-navbar .weui-bar__item_on::after {

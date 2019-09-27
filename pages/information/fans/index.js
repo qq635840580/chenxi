@@ -40,9 +40,11 @@ Page({
       wx.showToast({
         title: '关注成功',
         icon: 'success',
-        duration: 2500,
       })
-      that.onShow()
+      setTimeout(() => {
+        wx.hideToast();
+        that.onShow()
+      }, 1500)
     });
   },
   /**

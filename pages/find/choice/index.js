@@ -205,9 +205,11 @@ Component({
         wx.showToast({
           title: '关注成功',
           icon: 'success',
-          duration: 2500,
         });
-        this.fetchData()
+        setTimeout(() => {
+          wx.hideToast();
+          this.fetchData()
+        }, 1500)
       });
     },
     /**
@@ -275,7 +277,7 @@ Component({
               wx.showToast({
                 title: '删除成功',
                 icon: 'success',
-                duration: 2500,
+                duration: 1500,
               });
             });
           } else if (res.cancel) {
@@ -326,7 +328,7 @@ Component({
         wx.showToast({
           title: '举报成功',
           icon: 'success',
-          duration: 2500,
+          duration: 1500,
         });
       });
     },

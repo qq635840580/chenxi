@@ -73,10 +73,11 @@ Page({
       wx.showToast({
         title: '关注成功',
         icon: 'success',
-        duration: 2500,
       })
-      const data = { user_id: that.data.user_id };
-      that.fetchData(data)
+      setTimeout(()=>{
+        const data = { user_id: that.data.user_id };
+        that.fetchData(data)
+      },1500)
     });
   },
 
@@ -95,10 +96,12 @@ Page({
             wx.showToast({
               title: '取消关注成功',
               icon: 'success',
-              duration: 2500,
             })
-            const data = { user_id: that.data.user_id };
-            that.fetchData(data)
+            setTimeout(() => {
+              wx.hideToast();
+              const data = { user_id: that.data.user_id };
+              that.fetchData(data)
+            }, 1500)
           });
         } else if (res.cancel) {
           console.log('用户点击取消')

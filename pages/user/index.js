@@ -91,7 +91,7 @@ Page({
             });
             wx.showToast({
               title: '复制成功',
-              duration: 2500,
+              duration: 1500,
             })
           }
         })

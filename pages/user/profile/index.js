@@ -118,7 +118,7 @@ Page({
       wx.showToast({
         title: '修改成功',
         icon: 'success',
-        duration: 2500,
+        duration: 1500,
       })
       this.onShow();
     });

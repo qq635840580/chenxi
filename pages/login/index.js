@@ -89,7 +89,7 @@ Page({
       wx.showToast({
         title: '授权拒绝',
         icon: 'none',
-        duration: 2500,
+        duration: 1500,
       })
     }
   }

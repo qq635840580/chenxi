@@ -113,9 +113,11 @@ Page({
       wx.showToast({
         title: '删除成功',
         icon: 'success',
-        duration: 2500,
       });
-      this.fetchData();
+      setTimeout(() => {
+        wx.hideToast();
+        this.fetchData();
+      }, 1500)
     });
   },
 

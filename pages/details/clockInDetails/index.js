@@ -161,9 +161,12 @@ Page({
       wx.showToast({
         title: '关注成功',
         icon: 'success',
-        duration: 2500,
       });
-      this.fetchData(datas)
+      setTimeout(() => {
+        wx.hideToast();
+        this.fetchData(datas);
+      }, 1500)
+
     });
   },
   /**
@@ -232,11 +235,13 @@ Page({
             wx.showToast({
               title: '删除成功',
               icon: 'success',
-              duration: 2500,
             });
-            wx.navigateBack({
-              delta: 1,
-            });
+            setTimeout(()=>{
+              wx.hideToast();
+              wx.navigateBack({
+                delta: 1,
+              });
+            },1500)
           });
         } else if (res.cancel) {
           console.log('用户点击取消')

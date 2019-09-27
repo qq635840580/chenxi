@@ -55,8 +55,10 @@ Page({
       wx.showToast({
         title: '加入成功',
         icon: 'success',
-        duration: 2500,
       });
+      setTimeout(()=>{
+        wx.hideToast();
+      },1500)
       this.onLoad(this.data.loadOptions)
       //加入成功以后给一个表示 返回首页判断是否刷新
       wx.setStorageSync('isJoin', true)

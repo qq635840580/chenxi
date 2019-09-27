@@ -63,5 +63,7 @@ Page({
       url: `../../index/search`
     })
   },
-
+  onReachBottom: function () {
+    console.log(999)
+  },
 })

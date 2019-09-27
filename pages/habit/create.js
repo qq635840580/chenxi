@@ -80,7 +80,7 @@ Page({
         wx.showToast({
           title: '创建成功',
           icon: 'success',
-          duration: 2500,
+          duration: 1500,
         })
         wx.switchTab({
           url: '/pages/index/index',
@@ -89,7 +89,7 @@ Page({
         wx.showToast({
           title: res.msg,
           icon: 'none',
-          duration: 2500,
+          duration: 1500,
         })
       }
     });

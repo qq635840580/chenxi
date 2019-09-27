@@ -197,7 +197,14 @@ Component({
     followHandler: function(e) {
       const data = { follow_id: e.currentTarget.dataset.uid,};
       Util.request(Api.FollowSave, data).then(res => {
-        this.fetchData()
+        wx.showToast({
+          title: '关注成功',
+          icon: 'success',
+        });
+        setTimeout(() => {
+          wx.hideToast();
+          this.fetchData()
+        }, 1500)
       });
     },
     /**
@@ -265,7 +272,7 @@ Component({
               wx.showToast({
                 title: '删除成功',
                 icon: 'success',
-                duration: 2500,
+                duration: 1500,
               });
             });
           } else if (res.cancel) {
@@ -316,7 +323,7 @@ Component({
         wx.showToast({
           title: '举报成功',
           icon: 'success',
-          duration: 2500,
+          duration: 1500,
         });
       });
     },

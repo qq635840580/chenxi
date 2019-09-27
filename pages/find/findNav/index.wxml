@@ -31,6 +31,7 @@
     <view class='weui-navbar__title'>总榜</view>
   </view>
 </view>
+<view style="height:92rpx"></view>
 
 <view wx-if="{{tabflag==1}}">
   <Choice/>

@@ -173,10 +173,24 @@ Component({
      * 点赞
      */
     support: function (e) {
-      const data = { clock_record_id: e.target.dataset.id, type: 1, }
-      Util.request(Api.SupportSave, data).then(res => {
-        this.fetchData()
-      });
+      if (e.target.dataset.is_praise||e.target.dataset.is_praise === 1){
+        /**
+         * 取消点赞操作
+         */
+        const data = { clock_record_id: e.target.dataset.id, type: 1, }
+        Util.request(Api.CancelSupport, data).then(res => {
+          this.fetchData()
+        });
+        return;
+      }else{
+        /**
+         * 点赞操作
+         */
+        const data = { clock_record_id: e.target.dataset.id, type: 1, }
+        Util.request(Api.SupportSave, data).then(res => {
+          this.fetchData()
+        });
+      }
     },
     clickMessage: function (e) {
       console.log(e)

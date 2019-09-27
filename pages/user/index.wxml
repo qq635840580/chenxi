@@ -87,11 +87,11 @@
       <view>2.小程序管理->添加</view>
       <view>3.关联小程序</view>
       <view>4.输入晨夕习惯小程序信息</view>
-      <view>APPID：wxb758094c8c575dbc</view>
+      <view>APPID：wx1663fc90c471a614</view>
       <view>5.发送关联邀请，发送邀请后，晨夕习惯会尽快操作关联成功</view>
       <view>6.本关联是自愿原则，无金钱往来</view>
     </view>
-    <view class="ys-dialog-bottom" data-appid='wxb758094c8c575dbc' catchtap='copyAppId'>
+    <view class="ys-dialog-bottom" data-appid='wx1663fc90c471a614' catchtap='copyAppId'>
       <text>复制APPID</text>
     </view>
   </view>

@@ -74,22 +74,26 @@ Page({
 
   //点击评论 input聚焦
   saveIsInput: function (e) {
+    console.log(e.currentTarget.dataset);
+    const { contentid, comment_id } = e.currentTarget.dataset
     //每次先暂存点击评论的id，方便提交的时候获取到
     this.setData({
       isInput: true,
-      contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
-      commentId: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : undefined
+      contentId: contentid,
+      commentId: comment_id,
     })
   },
 
   //评论触发的方法
   messageSubmit: function (e) {
+    console.log(e.currentTarget.dataset)
     const datas = { clock_record_id: this.data.id };
+    const { contentid = undefined, comment_id = undefined } = e.currentTarget.dataset
     const data = {
       clock_record_id: this.data.id,
       content: e.detail.value,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
-      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : undefined,
+      parent_id,
+      comment_id,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({
@@ -107,6 +111,7 @@ Page({
     this.setData({
       focusId: e.currentTarget.dataset.clockid,
       contentId: e.currentTarget.dataset.contentid,
+      comment_id: e.currentTarget.dataset.comment_id,
       isInput: true,
     })
   },
@@ -134,17 +139,19 @@ Page({
   * 增加发表按钮评论
   */
   publicHandler: function (e) {
-    console.log(e)
+    console.log(e.currentTarget.dataset)
     const datas = { clock_record_id: this.data.id };
     const data = {
       clock_record_id: this.data.id,
       content: this.data.msgVal,
       parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
+      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({
         isInput: false,
         contentId: null,
+        comment_id:null,
       })
       this.fetchData(datas)
     });

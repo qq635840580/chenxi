@@ -11,6 +11,7 @@ Page({
     list: [],
     total_user: 0,
     habit_id: null,
+    page:1
   },
 
   /**
@@ -19,7 +20,8 @@ Page({
   onLoad: function (options) {
     const data = { habit_id: options.habit_id};
     this.setData({
-      habit_id: options.habit_id
+      habit_id: options.habit_id,
+      page: this.data.page||1
     })
     this.fetchData(data)
   },
@@ -57,54 +59,18 @@ Page({
       url: `../../homePage/index?uid=${uid}`,
     })
   },
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
-
+    let data = {
+      habit_id: this.data.habit_id,
+      page: ++this.data.page,
+    }
+    Util.request(Api.HabitPerson, data).then(res => {
+      if (res.data.list.length){
+        this.setData({
+          page: data.page,
+          list: [...this.data.list, ...res.data.list],
+        })
+      }
+    });
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

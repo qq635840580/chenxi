@@ -92,13 +92,17 @@
           <text>{{create_time}}</text>
         </view>
         <!-- 评论内容 -->
-        <view class='clock-in-details-text-comments-right-text' data-contentid='{{item.id}}' bindtap='saveIsInput'>
+        <view class='clock-in-details-text-comments-right-text' data-contentid='{{item.id}}' data-nickname="{{item.nickname}}" bindtap='saveIsInput'>
           {{item.content}}
         </view>
         <!-- 回复区域 -->
         <view class='clock-in-details-text-comments-right-reply' wx:if='{{item.sub_list.length>0}}' wx:for='{{item.sub_list}}' wx:for-item='commentList' wx:key="{{index}}">
           <view class='clock-in-details-text-comments-right-reply-box' catchtap=''>
-            <view catchtap='saveIsInput' data-contentid='{{commentList.parent_id}}'  data-comment_id='{{commentList.id}}'>
+            <view 
+            catchtap='saveIsInput' 
+            data-contentid='{{commentList.parent_id}}' 
+            data-nickname="{{item.nickname}}"   
+            data-comment_id='{{commentList.id}}'>
              <text wx:if='{{commentList.to_nickname}}'>{{commentList.nickname}}<text style='color:#555'> 回复 </text> <text>{{commentList.to_nickname}}</text>： </text>
               {{commentList.content}}
             </view>
@@ -118,6 +122,7 @@
     <input 
     value='{{inputVal}}' 
     focus="{{isInput}}" 
+    placeholder="{{'回复：' + nickname}}"
     data-id='{{focusId}}' 
     data-contentid='{{contentId}}' 
     data-comment_id='{{commentId}}' 
@@ -139,7 +144,7 @@
     <text class='iconfont iconaixin1 back-color' wx:if='{{detail.is_praise==1}}'></text>
     <text> {{detail.support_count}}</text>
   </text>
-  <label bindtap='saveIsInput' data-id="{{id}}">       
+  <label bindtap='saveIsInput' data-nickname="{{detail.user.nickname}}" data-id="{{id}}">       
     <text>
       <text class='iconfont iconxinxi'></text>
       <text> {{detail.comment_count}}</text>

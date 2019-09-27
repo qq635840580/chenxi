@@ -13,6 +13,7 @@ Page({
     isShow: false,  //是否展示遮罩层（删除、举报）
     isDel: false, //是否点击删除
     clock_id: null, //
+    nickname:'',//回复谁
     checkboxData: [ //举报详细信息
       { name: '0', value: '色情低俗' },
       { name: '1', value: '不友善行为', },
@@ -75,12 +76,13 @@ Page({
   //点击评论 input聚焦
   saveIsInput: function (e) {
     console.log(e.currentTarget.dataset);
-    const { contentid, comment_id } = e.currentTarget.dataset
+    const { contentid, comment_id, nickname } = e.currentTarget.dataset
     //每次先暂存点击评论的id，方便提交的时候获取到
     this.setData({
       isInput: true,
       contentId: contentid,
       commentId: comment_id,
+      nickname,
     })
   },
 

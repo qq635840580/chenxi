@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1dcd24be-f61c-4b28-b6cd-907512aed4fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/details/person/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/details/person/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/find/choice/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find/choice/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/find/findDetails/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find/findDetails/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/find/findDetails/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find/findDetails/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/find/findNav/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find/findNav/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/index.wxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="403">
+              <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -96,7 +92,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569320308376</updated>
-      <workItem from="1569320309694" duration="3204000" />
+      <workItem from="1569320309694" duration="4120000" />
     </task>
     <task id="LOCAL-00001" summary="关于我们二维码底部文案修改&#10;发现页搜索框内部文案修改">
       <created>1569377678538</created>
@@ -105,11 +101,25 @@
       <option name="project" value="LOCAL" />
       <updated>1569377678539</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="二级评论一直是评论楼主问题&#10;习惯列表页面分页">
+      <created>1569551584208</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1569551584208</updated>
+    </task>
+    <task id="LOCAL-00003" summary="首页&gt;动态&gt;点赞，取消点赞功能完善">
+      <created>1569552013133</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1569552013134</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3204000" />
+    <option name="totallyTimeSpent" value="4120000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -174,13 +184,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="关于我们二维码底部文案修改&#10;发现页搜索框内部文案修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="关于我们二维码底部文案修改&#10;发现页搜索框内部文案修改" />
+    <MESSAGE value="二级评论一直是评论楼主问题&#10;习惯列表页面分页" />
+    <MESSAGE value="首页&gt;动态&gt;点赞，取消点赞功能完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="首页&gt;动态&gt;点赞，取消点赞功能完善" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="403">
+          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
         </state>
       </provider>
     </entry>

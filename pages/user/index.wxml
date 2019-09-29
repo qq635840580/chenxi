@@ -1,13 +1,25 @@
 <!--pages/user/index.wxml-->
-<view class='page__hd'>
+<view class='page__hd' wx:if='{{logFlag}}'>
   <view class='user' catchtap='gotoHomePage'>
     <image class='user_avatar' src='{{userInfo.avatarUrl}}'></image>
     <view class='user_name'>{{userInfo.nickname}}</view>
     <view class='user_info'>{{userInfo.sign}}</view>
   </view>
 </view>
+
+<!-- 未登录所展示的 -->
+<view class='user__log-box' wx:if='{{!logFlag}}' bindtap='gotoLogin'>
+  <view class='user__log-box-avatar'>
+    <image src='/img/user/avatar.png'/>
+  </view>
+  <view class='user__log-box-avatar-box'>
+    <view class="user__log-box-login">登录/注册</view>
+    <view class="user__log-box-text">登录后可享受更多权限</view>
+  </view>
+</view>
+
 <view class='page__bd_spacing'>
-  <view class='weui-info'>
+  <view class='weui-info' wx:if='{{logFlag}}'>
     <navigator url='clock/index?user_id={{userInfo.id}}' class='weui-flex__item'>
       <view class='weui-info__desc'>{{userInfo.clock_count}}</view>
       <view class='weui-info__label'>打卡</view>
@@ -22,8 +34,7 @@
     </navigator>
   </view>
 
-  <view class='weui-cells'>
-
+  <view class='weui-cells {{logFlag ? "" : "weui-cells-log"}}'>
     <view class='weui-cell'>
       <view class='weui-cell__hd'>
         <image src='/img/user/invite.png'></image>
@@ -33,6 +44,7 @@
     </view>
 
     <navigator hover-class="none" url='profile/index' class='weui-cell'>
+    <navigator url='{{logFlag? "profile/index" : "/pages/login/index"}}' class='weui-cell'>
       <view class='weui-cell__hd'>
         <image src='/img/user/profile.png'></image>
       </view>
@@ -70,8 +82,7 @@
       <view class='weui-cell__ft weui-cell__ft_in-access'></view>
     </navigator>
   </view>
-
-  </view>
+</view>
 
 
 <view wx:if="{{isShow}}">
@@ -80,7 +91,7 @@
     <view class="ys-dialog-title">我们关联一起吧
       <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' catchtap='closeShow'/>
     </view>
-    <view class="ys-dialog-content">              
+    <view class="ys-dialog-content">
       <view>晨夕习惯小程序关联微信公众号体验更多有趣功能!</view>
       <view>关联步骤：</view>
       <view>1.登录微信公众号</view>

@@ -248,3 +248,18 @@ checkbox {
   vertical-align: middle;
 }
 
+.weui-habit__logout-add-box {
+  width: 100%;
+  position: fixed;
+  bottom: 70rpx;
+  right: 0;
+}
+
+.weui-habit__logout-add {
+  width: 80%;
+  margin: 0 auto;
+  background: #3ACC88;
+  color: #fff;
+  border-radius: 100rpx;
+}
+

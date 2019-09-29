@@ -32,11 +32,12 @@ function request(url, data = {}, method = "POST") {
       success: function (res) {
         console.log(res.data);
         if (res.statusCode == 200) {
-          if (res.data.code == 9999 || res.data.code == 9998) {
-            wx.navigateTo({
-              url: '/pages/login/index'
-            })
-          } else if(res.data.code == 400) {
+          // if (res.data.code == 9999 || res.data.code == 9998) {
+          //   wx.navigateTo({
+          //     url: '/pages/login/index'
+          //   })
+          // } else 
+          if(res.data.code == 400) {
             reject(res.data);
           } else {
             resolve(res.data);

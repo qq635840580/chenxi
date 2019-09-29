@@ -11,14 +11,14 @@ App({
      *    如果未授权：跳转login
      *    如果已授权：在本页面执行默认登录用户的逻辑
      */
-    wx.getStorage({
-      key: 'token',
-      fail: function() {
-        wx.reLaunch({
-          url: '/pages/login/index',
-        })
-      },
-    });
+    // wx.getStorage({
+    //   key: 'token',
+    //   fail: function() {
+    //     wx.reLaunch({
+    //       url: '/pages/login/index',
+    //     })
+    //   },
+    // });
   },
 
   globalData: {

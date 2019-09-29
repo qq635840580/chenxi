@@ -18,6 +18,42 @@
   border-radius: 50%;
 }
 
+.user__log-box {
+  width: 100%;
+  height: 200rpx;
+  background: #3acc88;
+  padding: 0 40rpx;
+  color: #fff;
+}
+
+.user__log-box-avatar {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.user__log-box-avatar image {
+  width: 140rpx;
+  height: 140rpx;
+  vertical-align: top;
+}
+
+.user__log-box-avatar-box {
+  display: inline-block;
+  margin-left: 30rpx;
+}
+
+.user__log-box-login {
+  display: inline-block;
+  font-size: 42rpx;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+.user__log-box-text {
+  /* display: inline-block; */
+  font-size: 30rpx;
+}
+
 .user {
   text-align: center;
   color: #fff;
@@ -71,6 +107,10 @@
 .weui-cells {
   margin-top: 10rpx;
   border-radius: 15rpx;
+}
+
+.weui-cells-log {
+  margin-top: 100rpx;
 }
 
 .weui-cells:after, .weui-cells:before {

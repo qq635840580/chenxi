@@ -11,6 +11,7 @@ Page({
   data: {
     userInfo: {},
     isShow: false,
+    logFlag: false,//登录状态
   },
 
   /**
@@ -24,27 +25,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // if (app.globalData.userInfo) {
-    //   this.setData({
-    //     userInfo: app.globalData.userInfo
-    //   })
-    // } else {
-    //   // 在没有 open-type=getUserInfo 版本的兼容处理
-    //   wx.navigateTo({
-    //     url: '/pages/login/index',
-    //   })
-    // }
     wx.getStorage({
       key: 'uid',
-      success: function (res) { 
-        const data = { user_id: res.data};
-        Util.request(Api.MainPage, data).then(res => {
-          that.setData({
-            userInfo: res.data
-          })
+      success: function (res) {
+        that.setData({
+          logFlag: true,
         });
+        const data = { user_id: res.data};
+        that.fetchData(data);
       },
     })
+  },
+
+  /**
+   * 默认查询
+   */
+  fetchData: function(data) {
+    Util.request(Api.MainPage, data).then(res => {
+      that.setData({
+        userInfo: res.data
+      })
+    });
   },
 
   /**
@@ -97,6 +98,15 @@ Page({
         })
       }
     })
+  },
+
+  /**
+   * 跳转至登录页
+   */
+  gotoLogin: function(e) {
+    wx.navigateTo({
+      url: '/pages/login/index'
+    });
   },
 
   /**

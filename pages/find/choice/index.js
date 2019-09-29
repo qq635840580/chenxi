@@ -23,17 +23,13 @@ Page({
     checkboxData: [],
     isReport: true,
     reportContent: null,
+    logFlag: false,
   },
   onLoad: function (options) {
     that = this
   },
   onReachBottom: function () {
     console.log(1)
-  },
-  gotoHabit: () => {
-    wx.navigateTo({
-      url: '../choiceHabit/index',
-    })
   },
 
 })
@@ -44,6 +40,7 @@ Component({
       this.fetchData();
       this.habitData();
       this.getBgImg();
+      this.logFlag();
       this.setData({
         checkboxData: [
           { name: '0', value: '色情低俗' },
@@ -84,9 +81,28 @@ Component({
       });
     },
     gotoHabit: () => {
-      wx.navigateTo({
-        url: '../choiceHabit/index',
-      })
+      wx.getStorage({
+        key: 'uid',
+        success: function (res) {
+          wx.navigateTo({
+            url: '../choiceHabit/index',
+          })
+        },
+        fail: (e) => {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      });
     },
     /**
      * 获取轮播图
@@ -98,6 +114,19 @@ Component({
         })
       });
     },  
+    /**
+     * 判断当前是否登录
+     */
+    logFlag: function(e) {
+      wx.getStorage({
+        key: 'uid',
+        success: (res) => {
+          this.setData({
+            logFlag: true,
+          })
+        },
+      });
+    },
     /**
      * 获取动态精选
      */
@@ -127,28 +156,47 @@ Component({
      */
     support: function (e) {
       const data = { clock_record_id: e.target.dataset.id, type: 1, }
-      let list = this.data.dynamicList;
-      let isPraise = e.target.dataset.praise;
-      let id = e.target.dataset.id;
-      list.forEach(item => {
-        if(item.id == id) {
+      wx.getStorage({
+        key: 'uid',
+        success: (res) => {
+          let list = this.properties.dynamicList;
+          let isPraise = e.target.dataset.praise;
+          let id = e.target.dataset.id;
+          list.forEach(item => {
+            if(item.id == id) {
+              if(isPraise) {
+                item.support_count = item.support_count - 1;
+                item.is_praise = 0;
+              }else {
+                item.support_count = item.support_count + 1;
+                item.is_praise = 1;
+              }
+            }
+          });
+          this.setData({
+            dynamicList: list
+          });
           if(isPraise) {
-            item.support_count = item.support_count - 1;
-            item.is_praise = 0;
+            Util.request(Api.CancelSupport, data);
           }else {
-            item.support_count = item.support_count + 1;
-            item.is_praise = 1;
+            Util.request(Api.SupportSave, data);
           }
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
         }
       });
-      this.setData({
-        dynamicList: list
-      })
-      if(isPraise) {
-        Util.request(Api.CancelSupport, data);
-      }else {
-        Util.request(Api.SupportSave, data);
-      }
     },
     clickMessage: function (e) {
       console.log(e)
@@ -201,13 +249,32 @@ Component({
      */
     followHandler: function (e) {
       const data = { follow_id: e.currentTarget.dataset.uid, };
-      Util.request(Api.FollowSave, data).then(res => {
-        wx.showToast({
-          title: '关注成功',
-          icon: 'success',
-          duration: 2500,
-        });
-        this.fetchData()
+      wx.getStorage({
+        key: 'uid',
+        success: (res) => {
+          Util.request(Api.FollowSave, data).then(res => {
+            wx.showToast({
+              title: '关注成功',
+              icon: 'success',
+              duration: 2500,
+            });
+            this.fetchData();
+          });
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
       });
     },
     /**
@@ -335,18 +402,56 @@ Component({
      */
     gotoFindDetails: function (e) {
       const id = e.currentTarget.dataset.id;
-      wx.navigateTo({
-        url: `../findDetails/index?id=${id}`,
-      })
+      wx.getStorage({
+        key: 'uid',
+        success: function (res) {
+          wx.navigateTo({
+            url: `../findDetails/index?id=${id}`,
+          })
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      });
     },
     /**
      * 跳转到习惯列表
      */
     gotoHabitDetails: function(e) {
       const habit_id = e.currentTarget.dataset.habit_id;
-      wx.navigateTo({
-        url: `../../details/detailsNav/index?habit_id=${habit_id}`
-      })
+      wx.getStorage({
+        key: 'uid',
+        success: function (res) {
+          wx.navigateTo({
+            url: `../../details/detailsNav/index?habit_id=${habit_id}`
+          })
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      });
     },
 
     gotoHabitList:function() {

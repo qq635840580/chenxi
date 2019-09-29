@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    logFlag: false,//是否登录标识
   },
 
   /**
@@ -22,8 +22,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    Util.request(Api.MessageIndex).then(res => {
-      that.setData(res.data)
+    wx.getStorage({
+      key: 'uid',
+      success: function (res) {
+        that.setData({
+          logFlag: true,
+        })
+        Util.request(Api.MessageIndex).then(res => {
+          that.setData(res.data)
+        });
+      },
+    });
+  },
+
+  /**
+   * 点击登录 跳转
+   */
+  clickLogin: function(e) {
+    wx.navigateTo({
+      url: '/pages/login/index'
     });
   },
 

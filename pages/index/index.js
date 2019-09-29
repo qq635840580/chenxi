@@ -16,6 +16,7 @@ Page({
     isShow: false,//是否展示删除习惯
     habit_id: null,//暂存需要删除的习惯id
     backgroundUrl: null,//背景图暂存区
+    logFlag: false,//是否登录
   },
 
   /**
@@ -76,11 +77,12 @@ Page({
         that.setData({
           user_id: res.data,
           page: 1,
+          logFlag: true,
           list: [],
         })
         that.fetchData();
       },
-    })
+    });
     this.timeFunc();
     this.backgroundUrl();
   },
@@ -156,6 +158,24 @@ Page({
       seconds: s,
     })
     setTimeout(this.timeFunc, 1000)
+  },
+
+  /**
+   * 点击未登录的新增习惯提示未登录 跳转
+   */
+  addHabitClick: function(e) {
+    wx.showModal({
+      content: '当前未登录，登录后即可享受小程序全部功能',
+      success(res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/login/index'
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
 
   /**

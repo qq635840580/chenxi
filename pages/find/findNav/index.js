@@ -8,6 +8,7 @@ Page({
   data: {
     tabflag: 1,
     paddingTop: null,//存储paddingTop的值 试试
+    page:1
   },
 
   /**
@@ -20,7 +21,6 @@ Page({
     })
     wx.getSystemInfo({
       success: function (res) {
-        console.log(res.statusBarHeight)
         that.setData({
           paddingTop: res.statusBarHeight * 2.5
         })
@@ -34,7 +34,8 @@ Page({
   saveNav: function (e) {
     const { tabflag } = e.currentTarget.dataset;
     this.setData({
-      tabflag
+      tabflag,
+      page:1
     });
     if (tabflag == 1) {
       wx.setNavigationBarTitle({
@@ -64,6 +65,22 @@ Page({
     })
   },
   onReachBottom: function () {
-    console.log(999)
+    let page = ++this.data.page
+    let tabflag = this.data.tabflag;
+    let routerName = "#Choice"
+    if (tabflag == 1) {
+      
+    } else if (tabflag == 2) {
+      routerName = '#Latest';
+    } else if (tabflag == 3) {
+      routerName = '#Follow';
+    } else if (tabflag == 4) {
+      return;
+    }
+    const component = this.selectComponent(routerName);
+    component.fetchData({page:this.data.page});
+    this.setData({
+      page,
+    })
   },
 })

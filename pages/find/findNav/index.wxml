@@ -34,17 +34,17 @@
 <view style="height:92rpx"></view>
 
 <view wx-if="{{tabflag==1}}">
-  <Choice/>
+  <Choice id="Choice" />
 </view>
 
 <view wx-if="{{tabflag==2}}">
-  <Latest/>
+  <Latest id="Latest" />
 </view>
 
 <view wx-if="{{tabflag==3}}">
-  <Follow/>
+  <Follow id="Follow" />
 </view>
 
 <view wx-if="{{tabflag==4}}">
-  <TotalRank/>
+  <TotalRank id="TotalRank" />
 </view>

@@ -130,11 +130,19 @@ Component({
     /**
      * 获取动态精选
      */
-    fetchData: function(e) {
+    fetchData: function(data={}) {
       wx.showLoading({
         title: '加载中',
       })
-      Util.request(Api.FindDynamic).then(res => {
+      console.log(data)
+      Util.request(Api.FindDynamic, data).then(res => {
+        if (data&&data.page > 1){
+          this.setData({
+            dynamicList: [...this.data.dynamicList,...res.data],
+          })
+          wx.hideLoading()
+          return;
+        }
         this.setData({
           dynamicList: res.data
         })

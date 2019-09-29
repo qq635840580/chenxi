@@ -106,11 +106,19 @@ Component({
     /**
      * 获取页面数据
      */
-    fetchData: function() {
+    fetchData: function(data) {
       wx.showLoading({
         title: '加载中',
       })
-      Util.request(Api.FindLatest).then(res => {
+      console.log(data)
+      Util.request(Api.FindLatest,data).then(res => {
+        if (data && data.page > 1) {
+          this.setData({
+            latestList: [...this.data.latestList, ...res.data],
+          })
+          wx.hideLoading()
+          return;
+        }
         this.setData({
           latestList: res.data
         })

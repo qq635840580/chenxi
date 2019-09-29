@@ -83,11 +83,11 @@ Component({
     /**
      * 请求数据
      */
-    fetchData:function() {
+    fetchData:function(data) {
       wx.showLoading({
         title: '加载中',
       })
-      Util.request(Api.FindTotalRank).then(res => {
+      Util.request(Api.FindTotalRank,data).then(res => {
         let list = res.data.list;
         // 长度为1、2、3时分别插入image，
         if (list.length == 1) {
@@ -99,6 +99,14 @@ Component({
           list[0].image = '/img/ranking/one.png';
           list[1].image = '/img/ranking/two.png';
           list[2].image = '/img/ranking/three.png';
+        }
+        if (data && data.page > 1) {
+          this.setData({
+            rankingTotalList: [...this.data.rankingTotalList, ...list],
+            own: res.data.own
+          })
+          wx.hideLoading()
+          return;
         }
         this.setData({
           rankingTotalList: list,

@@ -101,11 +101,18 @@ Component({
     /**
      * 获取页面数据
      */
-    fetchData: function () {
+    fetchData: function (data) {
       wx.showLoading({
         title: '加载中',
       })
-      Util.request(Api.FindFollow).then(res => {
+      Util.request(Api.FindFollow,data).then(res => {
+        if (data && data.page > 1) {
+          this.setData({
+            followList: [...this.data.followList, ...res.data],
+          })
+          wx.hideLoading()
+          return;
+        }
         this.setData({
           followList: res.data
         })

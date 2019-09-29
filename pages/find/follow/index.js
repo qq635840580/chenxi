@@ -17,6 +17,7 @@ Page({
     checkboxData: [],
     isReport: true,
     reportContent: null,
+    logFlag: false,
   },
 
   /**
@@ -90,7 +91,7 @@ Component({
           // { name: '6', value: '其他' },
         ],
       });
-      this.fetchData();
+      this.logFlag();
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
@@ -119,6 +120,31 @@ Component({
         wx.hideLoading()
       });
     },
+
+    /**
+     * 获取当前是否已登录
+     */
+    logFlag: function() {
+      wx.getStorage({
+        key: 'uid',
+        success:  (res) => {
+          this.setData({
+            logFlag: true,
+          });
+          this.fetchData();
+        },
+      });
+    },
+
+    /**
+     * 点击登录 跳转
+     */
+    clickLogin: function(e) {
+      wx.navigateTo({
+        url: '/pages/login/index'
+      });
+    },
+
     /**
      * 点赞
      */

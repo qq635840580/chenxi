@@ -458,3 +458,18 @@ checkbox {
   width: 400rpx;
   vertical-align: middle;
 }
+
+.information-text {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+}
+
+.information-login {
+  margin-top: 30rpx;
+  width: 60%;
+  margin: 0 atuo;
+  background: #3ACC88;
+  border-radius: 100rpx;
+  color: #fff;
+}

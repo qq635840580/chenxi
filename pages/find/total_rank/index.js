@@ -10,6 +10,7 @@ Page({
   data: {
     rankingTotalList: [],
     own: {},
+    logFlag: false,
   },
 
   /**
@@ -72,7 +73,8 @@ Page({
 Component({
   lifetimes: {
     attached: function () {
-      this.fetchData();
+      // this.fetchData();
+      this.logFlag();
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
@@ -113,6 +115,30 @@ Component({
           own: res.data.own
         })
         wx.hideLoading()
+      });
+    },
+
+    /**
+     * 获取当前是否已登录
+     */
+    logFlag: function() {
+      wx.getStorage({
+        key: 'uid',
+        success:  (res) => {
+          this.setData({
+            logFlag: true,
+          });
+          this.fetchData();
+        },
+      });
+    },
+
+    /**
+     * 点击登录 跳转
+     */
+    clickLogin: function(e) {
+      wx.navigateTo({
+        url: '/pages/login/index'
       });
     },
 

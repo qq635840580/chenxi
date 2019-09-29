@@ -76,12 +76,13 @@ Page({
   //点击评论 input聚焦
   saveIsInput: function (e) {
     console.log(e.currentTarget.dataset);
-    const { contentid, comment_id, nickname } = e.currentTarget.dataset
+    const { contentid = undefined, comment_id = undefined, nickname = undefined } = e.currentTarget.dataset
+    console.log(e.currentTarget.dataset)
     //每次先暂存点击评论的id，方便提交的时候获取到
     this.setData({
       isInput: true,
       contentId: contentid,
-      commentId: comment_id,
+      commentId: comment_id||'',
       nickname,
     })
   },

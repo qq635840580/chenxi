@@ -249,15 +249,6 @@ Component({
      */
     followHandler: function (e) {
       const data = { follow_id: e.currentTarget.dataset.uid, };
-      Util.request(Api.FollowSave, data).then(res => {
-        wx.showToast({
-          title: '关注成功',
-          icon: 'success',
-        });
-        setTimeout(() => {
-          wx.hideToast();
-          this.fetchData()
-        }, 1500)
       wx.getStorage({
         key: 'uid',
         success: (res) => {
@@ -265,9 +256,11 @@ Component({
             wx.showToast({
               title: '关注成功',
               icon: 'success',
-              duration: 2500,
             });
-            this.fetchData();
+            setTimeout(() => {
+              wx.hideToast();
+              this.fetchData()
+            }, 1500)
           });
         },
         fail: function(e) {
@@ -290,11 +283,10 @@ Component({
      * 去往个人首页
      */
     gotoHomePage: function (e) {
-      console.log(e)
       const uid = e.currentTarget.dataset.uid;
       wx.navigateTo({
         url: `../../homePage/index?uid=${uid}`,
-      })
+      });
     },
     /**
     * 点击图片 查看全屏图片

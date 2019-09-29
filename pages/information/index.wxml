@@ -3,7 +3,7 @@
   <navigator url="system/index" class='weui-cell'>
     <view class='weui-cell__hd'>
       <image src='/img/information/system.png'></image>
-      <view class='weui-badge' wx:if="{{system.count != 0}}">{{system.count}}</view>
+      <view class='weui-badge' wx:if="{{system.count}}">{{system.count}}</view>
     </view>
     <view class='weui-cell__bd'>
       <view class='weui-cell__title'>系统消息</view>
@@ -13,7 +13,7 @@
   <navigator url="comment/index" class='weui-cell'>
     <view class='weui-cell__hd'>
       <image src='/img/information/comment.png'></image>
-      <view class='weui-badge' wx:if="{{comment.count != 0}}">{{comment.count}}</view>
+      <view class='weui-badge' wx:if="{{comment.count}}">{{comment.count}}</view>
     </view>
     <view class='weui-cell__bd'>
       <view class='weui-cell__title'>
@@ -26,7 +26,7 @@
   <navigator url="fans/index" class='weui-cell'>
     <view class='weui-cell__hd'>
       <image src='/img/information/fans.png'></image>
-      <view class='weui-badge' wx:if="{{follow.count != 0}}">{{follow.count}}</view>
+      <view class='weui-badge' wx:if="{{follow.count}}">{{follow.count}}</view>
     </view>
     <view class='weui-cell__bd'>
       <view class='weui-cell__title'>
@@ -39,7 +39,7 @@
   <navigator url="praise/index" class='weui-cell'>
     <view class='weui-cell__hd'>
       <image src='/img/information/praise.png'></image>
-      <view class='weui-badge' wx:if="{{praise.count != 0}}">{{praise.count}}</view>
+      <view class='weui-badge' wx:if="{{praise.count}}">{{praise.count}}</view>
     </view>
     <view class='weui-cell__bd'>
       <view class='weui-cell__title'>

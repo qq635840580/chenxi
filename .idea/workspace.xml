@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1dcd24be-f61c-4b28-b6cd-907512aed4fb" name="Default Changelist" comment="">
+    <list default="true" id="1dcd24be-f61c-4b28-b6cd-907512aed4fb" name="Default Changelist" comment="我的Navgater默认选中样式清楚&#10;粉丝列表新增取消关注功能&#10;添加自定义习惯默认公开&#10;所有弹出成功框显示15秒">
+      <change beforePath="$PROJECT_DIR$/.idea/chenxi.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/find/findDetails/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find/findDetails/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/habit/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/habit/create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/find/choice/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find/choice/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/find/findDetails/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find/findDetails/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/information/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/information/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/information/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/information/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/index.wxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,11 +25,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+            <state relative-caret-position="523">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/information/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="648">
+              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/information/index.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="27" column="53" lean-forward="true" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -58,6 +82,17 @@
             <path>
               <item name="chenxi" type="b2602c69:ProjectViewProjectNode" />
               <item name="chenxi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chenxi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chenxi" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chenxi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chenxi" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="information" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -94,7 +129,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569320308376</updated>
-      <workItem from="1569320309694" duration="5882000" />
+      <workItem from="1569320309694" duration="8281000" />
     </task>
     <task id="LOCAL-00001" summary="关于我们二维码底部文案修改&#10;发现页搜索框内部文案修改">
       <created>1569377678538</created>
@@ -145,11 +180,25 @@
       <option name="project" value="LOCAL" />
       <updated>1569554139039</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="新建习惯默认公开为开启状态&#10;回复三级评论展示二级名称bug修复">
+      <created>1569572889175</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1569572889175</updated>
+    </task>
+    <task id="LOCAL-00009" summary="我的Navgater默认选中样式清楚&#10;粉丝列表新增取消关注功能&#10;添加自定义习惯默认公开&#10;所有弹出成功框显示15秒">
+      <created>1569577340143</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1569577340143</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5882000" />
+    <option name="totallyTimeSpent" value="8281000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -219,13 +268,29 @@
     <MESSAGE value="动态详情评论框文案" />
     <MESSAGE value="动态发布，内容必填加框" />
     <MESSAGE value="消息&gt;点赞  文案修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="消息&gt;点赞  文案修改" />
+    <MESSAGE value="新建习惯默认公开为开启状态&#10;回复三级评论展示二级名称bug修复" />
+    <MESSAGE value="我的Navgater默认选中样式清楚&#10;粉丝列表新增取消关注功能&#10;添加自定义习惯默认公开&#10;所有弹出成功框显示15秒" />
+    <option name="LAST_COMMIT_MESSAGE" value="我的Navgater默认选中样式清楚&#10;粉丝列表新增取消关注功能&#10;添加自定义习惯默认公开&#10;所有弹出成功框显示15秒" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        <state relative-caret-position="523">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/information/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/information/index.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="27" column="53" lean-forward="true" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
         </state>
       </provider>
     </entry>

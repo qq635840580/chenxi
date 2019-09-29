@@ -220,6 +220,10 @@ swiper image {
   max-height: 570rpx;
 }
 
+.information-body .information__desc_img {
+  display: inline-block;
+}
+
 .information-body .information__desc_img image {
   width: 200rpx;
   max-height: 200rpx;

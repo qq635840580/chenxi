@@ -129,29 +129,48 @@ Component({
      * 点赞
      */
     support: function(e) {
-      const data = { clock_record_id: e.target.dataset.id, type: 1, }
-      let list = this.data.latestList;
-      let isPraise = e.target.dataset.praise;
-      let id = e.target.dataset.id;
-      list.forEach(item => {
-        if(item.id == id) {
+      const data = { clock_record_id: e.target.dataset.id, type: 1, };
+      wx.getStorage({
+        key: 'uid',
+        success: (res) => {
+          let list = this.data.latestList;
+          let isPraise = e.target.dataset.praise;
+          let id = e.target.dataset.id;
+          list.forEach(item => {
+            if(item.id == id) {
+              if(isPraise) {
+                item.support_count = item.support_count - 1;
+                item.is_praise = 0;
+              }else {
+                item.support_count = item.support_count + 1;
+                item.is_praise = 1;
+              }
+            }
+          });
+          this.setData({
+            latestList: list
+          })
           if(isPraise) {
-            item.support_count = item.support_count - 1;
-            item.is_praise = 0;
+            Util.request(Api.CancelSupport, data);
           }else {
-            item.support_count = item.support_count + 1;
-            item.is_praise = 1;
+            Util.request(Api.SupportSave, data);
           }
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
         }
       });
-      this.setData({
-        latestList: list
-      })
-      if(isPraise) {
-        Util.request(Api.CancelSupport, data);
-      }else {
-        Util.request(Api.SupportSave, data);
-      }
     },
     clickMessage: function(e) {
       console.log(e)
@@ -204,26 +223,63 @@ Component({
      */
     followHandler: function(e) {
       const data = { follow_id: e.currentTarget.dataset.uid,};
-      Util.request(Api.FollowSave, data).then(res => {
-        wx.showToast({
-          title: '关注成功',
-          icon: 'success',
-        });
-        setTimeout(() => {
-          wx.hideToast();
-          this.fetchData()
-        }, 1500)
+      wx.getStorage({
+        key: 'uid',
+        success: (res) => {
+          Util.request(Api.FollowSave, data).then(res => {
+            wx.showToast({
+              title: '关注成功',
+              icon: 'success',
+            });
+            setTimeout(() => {
+              wx.hideToast();
+              this.fetchData()
+            }, 1500)
+          });
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
       });
     },
     /**
      * 去往个人首页
      */
     gotoHomePage:function(e) {
-      console.log(e)
-      const uid = e.currentTarget.dataset.uid;
-      wx.navigateTo({
-        url: `../../homePage/index?uid=${uid}`,
-      })
+      wx.getStorage({
+        key: 'uid',
+        success: (res) => {
+          const uid = e.currentTarget.dataset.uid;
+          wx.navigateTo({
+            url: `../../homePage/index?uid=${uid}`,
+          });
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      });
     },
     /**
     * 点击图片 查看全屏图片
@@ -340,9 +396,28 @@ Component({
      */
     gotoFindDetails: function (e) {
       const id = e.currentTarget.dataset.id;
-      wx.navigateTo({
-        url: `../findDetails/index?id=${id}`,
-      })
+      wx.getStorage({
+        key: 'uid',
+        success: function (res) {
+          wx.navigateTo({
+            url: `../findDetails/index?id=${id}`,
+          });
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      });
     },
     
     /**
@@ -350,9 +425,28 @@ Component({
      */
     gotoHabitDetails: function (e) {
       const habit_id = e.currentTarget.dataset.habit_id;
-      wx.navigateTo({
-        url: `../../details/detailsNav/index?habit_id=${habit_id}`
-      })
+      wx.getStorage({
+        key: 'uid',
+        success: function (res) {
+          wx.navigateTo({
+            url: `../../details/detailsNav/index?habit_id=${habit_id}`
+          })
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      });
     },
   },
   // ...

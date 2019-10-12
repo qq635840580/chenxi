@@ -37,9 +37,12 @@ Page({
                         wx.setStorageSync('uid', res1.data.data.uid)
                         wx.setStorageSync('openid', res1.data.data.openid)
                         wx.hideLoading()
-                        wx.switchTab({
-                          url: '/pages/index/index',
-                        })
+                        // wx.switchTab({
+                        //   url: '/pages/index/index',
+                        // });
+                        wx.navigateBack({
+                          delta: 1,
+                        });
                       }
                     }
                   })
@@ -77,9 +80,12 @@ Page({
                 wx.setStorageSync('token', res1.data.data.token)
                 wx.setStorageSync('uid', res1.data.data.uid)
                 wx.setStorageSync('openid', res1.data.data.openid)
-                wx.switchTab({
-                  url: '/pages/index/index',
-                })
+                // wx.switchTab({
+                //   url: '/pages/index/index',
+                // });
+                wx.navigateBack({
+                  delta: 1,
+                });
               }
             }
           })

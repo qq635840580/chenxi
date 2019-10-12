@@ -508,7 +508,7 @@ checkbox {
 }
 
 .weui-search-bar__text {
-  margin-bottom: 10rpx;
+  margin-bottom: 15rpx;
 }
 
 .weui-icon-search {

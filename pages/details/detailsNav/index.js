@@ -25,7 +25,18 @@ Page({
       loadOptions: options,
       tabflag: 1,
     })
-    const data = { habit_id: options.habit_id};
+    
+  },
+
+   /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    const data = { habit_id: this.data.habit_id};
+    this.fetchData(data)
+  },
+
+  fetchData: function(data) {
     Util.request(Api.HabitDynamicList, data).then(res => {
       this.setData({
         is_join: res.data.is_join,
@@ -92,12 +103,6 @@ Page({
     
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    // this.onLoad(this.data.loadOptions);
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

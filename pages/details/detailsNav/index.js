@@ -51,18 +51,37 @@ Page({
    */
   addClick:function() {
     const data = {habit_id: this.data.habit_id};
-    Util.request(Api.HabitJoin, data).then(res => {
-      wx.showToast({
-        title: '加入成功',
-        icon: 'success',
-      });
-      setTimeout(()=>{
-        wx.hideToast();
-      },1500)
-      this.onLoad(this.data.loadOptions)
-      //加入成功以后给一个表示 返回首页判断是否刷新
-      wx.setStorageSync('isJoin', true)
-      this.selectComponent('#dynamic').fetchData();
+    wx.getStorage({
+      key: 'uid',
+      success:  (res) => {
+        Util.request(Api.HabitJoin, data).then(res => {
+          wx.showToast({
+            title: '加入成功',
+            icon: 'success',
+          });
+          setTimeout(()=>{
+            wx.hideToast();
+          },1500)
+          this.onLoad(this.data.loadOptions)
+          //加入成功以后给一个表示 返回首页判断是否刷新
+          wx.setStorageSync('isJoin', true)
+          this.selectComponent('#dynamic').fetchData();
+        });
+      },
+      fail: function(e) {
+        wx.showModal({
+          content: '当前未登录，登录后即可享受小程序全部功能',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/login/index'
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
     });
   },
 

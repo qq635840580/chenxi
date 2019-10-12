@@ -507,3 +507,12 @@ checkbox {
   vertical-align: middle;
 }
 
+.weui-search-bar__text {
+  margin-bottom: 10rpx;
+}
+
+.weui-icon-search {
+  margin-bottom: 15rpx;
+}
+
+

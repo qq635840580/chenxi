@@ -6,9 +6,6 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function() {
-    wx.showLoading({
-      title: '加载中',
-    })
     wx.getSetting({
       success: function (res) {
         let isAuth = res.authSetting['scope.userInfo'];

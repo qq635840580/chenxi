@@ -2,7 +2,12 @@
 <!-- 打卡内容区域 -->
 <view class='clock-text'>
   <view class='clock-text-box'>
-    <textarea placeholder='说说今天的感想...' bindinput='eventhandle'></textarea>
+    <textarea 
+      placeholder='说说今天的感想...' 
+      bindinput='eventhandle'
+      maxlength='-1'
+    >
+    </textarea>
   </view>
 </view>
 

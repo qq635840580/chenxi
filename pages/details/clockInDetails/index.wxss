@@ -241,18 +241,10 @@ page {
   bottom: 0;
   width: 100%;
   margin: 0 auto;
-  height: 108rpx;
+  height: 128rpx;
   background: #fff;
   display: flex;
   border-top: 1rpx solid #F2F3F5;
-}
-
-.clock-footer text {
-  flex: 1;
-  text-align: center;
-  line-height: 108rpx;
-  font-size: 36rpx;
-  color: #999;
 }
 
 .clock-footer label {
@@ -265,15 +257,44 @@ page {
   color: #F65C5C;
 }
 
-.clock-footer text:nth-child(3) text {
-  width: 150rpx;
-  height: 56rpx;
-  background: #3ACC88;
-  border-radius: 28rpx;
-  line-height: 56rpx;
-  display: inline-block;
-  color: #fff;
+.detail-comments {
+  width: 400rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  background: #F2F3F5;
+  line-height: 80rpx;
   font-size: 30rpx;
+  display: inline-block;
+}
+
+.detail-comments-text {
+  padding-left: 20rpx;
+  color: #999;
+}
+
+.detail-support {
+  display: inline-block;
+  color: #333;
+  font-size: 56rpx;
+  line-height: 115rpx;
+  margin-left: 80rpx;
+  /* font-weight: bold; */
+}
+
+.detail-support-content {
+  font-size: 34rpx;
+  font-weight: normal;
+}
+
+.detail-share {
+  display: inline-block;
+  color: #333;
+  font-size: 56rpx;
+  line-height: 115rpx;
+  margin-left: 80rpx;
+  /* font-weight: bold; */
 }
 
 .clock-in-details-text-top {

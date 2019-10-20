@@ -6,12 +6,12 @@
   padding: 0 30rpx;
   margin-top: 30rpx;
 }
-.ranking-top-text text:nth-child(1) {
+.ranking-top-text-left {
   float: left;
   color: #999;
 }
 
-.ranking-top-text text:nth-child(2) {
+.ranking-top-text-right {
   float: right;
 }
 
@@ -192,4 +192,77 @@
   background: #3ACC88;
   border-radius: 100rpx;
   color: #fff;
+}
+
+.ranking_question {
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  background: #b3b3b3;
+  border-radius:50%;
+}
+
+
+
+.ys-mask{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.ys-dialog{
+  position: fixed;
+  z-index: 5000;
+  width: 85%;
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  text-align: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.ys-dialog-title{
+  padding: 50rpx 100rpx 0 100rpx;
+  color:#212121;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight: 400;
+}
+.ys-dialog-content{
+  padding: 20rpx 40rpx 0 40rpx;
+  min-height: 40px;
+  font-size: 28rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #555555;
+  text-align: left;
+  line-height: 46rpx;
+}
+
+.ys-dialog-content view {
+  margin-bottom: 10rpx;
+}
+
+.ys-dialog-bottom{
+  margin-top: 10rpx;
+  margin-bottom: 50rpx;
+}
+
+.ys-dialog-bottom button {
+  box-shadow: 0 0 30rpx #3ACC88;
+  background: #3ACC88;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  width: 430rpx;
 }

@@ -125,7 +125,7 @@
 </view>
 
 <!-- 点击更多弹出层 -->
-<view wx:if='{{isShow}}'>
+<view wx:if='{{isShow}}' catchtap='cancelClick'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog-btn">
     <view>
@@ -137,7 +137,7 @@
 </view>
 
 <!-- 点击举报弹出层 -->
-<view wx:if='{{isReport}}'>
+<view wx:if='{{isReport}}' catchtap='closeReport'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog">
     <view class="ys-dialog-title">举报原因
@@ -151,7 +151,7 @@
       </checkbox-group>
     </view>
     <view class="ys-dialog-bottom">
-      <button bindtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+      <button catchtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
     </view>
   </view>
 </view>

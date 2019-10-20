@@ -71,7 +71,8 @@
           <label data-id="{{item.id}}" catchtap='gotoClockInDetails'>       
             <text class='tool-pinglun'>
               <text class='iconfont iconxinxi pinglun-icon'></text>
-              <text>{{item.comment_count}}</text>
+              <text decode='true' space='ensp'>{{item.comment_count}}</text>
+              <!-- <textarea disabled='true'>{{item.comment_count}}</textarea> -->
             </text>
           </label>
              
@@ -118,7 +119,7 @@
 </view>
 
 
-<view wx:if='{{isShow}}'>
+<view wx:if='{{isShow}}' catchtap='cancelClick'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog-btn">
     <view>
@@ -129,7 +130,7 @@
   </view>
 </view>
 
-<view wx:if='{{isReport}}'>
+<view wx:if='{{isReport}}' catchtap='closeReport'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog">
     <view class="ys-dialog-title">举报原因
@@ -143,7 +144,7 @@
       </checkbox-group>
     </view>
     <view class="ys-dialog-bottom">
-      <button bindtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+      <button catchtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
     </view>
   </view>
 </view>

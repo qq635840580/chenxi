@@ -11,6 +11,7 @@ Page({
     rankingTotalList: [],
     own: {},
     logFlag: false,
+    isShow: false,
   },
 
   /**
@@ -153,7 +154,6 @@ Component({
       let isPraise = e.currentTarget.dataset.praise;
       let flag = e.currentTarget.dataset.isown? true : false;
       if(flag) {
-        console.log('进来')
         if(isPraise) {
           own.total_praise_count = own.total_praise_count - 1;
           own.is_praise = 0;
@@ -194,6 +194,23 @@ Component({
       })
     },
 
+    /**
+     * 查看说明
+     */
+    clickMessage: function(e) {
+      this.setData({
+        isShow: true
+      })
+    },
+
+    /**
+     * 
+     */
+    isShowDialog: function(e) {
+      this.setData({
+        isShow: false
+      })
+    },
 
   },
 })

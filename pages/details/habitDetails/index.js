@@ -25,11 +25,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    Util.request(Api.HabitDynamicList).then(res => {
-      // this.setData({
-      //   list: res.data
-      // })
-    });
+    
   },
 
   /**
@@ -158,6 +154,10 @@ Component({
     fetchData: function() {
       const data = { habit_id: this.data.habit_id};
       Util.request(Api.HabitDynamicList, data).then(res => {
+        // let newData = res.data.list;
+        // newData.forEach(item => {
+        //   console.log(item)
+        // });
         this.setData({
           list: res.data.list,
           total_user: res.data.total_user,
@@ -412,22 +412,30 @@ Component({
      * 点击确认举报
      */
     enterReport: function (e) {
-      const data = {
-        clock_record_id: e.currentTarget.dataset.clock_id,
-        type: this.data.reportContent.join(','),
-      };
-      let that = this;
-      Util.request(Api.TipofDetails, data).then(res => {
-        that.fetchData();
-        this.setData({
-          isReport: false,
-        })
-        wx.showToast({
-          title: '举报成功',
-          icon: 'success',
-          duration: 2500,
+      if(this.data.reportContent) {
+        const data = {
+          clock_record_id: e.currentTarget.dataset.clock_id,
+          type: this.data.reportContent.join(','),
+        };
+        let that = this;
+        Util.request(Api.TipofDetails, data).then(res => {
+          that.fetchData();
+          this.setData({
+            isReport: false,
+          })
+          wx.showToast({
+            title: '举报成功',
+            icon: 'success',
+            duration: 2500,
+          });
         });
-      });
+      }else {
+        wx.showToast({
+          title: '请勾选举报选项',
+          icon: 'none',
+          duration: 1000,
+        });
+      }
     },
   },
   // ...

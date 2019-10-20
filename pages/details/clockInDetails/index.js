@@ -77,8 +77,8 @@ Page({
     //每次先暂存点击评论的id，方便提交的时候获取到
     this.setData({
       isInput: true,
-      contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid: undefined,
-      commentId: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :undefined
+      contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid: null,
+      commentId: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :null
     })
   },
 
@@ -89,8 +89,8 @@ Page({
     const data = {
       clock_record_id: this.data.id,
       content: e.detail.value,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
-      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :undefined,
+      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
+      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :null,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({
@@ -140,7 +140,7 @@ Page({
     const data = {
       clock_record_id: this.data.id,
       content: this.data.msgVal,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
+      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({
@@ -278,23 +278,41 @@ Page({
    * 点击确认举报
    */
   enterReport: function (e) {
-    const data = {
-      clock_record_id: e.currentTarget.dataset.clock_id,
-      type: this.data.reportContent.join(','),
-    };
-    const datas = { clock_record_id: this.data.id, };
-    let that = this;
-    Util.request(Api.TipofDetails, data).then(res => {
-      that.fetchData(datas);
-      this.setData({
-        isReport: false,
-      })
-      wx.showToast({
-        title: '举报成功',
-        icon: 'success',
-        duration: 2500,
+    if(this.data.reportContent) {
+      const data = {
+        clock_record_id: e.currentTarget.dataset.clock_id,
+        type: this.data.reportContent.join(','),
+      };
+      const datas = { clock_record_id: this.data.id, };
+      let that = this;
+      Util.request(Api.TipofDetails, data).then(res => {
+        that.fetchData(datas);
+        this.setData({
+          isReport: false,
+        })
+        wx.showToast({
+          title: '举报成功',
+          icon: 'success',
+          duration: 2500,
+        });
       });
-    });
+    }else {
+      wx.showToast({
+        title: '请勾选举报选项',
+        icon: 'none',
+        duration: 1000,
+      });
+    }
+  },
+
+  /**
+   * 点击空白处  input关闭
+   */
+  closeInput: function(e) {
+    console.log(e)
+    this.setData({
+      isInput: false
+    })
   },
 
   /**

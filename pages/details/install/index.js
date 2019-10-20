@@ -64,12 +64,13 @@ Page({
   /**
    * 修改设置
    */
-  update: function() {
+  update: function(e) {
     let data = { 
       habit_id: this.data.habit_id, 
       is_remind: this.data.remindFlag? 1: 0,
       is_public: this.data.publicFlag? 1: 0,
       remind_time: this.data.remindFlag? this.data.time: undefined,
+      formid: e.detail.formId
     };
     Util.request(Api.HabitSetting, data).then(res => {
       wx.navigateBack({

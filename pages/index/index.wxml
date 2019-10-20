@@ -44,12 +44,12 @@
   </view>
 
   <!-- 添加习惯 -->
-  <view class='weui-habit__add-box' wx:if='{{logFlag}}'>
+  <view class='weui-habit__add-box' wx:if='{{logFlag && list.length > 0}}'>
     <navigator url="search" class='weui-habit__add'>+</navigator>
   </view>
 
   <!-- 未登录添加习惯 直接出发登录 -->
-  <view class='weui-habit__logout-add-box' wx:if='{{!logFlag}}'>
+  <view class='weui-habit__logout-add-box' wx:if='{{!logFlag || list.length == 0}}'>
     <button catchtap='addHabitClick' class='weui-habit__logout-add'>添加习惯</button>
   </view>
 
@@ -62,7 +62,7 @@
   </view>
 
   <!-- 长按习惯区域 -->
-  <view wx:if='{{isShow}}'>
+  <view wx:if='{{isShow}}' catchtap='cancelClick'>
     <view class="ys-mask"></view><!-- 遮罩层 -->
     <view class="ys-dialog-btn">
       <view>

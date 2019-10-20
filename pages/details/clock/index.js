@@ -25,21 +25,25 @@ Page({
   /**
    * 发布
    */
-  release: function() {
+  release: function(e) {
     const {habit_id, textVal, imgAry} = this.data;
     if (!textVal && !imgAry.length){
-      wx.showModal({
-        title: '温馨提示',
-        content: '发布内容不能为空！',
-        showCancel:false
-      })
+      wx.showToast({
+        title: '请填写发布内容',
+        icon: 'none',
+        duration: 1000,
+      });
       return;
     }
-    const data = { habit_id, content: textVal, images:imgAry};
+    wx.showLoading({
+      title: '加载中',
+    })
+    const data = { habit_id, content: textVal, images:imgAry, formid: e.detail.formId};
     Util.request(Api.ClockSave, data).then(res => {
       wx.navigateBack({
         delta: 1,
       });
+      wx.hideLoading()
     });
   },
 
@@ -84,7 +88,6 @@ Page({
     const index = e.currentTarget.dataset.index;
     let list = this.data.imgAry;
     list.splice(index, 1)
-    console.log(list)
     this.setData({
       imgAry: list
     })
@@ -105,8 +108,17 @@ Page({
   },
 
   eventhandle: function (e) {
+    let val = e.detail.value;
+    let keyCode = e.detail.keyCode;
+    let newVal;
+    if(keyCode == 10) {
+      newVal = val + '<br/>'
+    }else {
+      newVal = val
+    }
+    console.log(newVal)
     this.setData({
-      textVal: e.detail.value,
+      textVal: newVal,
     })
   },
 

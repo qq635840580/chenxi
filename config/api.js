@@ -1,5 +1,5 @@
 //生产
-var ApiRootUrl = 'https://chenxixiguan.cn/api/';
+var ApiRootUrl = 'https://cs.chenxixiguan.cn/api/';
 
 module.exports = {
   LoginUrl: ApiRootUrl + 'wechat/getOpenid', //登录

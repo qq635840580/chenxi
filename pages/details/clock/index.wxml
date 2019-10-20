@@ -6,6 +6,7 @@
       placeholder='说说今天的感想...' 
       bindinput='eventhandle'
       maxlength='-1'
+      auto-height='true'
     >
     </textarea>
   </view>
@@ -22,7 +23,9 @@
   <image class='clock-img-add' src='/uploads/habit/zhanwei.png' wx:if="{{imgAry.length < 9}}" bindtap="addImg"></image>
 </view>
 
-<!-- 按钮 -->
-<view class='clock-button' bindtap='release'>
-  <button>发布</button>
-</view>
+<!-- 按钮   bindtap='release'-->
+<form bindsubmit="release" report-submit='true'>
+  <view class='clock-button'>
+    <button form-type='submit'>发布</button>
+  </view>
+</form>

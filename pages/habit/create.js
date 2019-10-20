@@ -10,7 +10,7 @@ Page({
   data: {
     name: '',
     time: '05:00',
-    isRemind: false,
+    isRemind: true,
     iconList: {},//存储图标
 
   },
@@ -72,6 +72,7 @@ Page({
     const params = e.detail.value;
     params.is_remind = Number(params.is_remind) == 0 ? '0': 1;
     params.is_public = Number(params.is_public) == 0 ? '0' : 1;
+    params.formid = e.detail.formId;
     params.icon = this.data.iconList.icon;
     Util.request(Api.HabitSave, params, 'POST').then(res => {
       if (res.code === '200') {

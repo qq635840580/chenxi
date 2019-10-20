@@ -121,7 +121,7 @@
 <view class='pinglun-input' wx:if='{{isInput}}'>
 
   <view>
-    <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' data-comment_id='{{commentId}}' bindconfirm='messageSubmit' bindinput='saveInputVal'/>
+    <input value='{{inputVal}}' focus="{{isInput}}"  data-id='{{focusId}}' data-contentid='{{contentId}}' data-comment_id='{{commentId}}' bindconfirm='messageSubmit' bindinput='saveInputVal' bindblur='closeInput'/>
   </view>
 
   <view data-id='{{focusId}}' data-contentid='{{contentId}}' catchtap='publicHandler'>
@@ -132,23 +132,24 @@
 
 <!-- 底部 -->
 <view class='clock-footer'>
-  <text bindtap='support'>
+  <text class='detail-comments' bindtap='saveIsInput' data-nickname="{{detail.user.nickname}}" data-id="{{id}}">
+    <text class='detail-comments-text'>写评论...</text>
+  </text>
+
+  <text bindtap='support' class='detail-support'>
     <text class='iconfont iconaixin' wx:if='{{detail.is_praise==0}}'></text>
     <text class='iconfont iconaixin1 back-color' wx:if='{{detail.is_praise==1}}'></text>
-    <text> {{detail.support_count}}</text>
+    <text class='detail-support-content'> {{detail.support_count}}</text>
   </text>
-  <label bindtap='saveIsInput' data-id="{{id}}">       
-    <text>
-      <text class='iconfont iconxinxi'></text>
-      <text> {{detail.comment_count}}</text>
-    </text>
-  </label>
-  <text bindtap='clickShare'>
-    <text class='clock-footer-fenxiang'>分享</text>
+
+
+  <text bindtap='clickShare' class="detail-share">
+    <text class='iconfont iconfenxiang'></text>
   </text>
+
 </view>
 
-<view wx:if='{{isShow}}'>
+<view wx:if='{{isShow}}' catchtap='cancelClick'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog-btn">
     <view>
@@ -159,28 +160,28 @@
   </view>
 </view>
 
-<view wx:if='{{isReport}}'>
+<view wx:if='{{isReport}}' catchtap='closeReport'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog">
     <view class="ys-dialog-title">举报原因
       <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' catchtap='closeReport'/>
     </view>
     <view class='checkbox__box'>
-      <checkbox-group bindchange="checkboxChange">
+      <checkbox-group catchtap="checkboxChange">
         <label class="checkbox__list" wx:for="{{checkboxData}}" wx:key='{{index}}'>
           <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
         </label>
       </checkbox-group>
     </view>
     <view class="ys-dialog-bottom">
-      <button bindtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+      <button catchtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
     </view>
   </view>
 </view>
 
 
 <!-- 分享遮罩层 -->
-<view wx:if='{{isShare}}'>
+<view wx:if='{{isShare}}' catchtap='cancelClickShare'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog-fenxiang">
     <view>

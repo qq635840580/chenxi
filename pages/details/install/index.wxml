@@ -40,7 +40,10 @@
 </view>
 
 <!-- 按钮 -->
-<view class='install-button'>
-  <button bindtap='update'>保存设置</button>
-</view>
+<form bindsubmit="update" report-submit="true">
+  <view class='install-button'>
+    <button form-type='submit'>保存设置</button>
+  </view>
+</form>
+
 

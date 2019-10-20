@@ -38,7 +38,6 @@ Component({
   lifetimes: {
     attached: function () {
       this.fetchData();
-      this.habitData();
       this.getBgImg();
       this.logFlag();
       this.setData({
@@ -56,7 +55,17 @@ Component({
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
     },
-
+  },
+  pageLifetimes: {
+    // 组件所在页面的生命周期函数
+    show: function () { 
+      this.fetchData();
+      this.habitData();
+      this.getBgImg();
+      this.logFlag();
+    },
+    hide: function () { },
+    resize: function () { },
   },
   methods: {
     showInput: function () {
@@ -389,22 +398,30 @@ Component({
      * 点击确认举报
      */
     enterReport:function(e) {
-      const data = {
-        clock_record_id: e.currentTarget.dataset.clock_id,
-        type: this.data.reportContent.join(','),
-      };
-      let that = this;
-      Util.request(Api.TipofDetails, data).then(res => {
-        that.fetchData();
-        this.setData({
-          isReport: false,
-        })
-        wx.showToast({
-          title: '举报成功',
-          icon: 'success',
-          duration: 1500,
+      if(this.data.reportContent) {
+        const data = {
+          clock_record_id: e.currentTarget.dataset.clock_id,
+          type: this.data.reportContent.join(','),
+        };
+        let that = this;
+        Util.request(Api.TipofDetails, data).then(res => {
+          that.fetchData();
+          this.setData({
+            isReport: false,
+          })
+          wx.showToast({
+            title: '举报成功',
+            icon: 'success',
+            duration: 1500,
+          });
         });
-      });
+      }else {
+        wx.showToast({
+          title: '请勾选举报选项',
+          icon: 'none',
+          duration: 1000,
+        });
+      }
     },
     /**
      * 跳转到动态的详情

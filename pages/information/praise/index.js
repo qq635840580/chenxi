@@ -43,10 +43,12 @@ Page({
    * 点击跳转动态详情
    */
   gotoDetails: function(e) {
-    const detailId = e.currentTarget.dataset.detailid;
-    wx.navigateTo({
-      url: `../../find/findDetails/index?id=${detailId}`,
-    })
+    const { detailid, type } = e.currentTarget.dataset;
+    if(type == 1 || type == 2 || type == 3 || type == 4) {
+      wx.navigateTo({
+        url: `../../find/findDetails/index?id=${detailid}`,
+      })
+    }
   },
 
   /**

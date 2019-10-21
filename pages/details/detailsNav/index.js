@@ -74,8 +74,11 @@ Page({
             wx.hideToast();
           },1500)
           this.onLoad(this.data.loadOptions)
+          this.setData({
+            tabflag: 1,
+          })
           //加入成功以后给一个表示 返回首页判断是否刷新
-          wx.setStorageSync('isJoin', true)
+          wx.setStorageSync('isJoin', true);
           this.selectComponent('#dynamic').fetchData();
         });
       },

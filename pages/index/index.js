@@ -166,18 +166,25 @@ Page({
    * 点击未登录的新增习惯提示未登录 跳转
    */
   addHabitClick: function(e) {
-    wx.showModal({
-      content: '当前未登录，登录后即可享受小程序全部功能',
-      success(res) {
-        if (res.confirm) {
-          wx.navigateTo({
-            url: '/pages/login/index'
-          });
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+    const { logFlag } = this.data;
+    if(logFlag) {
+      wx.navigateTo({
+        url: `./search`,
+      })
+    }else {
+      wx.showModal({
+        content: '当前未登录，登录后即可享受小程序全部功能',
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/index'
+            });
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
         }
-      }
-    })
+      });
+    }
   },
 
   /**

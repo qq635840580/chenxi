@@ -4,6 +4,10 @@ page {
   height: 100%;
 }
 
+.iconfont {
+  font-size: 50rpx;
+}
+
 .clock-details-block {
   height: 30rpx;
   background: #f2f3f5;
@@ -255,7 +259,7 @@ page {
 .detail-support {
   display: inline-block;
   color: #333;
-  font-size: 56rpx;
+  font-size: 66rpx;
   line-height: 115rpx;
   margin-left: 80rpx;
   /* font-weight: bold; */
@@ -269,7 +273,7 @@ page {
 .detail-share {
   display: inline-block;
   color: #333;
-  font-size: 56rpx;
+  font-size: 66rpx;
   line-height: 115rpx;
   margin-left: 80rpx;
   /* font-weight: bold; */

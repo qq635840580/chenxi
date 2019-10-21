@@ -288,7 +288,7 @@ button.weui-btn1 {
   background:#fff;
   color:#999;
   padding:0;
-  line-height: 30rpx;
+  line-height: 32rpx;
 }
 
 .weui-tool .tool-gengduo {

@@ -62,7 +62,7 @@
           <text>共坚持了{{item.continuity_days}}天</text>
         </view> 
         <view class='home-page__right'>
-          <image src='/img/myHabit/chakan.png'/>
+          <image src='/img/myHabit/chakan.png' lazy-load="{{true}}"/>
         </view>
       </view>
       <view class='home-page__list'>
@@ -71,13 +71,13 @@
             <text>{{blockList.content}}</text>
           </view>
           <view class='home-page__list__li' wx:if='{{blockList.clock_record_image.length >0 }}' data-id='{{blockList.id}}' catchtap='gotoFindDetails'>
-            <image src='{{blockList.clock_record_image[0].path}}' mode="aspectFill"/>
+            <image src='{{blockList.clock_record_image[0].path}}' mode="aspectFill" lazy-load="{{true}}"/>
           </view>
         </block>
       </view>
     </view>
     <view class='home-page__footer' wx:if='{{item.is_public==0}}'>
-      <image src='/img/user/suo.png'/>
+      <image src='/img/user/suo.png' lazy-load="{{true}}"/>
       仅自己可见
     </view>
   </view>

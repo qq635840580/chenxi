@@ -5,7 +5,7 @@
   <view class='habit-details-dynamic-one-img'>
     <view class='habit-details-dynamic-one-img-top'>
       <!-- 头像avatar -->
-      <view class='habit-details-dynamic-one-img-avatar'>
+      <view class='habit-details-dynamic-one-img-avatar' data-uid='{{detail.uid}}' bindtap='gotoHomePage'>
         <image src='{{detail.user.avatarUrl}}'/>
       </view>
       <!-- 姓名、年龄、性别、发布日期 -->
@@ -30,7 +30,7 @@
     <!-- 内容部分 -->
     <view class='habit-details-dynamic-one-img-text'>
       <!-- 文字区域 -->
-      <view>{{detail.content}}</view>
+      <text>{{detail.content}}</text>
       <!-- 图片区域 -->
       <view class='habit-details-dynamic-one-img-text-one-img' wx:if='{{detail.clock_record_image.length==1}}'>
         <block wx:for="{{detail.clock_record_image}}" wx:key='{{index}}'>
@@ -43,20 +43,6 @@
         </block>
       </view>
     </view>
-    <!-- 坚持区域 -->
-    <!-- <view class='clock-in-jianchi'>
-      <view class='clock-in-jianchi-box'>
-        <view>
-          <text>坚持 </text>
-          <text class='clock-in-jianchi-box-type'>{{detail.habits.name}}</text>
-          <text> {{detail.continuity_days}}天</text>
-        </view>
-        <view>
-          <text>600</text>
-          <text>人在坚持</text>
-        </view>
-      </view>
-    </view> -->
     <!-- 分享部分 -->
     <view class='habit-details-dynamic-one-img-bottom'>
       <view class='habit-details-dynamic-one-img-bottom-left'>

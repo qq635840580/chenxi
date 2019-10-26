@@ -23,7 +23,7 @@ Page({
     //进入页面处理当前时间的默认年月
     let date = new Date();
     let year = date.getFullYear();
-    let month = date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
+    let month = date.getMonth() < 9 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
     let nowDate = `${year}-${month}`;
     let data = { habit_id: options.habit_id, month: nowDate};
     this.fetchData(data);

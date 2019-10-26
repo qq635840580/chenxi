@@ -16,7 +16,7 @@ Page({
     isShow: false,//是否展示删除习惯
     habit_id: null,//暂存需要删除的习惯id
     backgroundUrl: null,//背景图暂存区
-    logFlag: false,//是否登录
+    // logFlag: false,//是否登录
   },
 
   /**
@@ -77,7 +77,7 @@ Page({
         that.setData({
           user_id: res.data,
           page: 1,
-          logFlag: true,
+          logFlag: 1,
           list: [],
         })
         that.fetchData();
@@ -92,7 +92,6 @@ Page({
    */
   longPressHabit:function(e) {
     if(e.type=='longpress') {
-      console.log(e)
       this.setData({
         isShow: true,
         habit_id: e.currentTarget.dataset.habit_id,

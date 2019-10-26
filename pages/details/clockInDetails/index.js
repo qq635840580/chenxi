@@ -72,7 +72,7 @@ Page({
     })
   },
 
-  //点击评论 使input聚焦
+  //点击评论框  使input聚焦
   saveIsInput: function (e) {
     //每次先暂存点击评论的id，方便提交的时候获取到
     this.setData({
@@ -89,8 +89,8 @@ Page({
     const data = {
       clock_record_id: this.data.id,
       content: e.detail.value,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
-      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :null,
+      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
+      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({

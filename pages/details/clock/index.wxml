@@ -6,7 +6,7 @@
       placeholder='说说今天的感想...' 
       bindinput='eventhandle'
       maxlength='-1'
-      auto-height='true'
+      auto-height
     >
     </textarea>
   </view>

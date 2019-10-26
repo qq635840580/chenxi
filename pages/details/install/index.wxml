@@ -25,9 +25,9 @@
 </view>
 
 <!-- 字体 -->
-<!-- <view class='install-text'>
-  提醒时间每天通过“晨夕习惯”公众号提醒
-</view> -->
+<view class='install-text'>
+  请勾选弹窗底部“<text style='color: #3ACC88'>总是保持以上选择</text>”，否则可能无法发送提醒。
+</view>
 
 <!-- 是否公开 -->
 <view class='install-first'>

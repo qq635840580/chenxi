@@ -79,6 +79,8 @@ Page({
           })
           //加入成功以后给一个表示 返回首页判断是否刷新
           wx.setStorageSync('isJoin', true);
+          const data = { habit_id: this.data.habit_id};
+          this.fetchData(data);
           this.selectComponent('#dynamic').fetchData();
         });
       },

@@ -84,7 +84,6 @@ Page({
    * 删除图片
    */
   delImage:function(e) {
-    console.log(e)
     const index = e.currentTarget.dataset.index;
     let list = this.data.imgAry;
     list.splice(index, 1)
@@ -116,7 +115,6 @@ Page({
     }else {
       newVal = val
     }
-    console.log(newVal)
     this.setData({
       textVal: newVal,
     })

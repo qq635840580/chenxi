@@ -77,7 +77,6 @@ Page({
   saveIsInput: function (e) {
     console.log(e.currentTarget.dataset);
     const { contentid = null, comment_id = null, nickname = null } = e.currentTarget.dataset
-    console.log(e.currentTarget.dataset)
     //每次先暂存点击评论的id，方便提交的时候获取到
     this.setData({
       isInput: true,
@@ -89,14 +88,12 @@ Page({
 
   //评论触发的方法
   messageSubmit: function (e) {
-    console.log(e.currentTarget.dataset)
     const datas = { clock_record_id: this.data.id };
-    const { contentid = null, comment_id = null } = e.currentTarget.dataset
     const data = {
       clock_record_id: this.data.id,
       content: e.detail.value,
-      parent_id,
-      comment_id,
+      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
+      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({

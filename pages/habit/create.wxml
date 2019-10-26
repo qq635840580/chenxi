@@ -1,5 +1,5 @@
 <!--pages/habit/create.wxml-->
-<form bindsubmit='submitForm' report-submit='true'>
+<!-- <form bindsubmit='submitForm' report-submit='true'>
   <view class='weui-cells'>
     <view class='weui-cell weui-cell_input'>
       <view class='weui-cell__bd'>习惯名称</view>
@@ -47,4 +47,57 @@
   <view class="weui-btn-area">
     <button class="weui-btn" type="primary" form-type='submit'>完成创建</button>
   </view>
-</form>
+</form> -->
+
+<view class='weui-cells'>
+  <view class='weui-cell weui-cell_input'>
+    <view class='weui-cell__bd'>习惯名称</view>
+    <view class='weui-cell__ft'>
+      <input class='weui-input' name="name" value='{{name}}' bindinput="habitname"/>
+    </view>
+  </view>
+  <view class='weui-cell weui-cell_input weui-cell_icon'>
+    <view class='weui-cell__bd'>习惯图标</view>
+    <view class='weui-cell__ft' bindtap="gotoIconList" data='{{iconList.id}}'>
+      <image class='weui-cell__bgimg' src='{{iconList.icon}}'/>
+      <view class="weui-select weui-select_in-select-after"></view>
+    </view>
+  </view>
+</view>
+
+<view class='weui-cells'>
+  <view class='weui-cell weui-cell_switch'>
+    <view class='weui-cell__bd'>是否提醒</view>
+    <view class='weui-cell__ft'>
+      <switch color='#3ACC88' checked='true' name="is_remind" bindchange='isRemind'/>
+    </view>
+  </view>
+  <view class='weui-cell weui-cell_select' wx:if="{{isRemind}}">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">提醒时间</view>
+    </view>
+    <view class='weui-cell__bd'>
+      <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+        <input hidden name="remind_time" value='{{time}}' />
+        <view class="weui-select weui-select_in-select-after">{{time}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells__tips">请勾选弹窗底部“<text style='color: #3ACC88'>总是保持以上选择</text>”，否则可能无法发送提醒。</view>
+
+
+<view class='weui-cells weui-cells_after-title'>
+  <view class='weui-cell weui-cell_switch'>
+    <view class='weui-cell__bd'>是否公开</view>
+    <view class='weui-cell__ft'>
+      <switch color='#3ACC88' name="is_public" checked bindchange="isPublic"/>
+    </view>
+  </view>
+</view>
+
+
+<view class="weui-btn-area">
+  <button class="weui-btn" type="primary" bindtap='handleSave'>完成创建</button>
+</view>

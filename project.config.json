@@ -20,7 +20,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.3",
+	"libVersion": "2.9.0",
 	"appid": "wx1663fc90c471a614",
 	"projectname": "chenxi",
 	"debugOptions": {

@@ -144,8 +144,8 @@ Page({
     const data = {
       clock_record_id: this.data.id,
       content: this.data.msgVal,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
-      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : null,
+      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
+      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({

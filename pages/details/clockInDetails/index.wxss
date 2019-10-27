@@ -297,7 +297,7 @@ page {
   color: #333;
   font-size: 56rpx;
   line-height: 115rpx;
-  margin-left: 80rpx;
+  margin-left: 65rpx;
   /* font-weight: bold; */
 }
 
@@ -592,7 +592,7 @@ checkbox {
 }
 .pinglun-input {
   position: fixed;
-  bottom: 108rpx;
+  bottom: 128rpx;
   left: 0;
   width: 100%;
   background: #fff;

@@ -85,7 +85,7 @@
   </view>
 </view>
 
-<view class="weui-cells__tips">请勾选弹窗底部“<text style='color: #3ACC88'>总是保持以上选择</text>”，否则可能无法发送提醒。</view>
+<view class="weui-cells__tips">点击完成创建，请勾选弹窗底部“<text style='color: #3ACC88'>总是保持以上选择</text>”，否则可能无法发送提醒。</view>
 
 
 <view class='weui-cells weui-cells_after-title'>

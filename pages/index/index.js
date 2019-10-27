@@ -17,6 +17,7 @@ Page({
     habit_id: null,//暂存需要删除的习惯id
     backgroundUrl: null,//背景图暂存区
     // logFlag: false,//是否登录
+    searchFlag: false,//搜索flag
   },
 
   /**
@@ -43,6 +44,7 @@ Page({
       this.setData({
         list: res.data,
         isNull: res.data.length==0? true : false,
+        searchFlag: true,
       })
       wx.hideLoading()
     });

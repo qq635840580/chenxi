@@ -38,6 +38,7 @@ Component({
   lifetimes: {
     attached: function () {
       this.fetchData();
+      this.habitData();
       this.getBgImg();
       this.logFlag();
       this.setData({

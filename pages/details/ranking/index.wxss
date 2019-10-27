@@ -36,7 +36,7 @@
   width: 32rpx;
   height: 32rpx;
   vertical-align: top;
-  margin-top: 17rpx;
+  margin-top: 7rpx;
 }
 
 .ranking-bg view:nth-child(3) {

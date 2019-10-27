@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time:'00:00',
+    time:'07:00',
     habit_id: null,
     dataAll: {},
     remindFlag: false,
@@ -64,14 +64,32 @@ Page({
   /**
    * 修改设置
    */
-  update: function(e) {
+  update: function() {
     let data = { 
       habit_id: this.data.habit_id, 
       is_remind: this.data.remindFlag? 1: 0,
       is_public: this.data.publicFlag? 1: 0,
       remind_time: this.data.remindFlag? this.data.time: undefined,
-      formid: e.detail.formId
     };
+    if(this.data.remindFlag) {
+      wx.requestSubscribeMessage({
+        tmplIds: ['rESRPjZaqk7dhE-MnnKoG6owdEtt_bscXYPC3J3lr0E'],
+        success:(res) => {
+          this.handleSave(data);
+        },
+        fail:(res) => {
+          console.log(res)
+        }
+      })
+    }else {
+      this.handleSave(data)
+    }
+  },
+
+  /**
+   * 保存
+   */
+  handleSave: function(data) {
     Util.request(Api.HabitSetting, data).then(res => {
       wx.navigateBack({
         delta: 1,

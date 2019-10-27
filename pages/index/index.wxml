@@ -44,18 +44,18 @@
   </view>
 
   <!-- 添加习惯 -->
-  <view class='weui-habit__add-box' wx:if='{{logFlag == 1 && list.length > 0}}'>
+  <view class='weui-habit__add-box' wx:if='{{searchFlag && logFlag == 1 && list.length > 0}}'>
     <navigator url="search" class='weui-habit__add'>+</navigator>
   </view>
 
   <!-- 未登录添加习惯 直接出发登录 -->
-  <view class='weui-habit__logout-add-box' wx:if='{{logFlag !=1 || list.length == 0}}'>
+  <view class='weui-habit__logout-add-box' wx:if='{{searchFlag && logFlag !=1 || searchFlag && list.length == 0}}'>
     <button catchtap='addHabitClick' class='weui-habit__logout-add'>添加习惯</button>
   </view>
 
 
   <!-- 空白页 -->
-  <view class='weui-nothing' wx:if="{{isNull || !logFlag}}">
+  <view class='weui-nothing' wx:if="{{searchFlag && isNull || searchFlag && !logFlag}}">
     <image src='/img/nothing.png' mode='widthFix'></image>
     <view>自律改变习惯</view>
     <view>快去添加一个习惯吧</view>

@@ -9,7 +9,7 @@ Page({
    */
   data: {
     name: '',
-    time: '05:00',
+    time: '07:00',
     isRemind: true,
     isPublic: true,
     iconList: {},//存储图标
@@ -99,7 +99,7 @@ Page({
       wx.requestSubscribeMessage({
         tmplIds: ['rESRPjZaqk7dhE-MnnKoG6owdEtt_bscXYPC3J3lr0E'],
         success:(res) => {
-          console.log(res)
+          this.handleSubmit(data);
         },
         fail:(res) => {
           console.log(res)

@@ -111,7 +111,8 @@ Page({
     let keyCode = e.detail.keyCode;
     let newVal;
     if(keyCode == 10) {
-      newVal = val + '<br/>'
+      // newVal = val + '<br/>'
+      newVal = val;
     }else {
       newVal = val
     }

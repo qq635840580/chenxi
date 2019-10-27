@@ -140,7 +140,7 @@ Page({
     const data = {
       clock_record_id: this.data.id,
       content: this.data.msgVal,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
+      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({

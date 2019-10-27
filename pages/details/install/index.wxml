@@ -26,7 +26,7 @@
 
 <!-- 字体 -->
 <view class='install-text'>
-  请勾选弹窗底部“<text style='color: #3ACC88'>总是保持以上选择</text>”，否则可能无法发送提醒。
+  点击保存设置，请勾选弹窗底部“<text style='color: #3ACC88'>总是保持以上选择</text>”，否则可能无法发送提醒。
 </view>
 
 <!-- 是否公开 -->
@@ -40,10 +40,8 @@
 </view>
 
 <!-- 按钮 -->
-<form bindsubmit="update" report-submit="true">
-  <view class='install-button'>
-    <button form-type='submit'>保存设置</button>
+<view class='install-button'>
+    <button bindtap='update'>保存设置</button>
   </view>
-</form>
 
 

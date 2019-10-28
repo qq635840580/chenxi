@@ -389,5 +389,133 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+// 分享朋友圈
+  fenxiang: function () {
+    wx.showLoading({
+      title: '图片生成中',
+      mask: true
+    });
+    this.CanvasContext()
+    // .then(res=>{
+      wx.hideLoading();
+    //   wx.canvasToTempFilePath({
+    //     canvasId: 'dialog-fenxiang',
+    //     success: ({ tempFilePath }) => {
+    //       wx.saveImageToPhotosAlbum({
+    //         filePath: tempFilePath,
+    //       });
+    //       wx.showModal({
+    //         content: '已保存到相册',    
+    //         title: '温馨提示',
+    //       })
+    //     }
+    //   })
+    // },(e)=>{
+    //   console.log(e)
+    // });
+  },
+  CanvasContext:function(){
+    return new Promise((res,rej)=>{
+      const { detail } = this.data;
+      wx.getImageInfo({
+        src:'https://chenxixiguan.cn/assets/img/share_bg.png',
+        success:({ path }) => {
+          Util.request(Api.getImg, {})
+          .then(res=>{
+            console.log(res);
+            wx.getImageInfo({
+              src: res.data[0],
+              success: (res) => {
+                console.log(res);
+                const ctx = wx.createCanvasContext('dialog-fenxiang', this)
+                ctx.drawImage(path, 0, 0, 375, 595);
+                if (res.path){
+                  ctx.drawImage(res.path, 0, 0, 375, 200)
+                }
+                
+                ctx.setFillStyle('#000000');
+                ctx.setFontSize(26);
+                ctx.fillText('第' + detail.continuity_days + '天', 45, 60);
+                ctx.setFontSize(22);
+                ctx.fillText('早睡早起', 45, 115);
+                ctx.setFontSize(18);
+                ctx.fillText(detail.date + ' ', 45, 150);
+                ctx.setTextAlign('right')
+                ctx.fillText(detail.user.nickname, 340, 230);
+                ctx.setTextAlign('left')
+                // ctx.fillText(detail.content,45,300)
+                if (detail.content) {
+                  let chr = detail.content.split("");
+                  let temp = "";
+                  let row = [];
+                  for (let a = 0; a < chr.length; a++) {
+                    if (ctx.measureText(temp).width < 350) {
+                      temp += chr[a];
+                    }
+                    else {
+                      a--;
+                      row.push(temp);
+                      temp = "";
+                    }
+                  }
+                  row.push(temp);
+                  if (row.length > 2) {
+                    var rowCut = row.slice(0, 2);
+                    var rowPart = rowCut[1];
+                    var test = "";
+                    var empty = [];
+                    for (var a = 0; a < rowPart.length; a++) {
+                      if (ctx.measureText(test).width < 220) {
+                        test += rowPart[a];
+                      }
+                      else {
+                        break;
+                      }
+                    }
+                    empty.push(test);
+                    var group = empty[0] + "..."
+                    rowCut.splice(1, 1, group);
+                    row = rowCut;
+                  }
+                  for (var b = 0; b < row.length; b++) {
+                    ctx.fillText(row[b], 45, 260 + b * 30, 300);
+                  }
+                }
+                ctx.setTextAlign('center')
+                ctx.setFontSize(18);
+                ctx.font = 'normal bold 20px sans-serif';
+                ctx.fillText('123天', 375 / 6, 390)
+                ctx.fillText('123天', 375 / 2, 390)
+                ctx.fillText('100%', 375 / 6 * 5, 390);
+                ctx.font = 'normal 200 20px sans-serif';
+                ctx.setFontSize(16);
+                ctx.setFillStyle('#999')
+                ctx.fillText('已加入', 375 / 6, 420)
+                ctx.fillText('累积打卡', 375 / 2, 420)
+                ctx.fillText('打卡率', 375 / 6 * 5, 420)
+                ctx.setLineWidth(1)
+                ctx.setStrokeStyle('#999')
+                ctx.moveTo(375 / 3, 370);
+                ctx.lineTo(375 / 3, 430)
+                ctx.moveTo(375 / 3 * 2, 370);
+                ctx.lineTo(375 / 3 * 2, 430)
+                ctx.stroke()
+                ctx.draw()
+                res();
+              },
+              fail: e => {
+                console.log(e)
+              }
+            })
+          })
+          
+          
+        },
+        fail:rej
+      })
+    }).catch(e=>{
+      console.log(e)
+    })
   }
 })

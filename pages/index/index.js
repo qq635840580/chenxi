@@ -25,7 +25,9 @@ Page({
    */
   onLoad: function (options) {
     that = this
-    
+    this.setData({
+      searchFlag: false,
+    });
   },
 
   /**
@@ -73,6 +75,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      searchFlag: false,
+    });
     wx.getStorage({
       key: 'uid',
       success: function (res) {

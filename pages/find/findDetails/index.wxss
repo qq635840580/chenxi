@@ -203,7 +203,7 @@ page {
 
 .clock-in-jianchi .clock-in-jianchi-box view:nth-child(1) {
   display: inline-block;
-  margin-top: 15rpx;
+  margin-top: 10rpx;
 }
 
 .clock-in-jianchi .clock-in-jianchi-box view:nth-child(1) text {

@@ -20,7 +20,6 @@
   position: absolute;
   top: 270rpx;
   left: 50rpx;
-  height: 32rpx;
   vertical-align: top;
 }
 
@@ -29,14 +28,14 @@
   color: #FEFEFE;
   line-height: 32rpx;
   padding-right: 10rpx;
-  vertical-align: top;
+  display: inline-block;
 }
 
 .ranking-bg view:nth-child(2) image {
   width: 32rpx;
   height: 32rpx;
   vertical-align: top;
-  margin-top: 7rpx;
+  margin-top: 8rpx;
 }
 
 .ranking-bg view:nth-child(3) {

@@ -1,4 +1,6 @@
 <!--pages/details/clockInDetails/index.wxml-->
+<canvas canvas-id="dialog-fenxiang" class='canvasclass' style="width:375px;height:595px;"></canvas>
+
 <!-- 动态(有数据时) -->
 <view class='habit-details-dynamic'>
   <!-- 大图模式 -->
@@ -178,13 +180,14 @@
           <view>微信好友</view>
         </button>
 
-        <!-- <button class='ys-dialog-fenxiang__list-item'>
+        <button catchtap='fenxiang' class='ys-dialog-fenxiang__list-item'>
           <image src='/img/detail/pengyouquan.png'/>
           <view>朋友圈</view>
-        </button> -->
+        </button>
 
       </view>
       <button class='ys-dialog-fenxiang__cancel' catchtap='cancelClickShare'>取消</button>
     </view>
   </view>
 </view>
+

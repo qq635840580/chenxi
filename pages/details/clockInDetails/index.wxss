@@ -626,3 +626,10 @@ checkbox {
 
 
 
+
+
+.canvasclass{
+  z-index: -1；
+  
+
+}

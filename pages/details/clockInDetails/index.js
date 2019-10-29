@@ -442,8 +442,8 @@ Page({
                     ctx.fillText(`${detail.habits.name}`, 60, 150);
                     ctx.setFontSize(26);
                     ctx.fillText(detail.date + ' ', 60, 220);
-                    ctx.setTextAlign('right');
-                    ctx.fillText(detail.user.nickname, 440, 270);
+                    ctx.setTextAlign('center');
+                    ctx.fillText(detail.user.nickname, 385, 270);
                     ctx.setTextAlign('left');
                     ctx.setFillStyle('#666');
                     // ctx.fillText(detail.content,45,300)

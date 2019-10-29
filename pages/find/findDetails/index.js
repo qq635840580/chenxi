@@ -448,8 +448,8 @@ Page({
                     ctx.fillText(`${detail.habits.name}`, 60, 150);
                     ctx.setFontSize(26);
                     ctx.fillText(detail.date + ' ', 60, 220);
-                    ctx.setTextAlign('right');
-                    ctx.fillText(detail.user.nickname, 440, 270);
+                    ctx.setTextAlign('center');
+                    ctx.fillText(detail.user.nickname, 385, 270);
                     ctx.setTextAlign('left');
                     ctx.setFillStyle('#666');
                     // ctx.fillText(detail.content,45,300)
@@ -458,23 +458,22 @@ Page({
                       let temp = "";
                       let row = [];
                       for (let a = 0; a < chr.length; a++) {
-                        if (ctx.measureText(temp).width < 350) {
+                        if (ctx.measureText(temp).width < 320) {
                           temp += chr[a];
-                        }
-                        else {
+                        } else {
                           a--;
                           row.push(temp);
                           temp = "";
                         }
                       }
                       row.push(temp);
-                      if (row.length > 2) {
+                      if (row.length > 5) {
                         var rowCut = row.slice(0, 2);
                         var rowPart = rowCut[1];
                         var test = "";
                         var empty = [];
                         for (var a = 0; a < rowPart.length; a++) {
-                          if (ctx.measureText(test).width < 220) {
+                          if (ctx.measureText(test).width < 350) {
                             test += rowPart[a];
                           }
                           else {
@@ -487,7 +486,7 @@ Page({
                         row = rowCut;
                       }
                       for (var b = 0; b < row.length; b++) {
-                        ctx.fillText(row[b], 60, 350 + b * 30, 300);
+                        ctx.fillText(row[b], 60, 350 + b * 30, 350);
                       }
                     }
                     ctx.setTextAlign('center')

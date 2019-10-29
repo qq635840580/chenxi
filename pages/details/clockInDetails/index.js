@@ -393,11 +393,8 @@ Page({
 
   },
 
-// 分享朋友圈
+  // 分享朋友圈
   fenxiang: function () {
-    // this.setData({
-    //   isShare: false,
-    // })
     wx.showLoading({
       title: '图片生成中',
       mask: true
@@ -421,6 +418,10 @@ Page({
                 wx.getImageInfo({
                   src: detail.user.avatarUrl,
                   success: (avatar) => {
+                    wx.showLoading({
+                      title: '图片生成中',
+                      mask: true
+                    });
                     const ctx = wx.createCanvasContext('dialog-fenxiang');
                     if (res.path){
                       ctx.drawImage(res.path, 0, 10, 480, 290)
@@ -505,7 +506,6 @@ Page({
                       wx.canvasToTempFilePath({
                         canvasId: 'dialog-fenxiang',
                         success: (tempRes) => {
-                          console.log(tempRes)
                           that.setData({
                             canvasImg: tempRes.tempFilePath,
                             isShare: false,
@@ -526,8 +526,6 @@ Page({
               }
             })
           })
-          
-          
         },
         fail:rej
       })
@@ -537,10 +535,12 @@ Page({
   },
 
   /**
-   * canvas绘图全过程
+   * 关闭绘图
    */
-  handleCanvasImg: function() {
-    
+  closeCanvas: function() {
+    this.setData({
+      isCanvas: false
+    })
   },
 
 })

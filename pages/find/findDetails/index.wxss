@@ -9,14 +9,38 @@ page {
 }
 
 .clock-details-block {
-  height: 30rpx;
+  height: 20rpx;
   background: #f2f3f5;
 }
 
 .habit-details-dynamic {
   width: 100%;
   background: #fff;
-  margin: 0 auto 20rpx auto;
+  margin: 0 auto;
+}
+
+.ranking-me .ranking-medlas {
+  display: inline-block;
+  margin-left: 30rpx;
+  vertical-align: top;
+  width: 48rpx;
+  height: 64rpx;
+  line-height: 128rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #555;
+}
+
+.ranking-me .ranking-medlas {
+  display: inline-block;
+  margin-left: 30rpx;
+  vertical-align: top;
+  width: 48rpx;
+  height: 64rpx;
+  line-height: 128rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #555;
 }
 
 .habit-details-dynamic-one-img-top {
@@ -41,17 +65,13 @@ page {
   display: inline-block;
 }
 
-.habit-details-dynamic-one-img-total-top {
-  margin-top: 15rpx;
-}
-
 .habit-details-dynamic-one-img-total-top view:nth-child(1) {
   font-size: 30rpx;
   color: #555;
   font-weight: bold;
   display: inline-block;
   line-height: 28rpx;
-  margin-top: 20rpx;
+  /* margin-top: 20rpx; */
 }
 
 .habit-details-dynamic-one-img-total-top view:nth-child(2) {
@@ -194,7 +214,6 @@ page {
   height: 70rpx;
   margin: 20rpx auto;
   background: #F2F3F5;
-  /* font-size: 28rpx; */
 }
 
 .clock-in-jianchi .clock-in-jianchi-box {
@@ -203,11 +222,11 @@ page {
 
 .clock-in-jianchi .clock-in-jianchi-box view:nth-child(1) {
   display: inline-block;
-  margin-top: 10rpx;
+  line-height: 30rpx;
 }
 
 .clock-in-jianchi .clock-in-jianchi-box view:nth-child(1) text {
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #999;
 }
 
@@ -219,7 +238,7 @@ page {
   float: right;
   margin-top: 20rpx;
   line-height: 30rpx;
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #999;
 }
 
@@ -232,6 +251,11 @@ page {
   background: #fff;
   display: flex;
   border-top: 1rpx solid #F2F3F5;
+}
+
+.clock-footer label {
+  flex: 1;
+  text-align: center;
 }
 
 
@@ -259,7 +283,7 @@ page {
 .detail-support {
   display: inline-block;
   color: #333;
-  font-size: 66rpx;
+  font-size: 56rpx;
   line-height: 115rpx;
   margin-left: 80rpx;
   /* font-weight: bold; */
@@ -273,13 +297,11 @@ page {
 .detail-share {
   display: inline-block;
   color: #333;
-  font-size: 66rpx;
+  font-size: 56rpx;
   line-height: 115rpx;
   margin-left: 65rpx;
   /* font-weight: bold; */
 }
-
-
 
 .clock-in-details-text-top {
   width: 100%;
@@ -333,8 +355,8 @@ page {
 .clock-in-details-text-comments .clock-in-details-text-comments-box {
   padding: 20rpx;
   margin: 0 auto;
-  background: #fff;
   border-bottom: 1rpx solid #F2F3F5;
+  background: #fff;
   /* display: flex; */
 }
 
@@ -377,7 +399,6 @@ page {
   font-size: 28rpx;
   color: #555;
   line-height: 36rpx;
-  margin-bottom: 10rpx;
 }
 
 .clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right-reply {
@@ -387,7 +408,7 @@ page {
 .clock-in-details-text-comments .clock-in-details-text-comments-box .clock-in-details-text-comments-right-reply .clock-in-details-text-comments-right-reply-box {
   padding: 5rpx;
   font-size: 28rpx;
-  line-height: 48rpx;
+  line-height: 46rpx;
   color: #555;
 }
 
@@ -440,6 +461,8 @@ page {
   overflow: hidden;
 }
 
+
+/* 分享区域 */
 .ys-dialog-fenxiang{
   position: fixed;
   z-index: 5000;
@@ -454,8 +477,42 @@ page {
   /* overflow: hidden; */
 }
 
+/* canvas绘图区域 */
+.ys-dialog-canvas {
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.canvas-img image {
+  width: 100%;
+  height: 950rpx;
+}
+
+.canvas-btn {
+  text-align: center;
+  display: flex;
+}
+
+.canvas-btn button {
+  flex: 1;
+  background: #3ACC88;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 35rpx;
+  width: 100rpx;
+}
+
 .ys-dialog-title{
-  padding: 50rpx 100rpx 0 100rpx;
+  padding: 50rpx 220rpx 0 220rpx;
   color:#212121;
   font-size:36rpx;
   font-family:PingFang-SC-Bold;
@@ -605,5 +662,6 @@ checkbox {
   margin-left: 20rpx;
 }
 
-
-
+.canvasclass{
+  z-index: -1；
+}

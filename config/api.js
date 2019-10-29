@@ -62,5 +62,5 @@ module.exports = {
   MessagePraise: ApiRootUrl + 'message/support', //点赞消息
   MessageComment: ApiRootUrl + 'message/evaluate', //评论消息
   MessageSystem: ApiRootUrl + 'message/system', //评论消息
-  getImg: ApiRootUrl+ '/users/RandWord', // 获取分享生成图的随机背景图
+  getImg: ApiRootUrl+ 'users/RandImage', // 获取分享生成图的随机背景图
 }

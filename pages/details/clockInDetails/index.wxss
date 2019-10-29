@@ -29,7 +29,9 @@ page {
   text-align: center;
   font-size: 28rpx;
   color: #555;
-}.ranking-me .ranking-medlas {
+}
+
+.ranking-me .ranking-medlas {
   display: inline-block;
   margin-left: 30rpx;
   vertical-align: top;
@@ -459,6 +461,8 @@ page {
   overflow: hidden;
 }
 
+
+/* 分享区域 */
 .ys-dialog-fenxiang{
   position: fixed;
   z-index: 5000;
@@ -471,6 +475,47 @@ page {
   text-align: center;
   /* border-radius: 16rpx; */
   /* overflow: hidden; */
+}
+
+/* canvas绘图区域 */
+.ys-dialog-canvas {
+  /* position: fixed;
+  z-index: 5000;
+  width: 100%;
+  left: 50%;
+  margin-left: -39%;
+  text-align: center;
+  top: 50rpx; */
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  text-align: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.canvas-img image {
+  height: 900rpx;
+}
+
+.canvas-btn {
+  text-align: center;
+  display: flex;
+}
+
+.canvas-btn button {
+  flex: 1;
+  background: #3ACC88;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 35rpx;
+  width: 100rpx;
 }
 
 .ys-dialog-title{

@@ -28,12 +28,14 @@ Page({
     msgVal: null, //存储评论框值
     contentId: null,  //存储顶层父级的id
     commentId: null, //存储点击这条评论的id
+    canvasImg: null, //绘制图片存储的地方
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that = this;
     const data = { clock_record_id:options.id,}
     this.setData({
       id: options.id
@@ -390,119 +392,135 @@ Page({
   onShareAppMessage: function () {
 
   },
+
 // 分享朋友圈
   fenxiang: function () {
+    // this.setData({
+    //   isShare: false,
+    // })
     wx.showLoading({
       title: '图片生成中',
       mask: true
     });
     this.CanvasContext()
-    // .then(res=>{
-      wx.hideLoading();
-    //   wx.canvasToTempFilePath({
-    //     canvasId: 'dialog-fenxiang',
-    //     success: ({ tempFilePath }) => {
-    //       wx.saveImageToPhotosAlbum({
-    //         filePath: tempFilePath,
-    //       });
-    //       wx.showModal({
-    //         content: '已保存到相册',    
-    //         title: '温馨提示',
-    //       })
-    //     }
-    //   })
-    // },(e)=>{
-    //   console.log(e)
-    // });
   },
-  CanvasContext:function(){
-    return new Promise((res,rej)=>{
+
+  /**
+   * 绘图过程
+   */
+  CanvasContext: function(){
+    return new Promise((response,rej)=>{
       const { detail } = this.data;
       wx.getImageInfo({
-        src:'https://chenxixiguan.cn/assets/img/share_bg.png',
+        src:'https://chenxixiguan.cn/uploads/20191029/f5f9c2dbcf2bda61b59ed08b99fd4ae4.png',
         success:({ path }) => {
-          Util.request(Api.getImg, {})
-          .then(res=>{
-            console.log(res);
+          Util.request(Api.getImg).then(res=>{
             wx.getImageInfo({
-              src: res.data[0],
+              src: res.data.back_image,
               success: (res) => {
-                console.log(res);
-                const ctx = wx.createCanvasContext('dialog-fenxiang', this)
-                ctx.drawImage(path, 0, 0, 375, 595);
-                if (res.path){
-                  ctx.drawImage(res.path, 0, 0, 375, 200)
-                }
-                
-                ctx.setFillStyle('#000000');
-                ctx.setFontSize(26);
-                ctx.fillText('第' + detail.continuity_days + '天', 45, 60);
-                ctx.setFontSize(22);
-                ctx.fillText('早睡早起', 45, 115);
-                ctx.setFontSize(18);
-                ctx.fillText(detail.date + ' ', 45, 150);
-                ctx.setTextAlign('right')
-                ctx.fillText(detail.user.nickname, 340, 230);
-                ctx.setTextAlign('left')
-                // ctx.fillText(detail.content,45,300)
-                if (detail.content) {
-                  let chr = detail.content.split("");
-                  let temp = "";
-                  let row = [];
-                  for (let a = 0; a < chr.length; a++) {
-                    if (ctx.measureText(temp).width < 350) {
-                      temp += chr[a];
+                wx.getImageInfo({
+                  src: detail.user.avatarUrl,
+                  success: (avatar) => {
+                    const ctx = wx.createCanvasContext('dialog-fenxiang');
+                    if (res.path){
+                      ctx.drawImage(res.path, 0, 10, 480, 290)
                     }
-                    else {
-                      a--;
+                    ctx.drawImage(path, 0, 0, 480, 800);
+                    ctx.save(); // 先保存状态 已便于画完圆再用
+                    ctx.beginPath(); //开始绘制
+                    //先画个圆
+                    ctx.arc(375, 180, 40, 0, Math.PI * 2, false);
+                    ctx.clip();//画了圆 再剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内
+                    ctx.drawImage(avatar.path, 335, 140, 80, 80);
+                    // 推进去图片
+                    ctx.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
+                    ctx.setFillStyle('#ffffff');
+                    ctx.setFontSize(50);
+                    ctx.fillText('第' + detail.continuity_days + '天', 60, 100);
+                    ctx.setFontSize(34);
+                    ctx.fillText(`${detail.habits.name}`, 60, 150);
+                    ctx.setFontSize(26);
+                    ctx.fillText(detail.date + ' ', 60, 220);
+                    ctx.setTextAlign('right');
+                    ctx.fillText(detail.user.nickname, 440, 270);
+                    ctx.setTextAlign('left');
+                    ctx.setFillStyle('#666');
+                    // ctx.fillText(detail.content,45,300)
+                    if (detail.content) {
+                      let chr = detail.content.split("");
+                      let temp = "";
+                      let row = [];
+                      for (let a = 0; a < chr.length; a++) {
+                        if (ctx.measureText(temp).width < 350) {
+                          temp += chr[a];
+                        }
+                        else {
+                          a--;
+                          row.push(temp);
+                          temp = "";
+                        }
+                      }
                       row.push(temp);
-                      temp = "";
-                    }
-                  }
-                  row.push(temp);
-                  if (row.length > 2) {
-                    var rowCut = row.slice(0, 2);
-                    var rowPart = rowCut[1];
-                    var test = "";
-                    var empty = [];
-                    for (var a = 0; a < rowPart.length; a++) {
-                      if (ctx.measureText(test).width < 220) {
-                        test += rowPart[a];
+                      if (row.length > 2) {
+                        var rowCut = row.slice(0, 2);
+                        var rowPart = rowCut[1];
+                        var test = "";
+                        var empty = [];
+                        for (var a = 0; a < rowPart.length; a++) {
+                          if (ctx.measureText(test).width < 220) {
+                            test += rowPart[a];
+                          }
+                          else {
+                            break;
+                          }
+                        }
+                        empty.push(test);
+                        var group = empty[0] + "..."
+                        rowCut.splice(1, 1, group);
+                        row = rowCut;
                       }
-                      else {
-                        break;
+                      for (var b = 0; b < row.length; b++) {
+                        ctx.fillText(row[b], 60, 350 + b * 30, 300);
                       }
                     }
-                    empty.push(test);
-                    var group = empty[0] + "..."
-                    rowCut.splice(1, 1, group);
-                    row = rowCut;
+                    ctx.setTextAlign('center')
+                    ctx.setFontSize(18);
+                    ctx.font = 'normal bold 20px sans-serif';
+                    ctx.fillText('123天', 480 / 6, 560)
+                    ctx.fillText('123天', 480 / 2, 560)
+                    ctx.fillText('100%', 480 / 6 * 5, 560);
+                    ctx.font = 'normal 200 20px sans-serif';
+                    ctx.setFontSize(16);
+                    ctx.setFillStyle('#999')
+                    ctx.fillText('已加入', 480 / 6, 590)
+                    ctx.fillText('累积打卡', 480 / 2, 590)
+                    ctx.fillText('打卡率', 480 / 6 * 5, 590)
+                    ctx.setLineWidth(1)
+                    ctx.setStrokeStyle('#999')
+                    ctx.moveTo(480 / 3, 540);
+                    ctx.lineTo(480 / 3, 600)
+                    ctx.moveTo(480 / 3 * 2, 540);
+                    ctx.lineTo(480 / 3 * 2, 600)
+                    ctx.stroke()
+                    ctx.draw(true, function() {
+                      wx.canvasToTempFilePath({
+                        canvasId: 'dialog-fenxiang',
+                        success: (tempRes) => {
+                          console.log(tempRes)
+                          that.setData({
+                            canvasImg: tempRes.tempFilePath,
+                            isShare: false,
+                            isCanvas: true,
+                          });
+                          wx.hideLoading();
+                        },
+                        fail: function(e) {
+                          console.log(e)
+                        }
+                      });
+                    });
                   }
-                  for (var b = 0; b < row.length; b++) {
-                    ctx.fillText(row[b], 45, 260 + b * 30, 300);
-                  }
-                }
-                ctx.setTextAlign('center')
-                ctx.setFontSize(18);
-                ctx.font = 'normal bold 20px sans-serif';
-                ctx.fillText('123天', 375 / 6, 390)
-                ctx.fillText('123天', 375 / 2, 390)
-                ctx.fillText('100%', 375 / 6 * 5, 390);
-                ctx.font = 'normal 200 20px sans-serif';
-                ctx.setFontSize(16);
-                ctx.setFillStyle('#999')
-                ctx.fillText('已加入', 375 / 6, 420)
-                ctx.fillText('累积打卡', 375 / 2, 420)
-                ctx.fillText('打卡率', 375 / 6 * 5, 420)
-                ctx.setLineWidth(1)
-                ctx.setStrokeStyle('#999')
-                ctx.moveTo(375 / 3, 370);
-                ctx.lineTo(375 / 3, 430)
-                ctx.moveTo(375 / 3 * 2, 370);
-                ctx.lineTo(375 / 3 * 2, 430)
-                ctx.stroke()
-                ctx.draw()
-                res();
+                })
               },
               fail: e => {
                 console.log(e)
@@ -517,5 +535,13 @@ Page({
     }).catch(e=>{
       console.log(e)
     })
-  }
+  },
+
+  /**
+   * canvas绘图全过程
+   */
+  handleCanvasImg: function() {
+    
+  },
+
 })

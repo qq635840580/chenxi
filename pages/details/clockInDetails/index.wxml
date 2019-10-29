@@ -1,5 +1,4 @@
 <!--pages/details/clockInDetails/index.wxml-->
-<canvas canvas-id="dialog-fenxiang" class='canvasclass' style="width:375px;height:595px;"></canvas>
 
 <!-- 动态(有数据时) -->
 <view class='habit-details-dynamic'>
@@ -117,6 +116,14 @@
   </view>
 </view>
 
+<!-- position:fixed; top: -10000px -->
+<canvas 
+  canvas-id="dialog-fenxiang" 
+  class='canvasclass' 
+  style="width:480px; height: 800px; position:fixed; top: -10000px "
+>
+ 
+</canvas>
 
 <!-- 底部 -->
 <view class='clock-footer'>
@@ -136,6 +143,8 @@
   </text>
 
 </view>
+
+
 
 <view wx:if='{{isShow}}' catchtap='cancelClick'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
@@ -172,9 +181,9 @@
 <view wx:if='{{isShare}}' catchtap='cancelClickShare'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog-fenxiang">
+    
     <view>
       <view class='ys-dialog-fenxiang__list'>
-
         <button class='ys-dialog-fenxiang__list-item' open-type='share' catchtap='clickShareBtn'>
           <image src='/img/detail/haoyou.png'/>
           <view>微信好友</view>
@@ -187,6 +196,23 @@
 
       </view>
       <button class='ys-dialog-fenxiang__cancel' catchtap='cancelClickShare'>取消</button>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- 绘图区域 -->
+<view wx:if='{{isCanvas}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog-canvas">
+    <view>
+      <view class='canvas-img'>
+        <image src="{{canvasImg}}" show-menu-by-longpress='true' mode="aspectFit"/>
+      </view>
+      <view>
+        长按图片即可保存到相册
+      </view>
     </view>
   </view>
 </view>

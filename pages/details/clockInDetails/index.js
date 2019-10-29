@@ -486,21 +486,21 @@ Page({
                     ctx.setTextAlign('center')
                     ctx.setFontSize(18);
                     ctx.font = 'normal bold 20px sans-serif';
-                    ctx.fillText('123天', 480 / 6, 560)
+                    ctx.fillText('123天', 480 / 6 + 15, 560)
                     ctx.fillText('123天', 480 / 2, 560)
-                    ctx.fillText('100%', 480 / 6 * 5, 560);
+                    ctx.fillText('100%', 480 / 6 * 5 - 15, 560);
                     ctx.font = 'normal 200 20px sans-serif';
                     ctx.setFontSize(16);
                     ctx.setFillStyle('#999')
-                    ctx.fillText('已加入', 480 / 6, 590)
+                    ctx.fillText('已加入', 480 / 6 + 15, 590)
                     ctx.fillText('累积打卡', 480 / 2, 590)
-                    ctx.fillText('打卡率', 480 / 6 * 5, 590)
+                    ctx.fillText('打卡率', 480 / 6 * 5 - 15, 590)
                     ctx.setLineWidth(1)
                     ctx.setStrokeStyle('#999')
-                    ctx.moveTo(480 / 3, 540);
-                    ctx.lineTo(480 / 3, 600)
-                    ctx.moveTo(480 / 3 * 2, 540);
-                    ctx.lineTo(480 / 3 * 2, 600)
+                    ctx.moveTo(480 / 3 + 10, 540);
+                    ctx.lineTo(480 / 3 + 10, 600)
+                    ctx.moveTo(480 / 3 * 2 - 10, 540);
+                    ctx.lineTo(480 / 3 * 2 - 10, 600)
                     ctx.stroke()
                     ctx.draw(true, function() {
                       wx.canvasToTempFilePath({

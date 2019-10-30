@@ -508,7 +508,15 @@ Page({
                     ctx.moveTo(480 / 3 * 2 - 10, 540);
                     ctx.lineTo(480 / 3 * 2 - 10, 600)
                     ctx.stroke()
+                    wx.showLoading({
+                      title: '图片生成中',
+                      mask: true
+                    });
                     ctx.draw(true, function() {
+                      wx.showLoading({
+                        title: '图片生成中',
+                        mask: true
+                      });
                       wx.canvasToTempFilePath({
                         canvasId: 'dialog-fenxiang',
                         success: (tempRes) => {

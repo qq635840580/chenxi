@@ -15,7 +15,7 @@
     <view>提醒时间</view>
 
     <view>
-      <picker mode="time" value="{{time}}" start="00:00" end="59:00"  bindchange="bindDateChange">
+      <picker mode="time" value="{{time}}"  bindchange="bindDateChange">
         {{time}}
       </picker>
       <image src='/img/myHabit/chakan.png'/>

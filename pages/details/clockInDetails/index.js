@@ -29,6 +29,7 @@ Page({
     contentId: null,  //存储顶层父级的id
     commentId: null, //存储点击这条评论的id
     canvasImg: null, //绘制图片存储的地方
+    nickname: null,//回复
   },
 
   /**
@@ -79,6 +80,7 @@ Page({
     //每次先暂存点击评论的id，方便提交的时候获取到
     this.setData({
       isInput: true,
+      nickname: e.currentTarget.dataset.nickname,
       contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid: null,
       commentId: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :null
     })

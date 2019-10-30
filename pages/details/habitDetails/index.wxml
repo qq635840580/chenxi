@@ -76,7 +76,7 @@
             </text>
           </label>
              
-          <button class='iconfont iconfenxiang tool-fenxiang' open-type='share' ></button>
+          <button class='iconfont iconfenxiang tool-fenxiang' data-id='{{item.id}}'  open-type='share' ></button>
           <text class='iconfont icongengduo tool-gengduo' catchtap='clickMore' data-is_attention='{{item.user.is_attention}}' data-clock_id='{{item.id}}'></text>
         </view>
       </view>

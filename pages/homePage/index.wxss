@@ -235,6 +235,7 @@ page {
   line-height: 48rpx;
   color:#555;
   overflow: hidden;
+  vertical-align: top;
 }
 
 .home-page__list .home-page__list__li text {

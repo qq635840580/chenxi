@@ -1,0 +1,142 @@
+<!--pages/details/habitDetails/index.wxml-->
+<view>
+  <!-- 导航 -->
+  <view class='habit-name' bindtap='gotoHabitDetails'>
+    <view class='habit-name-box'>
+      <view class='habit-name-img'>
+        <image src='{{habitDetail.icon}}'/>
+      </view>
+      <view class='habit-name-detail'>
+        <view class='habit-name-detail-title'>早睡早起</view>
+        <view class='habit-name-detail-user'>已有{{habitDetail.total_user}}加入</view>
+      </view>
+      <view class='habit-name-right'>
+        <image src='/img/myHabit/chakan.png'/>
+      </view>
+    </view>
+  </view>
+
+  <view class='weui-panel'>
+  <view class='weui-panel__bd'>
+    <view class='weui-information' wx:for="{{list}}" wx:key="{{index}}" wx:if="{{list.length>0}}">
+      <view class='weui-cell information-head'>
+        <view class='weui-cell__hd' data-uid='{{item.uid}}' catchtap='gotoHomePage'>
+          <image src='{{item.user.avatarUrl}}'></image>
+        </view>
+        <view class='weui-cell__bd'>
+          <view class='weui-cell__title'>
+            {{item.user.nickname}}
+          </view>
+          <view class='weui-cell__desc'>{{item.create_time}}</view>
+        </view>
+        <view class='weui-cell__ft'>
+          <view class='habit-details-dynamic-one-img-right'>
+            <view>第{{item.continuity_days}}天</view>
+          </view>
+        </view>
+      </view>
+      <view class='information-body'>
+        <view  data-id='{{item.id}}' catchtap='gotoClockInDetails'>
+          <text class='information__desc'>{{item.content}}</text>
+          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
+            <view class='information__desc_one_img'>
+              <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' lazy-load="{{true}}"/>
+            </view>
+          </block>
+
+          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length > 1}}" wx:key="{{index}}">
+            <view class='information__desc_img'>
+              <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' lazy-load="{{true}}"/>
+            </view>
+          </block>
+        </view>
+        
+        <view class='weui-tool'>
+          <text class='tool-dianzan' bindtap='support' data-is_praise='{{item.is_praise}}' data-id="{{item.id}}">
+            <text class='iconfont iconaixin' wx:if="{{item.is_praise==0}}"></text>
+            <text class='iconfont iconaixin1 icon-back' wx:if="{{item.is_praise==1}}"></text>
+            <text>{{item.support_count}}</text>
+          </text>
+          <label data-id="{{item.id}}" catchtap='gotoClockInDetails'>       
+            <text class='tool-pinglun'>
+              <text class='iconfont iconxinxi pinglun-icon'></text>
+              <text decode='true' space='ensp'>{{item.comment_count}}</text>
+              <!-- <textarea disabled='true'>{{item.comment_count}}</textarea> -->
+            </text>
+          </label>
+             
+          <button class='iconfont iconfenxiang tool-fenxiang' open-type='share' ></button>
+          <text class='iconfont icongengduo tool-gengduo' catchtap='clickMore' data-is_attention='{{item.user.is_attention}}' data-clock_id='{{item.id}}'></text>
+        </view>
+      </view>
+      <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
+        <view wx:for="{{item.comment_data}}" wx:key="{{index}}" wx:for-item="comment">
+          <view class='information-footer-box' data-id="{{item.id}}" catchtap='gotoClockInDetails' >
+            <text>{{comment.nickname}}：</text>
+            <text>{{comment.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 输入评论框 -->
+<view class='pinglun-input' wx:if='{{isInput}}'>
+  <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindblur='blurHandler'/>
+</view>
+
+  <!-- 无数据时 -->
+  <!-- <view class='habit-details-text' wx:if="{{list.length==0}}">
+    <image src='/uploads/habit/dongtai.png'/>
+    <view>一片荒芜</view>
+     <view>快来打卡吧！改变从此开始...</view>
+  </view> -->
+  <!-- 空白页 -->
+  <view class='person-null' wx:if='{{list.length==0}}'>
+    <image src='/img/null.png' mode='widthFix'/>
+    <view>快来打卡吧！改变从此开始...</view>
+  </view>
+
+  <!-- 打卡 -->
+  <view class='habit-clock' bindtap='gotoClock' wx:if='{{is_join == 1}}'>
+    <view class='habit-clock-box'>
+      <text wx:if='{{is_clock==0}}'>打卡</text>
+      <text wx:if='{{is_clock==1}}'>记录心情</text>
+    </view>
+  </view>
+</view>
+
+
+<view wx:if='{{isShow}}' catchtap='cancelClick'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog-btn">
+    <view>
+      <button class='ys-dialog-btn__del' wx:if='{{isDel}}' catchtap='delClick' data-clock_id='{{clock_id}}'>删除</button>
+      <button class='ys-dialog-btn__del' wx:if='{{!isDel}}' catchtap='reportClick'>举报</button>
+      <button class='ys-dialog-btn__cancel' catchtap='cancelClick'>取消</button>
+    </view>
+  </view>
+</view>
+
+<view wx:if='{{isReport}}' catchtap='closeReport'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog">
+    <view class="ys-dialog-title">举报原因
+      <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' catchtap='closeReport'/>
+    </view>
+    <view class='checkbox__box'>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox__list" wx:for="{{checkboxData}}" wx:key='{{index}}'>
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="ys-dialog-bottom">
+      <button catchtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+    </view>
+  </view>
+</view>
+
+
+

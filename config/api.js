@@ -50,6 +50,7 @@ module.exports = {
   DeleteHabit: ApiRootUrl + 'habit/deleteHabit', //删除习惯
   BackgroundIndex: ApiRootUrl + 'index/background', //首页背景图
   GetHabitIcon: ApiRootUrl + 'habit/getHabitIcon',//获取图标
+  HabitDetail: ApiRootUrl + 'users/HabitDetail',//只有本人的习惯列表
 
   FindHabit: ApiRootUrl + 'find/habits', //发现_精选习惯
   FindDynamic: ApiRootUrl + 'find/dynamic', //发现_精选动态

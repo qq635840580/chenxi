@@ -123,7 +123,7 @@ Page({
   gotoHabitDetails: function (e) {
     const habit_id = e.currentTarget.dataset.habit_id;
     wx.navigateTo({
-      url: `../details/detailsNav/index?habit_id=${habit_id}`
+      url: `../details/habitListMy/index?habit_id=${habit_id}&user_id=${this.data.user_id}`
     })
   },
 

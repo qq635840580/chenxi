@@ -37,7 +37,8 @@
     "pages/homePage/index",
     "pages/find/findDetails/index",
     "pages/user/habit/index",
-    "pages/habit/icon-list"
+    "pages/habit/icon-list",
+    "pages/details/habitListMy/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

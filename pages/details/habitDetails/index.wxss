@@ -569,6 +569,7 @@ button.weui-btn1 {
   color:#999;
   padding:0;
   line-height: 24rpx;
+  height: 26rpx;
 }
 
 .pinglun-icon {

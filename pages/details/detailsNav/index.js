@@ -156,8 +156,10 @@ Page({
    */
   onShareAppMessage: function (e) {
     const id = e.target.dataset.id;
-    return {
-      path: '/pages/details/clockInDetails/index?id=' + id
+    if(id) {
+      return {
+        path: '/pages/details/clockInDetails/index?id=' + id
+      }
     }
   }
 })

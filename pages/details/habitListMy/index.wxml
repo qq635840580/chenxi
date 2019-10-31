@@ -7,7 +7,7 @@
         <image src='{{habitDetail.icon}}'/>
       </view>
       <view class='habit-name-detail'>
-        <view class='habit-name-detail-title'>早睡早起</view>
+        <view class='habit-name-detail-title'>{{habitDetail.name}}</view>
         <view class='habit-name-detail-user'>已有{{habitDetail.total_user}}加入</view>
       </view>
       <view class='habit-name-right'>

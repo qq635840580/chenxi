@@ -87,4 +87,17 @@ Page({
       page,
     })
   },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (e) {
+    const id = e.target.dataset.id;
+    if(id) {
+      return {
+        path: '/pages/find/findDetails/index?id=' + id
+      }
+    }
+  }
+
 })

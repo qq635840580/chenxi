@@ -194,6 +194,7 @@
   font-size: 30rpx;
   color: #555;
   margin-bottom: 10rpx;
+  display: block;
 }
 
 .information-footer {

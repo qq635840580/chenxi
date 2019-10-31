@@ -17,6 +17,7 @@ Page({
     isReport :false,
     is_clock: 0,
     is_join: 0,
+    page: 1,
     checkboxData: [
       { name: '0', value: '色情低俗' },
       { name: '1', value: '不友善行为',},
@@ -55,13 +56,17 @@ Page({
   /**
    * 初始化页面值
    */
-  fetchData: function() {
-    const data = { habit_id: this.data.habit_id, user_id: this.data.user_id};
+  fetchData: function(pageNo) {
+    wx.showLoading({
+      title: '加载中',
+    });
+    const data = { habit_id: this.data.habit_id, user_id: this.data.user_id, page: pageNo? pageNo: 1};
     Util.request(Api.HabitDetail, data).then(res => {
       this.setData({
-        list: res.data.list,
+        list: pageNo && pageNo > 1 ? [...this.data.list, ...res.data.list] : res.data.list,
         habitDetail: res.data.habit,
       });
+      wx.hideLoading();
     });
   },
 
@@ -362,7 +367,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let page = this.data.page + 1;
+    this.fetchData(page);
+    this.setData({ page: page});
   },
 
   /**

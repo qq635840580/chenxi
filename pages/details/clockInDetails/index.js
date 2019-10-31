@@ -401,132 +401,144 @@ Page({
       title: '图片生成中',
       mask: true
     });
-    this.CanvasContext()
+    Util.request(Api.RandWord).then(res=>{
+      this.CanvasContext(res.data.content)
+    })
   },
 
   /**
    * 绘图过程
    */
-  CanvasContext: function(){
+  CanvasContext: function(content){
     return new Promise((response,rej)=>{
       const { detail } = this.data;
       wx.getImageInfo({
-        src:'https://chenxixiguan.cn/uploads/20191029/f5f9c2dbcf2bda61b59ed08b99fd4ae4.png',
+        src:'https://chenxixiguan.cn/uploads/20191031/9d82f6398c89962416a974a316a52100.png',
         success:({ path }) => {
-          Util.request(Api.getImg).then(res=>{
-            wx.getImageInfo({
-              src: res.data.back_image,
-              success: (res) => {
+          wx.getImageInfo({
+            src: 'https://chenxixiguan.cn/uploads/20191031/349d332aabab86d709f638531786d61a.png',
+            success:(back) => {
+              Util.request(Api.getImg).then(res=>{
                 wx.getImageInfo({
-                  src: detail.user.avatarUrl,
-                  success: (avatar) => {
-                    wx.showLoading({
-                      title: '图片生成中',
-                      mask: true
-                    });
-                    const ctx = wx.createCanvasContext('dialog-fenxiang');
-                    if (res.path){
-                      ctx.drawImage(res.path, 0, 10, 480, 290)
-                    }
-                    ctx.drawImage(path, 0, 0, 480, 800);
-                    ctx.save(); // 先保存状态 已便于画完圆再用
-                    ctx.beginPath(); //开始绘制
-                    //先画个圆
-                    ctx.arc(375, 180, 40, 0, Math.PI * 2, false);
-                    ctx.clip();//画了圆 再剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内
-                    ctx.drawImage(avatar.path, 335, 140, 80, 80);
-                    // 推进去图片
-                    ctx.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
-                    ctx.setFillStyle('#ffffff');
-                    ctx.setFontSize(50);
-                    ctx.fillText('第' + detail.continuity_days + '天', 60, 100);
-                    ctx.setFontSize(34);
-                    ctx.fillText(`${detail.habits.name}`, 60, 150);
-                    ctx.setFontSize(26);
-                    ctx.fillText(detail.date + ' ', 60, 220);
-                    ctx.setTextAlign('center');
-                    ctx.fillText(detail.user.nickname, 385, 270);
-                    ctx.setTextAlign('left');
-                    ctx.setFillStyle('#666');
-                    // ctx.fillText(detail.content,45,300)
-                    if (detail.content) {
-                      let chr = detail.content.split("");
-                      let temp = "";
-                      let row = [];
-                      for (let a = 0; a < chr.length; a++) {
-                        if (ctx.measureText(temp).width < 320) {
-                          temp += chr[a];
-                        } else {
-                          a--;
+                  src: res.data.back_image,
+                  success: (res) => {
+                    wx.getImageInfo({
+                      src: detail.user.avatarUrl,
+                      success: (avatar) => {
+                        wx.showLoading({
+                          title: '图片生成中',
+                          mask: true
+                        });
+                        const ctx = wx.createCanvasContext('dialog-fenxiang');
+                        if (res.path){
+                          ctx.drawImage(res.path, 0, 10, 480, 290)
+                        }
+                        ctx.drawImage(path, 0, 0, 480, 800);
+                        ctx.drawImage(back.path, 60, 250, 50, 20);
+                        ctx.save(); // 先保存状态 已便于画完圆再用
+                        ctx.beginPath(); //开始绘制
+                        //先画个圆
+                        ctx.arc(375, 180, 40, 0, Math.PI * 2, false);
+                        ctx.clip();//画了圆 再剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内
+                        ctx.drawImage(avatar.path, 335, 140, 80, 80);
+                        // 推进去图片
+                        ctx.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
+                        ctx.setFillStyle('#ffffff');
+                        ctx.setFontSize(50);
+                        ctx.fillText('第' + detail.continuity_days + '天', 60, 100);
+                        ctx.setFontSize(34);
+                        ctx.font = 'normal bold 34px sans-serif'
+                        ctx.fillText(`${detail.habits.name}`, 60, 170);
+                        ctx.font = '26px sans-serif';
+                        ctx.fillText(detail.date + ' ', 60, 210);
+                        ctx.setTextAlign('center');
+                        ctx.font = '22px sans-serif';
+                        ctx.fillText(detail.user.nickname, 365, 270);
+                        ctx.setTextAlign('left');
+                        ctx.setFillStyle('#666');
+                        ctx.font = 'normal normal normal 22px sans-serif'
+                        // ctx.fillText(detail.content,45,300)
+                        if (content) {
+                          let chr = content.split("");
+                          let temp = "";
+                          let row = [];
+                          for (let a = 0; a < chr.length; a++) {
+                            if (ctx.measureText(temp).width < 320) {
+                              temp += chr[a];
+                            } else {
+                              a--;
+                              row.push(temp);
+                              temp = "";
+                            }
+                          }
                           row.push(temp);
-                          temp = "";
-                        }
-                      }
-                      row.push(temp);
-                      if (row.length > 5) {
-                        var rowCut = row.slice(0, 2);
-                        var rowPart = rowCut[1];
-                        var test = "";
-                        var empty = [];
-                        for (var a = 0; a < rowPart.length; a++) {
-                          if (ctx.measureText(test).width < 350) {
-                            test += rowPart[a];
+                          if (row.length > 5) {
+                            var rowCut = row.slice(0, 2);
+                            var rowPart = rowCut[1];
+                            var test = "";
+                            var empty = [];
+                            for (var a = 0; a < rowPart.length; a++) {
+                              if (ctx.measureText(test).width < 350) {
+                                test += rowPart[a];
+                              }
+                              else {
+                                break;
+                              }
+                            }
+                            empty.push(test);
+                            var group = empty[0] + "..."
+                            rowCut.splice(1, 1, group);
+                            row = rowCut;
                           }
-                          else {
-                            break;
+                          for (var b = 0; b < row.length; b++) {
+                            ctx.fillText(row[b], 60, 350 + b * 30, 350);
                           }
                         }
-                        empty.push(test);
-                        var group = empty[0] + "..."
-                        rowCut.splice(1, 1, group);
-                        row = rowCut;
-                      }
-                      for (var b = 0; b < row.length; b++) {
-                        ctx.fillText(row[b], 60, 350 + b * 30, 350);
-                      }
-                    }
-                    ctx.setTextAlign('center')
-                    ctx.setFontSize(18);
-                    ctx.font = 'normal bold 20px sans-serif';
-                    ctx.fillText('123天', 480 / 6 + 15, 560)
-                    ctx.fillText('123天', 480 / 2, 560)
-                    ctx.fillText('100%', 480 / 6 * 5 - 15, 560);
-                    ctx.font = 'normal 200 20px sans-serif';
-                    ctx.setFontSize(16);
-                    ctx.setFillStyle('#999')
-                    ctx.fillText('已加入', 480 / 6 + 15, 590)
-                    ctx.fillText('累积打卡', 480 / 2, 590)
-                    ctx.fillText('打卡率', 480 / 6 * 5 - 15, 590)
-                    ctx.setLineWidth(1)
-                    ctx.setStrokeStyle('#999')
-                    ctx.moveTo(480 / 3 + 10, 540);
-                    ctx.lineTo(480 / 3 + 10, 600)
-                    ctx.moveTo(480 / 3 * 2 - 10, 540);
-                    ctx.lineTo(480 / 3 * 2 - 10, 600)
-                    ctx.stroke()
-                    ctx.draw(true, function() {
-                      wx.canvasToTempFilePath({
-                        canvasId: 'dialog-fenxiang',
-                        success: (tempRes) => {
-                          that.setData({
-                            canvasImg: tempRes.tempFilePath,
-                            isShare: false,
-                            isCanvas: true,
+                        ctx.setTextAlign('center')
+                        ctx.setFontSize(18);
+                        ctx.font = 'normal bold 26px sans-serif';
+                        ctx.setFillStyle('#333')
+                        ctx.fillText(detail.join_days+ '天', 480 / 6 + 15, 520)
+                        ctx.fillText(detail.total_clock+ '天', 480 / 2, 520)
+                        ctx.fillText(detail.rate, 480 / 6 * 5 - 15, 520);
+                        ctx.font = 'normal 200 18px sans-serif';
+                        // ctx.setFontSize(16);
+                        ctx.setFillStyle('#999')
+                        ctx.fillText('已加入', 480 / 6 + 15, 560)
+                        ctx.fillText('累积打卡', 480 / 2, 560)
+                        ctx.fillText('打卡率', 480 / 6 * 5 - 15, 560)
+                        ctx.setLineWidth(2)
+                        ctx.setStrokeStyle('#e5e5e5')
+                        ctx.moveTo(480 / 3 + 10, 500);
+                        ctx.lineTo(480 / 3 + 10, 580)
+                        ctx.moveTo(480 / 3 * 2 - 10, 500);
+                        ctx.lineTo(480 / 3 * 2 - 10, 580)
+                        ctx.stroke()
+                        ctx.draw(true, function() {
+                          wx.canvasToTempFilePath({
+                            canvasId: 'dialog-fenxiang',
+                            success: (tempRes) => {
+                              that.setData({
+                                canvasImg: tempRes.tempFilePath,
+                                isShare: false,
+                                isCanvas: true,
+                              });
+                              wx.hideLoading();
+                            },
+                            fail: function(e) {
+                              console.log(e)
+                            }
                           });
-                          wx.hideLoading();
-                        },
-                        fail: function(e) {
-                          console.log(e)
-                        }
-                      });
-                    });
+                        });
+                      }
+                    })
+                  },
+                  fail: e => {
+                    console.log(e)
                   }
                 })
-              },
-              fail: e => {
-                console.log(e)
-              }
-            })
+              })
+            }
           })
         },
         fail:rej

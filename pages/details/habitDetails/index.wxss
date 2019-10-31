@@ -485,6 +485,7 @@
   font-size: 30rpx;
   color: #555;
   margin-bottom: 10rpx;
+  display: block;
 }
 
 .information-footer {
@@ -569,8 +570,6 @@ button.weui-btn1 {
   color:#999;
   padding:0;
   line-height: 24rpx;
-
-  vertical-align: middle;
   overflow: visible;
 }
 

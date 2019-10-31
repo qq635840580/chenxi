@@ -28,7 +28,7 @@
     <!-- 内容部分 -->
     <view class='habit-details-dynamic-one-img-text'>
       <!-- 文字区域 -->
-      <view>{{detail.content}}</view>
+      <view style='display: block;'>{{detail.content}}</view>
       <!-- 图片区域 -->
       <view class='habit-details-dynamic-one-img-text-one-img' wx:if='{{detail.clock_record_image.length==1}}'>
         <block wx:for="{{detail.clock_record_image}}" wx:key='{{index}}'>

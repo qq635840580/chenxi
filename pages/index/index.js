@@ -44,10 +44,10 @@ Page({
     })
     Util.request(Api.HabitMyList, data).then(res => {
       this.setData({
-        list: res.data,
-        isNull: res.data.length==0? true : false,
+        list: this.data.page > 1 ? [...this.data.list, ...res.data] : res.data,
+        isNull: [...this.data.list, ...res.data].length==0? true : false,
         searchFlag: true,
-      })
+      });
       wx.hideLoading()
     });
   },
@@ -117,6 +117,7 @@ Page({
     Util.request(Api.DeleteHabit, data).then(res => {
       this.setData({
         isShow: false,
+        page: 1,
       });
       wx.showToast({
         title: '删除成功',
@@ -218,10 +219,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function (e) {
-    // this.setData({
-    //   page: this.data.page+1,
-    // })
-    // this.fetchData();
+    this.setData({
+      page: this.data.page+1,
+    })
+    this.fetchData();
   },
 
   /**

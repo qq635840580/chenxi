@@ -24,5 +24,5 @@
 </view>
 
 <view wx-if="{{tabflag==2}}">
-  <My habit_id="{{habit_id}}"/>
+  <My habit_id="{{habit_id}}" id='my'/>
 </view>

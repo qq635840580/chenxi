@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    user_id: null,
+    list: [],
+    page: 1,
   },
 
   /**
@@ -16,7 +18,8 @@ Page({
    */
   onLoad: function (options) {
     that = this;
-    const data = { user_id: options.uid };
+    this.setData({ user_id: options.uid });
+    const data = { user_id: options.uid, page: 1 };
     this.fetchData(data);
   },
 
@@ -24,10 +27,12 @@ Page({
    * 查询数据
    */
   fetchData:function(data) {
+    wx.showLoading({ title: '加载中' });
     Util.request(Api.HabitMyList, data).then(res => {
       that.setData({
-        list: res.data
-      })
+        list: data.page && data.page > 1 ? [...this.data.list, ...res.data] : res.data
+      });
+      wx.hideLoading();
     });
   },
 
@@ -80,7 +85,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let page = ++this.data.page;
+    const data = { user_id: this.data.user_id, page };
+    this.fetchData(data);
+    this.setData({ page });
   },
 
   /**

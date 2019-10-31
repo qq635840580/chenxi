@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: [],
+    page: 1,
   },
 
   /**
@@ -22,9 +23,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    Util.request(Api.MessageFans).then(res => {
+    this.fetchData();
+  },
+
+  /**
+   * 页面默认查询
+   */
+  fetchData: function(pageNo) {
+    const data = {page: pageNo ? pageNo : 1};
+    Util.request(Api.MessageFans, data).then(res => {
       that.setData({
-        list: res.data
+        list: pageNo && pageNo > 1 ? [...this.data.list, ...res.data] : res.data
       })
     });
   },
@@ -56,4 +65,14 @@ Page({
       url: `../../homePage/index?uid=${uid}`,
     })
   },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+    let page = ++this.data.page;
+    this.fetchData(page);
+    this.setData({ page });
+  },
+
 })

@@ -64,12 +64,16 @@ Page({
       url: `../../index/search`
     })
   },
+
+  /**
+   * 触底
+   */
   onReachBottom: function () {
     let page = ++this.data.page
     let tabflag = this.data.tabflag;
-    let routerName = "#Choice"
+    let routerName;
     if (tabflag == 1) {
-      
+      routerName = "#Choice"
     } else if (tabflag == 2) {
       routerName = '#Latest';
     } else if (tabflag == 3) {

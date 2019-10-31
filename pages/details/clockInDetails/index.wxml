@@ -92,7 +92,7 @@
         <view class='clock-in-details-text-comments-right-reply' wx:if='{{item.sub_list.length>0}}' wx:for='{{item.sub_list}}' wx:for-item='commentList' wx:key="{{index}}">
           <view class='clock-in-details-text-comments-right-reply-box' catchtap=''>
             <view catchtap='saveIsInput' data-nickname="{{commentList.nickname}}"  data-contentid='{{commentList.parent_id}}' data-comment_id='{{commentList.id}}'>
-              <text>{{commentList.nickname}}：<text wx:if='{{commentList.to_nickname}}' style='color:#555'>回复：</text> <text wx:if='{{commentList.to_nickname}}'>{{commentList.to_nickname}}</text> </text>
+              <text>{{commentList.nickname}}<text wx:if='{{commentList.to_nickname}}' style='color:#555'>回复</text> <text wx:if='{{commentList.to_nickname}}'>{{commentList.to_nickname}}：</text> </text>
               {{commentList.content}}
             </view>
           </view>

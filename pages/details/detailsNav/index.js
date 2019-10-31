@@ -14,6 +14,7 @@ Page({
     img: null,
     loadOptions: null,
     name: null,
+    page: 1,
   },
 
   /**
@@ -53,7 +54,8 @@ Page({
   saveNav: function (e) {
     const { tabflag } = e.currentTarget.dataset;
     this.setData({
-      tabflag
+      tabflag,
+      page: 1,
     })
   },
   
@@ -134,7 +136,19 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let page = ++this.data.page
+    let routerName = "#dynamic"
+    let tabflag = this.data.tabflag;
+    if(tabflag ==1) {
+      routerName = "#dynamic"
+    }else if(tabflag == 2) {
+      routerName = "#my"
+    }
+    const component = this.selectComponent(routerName);
+    component.fetchData(page);
+    this.setData({
+      page,
+    })
   },
 
   /**

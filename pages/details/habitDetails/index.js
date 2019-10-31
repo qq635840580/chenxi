@@ -94,21 +94,21 @@ Component({
     /**
      * 初始化页面值
      */
-    fetchData: function() {
-      const data = { habit_id: this.data.habit_id};
+    fetchData: function(pageNo) {
+      wx.showLoading({
+        title: '加载中',
+      });
+      const data = { habit_id: this.data.habit_id, page: pageNo? pageNo: 1};
       Util.request(Api.HabitDynamicList, data).then(res => {
-        // let newData = res.data.list;
-        // newData.forEach(item => {
-        //   console.log(item)
-        // });
         this.setData({
-          list: res.data.list,
+          list: pageNo && pageNo > 1 ? [...this.data.list, ...res.data.list] : res.data.list,
           total_user: res.data.total_user,
           total_clock: res.data.total_clock,
           habitName: res.data.name,
           is_clock: res.data.is_clock,
           is_join: res.data.is_join,
         });
+        wx.hideLoading();
       });
     },
 

@@ -98,6 +98,7 @@ Component({
         is_clock: 0,
       })
       this.fetchData();
+      this.fetchWeekClock();
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
@@ -107,22 +108,33 @@ Component({
     // 组件所在页面的生命周期函数
     show: function () {
       this.fetchData();
+      this.fetchWeekClock();
     },
     hide: function () { 
     },
     resize: function () { },
   },
   methods: {
-    fetchData: function() {
-      const datas = { habit_id: this.data.habit_id };
+    fetchData: function(pageNo) {
+      wx.showLoading({
+        title: '加载中',
+      });
+      const datas = { habit_id: this.data.habit_id, page: pageNo ? pageNo: 1 };
       //获取时间轴信息
       Util.request(Api.HabitMy, datas).then(res => {
         this.setData({
-          newsList: res.data
+          newsList: pageNo && pageNo > 1? [...this.data.newsList, ...res.data] : res.data
         })
+        wx.hideLoading()
       });
+    },
+
+    /**
+     * 打卡周详情
+     */
+    fetchWeekClock: function() {
+      const datas = { habit_id: this.data.habit_id };
       //获取打卡周列表
-      console.log(datas)
       Util.request(Api.ClockWeek, datas).then(res => {
         this.setData({
           continuity_days: res.data.continuity_days,

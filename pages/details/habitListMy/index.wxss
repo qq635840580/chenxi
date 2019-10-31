@@ -50,7 +50,7 @@
 .habit-name {
   width: 92%;
   height: 150rpx;
-  margin: 30rpx auto;
+  margin: 20rpx auto;
   background: #fff;
   border-radius: 10rpx;
 }
@@ -357,7 +357,7 @@
 .weui-information {
   background-color: #fff;
   border-radius: 10rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 20rpx;
 }
 
 .information-head .weui-cell__hd>image {

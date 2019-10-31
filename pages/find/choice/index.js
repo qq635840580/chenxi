@@ -144,7 +144,6 @@ Component({
       wx.showLoading({
         title: '加载中',
       })
-      console.log(data)
       Util.request(Api.FindDynamic, data).then(res => {
         if (data&&data.page > 1){
           this.setData({

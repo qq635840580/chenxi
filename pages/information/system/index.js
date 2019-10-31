@@ -9,7 +9,8 @@ Page({
    */
   data: {
     list: null,
-    util: Util
+    util: Util,
+    page: 1,//分页
   },
 
   /**
@@ -22,9 +23,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    Util.request(Api.MessageSystem).then(res => {
+    this.fetchData();
+  },
+
+  /**
+   * 获取当前页面数据
+   */
+  fetchData: function(pageNo) {
+    const data = {page: pageNo? pageNo : 1};
+    Util.request(Api.MessageSystem, data).then(res => {
       that.setData({
-        list: res.data
+        list: pageNo && pageNo > 1 ? [...this.data.list, ...res.data] : res.data
       })
     });
   },
@@ -54,7 +63,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    let page = ++this.data.page;
+    this.fetchData(page);
+    this.setData({ page });
   },
 
   /**

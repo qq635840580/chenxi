@@ -514,9 +514,9 @@ Page({
                         ctx.setLineWidth(2)
                         ctx.setStrokeStyle('#e5e5e5')
                         ctx.moveTo(480 / 3 + 10, 500);
-                        ctx.lineTo(480 / 3 + 10, 580)
+                        ctx.lineTo(480 / 3 + 10, 560)
                         ctx.moveTo(480 / 3 * 2 - 10, 500);
-                        ctx.lineTo(480 / 3 * 2 - 10, 580)
+                        ctx.lineTo(480 / 3 * 2 - 10, 560);
                         ctx.stroke()
                         ctx.draw(true, function() {
                           wx.canvasToTempFilePath({

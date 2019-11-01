@@ -72,13 +72,9 @@ Page({
             method: 'POST',
             success(res1) {
               if (res1.data.code === '200') {
-                console.log(res1)
                 wx.setStorageSync('token', res1.data.data.token)
                 wx.setStorageSync('uid', res1.data.data.uid)
                 wx.setStorageSync('openid', res1.data.data.openid)
-                // wx.switchTab({
-                //   url: '/pages/index/index',
-                // });
                 wx.navigateBack({
                   delta: 1,
                 });

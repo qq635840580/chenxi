@@ -12,12 +12,11 @@ Page({
     user_id: null, //用户id
     page: 1, // 页数
     listRows: 20, //每页显示数量
-    isNull: false,//是否有数据
-    isShow: false,//是否展示删除习惯
     habit_id: null,//暂存需要删除的习惯id
     backgroundUrl: null,//背景图暂存区
-    // logFlag: false,//是否登录
+    isShow: false,//是否展示
     searchFlag: false,//搜索flag
+    loginFlag: false,//已登录标识
   },
 
   /**
@@ -27,6 +26,7 @@ Page({
     that = this
     this.setData({
       searchFlag: false,
+      loginFlag: false
     });
   },
 
@@ -45,10 +45,16 @@ Page({
     Util.request(Api.HabitMyList, data).then(res => {
       this.setData({
         list: this.data.page > 1 ? [...this.data.list, ...res.data] : res.data,
-        isNull: [...this.data.list, ...res.data].length==0? true : false,
         searchFlag: true,
+        loginFlag: true,
       });
       wx.hideLoading()
+    }).catch(res => {
+      this.setData({
+        list: [],
+        searchFlag: true, 
+        page: 1
+      })
     });
   },
 
@@ -75,21 +81,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //初始化值
     this.setData({
       searchFlag: false,
+      loginFlag: false,
+      page: 1,
+      list: [],
     });
     wx.getStorage({
       key: 'uid',
       success: function (res) {
         that.setData({
-          user_id: res.data,
-          page: 1,
-          logFlag: 1,
-          list: [],
-        })
+          loginFlag: true,
+          user_id: res.data
+        });
+        that.fetchData();
+      },
+      fail: function() {
         that.fetchData();
       },
     });
+    
     this.timeFunc();
     this.backgroundUrl();
   },
@@ -173,8 +185,8 @@ Page({
    * 点击未登录的新增习惯提示未登录 跳转
    */
   addHabitClick: function(e) {
-    const { logFlag } = this.data;
-    if(logFlag) {
+    const { loginFlag } = this.data;
+    if(loginFlag) {
       wx.navigateTo({
         url: `./search`,
       })

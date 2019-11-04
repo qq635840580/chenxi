@@ -82,10 +82,9 @@
   <view class="ys-dialog">
     <view class="ys-dialog-title">榜单规则</view>
     <view class="ys-dialog-content">              
-      <view>1、总榜统计用户当前月份所有习惯的打卡次数。</view>
+      <view>1、统计当前月份所有习惯的打卡次数。</view>
       <view>2、每天单个习惯内多次打卡只累计1次。</view>
-      <view>3、只显示前100名小伙伴的排名哦！若你不在里面，就需要多多努力了哟。</view>
-      <view>4、月末位于排行榜前列的小伙伴，将不定期获得惊喜哦！</view>
+      <view>3、位于排行榜前列的小伙伴，将不定期获得惊喜哦！</view>
     </view>
     <view class="ys-dialog-bottom">
       <button bindtap='isShowDialog'>知道了</button>

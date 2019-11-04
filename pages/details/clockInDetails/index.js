@@ -48,10 +48,14 @@ Page({
    * 请求方法
    */
   fetchData:function(data) {
+    wx.showLoading({
+      title: '加载中',
+    });
     Util.request(Api.ListDetails, data).then(res => {
       this.setData({
         detail: res.data[0],
-      })
+      });
+      wx.hideLoading();
     });
   },
 
@@ -515,20 +519,22 @@ Page({
                         ctx.lineTo(480 / 3 * 2 - 10, 560);
                         ctx.stroke()
                         ctx.draw(true, function() {
-                          wx.canvasToTempFilePath({
-                            canvasId: 'dialog-fenxiang',
-                            success: (tempRes) => {
-                              that.setData({
-                                canvasImg: tempRes.tempFilePath,
-                                isShare: false,
-                                isCanvas: true,
-                              });
-                              wx.hideLoading();
-                            },
-                            fail: function(e) {
-                              console.log(e)
-                            }
-                          });
+                          setTimeout(() => {
+                            wx.canvasToTempFilePath({
+                              canvasId: 'dialog-fenxiang',
+                              success: (tempRes) => {
+                                that.setData({
+                                  canvasImg: tempRes.tempFilePath,
+                                  isShare: false,
+                                  isCanvas: true,
+                                });
+                                wx.hideLoading();
+                              },
+                              fail: function(e) {
+                                console.log(e)
+                              }
+                            });
+                          }, 500);
                         });
                       }
                     })

@@ -19,6 +19,22 @@ App({
     //     })
     //   },
     // });
+    // wx.showTabBarRedDot({
+    //   index:2
+    // })
+    // wx.setTabBarBadge({
+    //   index:2,
+    //   text:"99+",
+    //   complete:()=>{
+    //     console.log(1)
+    //   }
+    // })
+    // wx.removeTabBarBadge({
+    //   index:2
+    // })
+    // wx.hideTabBarRedDot({
+    //   index:2
+    // })
   },
 
   globalData: {

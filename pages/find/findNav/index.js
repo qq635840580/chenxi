@@ -1,5 +1,5 @@
 // pages/find/findNav/index.js
-var that;
+var that,App = getApp();
 Page({
 
   /**
@@ -10,7 +10,9 @@ Page({
     paddingTop: null,//存储paddingTop的值 试试
     page:1
   },
-
+  onTabItemTap: function () {
+    App.getTotalCount();
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,7 +1,7 @@
 // pages/information/index.js
 var Util = require("../../utils/util.js");
 var Api = require("../../config/api.js");
-var that
+var that, App = getApp();
 Page({
 
   /**
@@ -10,7 +10,9 @@ Page({
   data: {
     logFlag: false,//是否登录标识
   },
-
+  onTabItemTap: function () {
+    App.getTotalCount();
+  },
   /**
    * 生命周期函数--监听页面加载
    */

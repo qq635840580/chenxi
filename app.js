@@ -1,9 +1,11 @@
 //app.js
 var Util = require("/utils/util.js");
-var Api = require("/config/api.js");
+var {
+  MessageTotalCount
+} = require("/config/api.js");
 
 App({
-  onLaunch: function () {
+  onShow: function() {
     /**查询本地是否有值，
      * 如果有值不需要登录，
      * 如果没有值，
@@ -19,24 +21,33 @@ App({
     //     })
     //   },
     // });
-    // wx.showTabBarRedDot({
-    //   index:2
-    // })
-    // wx.setTabBarBadge({
-    //   index:2,
-    //   text:"99+",
-    //   complete:()=>{
-    //     console.log(1)
-    //   }
-    // })
-    // wx.removeTabBarBadge({
-    //   index:2
-    // })
-    // wx.hideTabBarRedDot({
-    //   index:2
-    // })
+    this.getTotalCount();
   },
-
+  getTotalCount:() => {
+    Util.request(MessageTotalCount).then(({
+      data
+    }) => {
+      if (data.count) {
+        let text = data.count
+        wx.showTabBarRedDot({
+          index: 2
+        })
+        if (text > 99) {
+          text = '99+';
+        } else {
+          text = text + '';
+        }
+        wx.setTabBarBadge({
+          index: 2,
+          text,
+        })
+      } else {
+        wx.removeTabBarBadge({
+          index: 2
+        })
+      }
+    });
+  },
   globalData: {
     userInfo: null
   },

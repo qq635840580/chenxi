@@ -37,7 +37,7 @@ Page({
    */
   onLoad: function (options) {
     that = this;
-    const data = { clock_record_id:options.id,}
+    const data = { clock_record_id: options.id, }
     this.setData({
       id: options.id
     });
@@ -47,7 +47,7 @@ Page({
   /**
    * 请求方法
    */
-  fetchData:function(data) {
+  fetchData: function (data) {
     wx.showLoading({
       title: '加载中',
     });
@@ -62,14 +62,14 @@ Page({
   /**
    * 点赞
    */
-  support:function(e) {
-    const data = { clock_record_id: this.data.id, type: 1,};
+  support: function (e) {
+    const data = { clock_record_id: this.data.id, type: 1, };
     let detail = this.data.detail;
-    if(detail.is_praise) {
+    if (detail.is_praise) {
       detail.support_count = detail.support_count - 1;
       detail.is_praise = 0;
       Util.request(Api.CancelSupport, data);
-    }else {
+    } else {
       detail.support_count = detail.support_count + 1;
       detail.is_praise = 1;
       Util.request(Api.SupportSave, data);
@@ -85,20 +85,20 @@ Page({
     this.setData({
       isInput: true,
       nickname: e.currentTarget.dataset.nickname,
-      contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid: null,
-      commentId: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :null
+      contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
+      commentId: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : null
     })
   },
 
 
   //评论触发的方法
   messageSubmit: function (e) {
-    const datas = { clock_record_id: this.data.id};
+    const datas = { clock_record_id: this.data.id };
     const data = {
       clock_record_id: this.data.id,
       content: e.detail.value,
       parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
-      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id :undefined,
+      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({
@@ -244,12 +244,12 @@ Page({
               title: '删除成功',
               icon: 'success',
             });
-            setTimeout(()=>{
+            setTimeout(() => {
               wx.hideToast();
               wx.navigateBack({
                 delta: 1,
               });
-            },1500)
+            }, 1500)
           });
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -286,7 +286,7 @@ Page({
    * 点击确认举报
    */
   enterReport: function (e) {
-    if(this.data.reportContent) {
+    if (this.data.reportContent) {
       const data = {
         clock_record_id: e.currentTarget.dataset.clock_id,
         type: this.data.reportContent.join(','),
@@ -304,7 +304,7 @@ Page({
           duration: 2500,
         });
       });
-    }else {
+    } else {
       wx.showToast({
         title: '请勾选举报选项',
         icon: 'none',
@@ -316,7 +316,7 @@ Page({
   /**
    * 点击空白处  input关闭
    */
-  closeInput: function(e) {
+  closeInput: function (e) {
     console.log(e)
     this.setData({
       isInput: false
@@ -326,7 +326,7 @@ Page({
   /**
    * 点击分享
    */
-  clickShare: function(e) {
+  clickShare: function (e) {
     this.setData({
       isShare: true,
     })
@@ -335,7 +335,7 @@ Page({
   /**
    * 点击分享的取消
    */
-  cancelClickShare: function(e) {
+  cancelClickShare: function (e) {
     this.setData({
       isShare: false,
     })
@@ -344,11 +344,11 @@ Page({
   /**
    * 点击分享中图标 需要关闭dialog
    */
-  clickShareBtn: function(e) {
+  clickShareBtn: function (e) {
     this.setData({
       isShare: false,
     })
-  }, 
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -405,158 +405,158 @@ Page({
       title: '图片生成中',
       mask: true
     });
-    Util.request(Api.RandWord).then(res=>{
+    Util.request(Api.RandWord).then(res => {
       this.CanvasContext(res.data.content)
     })
   },
 
-    /**
-     * 绘图过程
-     */
-    CanvasContext: function(content){
-        return new Promise((response,rej)=>{
-            const { detail } = this.data;
-            wx.getImageInfo({
-                src:'https://chenxixiguan.cn/uploads/20191031/9d82f6398c89962416a974a316a52100.png',
-                success:({ path }) => {
+  /**
+   * 绘图过程
+   */
+  CanvasContext: function (content) {
+    return new Promise((response, rej) => {
+      const { detail } = this.data;
+      wx.getImageInfo({
+        src: 'https://chenxixiguan.cn/uploads/20191031/9d82f6398c89962416a974a316a52100.png',
+        success: ({ path }) => {
+          wx.getImageInfo({
+            src: 'https://chenxixiguan.cn/uploads/20191031/349d332aabab86d709f638531786d61a.png',
+            success: (back) => {
+              Util.request(Api.getImg).then(res => {
+                wx.getImageInfo({
+                  src: res.data.back_image,
+                  success: (res) => {
                     wx.getImageInfo({
-                        src: 'https://chenxixiguan.cn/uploads/20191031/349d332aabab86d709f638531786d61a.png',
-                        success:(back) => {
-                            Util.request(Api.getImg).then(res=>{
-                                wx.getImageInfo({
-                                    src: res.data.back_image,
-                                    success: (res) => {
-                                        wx.getImageInfo({
-                                            src: detail.user.avatarUrl,
-                                            success: (avatar) => {
-                                                wx.showLoading({
-                                                    title: '图片生成中',
-                                                    mask: true
-                                                });
-                                                const ctx = wx.createCanvasContext('dialog-fenxiang');
-                                                if (res.path){
-                                                    ctx.drawImage(res.path, 0, 10, 480, 290)
-                                                }
-                                                ctx.drawImage(path, 0, 0, 480, 800);
-                                                ctx.drawImage(back.path, 60, 250, 50, 20);
-                                                ctx.save(); // 先保存状态 已便于画完圆再用
-                                                ctx.beginPath(); //开始绘制
-                                                //先画个圆
-                                                ctx.arc(375, 180, 40, 0, Math.PI * 2, false);
-                                                ctx.clip();//画了圆 再剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内
-                                                ctx.drawImage(avatar.path, 335, 140, 80, 80);
-                                                // 推进去图片
-                                                ctx.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
-                                                ctx.setFillStyle('#ffffff');
-                                                ctx.setFontSize(50);
-                                                ctx.setTextAlign('left');
-                                                ctx.fillText('第' + detail.continuity_days + '天', 60, 100);
-                                                ctx.setFontSize(34);
-                                                ctx.font = 'normal bold 34px sans-serif'
-                                                ctx.fillText(`${detail.habits.name}`, 60, 170);
-                                                ctx.font = '26px sans-serif';
-                                                ctx.fillText(detail.date + ' ', 60, 210);
-                                                ctx.setTextAlign('center');
-                                                ctx.font = '22px sans-serif';
-                                                ctx.fillText(detail.user.nickname, 365, 270);
-                                                ctx.setTextAlign('left');
-                                                ctx.setFillStyle('#666');
-                                                ctx.font = 'normal normal normal 22px sans-serif'
-                                                // ctx.fillText(detail.content,45,300)
-                                                if (content) {
-                                                    let chr = content.split("");
-                                                    let temp = "";
-                                                    let row = [];
-                                                    for (let a = 0; a < chr.length; a++) {
-                                                        if (ctx.measureText(temp).width < 320) {
-                                                            temp += chr[a];
-                                                        } else {
-                                                            a--;
-                                                            row.push(temp);
-                                                            temp = "";
-                                                        }
-                                                    }
-                                                    row.push(temp);
-                                                    if (row.length > 5) {
-                                                        var rowCut = row.slice(0, 2);
-                                                        var rowPart = rowCut[1];
-                                                        var test = "";
-                                                        var empty = [];
-                                                        for (var a = 0; a < rowPart.length; a++) {
-                                                            if (ctx.measureText(test).width < 350) {
-                                                                test += rowPart[a];
-                                                            }
-                                                            else {
-                                                                break;
-                                                            }
-                                                        }
-                                                        empty.push(test);
-                                                        var group = empty[0] + "..."
-                                                        rowCut.splice(1, 1, group);
-                                                        row = rowCut;
-                                                    }
-                                                    for (var b = 0; b < row.length; b++) {
-                                                        ctx.fillText(row[b], 60, 350 + b * 30, 350);
-                                                    }
-                                                }
-                                                ctx.setTextAlign('center')
-                                                ctx.setFontSize(18);
-                                                ctx.font = 'normal bold 26px sans-serif';
-                                                ctx.setFillStyle('#333')
-                                                ctx.fillText(detail.join_days+ '天', 480 / 6 + 15, 520)
-                                                ctx.fillText(detail.total_clock+ '天', 480 / 2, 520)
-                                                ctx.fillText(detail.rate, 480 / 6 * 5 - 15, 520);
-                                                ctx.font = 'normal 200 18px sans-serif';
-                                                // ctx.setFontSize(16);
-                                                ctx.setFillStyle('#999')
-                                                ctx.fillText('已加入', 480 / 6 + 15, 560)
-                                                ctx.fillText('累积打卡', 480 / 2, 560)
-                                                ctx.fillText('打卡率', 480 / 6 * 5 - 15, 560)
-                                                ctx.setLineWidth(2)
-                                                ctx.setStrokeStyle('#e5e5e5')
-                                                ctx.moveTo(480 / 3 + 10, 500);
-                                                ctx.lineTo(480 / 3 + 10, 560)
-                                                ctx.moveTo(480 / 3 * 2 - 10, 500);
-                                                ctx.lineTo(480 / 3 * 2 - 10, 560);
-                                                ctx.stroke()
-                                                ctx.draw(true, function() {
-                                                    wx.canvasToTempFilePath({
-                                                        canvasId: 'dialog-fenxiang',
-                                                        success: (tempRes) => {
-                                                            that.setData({
-                                                                canvasImg: tempRes.tempFilePath,
-                                                                isShare: false,
-                                                                isCanvas: true,
-                                                            });
-                                                            wx.hideLoading();
-                                                        },
-                                                        fail: function(e) {
-                                                            console.log(e)
-                                                        }
-                                                    });
-                                                });
-                                            }
-                                        })
-                                    },
-                                    fail: e => {
-                                        console.log(e)
-                                    }
-                                })
-                            })
+                      src: detail.user.avatarUrl,
+                      success: (avatar) => {
+                        wx.showLoading({
+                          title: '图片生成中',
+                          mask: true
+                        });
+                        const ctx = wx.createCanvasContext('dialog-fenxiang');
+                        if (res.path) {
+                          ctx.drawImage(res.path, 0, 10, 480, 290)
                         }
+                        ctx.drawImage(path, 0, 0, 480, 800);
+                        ctx.drawImage(back.path, 60, 250, 50, 20);
+                        ctx.save(); // 先保存状态 已便于画完圆再用
+                        ctx.beginPath(); //开始绘制
+                        //先画个圆
+                        ctx.arc(375, 180, 40, 0, Math.PI * 2, false);
+                        ctx.clip();//画了圆 再剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内
+                        ctx.drawImage(avatar.path, 335, 140, 80, 80);
+                        // 推进去图片
+                        ctx.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
+                        ctx.setFillStyle('#ffffff');
+                        ctx.setFontSize(50);
+                        ctx.setTextAlign('left');
+                        ctx.fillText('第' + detail.continuity_days + '天', 60, 100);
+                        ctx.setFontSize(34);
+                        ctx.font = 'normal bold 34px sans-serif'
+                        ctx.fillText(`${detail.habits.name}`, 60, 170);
+                        ctx.font = '26px sans-serif';
+                        ctx.fillText(detail.date + ' ', 60, 210);
+                        ctx.setTextAlign('center');
+                        ctx.font = '22px sans-serif';
+                        ctx.fillText(detail.user.nickname, 365, 270);
+                        ctx.setTextAlign('left');
+                        ctx.setFillStyle('#666');
+                        ctx.font = 'normal normal normal 22px sans-serif'
+                        // ctx.fillText(detail.content,45,300)
+                        if (content) {
+                          let chr = content.split("");
+                          let temp = "";
+                          let row = [];
+                          for (let a = 0; a < chr.length; a++) {
+                            if (ctx.measureText(temp).width < 320) {
+                              temp += chr[a];
+                            } else {
+                              a--;
+                              row.push(temp);
+                              temp = "";
+                            }
+                          }
+                          row.push(temp);
+                          if (row.length > 5) {
+                            var rowCut = row.slice(0, 2);
+                            var rowPart = rowCut[1];
+                            var test = "";
+                            var empty = [];
+                            for (var a = 0; a < rowPart.length; a++) {
+                              if (ctx.measureText(test).width < 350) {
+                                test += rowPart[a];
+                              }
+                              else {
+                                break;
+                              }
+                            }
+                            empty.push(test);
+                            var group = empty[0] + "..."
+                            rowCut.splice(1, 1, group);
+                            row = rowCut;
+                          }
+                          for (var b = 0; b < row.length; b++) {
+                            ctx.fillText(row[b], 60, 350 + b * 30, 350);
+                          }
+                        }
+                        ctx.setTextAlign('center')
+                        ctx.setFontSize(18);
+                        ctx.font = 'normal bold 26px sans-serif';
+                        ctx.setFillStyle('#333')
+                        ctx.fillText(detail.join_days + '天', 480 / 6 + 15, 520)
+                        ctx.fillText(detail.total_clock + '天', 480 / 2, 520)
+                        ctx.fillText(detail.rate, 480 / 6 * 5 - 15, 520);
+                        ctx.font = 'normal 200 18px sans-serif';
+                        // ctx.setFontSize(16);
+                        ctx.setFillStyle('#999')
+                        ctx.fillText('已加入', 480 / 6 + 15, 560)
+                        ctx.fillText('累积打卡', 480 / 2, 560)
+                        ctx.fillText('打卡率', 480 / 6 * 5 - 15, 560)
+                        ctx.setLineWidth(2)
+                        ctx.setStrokeStyle('#e5e5e5')
+                        ctx.moveTo(480 / 3 + 10, 500);
+                        ctx.lineTo(480 / 3 + 10, 560)
+                        ctx.moveTo(480 / 3 * 2 - 10, 500);
+                        ctx.lineTo(480 / 3 * 2 - 10, 560);
+                        ctx.stroke()
+                        ctx.draw(true, function () {
+                          wx.canvasToTempFilePath({
+                            canvasId: 'dialog-fenxiang',
+                            success: (tempRes) => {
+                              that.setData({
+                                canvasImg: tempRes.tempFilePath,
+                                isShare: false,
+                                isCanvas: true,
+                              });
+                              wx.hideLoading();
+                            },
+                            fail: function (e) {
+                              console.log(e)
+                            }
+                          });
+                        });
+                      }
                     })
-                },
-                fail:rej
-            })
-        }).catch(e=>{
-            console.log(e)
-        })
-    },
+                  },
+                  fail: e => {
+                    console.log(e)
+                  }
+                })
+              })
+            }
+          })
+        },
+        fail: rej
+      })
+    }).catch(e => {
+      console.log(e)
+    })
+  },
 
   /**
    * 关闭绘图
    */
-  closeCanvas: function() {
+  closeCanvas: function () {
     this.setData({
       isCanvas: false
     })

@@ -184,6 +184,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      path: '/pages/homePage/index?uid=' + this.data.user_id,
+    }
   }
 })

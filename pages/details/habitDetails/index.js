@@ -95,9 +95,9 @@ Component({
      * 初始化页面值
      */
     fetchData: function(pageNo) {
-      wx.showLoading({
-        title: '加载中',
-      });
+      // wx.showLoading({
+      //   title: '加载中',
+      // });
       const data = { habit_id: this.data.habit_id, page: pageNo? pageNo: 1};
       Util.request(Api.HabitDynamicList, data).then(res => {
         this.setData({
@@ -116,24 +116,18 @@ Component({
      * 点赞
      */
     support: function (e) {
+      let url;
       if (e.target.dataset.is_praise||e.target.dataset.is_praise === 1){
-        /**
-         * 取消点赞操作
-         */
-        const data = { clock_record_id: e.target.dataset.id, type: 1, }
-        Util.request(Api.CancelSupport, data).then(res => {
-          this.fetchData()
-        });
-        return;
+        // 取消点赞操作
+        url = Api.CancelSupport
       }else{
-        /**
-         * 点赞操作
-         */
-        const data = { clock_record_id: e.target.dataset.id, type: 1, }
-        Util.request(Api.SupportSave, data).then(res => {
-          this.fetchData()
-        });
+        //点赞操作
+        url = Api.SupportSave
       }
+      const data = { clock_record_id: e.target.dataset.id, type: 1, }
+      Util.request(url, data).then(res => {
+        this.fetchData()
+      });
     },
     clickMessage: function (e) {
       console.log(e)

@@ -95,6 +95,15 @@ Page({
       icon: iconList.icon,
       time,
     }
+    if (!name){
+      wx.showModal({
+        title: '温馨提示',
+        content: '请输入习惯名称',
+        showCancel: false,
+        confirmText:'好哒'
+      })
+      return;
+    }
     if(isRemind) {
       wx.requestSubscribeMessage({
         tmplIds: ['rESRPjZaqk7dhE-MnnKoG6owdEtt_bscXYPC3J3lr0E'],

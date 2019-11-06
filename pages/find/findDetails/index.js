@@ -417,16 +417,16 @@ Page({
   /**
    * 绘图过程
    */
-  CanvasContext: function(content){
-    return new Promise((response,rej)=>{
+  CanvasContext: function (content) {
+    return new Promise((response, rej) => {
       const { detail } = this.data;
       wx.getImageInfo({
-        src:'https://chenxixiguan.cn/uploads/20191031/9d82f6398c89962416a974a316a52100.png',
-        success:({ path }) => {
+        src: 'https://chenxixiguan.cn/uploads/20191031/9d82f6398c89962416a974a316a52100.png',
+        success: ({ path }) => {
           wx.getImageInfo({
             src: 'https://chenxixiguan.cn/uploads/20191031/349d332aabab86d709f638531786d61a.png',
-            success:(back) => {
-              Util.request(Api.getImg).then(res=>{
+            success: (back) => {
+              Util.request(Api.getImg).then(res => {
                 wx.getImageInfo({
                   src: res.data.back_image,
                   success: (res) => {
@@ -438,7 +438,7 @@ Page({
                           mask: true
                         });
                         const ctx = wx.createCanvasContext('dialog-fenxiang');
-                        if (res.path){
+                        if (res.path) {
                           ctx.drawImage(res.path, 0, 10, 480, 290)
                         }
                         ctx.drawImage(path, 0, 0, 480, 800);
@@ -453,6 +453,7 @@ Page({
                         ctx.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
                         ctx.setFillStyle('#ffffff');
                         ctx.setFontSize(50);
+                        ctx.setTextAlign('left');
                         ctx.fillText('第' + detail.continuity_days + '天', 60, 100);
                         ctx.setFontSize(34);
                         ctx.font = 'normal bold 34px sans-serif'
@@ -506,8 +507,8 @@ Page({
                         ctx.setFontSize(18);
                         ctx.font = 'normal bold 26px sans-serif';
                         ctx.setFillStyle('#333')
-                        ctx.fillText(detail.join_days+ '天', 480 / 6 + 15, 520)
-                        ctx.fillText(detail.total_clock+ '天', 480 / 2, 520)
+                        ctx.fillText(detail.join_days + '天', 480 / 6 + 15, 520)
+                        ctx.fillText(detail.total_clock + '天', 480 / 2, 520)
                         ctx.fillText(detail.rate, 480 / 6 * 5 - 15, 520);
                         ctx.font = 'normal 200 18px sans-serif';
                         // ctx.setFontSize(16);
@@ -522,23 +523,21 @@ Page({
                         ctx.moveTo(480 / 3 * 2 - 10, 500);
                         ctx.lineTo(480 / 3 * 2 - 10, 560);
                         ctx.stroke()
-                        ctx.draw(true, function() {
-                          setTimeout(() => {
-                            wx.canvasToTempFilePath({
-                              canvasId: 'dialog-fenxiang',
-                              success: (tempRes) => {
-                                that.setData({
-                                  canvasImg: tempRes.tempFilePath,
-                                  isShare: false,
-                                  isCanvas: true,
-                                });
-                                wx.hideLoading();
-                              },
-                              fail: function(e) {
-                                console.log(e)
-                              }
-                            });
-                          }, 500);
+                        ctx.draw(true, function () {
+                          wx.canvasToTempFilePath({
+                            canvasId: 'dialog-fenxiang',
+                            success: (tempRes) => {
+                              that.setData({
+                                canvasImg: tempRes.tempFilePath,
+                                isShare: false,
+                                isCanvas: true,
+                              });
+                              wx.hideLoading();
+                            },
+                            fail: function (e) {
+                              console.log(e)
+                            }
+                          });
                         });
                       }
                     })
@@ -551,9 +550,9 @@ Page({
             }
           })
         },
-        fail:rej
+        fail: rej
       })
-    }).catch(e=>{
+    }).catch(e => {
       console.log(e)
     })
   },

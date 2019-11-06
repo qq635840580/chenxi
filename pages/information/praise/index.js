@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [],
+    list: [
+      {}
+    ],
     page: 1,
   },
 
@@ -30,11 +32,16 @@ Page({
    * 默认查询数据
    */
   fetchData: function(pageNo) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     const data = {page: pageNo ? pageNo : 1};
     Util.request(Api.MessagePraise, data).then(res => {
       that.setData({
         list: pageNo && pageNo > 1 ? [...this.data.list, ...res.data] : res.data
       })
+      wx.hideLoading()
     });
   },
 

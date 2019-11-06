@@ -30,11 +30,16 @@ Page({
    * 获取当前页面数据
    */
   fetchData: function(pageNo) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     const data = {page: pageNo? pageNo : 1};
     Util.request(Api.MessageSystem, data).then(res => {
       that.setData({
         list: pageNo && pageNo > 1 ? [...this.data.list, ...res.data] : res.data
       })
+      wx.hideLoading()
     });
   },
 

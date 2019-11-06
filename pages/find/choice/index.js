@@ -176,7 +176,7 @@ Component({
       wx.getStorage({
         key: 'uid',
         success: (res) => {
-          let list = this.properties.dynamicList;
+          let list = this.data.dynamicList;
           let isPraise = e.target.dataset.praise;
           let id = e.target.dataset.id;
           list.forEach(item => {
@@ -265,19 +265,28 @@ Component({
      * 关注
      */
     followHandler: function (e) {
-      const data = { follow_id: e.currentTarget.dataset.uid, };
+      let { uid: follow_id } = e.currentTarget.dataset
       wx.getStorage({
         key: 'uid',
         success: (res) => {
-          Util.request(Api.FollowSave, data).then(res => {
+          Util.request(Api.FollowSave, { follow_id }).then(res => {
             wx.showToast({
               title: '关注成功',
               icon: 'success',
             });
-            setTimeout(() => {
-              wx.hideToast();
-              this.fetchData()
-            }, 1500)
+              setTimeout(() => {
+                wx.hideToast();
+                let { dynamicList } = this.data;
+                dynamicList.forEach(item => {
+                  console.log(item.uid)
+                  if (item.uid == follow_id) {
+                    item.user.is_attention = 1;
+                  }
+                });
+                this.setData({
+                  dynamicList,
+                })
+              }, 500)
           });
         },
         fail: function(e) {

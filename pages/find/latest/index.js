@@ -229,7 +229,8 @@ Component({
      * 关注
      */
     followHandler: function(e) {
-      const data = { follow_id: e.currentTarget.dataset.uid,};
+      let { uid: follow_id } = e.currentTarget.dataset
+      const data = { follow_id};
       wx.getStorage({
         key: 'uid',
         success: (res) => {
@@ -240,8 +241,16 @@ Component({
             });
             setTimeout(() => {
               wx.hideToast();
-              this.fetchData()
-            }, 1500)
+              let { latestList } = this.data;
+              latestList.forEach(item => {
+                if (item.uid == follow_id) {
+                  item.user.is_attention = 1;
+                }
+              });
+              this.setData({
+                latestList,
+              })
+            }, 500)
           });
         },
         fail: function(e) {

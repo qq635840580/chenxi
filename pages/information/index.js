@@ -22,6 +22,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
     wx.getStorage({
       key: 'uid',
       success: function (res) {
@@ -30,6 +34,7 @@ Page({
         })
         Util.request(Api.MessageIndex).then(res => {
           that.setData(res.data)
+          wx.hideLoading();
         });
       },
     });

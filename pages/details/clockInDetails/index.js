@@ -350,62 +350,13 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   // 分享朋友圈
   fenxiang: function () {
-    wx.showLoading({
-      title: '图片生成中',
-      mask: true
-    });
     Util.request(Api.RandWord).then(res => {
+      wx.showLoading({
+        title: '图片生成中',
+        mask: true
+      });
       this.CanvasContext(res.data.content)
     })
   },
@@ -429,13 +380,9 @@ Page({
                     wx.getImageInfo({
                       src: detail.user.avatarUrl,
                       success: (avatar) => {
-                        wx.showLoading({
-                          title: '图片生成中',
-                          mask: true
-                        });
                         const ctx = wx.createCanvasContext('dialog-fenxiang');
                         if (res.path) {
-                          ctx.drawImage(res.path, 0, 10, 480, 290)
+                          ctx.drawImage(res.path, 0, 10, 480, 270)
                         }
                         ctx.drawImage(path, 0, 0, 480, 800);
                         ctx.drawImage(back.path, 60, 250, 50, 20);
@@ -453,6 +400,7 @@ Page({
                         ctx.fillText('第' + detail.continuity_days + '天', 60, 100);
                         ctx.setFontSize(34);
                         ctx.font = 'normal bold 34px sans-serif'
+                        ctx.setTextAlign('left');
                         ctx.fillText(`${detail.habits.name}`, 60, 170);
                         ctx.font = '26px sans-serif';
                         ctx.fillText(detail.date + ' ', 60, 210);
@@ -468,7 +416,7 @@ Page({
                           let temp = "";
                           let row = [];
                           for (let a = 0; a < chr.length; a++) {
-                            if (ctx.measureText(temp).width < 320) {
+                            if (ctx.measureText(temp).width < 350) {
                               temp += chr[a];
                             } else {
                               a--;
@@ -483,7 +431,7 @@ Page({
                             var test = "";
                             var empty = [];
                             for (var a = 0; a < rowPart.length; a++) {
-                              if (ctx.measureText(test).width < 350) {
+                              if (ctx.measureText(test).width < 360) {
                                 test += rowPart[a];
                               }
                               else {
@@ -499,16 +447,17 @@ Page({
                             ctx.fillText(row[b], 60, 350 + b * 30, 350);
                           }
                         }
-                        ctx.setTextAlign('center')
-                        ctx.setFontSize(18);
                         ctx.font = 'normal bold 26px sans-serif';
+                        ctx.setTextAlign('center')
+                        ctx.setFontSize(26);
                         ctx.setFillStyle('#333')
                         ctx.fillText(detail.join_days + '天', 480 / 6 + 15, 520)
                         ctx.fillText(detail.total_clock + '天', 480 / 2, 520)
                         ctx.fillText(detail.rate, 480 / 6 * 5 - 15, 520);
                         ctx.font = 'normal 200 18px sans-serif';
-                        // ctx.setFontSize(16);
                         ctx.setFillStyle('#999')
+                        ctx.setTextAlign('center')
+                        ctx.setFontSize(16);
                         ctx.fillText('已加入', 480 / 6 + 15, 560)
                         ctx.fillText('累积打卡', 480 / 2, 560)
                         ctx.fillText('打卡率', 480 / 6 * 5 - 15, 560)
@@ -527,11 +476,14 @@ Page({
                                 canvasImg: tempRes.tempFilePath,
                                 isShare: false,
                                 isCanvas: true,
+                              },()=>{
+                                 wx.hideLoading();
                               });
-                              wx.hideLoading();
+                             
                             },
                             fail: function (e) {
                               console.log(e)
+                              wx.hideLoading();
                             }
                           });
                         });

@@ -40,11 +40,14 @@ function request(url, data = {}, method = "POST") {
           if(res.data.code == 400) {
             reject(res.data);
           } else if(res.data.code == '87014') {
-            wx.showToast({
-              title: '内容有问题哦，请修改敏感内容重新发布。',
-              icon: 'none',
-              duration: 1000,
-            });
+            wx.hideLoading();
+            setTimeout(() => {
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'none',
+                duration: 2000,
+              });
+            },500)
           } else {
             resolve(res.data);
           }

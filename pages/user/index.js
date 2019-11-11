@@ -65,6 +65,7 @@ Page({
    * 点击关联小程序
    */
   associatedClick: function(e) {
+    wx.hideTabBar({})
     this.setData({
       isShow: true,
     })
@@ -77,6 +78,7 @@ Page({
     this.setData({
       isShow: false,
     })
+    wx.showTabBar({})
   },
 
   /**

@@ -54,7 +54,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "习惯",
         "iconPath": "/img/tabbar/home.png",
         "selectedIconPath": "/img/tabbar/home_selected.png"
       },

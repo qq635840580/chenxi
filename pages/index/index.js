@@ -111,6 +111,7 @@ Page({
    */
   longPressHabit:function(e) {
     if(e.type=='longpress') {
+      wx.hideTabBar({})
       this.setData({
         isShow: true,
         habit_id: e.currentTarget.dataset.habit_id,
@@ -135,6 +136,7 @@ Page({
         title: '删除成功',
         icon: 'success',
       });
+      wx.showTabBar({})
       setTimeout(() => {
         wx.hideToast();
         this.fetchData();
@@ -149,6 +151,7 @@ Page({
     this.setData({
       isShow: false,
     })
+    wx.showTabBar({})
   },
 
   /**

@@ -47,6 +47,12 @@ page {
   padding: 20rpx;
 }
 
+.weui-cell__me {
+  font-size: 24rpx;
+  font-weight: normal;
+  color: #999;
+}
+
 .habit-details-dynamic-one-img-avatar {
   display: inline-block;
   vertical-align: top;

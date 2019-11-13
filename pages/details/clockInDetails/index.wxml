@@ -13,7 +13,10 @@
       <view class='habit-details-dynamic-one-img-total'>
         <!-- 上半部分 -->
         <view class='habit-details-dynamic-one-img-total-top'>
-          <view>{{detail.user.nickname}}</view>
+          <view>
+            {{detail.user.nickname}} 
+            <text class='weui-cell__me' wx:if='{{!item.is_public}}'>仅自己可见</text>
+          </view>
           <view>已坚持{{detail.continuity_days}}天</view>
         </view>
       </view>

@@ -75,12 +75,16 @@ Component({
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
     },
-    
+    // 组件首次渲染完毕
+    ready: function() {
+      
+    },
   },
   pageLifetimes: {
     // 组件所在页面的生命周期函数
     show: function () { 
       this.fetchData();
+
     },
     hide: function () { },
     resize: function () { },
@@ -116,22 +120,35 @@ Component({
      * 点赞
      */
     support: function (e) {
-      let url;
-      if (e.target.dataset.is_praise||e.target.dataset.is_praise === 1){
-        // 取消点赞操作
-        url = Api.CancelSupport
-      }else{
-        //点赞操作
-        url = Api.SupportSave
-      }
-      const data = { clock_record_id: e.target.dataset.id, type: 1, }
-      Util.request(url, data).then(res => {
-        this.fetchData()
+      const data = { clock_record_id: e.target.dataset.id, type: 1, };
+      let list = this.data.list;
+      let isPraise = e.target.dataset.is_praise;
+      let id = e.target.dataset.id;
+      list.forEach(item => {
+        if(item.id == id) {
+          if(isPraise) {
+            item.support_count = item.support_count - 1;
+            item.is_praise = 0;
+          }else {
+            item.support_count = item.support_count + 1;
+            item.is_praise = 1;
+          }
+        }
       });
+      this.setData({
+        list: list
+      });
+      if(isPraise) {
+        Util.request(Api.CancelSupport, data);
+      }else {
+        Util.request(Api.SupportSave, data);
+      }
     },
+
     clickMessage: function (e) {
       console.log(e)
     },
+    
     //点击评论 input聚焦
     saveIsInput: function (e) {
       //每次先暂存点击评论的id，方便提交的时候获取到

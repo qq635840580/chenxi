@@ -310,8 +310,27 @@ Component({
      */
     gotoHomePage: function (e) {
       const uid = e.currentTarget.dataset.uid;
-      wx.navigateTo({
-        url: `../../homePage/index?uid=${uid}`,
+      wx.getStorage({
+        key: 'uid',
+        success: (res) => {
+          wx.navigateTo({
+            url: `../../homePage/index?uid=${uid}`,
+          });
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
       });
     },
     /**

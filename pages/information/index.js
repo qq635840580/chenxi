@@ -39,6 +39,9 @@ Page({
           wx.hideLoading();
         });
       },
+      fail: function() {
+        wx.hideLoading();
+      },
     });
   },
 

@@ -190,6 +190,12 @@
   padding: 24rpx 20rpx;
 }
 
+.weui-cell__me {
+  font-size: 24rpx;
+  font-weight: normal;
+  color: #999;
+}
+
 .information__desc {
   font-size: 30rpx;
   color: #555;

@@ -17,6 +17,7 @@ Page({
     isShow: false,//是否展示
     searchFlag: false,//搜索flag
     loginFlag: false,//已登录标识
+    gifFlag: false,//gif图是否展示， 默认不展示
   },
   onTabItemTap: function () {
     App.getTotalCount();
@@ -48,7 +49,8 @@ Page({
         searchFlag: true,
         loginFlag: true,
       });
-      wx.hideLoading()
+      wx.hideLoading();
+      this.indexGifFlag();
     }).catch(res => {
       this.setData({
         list: [],
@@ -66,6 +68,25 @@ Page({
       this.setData({
         backgroundUrl: res.data[0]
       })
+    });
+  },
+
+  /**
+   * 获取当前storage是否操作过收藏小程序的过程
+   */
+  indexGifFlag: function() {
+    wx.getStorage({
+      key: 'gifFlag',
+      success: function (res) {
+        that.setData({
+          gifFlag: res.data,
+        })
+      },
+      fail: function(error) {
+        that.setData({
+          gifFlag: true,
+        })
+      },
     });
   },
 
@@ -207,6 +228,14 @@ Page({
         }
       });
     }
+  },
+
+  /**
+   * 点击关闭gif图
+   */
+  clickGif: function() {
+    this.setData({ gifFlag: false });
+    wx.setStorageSync('gifFlag', false);
   },
 
   /**

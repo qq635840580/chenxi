@@ -72,4 +72,9 @@
     </view>
   </view>
 
+  <!-- 点击收藏习惯gif -->
+  <view class='index-gif' catchtap='clickGif' wx:if='{{gifFlag}}'> 
+    <image src='https://chenxixiguan.cn/uploads/20191113/f233179a54f4911180cc06c7e529dd71.gif'/>
+  </view>
+
 </view>

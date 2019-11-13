@@ -263,3 +263,13 @@ checkbox {
   border-radius: 100rpx;
 }
 
+.index-gif {
+  position: fixed;
+  top: 1rpx;
+  right: 50rpx;
+}
+
+.index-gif image {
+  width: 450rpx;
+  height: 100rpx;
+}

@@ -481,11 +481,26 @@
   padding: 24rpx 20rpx;
 }
 
+.weui-cell__me {
+  font-size: 24rpx;
+  font-weight: normal;
+  color: #999;
+}
+
 .information__desc {
   font-size: 30rpx;
   color: #555;
   margin-bottom: 10rpx;
   display: block;
+}
+
+/* 超出5行隐藏多余部分并且显示省略号 */
+.information__hidden{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
 .information-footer {

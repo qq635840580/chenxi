@@ -75,6 +75,7 @@ Page({
                 wx.setStorageSync('token', res1.data.data.token)
                 wx.setStorageSync('uid', res1.data.data.uid)
                 wx.setStorageSync('openid', res1.data.data.openid)
+                wx.setStorageSync('gifFlag', true)
                 wx.navigateBack({
                   delta: 1,
                 });

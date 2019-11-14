@@ -812,7 +812,7 @@ icon {
 
 .weui-badge {
   display: inline-block;
-  padding: 0.15em 0.4em;
+  padding: 0.16em 0.4em;
   min-width: 16rpx;
   border-radius: 36rpx;
   background-color: #e64340;

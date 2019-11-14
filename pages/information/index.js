@@ -27,7 +27,8 @@ Page({
     wx.showLoading({
       title: '加载中',
       mask:true
-    })
+    });
+    App.getTotalCount();
     wx.getStorage({
       key: 'uid',
       success: function (res) {

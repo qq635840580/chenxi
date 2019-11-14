@@ -416,7 +416,7 @@ Page({
                           let temp = "";
                           let row = [];
                           for (let a = 0; a < chr.length; a++) {
-                            if (ctx.measureText(temp).width < 350) {
+                            if (ctx.measureText(temp).width < 360) {
                               temp += chr[a];
                             } else {
                               a--;
@@ -444,7 +444,7 @@ Page({
                             row = rowCut;
                           }
                           for (var b = 0; b < row.length; b++) {
-                            ctx.fillText(row[b], 60, 350 + b * 30, 350);
+                            ctx.fillText(row[b], 60, 350 + b * 30, 360);
                           }
                         }
                         ctx.font = 'normal bold 26px sans-serif';

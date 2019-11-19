@@ -46,6 +46,7 @@
 .information__desc{
   font-size: 30rpx;
   color: #555;
+  margin-bottom: 15rpx;
 }
 .information-footer{
   font-size: 30rpx;

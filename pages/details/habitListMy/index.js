@@ -96,6 +96,7 @@ Page({
   clickMessage: function (e) {
     console.log(e)
   },
+
   //点击评论 input聚焦
   saveIsInput: function (e) {
     const id = e.currentTarget.dataset.id;
@@ -103,6 +104,7 @@ Page({
       url: `../clockInDetails/index?id=${id}`,
     })
   },
+
   //评论触发的方法
   messageSubmit: function (e) {
     console.log(e)
@@ -119,6 +121,7 @@ Page({
       this.fetchData()
     });
   },
+
   /**
    * 点击评论的评论
    */
@@ -130,6 +133,7 @@ Page({
       isInput: true,
     })
   },
+
   /**
    * 失去焦点
    */
@@ -195,6 +199,7 @@ Page({
       url: '../clock/index?habit_id='+ habit_id,
     })
   },
+
   /**
    * 跳转到动态的详情
    */
@@ -204,6 +209,7 @@ Page({
       url: `../clockInDetails/index?id=${id}`,
     })
   },
+
   /**
    * 点击图片 查看全屏图片
    */
@@ -219,6 +225,7 @@ Page({
       urls: newImgList // 需要预览的图片http链接列表
     })
   },
+
   /**
    * 点击跳转个人主页
    */
@@ -228,17 +235,38 @@ Page({
       url: `../../homePage/index?uid=${uid}`,
     })
   },
+
   /**
    * 点击更多 存储起来当前点击的id 赋值给删除按钮
    */
   clickMore:function(e) {
-    const is_attention = e.currentTarget.dataset.is_attention;
-    const clock_id = e.currentTarget.dataset.clock_id;
-    this.setData({
-      isShow: true,
-      isDel: is_attention==4 ? true : false,
-      clock_id: clock_id,
-    })
+    let that = this;
+      wx.getStorage({
+        key: 'uid',
+        success: (res) => {
+          const is_attention = e.currentTarget.dataset.is_attention;
+          const clock_id = e.currentTarget.dataset.clock_id;
+          that.setData({
+            isShow: true,
+            isDel: is_attention==4 ? true : false,
+            clock_id: clock_id,
+          });
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      });
   },
   /**
    * 弹出层点击取消

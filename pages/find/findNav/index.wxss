@@ -242,7 +242,7 @@ swiper image {
 .information__desc {
   font-size: 30rpx;
   color: #555;
-  margin-bottom: 10rpx;
+  margin-bottom: 15rpx;
 }
 
 .information-footer {

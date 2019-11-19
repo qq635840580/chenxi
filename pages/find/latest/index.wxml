@@ -106,7 +106,7 @@
 </view>
 
 <!-- 点击举报弹出层 -->
-<view wx:if='{{isReport}}' catchtap='closeReport'>
+<view wx:if='{{isReport}}'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog">
     <view class="ys-dialog-title">举报原因

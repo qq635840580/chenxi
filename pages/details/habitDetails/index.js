@@ -68,7 +68,6 @@ Component({
           { name: '3', value: '广告推销' },
           { name: '4', value: '违法犯罪' },
           { name: '5', value: '侵权盗用' },
-          // { name: '6', value: '其他' },
         ],
       })
     },
@@ -275,7 +274,10 @@ Component({
       })
       wx.previewImage({
         current: cueerntImg, // 当前显示图片的http链接
-        urls: newImgList // 需要预览的图片http链接列表
+        urls: newImgList, // 需要预览的图片http链接列表
+        complete: (e) => {
+          console.log(e)
+        }
       })
     },
     /**
@@ -291,13 +293,33 @@ Component({
      * 点击更多 存储起来当前点击的id 赋值给删除按钮
      */
     clickMore:function(e) {
-      const is_attention = e.currentTarget.dataset.is_attention;
-      const clock_id = e.currentTarget.dataset.clock_id;
-      this.setData({
-        isShow: true,
-        isDel: is_attention==4 ? true : false,
-        clock_id: clock_id,
-      })
+      let that = this;
+      wx.getStorage({
+        key: 'uid',
+        success: (res) => {
+          const is_attention = e.currentTarget.dataset.is_attention;
+          const clock_id = e.currentTarget.dataset.clock_id;
+          that.setData({
+            isShow: true,
+            isDel: is_attention==4 ? true : false,
+            clock_id: clock_id,
+          });
+        },
+        fail: function(e) {
+          wx.showModal({
+            content: '当前未登录，登录后即可享受小程序全部功能',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/login/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      });
     },
     /**
      * 弹出层点击取消

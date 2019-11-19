@@ -56,7 +56,7 @@ Page({
     this.setData({
       tabflag,
       page: 1,
-    })
+    });
   },
   
   /**

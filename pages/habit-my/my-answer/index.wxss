@@ -1,0 +1,13 @@
+/* pages/habit-my/my-answer/index.wxss */
+page{
+  background-color: #fff;
+}
+.page__title{
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f2f3f5;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.weui-article{
+  color: #212121;
+}

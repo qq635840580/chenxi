@@ -1,0 +1,74 @@
+/* pages/habit-information/index/index.wxss */
+.weui-cells:after {
+  bottom: 0;
+  border: 0;
+}
+
+.weui-cells:before {
+  top: 0;
+  border-top: 1rpx solid #fff;
+}
+
+.weui-cell{
+  padding: 28rpx 30rpx;
+}
+
+.weui-cell::before{
+  left: 0;
+  border-color: #f2f3f5;
+}
+.weui-cell__hd{
+  position: relative;
+  margin-right: 26rpx;
+}
+.weui-cell__hd>image{
+  width: 84rpx;
+  height: 84rpx;
+  vertical-align: middle;
+}
+.weui-cell__hd>.weui-badge{
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+}
+.weui-cell__title{
+  display: flex;
+  font-size: 32rpx;
+  color: #212121;
+}
+.weui-cell__info{
+  font-size: 24rpx;
+  color: #999;
+}
+.weui-cell__desc{
+  font-size: 28rpx;
+  color: #999;
+}
+
+.person-null {
+  width: 100%;
+  margin-top: 200rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.person-null image {
+  width: 400rpx;
+  vertical-align: middle;
+}
+
+.information-text {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+}
+
+.information-login {
+  margin-top: 30rpx;
+  width: 60%;
+  margin: 0 atuo;
+  background: #3ACC88;
+  border-radius: 100rpx;
+  color: #fff;
+}

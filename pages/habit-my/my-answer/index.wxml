@@ -1,0 +1,7 @@
+<!--pages/habit-my/my-answer/index.wxml-->
+<view class="page__title">{{title}}</view>
+<view class="weui-article">
+  <view class="weui-article__section">
+  <rich-text nodes="{{content}}" type='text'></rich-text>
+  </view>
+</view>

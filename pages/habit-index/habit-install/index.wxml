@@ -1,0 +1,48 @@
+<!--pages/habit-index/habit-install/index.wxml-->
+<!-- 提醒 -->
+<view class='install-first'>
+  <view class='install-first-box'>
+    <view>是否提醒</view>
+    <view>
+      <switch bindchange='isRemind' class="tui-fr" color="#3ACC88" checked="{{remindFlag}}" />
+    </view>
+  </view>
+</view>
+
+<!-- 提醒时间 -->
+<view class='install-second' wx:if='{{remindFlag}}'>
+  <view class='install-second-box'>
+    <view>提醒时间</view>
+
+    <view>
+      <picker mode="time" value="{{time}}"  bindchange="bindDateChange">
+        {{time}}
+      </picker>
+      <image src='/img/habit-detail/chakan.png'/>
+    </view>
+
+  </view>
+</view>
+
+<!-- 字体 -->
+<view class='install-text'>
+  点击保存设置，请勾选弹窗底部“<text style='color: #3ACC88'>总是保持以上选择</text>”，否则可能无法发送提醒。
+</view>
+
+<!-- 是否公开 -->
+<view class='install-first'>
+  <view class='install-first-box'>
+    <view>是否公开</view>
+    <view>
+      <switch class="tui-fr" color="#3ACC88" checked="{{publicFlag}}" bindchange='isPublic'/>
+    </view>
+  </view>
+</view>
+
+<!-- 按钮 -->
+<view class='install-button'>
+    <button bindtap='update'>保存设置</button>
+  </view>
+
+
+

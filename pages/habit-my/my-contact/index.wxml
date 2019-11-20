@@ -1,0 +1,33 @@
+<!--pages/habit-my/my-contact/index.wxml-->
+<view class='weui-cells weui-cells_after-title'>
+  <view class='weui-cell'>
+    <view class='weui-cell__hd'>
+      <image mode='widthFix' src='/img/habit-my/wechat.png'></image>
+    </view>
+    <view class='weui-cell__bd'>微信公众号</view>
+    <view class='weui-cell__ft'>{{gzh}}</view>
+  </view>
+  <view class='weui-cell'>
+    <view class='weui-cell__hd'>
+      <image mode='widthFix' src='/img/habit-my/weibo.png'></image>
+    </view>
+    <view class='weui-cell__bd'>官方微博</view>
+    <view class='weui-cell__ft'>{{weibo}}</view>
+  </view>
+  <view class='weui-cell'>
+    <view class='weui-cell__hd'>
+      <image mode='widthFix' src='/img/habit-my/qq.png'></image>
+    </view>
+    <view class='weui-cell__bd'>官方QQ群</view>
+    <view class='weui-cell__ft'>{{qq}}</view>
+  </view>
+</view>
+
+<view class='weui-kefu'>
+  <button open-type="contact">联系客服</button>
+</view>
+
+<view class='weui-saoma'>
+  <image mode='widthFix' src='{{wechat_group_image}}' bindlongtap="downloadImg" data-src="{{wechat_group_image}}" show-menu-by-longpress='true'></image>
+  <view>长按保存二维码</view>
+</view>

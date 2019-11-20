@@ -1,0 +1,85 @@
+/* pages/habit-index/habit-install/index.wxss */
+.install-first {
+  height: 120rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  border-bottom: 2rpx solid #F2F3F5;
+}
+
+.install-first-box {
+  padding: 20rpx;
+}
+
+.install-first-box view:nth-child(1) {
+  font-size: 32rpx;
+  line-height: 80rpx;
+  color:#212121;
+  display: inline-block;
+}
+
+.install-first-box view:nth-child(2) {
+  float: right;
+  margin-top: 10rpx;
+}
+
+.install-second {
+  height: 120rpx;
+  background: #fff;
+}
+
+.install-second-box {
+  padding: 20rpx;
+}
+
+.install-second-box view:nth-child(1) {
+  font-size: 32rpx;
+  line-height: 80rpx;
+  display: inline-block;
+}
+
+.install-second-box view:nth-child(2) {
+  float: right;
+  margin-top: 10rpx;
+  vertical-align: top;
+}
+
+.install-second-box view:nth-child(2) picker {
+  display: inline-block;
+  margin-right: 30rpx;
+  /* line-height: 80rpx; */
+  color: #555;
+  font-size: 28rpx;
+}
+
+.install-second-box view:nth-child(2) picker text {
+  color: #555;
+  font-size: 28rpx;
+  /* line-height: 80rpx; */
+}
+
+.install-second-box view:nth-child(2) image {
+  width: 16rpx;
+  height: 28rpx;
+  vertical-align: top;
+  margin-top: 20rpx;
+}
+
+.install-text {
+  font-size: 28rpx;
+  line-height: 36rpx;
+  color: #555;
+  padding: 20rpx;
+}
+
+.install-button {
+  width: 70%;
+  margin: 100rpx auto auto auto;
+}
+
+.install-button button {
+  background: #3ACC88;
+  color: white;
+  font: 36rpx;
+  font-weight: bold;
+  border-radius: 44rpx;
+}

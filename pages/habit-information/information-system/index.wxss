@@ -1,0 +1,38 @@
+/* pages/habit-information/information-system/index.wxss */
+.weui-system{
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.system-head{
+  display: flex;
+  align-items: center;
+  padding: 26rpx 28rpx 0 28rpx;
+}
+.system-head__hd>image{
+  width: 84rpx;
+  height: 84rpx;
+  margin-right: 20rpx;
+}
+.system-head__bd{
+  flex: 1;
+  font-size: 28rpx;
+  color: #555;
+}
+.system-head__ft{
+  font-size: 24rpx;
+  color: #999;
+}
+
+.system-body{
+  padding: 10rpx 30rpx 30rpx 30rpx;
+  line-height: 1.2;
+}
+.system-body__title{
+  font-size: 30rpx;
+  color: #333;
+}
+.system-body__desc{
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 20rpx;
+}

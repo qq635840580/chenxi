@@ -1,0 +1,79 @@
+<!--pages/habit-index/index/index.wxml-->
+<view class='page__bd_spacing'>
+  <!-- 顶部放倒计时 -->
+  <view class='top__box' style="background:url('{{backgroundUrl.back_image}}');background-size:100%">
+    <view class='top__title'>{{backgroundUrl.title}}</view>
+    <view class='top__time'>
+      <text class='top__time-bold'>{{day}}</text>
+      <text>天</text>
+      <text class='top__time-bold'>{{hour}}</text>
+      <text>时</text>
+      <text class='top__time-bold'>{{minute}}</text>
+      <text>分</text>
+      <text class='top__time-bold'>{{seconds}}</text>
+      <text>秒</text>
+    </view>
+  </view>
+
+  <block wx:for="{{list}}" wx:key="{{item.habit_id}}">
+    <navigator url='/pages/habit-index/habit-detail-nav/index?habit_id={{item.habit_id}}' open-type='navigate'class='weui-habit' bindlongpress='longPressHabit' data-habit_id='{{item.habit_id}}'>
+      <view class='weui-habit__hd'>
+        <image src='{{item.habit_icon}}'></image>
+      </view>
+      <view class='weui-habit__bd'>
+        <view class='weui-flex weui-habit__title'>
+          <view class='weui-flex__item'>{{item.habit.name}}</view>
+        </view>
+        <view class='weui-flex weui-habit__desc'>
+          <view style='padding-right:50rpx'>已坚持{{item.continuity_days}}天</view>
+          <view class='weui-flex__item' hidden='{{item.is_remind!=1}}'>提醒{{item.remind_time}}</view>
+        </view>
+      </view>
+      <view class='weui-habit__ft'>
+        <icon hidden='{{item.is_clock==0}}' type='success' size='35' color='#3ACC88'></icon>
+      </view>
+    </navigator>
+  </block>  
+
+  <!-- 显示习惯数量 -->
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length>0}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">
+      共{{list.length}}个习惯
+    </view>
+  </view>
+
+  <!-- 添加习惯 -->
+  <view class='weui-habit__add-box' wx:if='{{loginFlag  && list.length > 0}}'>
+    <navigator url="/pages/habit-index/habit-list/index" class='weui-habit__add'>+</navigator>
+  </view>
+
+  <!-- 未登录添加习惯 直接出发登录 -->
+  <view class='weui-habit__logout-add-box' wx:if='{{searchFlag && list.length == 0}}'>
+    <button catchtap='addHabitClick' class='weui-habit__logout-add'>添加习惯</button>
+  </view>
+
+
+  <!-- 空白页 -->
+  <view class='weui-nothing' wx:if="{{searchFlag && list.length == 0}}">
+    <image src='/img/habit-index/nothing.png' mode='widthFix'></image>
+    <view>自律改变习惯</view>
+    <view>快去添加一个习惯吧</view>
+  </view>
+
+  <!-- 长按习惯区域 -->
+  <view wx:if='{{isShow}}' catchtap='cancelClick'>
+    <view class="ys-mask"></view><!-- 遮罩层 -->
+    <view class="ys-dialog-btn">
+      <view>
+        <button class='ys-dialog-btn__del' catchtap='delClick' data-habit_id='{{habit_id}}'>删除</button>
+        <button class='ys-dialog-btn__cancel' catchtap='cancelClick'>取消</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 点击收藏习惯gif -->
+  <view class='index-gif' catchtap='clickGif' wx:if='{{gifFlag}}'> 
+    <image src='https://chenxixiguan.cn/uploads/20191113/f233179a54f4911180cc06c7e529dd71.gif'/>
+  </view>
+
+</view>

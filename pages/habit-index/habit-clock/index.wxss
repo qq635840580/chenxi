@@ -1,0 +1,58 @@
+/* pages/habit-index/habit-clock/index.wxss */
+page {
+  background: #fff;
+}
+
+.clock-text {
+  width: 100%;
+  margin: 0 auto;
+}
+.clock-text .clock-text-box {
+  padding: 50rpx;
+}
+
+.clock-text .clock-text-box textarea {
+  font-size: 32rpx;
+}
+
+.clock-button {
+  width: 70%;
+  margin: 100rpx auto auto auto;
+}
+
+.clock-button button {
+  background: #3ACC88;
+  color: white;
+  font: 36rpx;
+  font-weight: bold;
+  border-radius: 44rpx;
+}
+
+.clock-img {
+  width: 90%;
+  margin: 0 auto 0 50rpx;
+}
+
+.clock-img-list {
+  display: inline-block;
+  position: relative;
+}
+
+.clock-img image {
+  width: 200rpx;
+  height: 200rpx;
+  background: #f2f3f5;
+  display: inline-block;
+  margin-right:  20rpx;
+}
+
+.clock-img-list-del {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: url('https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png') no-repeat center;
+  position: absolute;
+  top: 10rpx;
+  right: 30rpx;
+  background-size: 40rpx 40rpx;
+}

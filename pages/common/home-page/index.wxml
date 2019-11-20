@@ -1,0 +1,92 @@
+<!--pages/common/home-page/index.wxml-->
+<view class='page__hd'>
+  <!-- <view class='page__back' catchtap='goBack'>
+    <image src='/img/user/back.png' />
+  </view> -->
+  <view class='bg_block'>
+    <view class='user'>
+      <image class='user_avatar' src='{{userInfo.avatarUrl}}'></image>
+      <view class='user_name'>{{userInfo.nickname}}</view>
+      <view class='user_info'>{{userInfo.sign}}</view>
+      <view class='user_focus' wx:if='{{userInfo.is_attention == 0}}' bindtap="followClick">
+        <button>+关注</button>
+      </view>
+      <view class='user_focus_already' wx:if='{{userInfo.is_attention == 1}}' bindtap="cancelFollow">
+        <button>已关注</button>
+      </view>
+      <view class='user_focus_already_double' wx:if='{{userInfo.is_attention == 2}}' bindtap="cancelFollow">
+        <button>互相关注</button>
+      </view>
+    </view>
+  </view>
+  
+</view>
+
+
+<view class='page__bd_spacing'>
+  <view class='weui-info'>
+   <navigator url='/pages/user/habit/index?uid={{userInfo.id}}' class='weui-flex__item'>
+      <view class='weui-info__desc'>{{userInfo.habits_count}}</view>
+      <view class='weui-info__label'>习惯</view>
+    </navigator>
+    <navigator url='/pages/user/clock/index?user_id={{userInfo.id}}' class='weui-flex__item'>
+      <view class='weui-info__desc'>{{userInfo.clock_count}}</view>
+      <view class='weui-info__label'>打卡</view>
+    </navigator>
+    <navigator url='/pages/user/fans/index?user_id={{userInfo.id}}' class='weui-flex__item'>
+      <view class='weui-info__desc'>{{userInfo.fans_count}}</view>
+      <view class='weui-info__label'>粉丝</view>
+    </navigator>
+    <navigator url='/pages/user/concern/index?user_id={{userInfo.id}}' class='weui-flex__item'>
+      <view class='weui-info__desc'>{{userInfo.follow_count}}</view>
+      <view class='weui-info__label'>关注</view>
+    </navigator>
+  </view>
+</view>
+
+<!-- 习惯列表 -->
+<!-- 空白页 -->
+<view class='person-null' wx:if='{{userInfo.list.length==0}}'>
+  <image src='/img/null.png' mode='widthFix'/>
+  <view>暂无消息</view>
+</view>
+
+<block wx:if='{{userInfo.list.length>0}}' wx:for='{{userInfo.list}}' wx:key='{{index}}'>
+  <view class='home-page'>
+    <view class='home-page__box'>
+      <view class='home-page__title' data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'>{{item.habit_name}}</view>
+      <view data-habit_id='{{item.habit_id}}' catchtap='gotoHabitDetails'>
+        <view class='home-page__time'>
+          <text>{{item.start}}-{{item.end}}</text>
+          <text>共坚持了{{item.continuity_days}}天</text>
+        </view> 
+        <view class='home-page__right'>
+          <image src='/img/habit-detail/chakan.png' lazy-load="{{true}}"/>
+        </view>
+      </view>
+      <view class='home-page__list'>
+        <block wx:for='{{item.clock}}' wx:if='{{item.clock.length>0}}' wx:key='{{index}}' wx:for-item='blockList'>
+          <view class='home-page__list__li' wx:if='{{blockList.clock_record_image.length == 0 }}' data-id='{{blockList.id}}' catchtap='gotoFindDetails'>
+            <text>{{blockList.content}}</text>
+          </view>
+          <view class='home-page__list__li' wx:if='{{blockList.clock_record_image.length >0 }}' data-id='{{blockList.id}}' catchtap='gotoFindDetails'>
+            <image src='{{blockList.clock_record_image[0].path}}' mode="aspectFill" lazy-load="{{true}}"/>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='home-page__footer' wx:if='{{item.is_public==0}}'>
+      <image src='/img/user/suo.png' lazy-load="{{true}}"/>
+      仅自己可见
+    </view>
+  </view>
+</block>
+
+<!-- 提醒参与人数 -->
+<view class='person-num'>
+  <view class='person-num-box'>
+    <text></text>
+    <text>到底线啦</text>
+    <text></text>
+  </view>
+</view>

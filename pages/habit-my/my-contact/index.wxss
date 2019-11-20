@@ -1,0 +1,54 @@
+/* pages/habit-my/my-contact/index.wxss */
+.weui-cells::before{
+  left: 0;
+  top: 0;
+  border-top: 1rpx solid #fff;
+}
+
+.weui-cell::before{
+  left: 0;
+  top: 0;
+  border-top: 1rpx solid #fff;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
+.weui-cells::after {
+  bottom: 0;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
+.weui-cells {
+  font-size: 30rpx;
+}
+
+.weui-cell__hd>image {
+  width: 80rpx;
+  margin-right: 30rpx;
+  vertical-align: middle;
+}
+
+.weui-kefu {
+  padding-top: 110rpx;
+  padding-bottom: 200rpx;
+}
+
+.weui-kefu>button {
+  width: 600rpx;
+  overflow: auto;
+  background-color: #3acc88;
+  color: #fff;
+  border-radius: 200rpx;
+  box-shadow: 0 0 30rpx #3acc88;
+}
+
+.weui-saoma {
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 1;
+  color: #555;
+}
+
+.weui-saoma>image {
+  width: 300rpx;
+  margin-bottom: 10rpx;
+}

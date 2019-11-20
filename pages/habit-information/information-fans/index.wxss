@@ -1,0 +1,92 @@
+/* pages/habit-information/information-fans/index.wxss */
+.weui-information {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.information-head .weui-cell__hd>image {
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.information-head .weui-cell__title {
+  font-size: 28rpx;
+  color: #555;
+}
+
+.information-head .weui-badge {
+  display: inline-block;
+  font-size: 20rpx;
+}
+
+.weui-badge>image {
+  width: 18rpx;
+  height: 18rpx;
+  vertical-align: middle;
+}
+
+.weui-badge.male {
+  background-color: #3fb8e8;
+}
+
+.weui-badge.woman {
+  background-color: #ea3d84;
+}
+
+.information-head .weui-cell__desc {
+  font-size: 24rpx;
+  line-height: 1;
+  color: #999;
+}
+
+.information-body {
+  padding: 0 30rpx 20rpx 30rpx;
+}
+
+.weui-well {
+  background-color: #f2f3f5;
+  color: #666;
+  font-size: 24rpx;
+  padding: 24rpx 20rpx;
+}
+
+.information__desc {
+  font-size: 30rpx;
+  color: #555;
+  margin-bottom: 15rpx;
+}
+
+.information-footer {
+  font-size: 30rpx;
+  color: #999;
+}
+
+.information-footer::before {
+  left: 0;
+  border-color: #f2f3f5;
+}
+
+.weui-color__green {
+  color: #3acc88;
+}
+
+button.weui-btn {
+  font-size: 28rpx;
+  min-width: 140rpx;
+  border-radius: 200rpx;
+  line-height: 2;
+  padding: 0 16rpx;
+  vertical-align: middle;
+}
+
+button[type=default][plain] {
+  color: #999;
+  border: 1px solid #999;
+}
+
+button[type=primary] {
+  background-color: #3acc88;
+}

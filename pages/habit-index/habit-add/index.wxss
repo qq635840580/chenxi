@@ -1,0 +1,75 @@
+/* pages/habit-index/habit-add/index.wxss */
+.weui-cells{
+  margin-top: 20rpx;
+}
+
+.weui-cells:before {
+  top: 0;
+  border-top: 1rpx solid #f2f3f5;
+}
+
+.weui-cells:after, .weui-cells:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2rpx;
+  color: #f2f3f5;
+}
+
+.weui-cells:after {
+  bottom: 0;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
+.weui-cells_after-title{
+  margin-top: 0;
+}
+.weui-cell{
+  /* padding: 40rpx 30rpx; */
+  border: 0;
+}
+.weui-cell_input{
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+}
+.weui-cell::before{
+  left: 0;
+  border-color: #f2f3f5;
+}
+.weui-cell_switch{
+  padding: 30rpx;
+}
+.weui-cell_select{
+  padding: 26rpx 0;
+}
+.weui-select_in-select-after{
+  text-align: right;
+  font-size: 28rpx;
+  color: #555;
+  border-right-width: 0;
+  float: right;
+}
+
+.weui-btn-are{
+  margin-top: 100rpx;
+}
+.weui-btn-area>button{
+  width: 600rpx;
+  overflow: auto;
+  background-color: #3ACC88;
+  color: #fff;
+  border-radius: 200rpx;
+  box-shadow: 0 0 30rpx #3ACC88;
+}
+
+.weui-cell__bgimg {
+  width: 63rpx;
+  height: 63rpx;
+  vertical-align: top;
+  padding-top: 5rpx;
+}
+
+.weui-cell_icon {
+  padding-right: 0;
+}

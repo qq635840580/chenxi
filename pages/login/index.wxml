@@ -6,7 +6,6 @@
     <!-- <text class="content">温馨提示：您必须先授权用户登录才能使用本程序，我们不会</text> -->
   </view>
   <view class="usermotto">
-    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="clickGetUserInfo" hover-class='click-btn'> 微信授权登陆 </button>
-    <view wx:else>请升级微信版本</view>
+    <button open-type="getUserInfo" bindgetuserinfo="clickGetUserInfo" hover-class='click-btn'> 微信授权登陆 </button>
   </view>
 </view>

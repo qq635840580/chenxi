@@ -1,0 +1,216 @@
+/* pages/habit-my/index/index.wxss */
+
+.page__hd {
+  position: relative;
+  padding-top: 26rpx;
+  padding-bottom: 80rpx;
+  background-color: #3acc88;
+}
+
+.page__hd::after {
+  position: absolute;
+  bottom: -30rpx;
+  left: 0;
+  right: 0;
+  content: "";
+  height: 60rpx;
+  background-color: #3acc88;
+  border-radius: 50%;
+}
+
+.user__log-box {
+  width: 100%;
+  height: 200rpx;
+  background: #3acc88;
+  padding: 0 40rpx;
+  color: #fff;
+}
+
+.user__log-box-avatar {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.user__log-box-avatar image {
+  width: 140rpx;
+  height: 140rpx;
+  vertical-align: top;
+}
+
+.user__log-box-avatar-box {
+  display: inline-block;
+  margin-left: 30rpx;
+}
+
+.user__log-box-login {
+  display: inline-block;
+  font-size: 42rpx;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+.user__log-box-text {
+  /* display: inline-block; */
+  font-size: 30rpx;
+}
+
+.user {
+  text-align: center;
+  color: #fff;
+  line-height: 1;
+}
+
+.user_avatar {
+  width: 166rpx;
+  height: 166rpx;
+  border-radius: 50%;
+}
+
+.user_name {
+  margin-top: 40rpx;
+  font-size: 36rpx;
+}
+
+.user_info {
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.page__bd_spacing {
+  position: relative;
+  top: -30rpx;
+  z-index: 10rpx;
+}
+
+.weui-info {
+  margin-bottom: 20rpx;
+  display: flex;
+  border-radius: 15rpx;
+  background-color: #fff;
+  text-align: center;
+}
+
+.weui-info>.weui-flex__item {
+  padding: 30rpx 0;
+}
+
+.weui-info__desc {
+  font-size: 32rpx;
+  color: #555;
+}
+
+.weui-info__label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.weui-cells {
+  margin-top: 10rpx;
+  border-radius: 15rpx;
+}
+
+.weui-cells-log {
+  margin-top: 100rpx;
+}
+
+.weui-cells:after, .weui-cells:before {
+  border-width: 0;
+}
+
+.weui-cells_after-title {
+  margin-top: 0;
+}
+
+.weui-cell {
+  padding: 20rpx;
+  color: #555;
+  font-size: 30rpx;
+}
+
+.weui-cell:before {
+  border-top-color: #f2f3f5;
+}
+
+.weui-cell__hd>image {
+  width: 66rpx;
+  height: 66rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+
+.weui-cell__bd {
+  background: #fff;
+  text-align: left;
+  color:#555;
+  font-size: 30rpx;
+  padding: 0;
+}
+
+.ys-mask{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.ys-dialog{
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  text-align: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.ys-dialog-title{
+  padding: 40rpx 40rpx 0 40rpx;
+  color:#555;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.ys-dialog-content{
+  padding: 20rpx 40rpx 0 40rpx;
+  min-height: 40px;
+  font-size: 28rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #555555;
+  text-align: left;
+  line-height: 46rpx;
+  margin-bottom: 20rpx;
+}
+
+.ys-dialog-title image {
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.ys-dialog-bottom{
+  /* margin-bottom: 66rpx; */
+  font-size: 36rpx;
+  color: #3acc88;
+  line-height: 46rpx;
+  border-top: 1rpx solid #f2f3f5;
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+/* .ys-dialog-bottom button {
+  box-shadow: 0 0 30rpx #3ACC88;
+  background: #3ACC88;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  width: 430rpx;
+} */

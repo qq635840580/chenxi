@@ -52,7 +52,7 @@
 				{
 					"id": -1,
 					"name": "搜索习惯",
-					"pathName": "pages/index/search",
+					"pathName": "pages/habit-index/habit-list",
 					"query": ""
 				},
 				{
@@ -64,7 +64,7 @@
 				{
 					"id": 2,
 					"name": "发现_精选",
-					"pathName": "pages/find/choice/index",
+					"pathName": "pages/habit-find/habit-choice/index",
 					"query": "",
 					"scene": null
 				},

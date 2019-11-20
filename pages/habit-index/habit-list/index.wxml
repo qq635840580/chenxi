@@ -1,0 +1,35 @@
+<!--pages/habit-index/habit-list/index.wxml-->
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="16" color='#ffffff'></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="搜索" placeholder-style="color:#ffffff" value="{{inputVal}}" bindinput="inputTyping" bindconfirm='searchType' confirm-type='search'/>
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14" color='#ffffff'></icon>
+      </view>
+    </view>
+  </view>
+  <navigator url='../habit-add/index?name={{inputVal}}' class="weui-search-bar__btn" bindtap="">+ 创建</navigator>
+</view>
+
+<scroll-view scroll-x class='weui-cate'>
+  <view scroll-x class='weui-flex'>
+    <view class="weui-navbar__item {{cateIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="cateClick" wx:for="{{cateList}}" wx:key="{{index}}" data-index="{{index}}" data-id='{{item.id}}'>
+      <view class="weui-navbar__title">{{item.name}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class='weui-cells'>
+  <block wx:for="{{list}}" wx:key="id">
+    <navigator class='weui-cell weui-habit' url='/pages/habit-index/habit-detail-nav/index?habit_id={{item.id}}'>
+      <view class='weui-habit__hd'>
+        <image src='{{item.icon}}'></image>
+      </view>
+      <view class='weui-habit__bd'>
+        <view class='weui-flex weui-habit__title'>{{item.name}}</view>
+        <view class='weui-flex weui-habit__desc'>已有{{item.total_user}}人加入    </view>
+      </view>
+    </navigator>
+  </block>
+</view>

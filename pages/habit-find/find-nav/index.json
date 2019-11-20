@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "Choice": "../find-choice/index",
+    "Latest": "../find-latest/index",
+    "Follow": "../find-follow/index",
+    "TotalRank": "../find-total-rank/index"
+  }
+}

@@ -1,0 +1,12 @@
+<!--pages/habit-my/my-question/index.wxml-->
+<view class='weui-cells weui-cells_after-title'>
+  <navigator url='../my-answer/index?id={{item.id}}' class='weui-cell' wx:for="{{list}}" wx:key="id">
+    <view class='weui-cell__hd'>
+      <view class='weui-list__style'></view>
+    </view>
+    <view class='weui-cell__bd'>
+      <view class='weui-cell__title'>{{item.title}}</view>
+    </view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'></view>
+  </navigator>
+</view>

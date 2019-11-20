@@ -1,0 +1,29 @@
+<!--pages/habit-index/habit-detail-nav/index.wxml-->
+<!-- 顶部是否加入 -->
+<view class='habit-fixed-top'>
+  <view class='habit-details-top' wx:if="{{is_join==0}}">
+    <image class='habit-details-top-left' src='{{img}}'/>
+    <view class='habit-details-top-text'>{{name}}</view>
+    <image bindtap='addClick' class='habit-details-top-right' src='/img/habit-detail/lijijiaru.png'/>
+  </view>
+
+  <view class='weui-navbar' wx:if="{{is_join==1}}">
+    <view bindtap='saveNav' data-tabflag='1' class="{{tabflag==1?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">
+      <view class="weui-navbar__title">动态</view>
+    </view>
+    <view bindtap='saveNav' data-tabflag='2' class="{{tabflag==2?'weui-navbar__item weui-bar__item_on':'weui-navbar__item'}}">
+      <view class='weui-navbar__title'>我的</view>
+    </view>
+  </view>
+</view>
+
+
+<view wx-if="{{tabflag==1}}">
+  <!--  -->
+  <Dynamic habit_id="{{habit_id}}" id='dynamic'/>
+</view>
+
+<view wx-if="{{tabflag==2}}">
+  <My habit_id="{{habit_id}}" id='my'/>
+</view>
+

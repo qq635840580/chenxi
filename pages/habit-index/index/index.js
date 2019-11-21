@@ -51,6 +51,7 @@ Page({
       });
       wx.hideLoading();
       this.indexGifFlag();
+      App.getTotalCount();
     }).catch(res => {
       this.setData({
         list: [],

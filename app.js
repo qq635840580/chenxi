@@ -1,8 +1,6 @@
 //app.js
 var Util = require("/utils/util.js");
-var {
-  MessageTotalCount
-} = require("/config/api.js");
+var { MessageTotalCount } = require("/config/api.js");
 
 App({
   onShow: function() {
@@ -24,28 +22,36 @@ App({
     this.getTotalCount();
   },
   getTotalCount:() => {
-    Util.request(MessageTotalCount).then(({
-      data
-    }) => {
-      if (data.count) {
-        let text = data.count
-        wx.showTabBarRedDot({
-          index: 2
-        })
-        if (text > 99) {
-          text = '99+';
-        } else {
-          text = text + '';
-        }
-        wx.setTabBarBadge({
-          index: 2,
-          text,
-        })
-      } else {
-        wx.removeTabBarBadge({
-          index: 2
-        })
-      }
+    wx.getStorage({
+      key: 'uid',
+      success: function (res) {
+        Util.request(MessageTotalCount).then(({
+          data
+        }) => {
+          if (data.count) {
+            let text = data.count
+            wx.showTabBarRedDot({
+              index: 2
+            })
+            if (text > 99) {
+              text = '99+';
+            } else {
+              text = text + '';
+            }
+            wx.setTabBarBadge({
+              index: 2,
+              text,
+            })
+          } else {
+            wx.removeTabBarBadge({
+              index: 2
+            })
+          }
+        });
+      },
+      fail: function () {
+        console.log('未登录，不请求')
+      },
     });
   },
   globalData: {

@@ -25,19 +25,19 @@
 
 <view class='page__bd_spacing'>
   <view class='weui-info'>
-   <navigator url='/pages/user/habit/index?uid={{userInfo.id}}' class='weui-flex__item'>
+   <navigator url='../clock-list/index?uid={{userInfo.id}}' class='weui-flex__item'>
       <view class='weui-info__desc'>{{userInfo.habits_count}}</view>
       <view class='weui-info__label'>习惯</view>
     </navigator>
-    <navigator url='/pages/user/clock/index?user_id={{userInfo.id}}' class='weui-flex__item'>
+    <navigator url='../clock-list/index?user_id={{userInfo.id}}' class='weui-flex__item'>
       <view class='weui-info__desc'>{{userInfo.clock_count}}</view>
       <view class='weui-info__label'>打卡</view>
     </navigator>
-    <navigator url='/pages/user/fans/index?user_id={{userInfo.id}}' class='weui-flex__item'>
+    <navigator url='../fans-list/index?user_id={{userInfo.id}}' class='weui-flex__item'>
       <view class='weui-info__desc'>{{userInfo.fans_count}}</view>
       <view class='weui-info__label'>粉丝</view>
     </navigator>
-    <navigator url='/pages/user/concern/index?user_id={{userInfo.id}}' class='weui-flex__item'>
+    <navigator url='../follow-list/index?user_id={{userInfo.id}}' class='weui-flex__item'>
       <view class='weui-info__desc'>{{userInfo.follow_count}}</view>
       <view class='weui-info__label'>关注</view>
     </navigator>

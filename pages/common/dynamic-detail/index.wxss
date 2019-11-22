@@ -135,7 +135,7 @@ page {
   padding: 0 20rpx 0 20rpx;
 }
 
-.habit-details-dynamic-one-img-text view:nth-child(1) {
+.habit-details-dynamic-one-img-text text:nth-child(1) {
   margin-bottom: 20rpx;
 }
 
@@ -671,3 +671,21 @@ checkbox {
 .canvasclass{
   z-index: -1；
 }
+
+.weui-well {
+  background-color: #f2f3f5;
+  color: #666;
+  font-size: 24rpx;
+  padding: 24rpx 20rpx;
+  width: 95%;
+  margin: 20rpx auto;
+}
+
+.weui-flex {
+  font-size: 26rpx;
+}
+
+.weui-flex__item .weui-color__green {
+  color: #3acc88;
+}
+

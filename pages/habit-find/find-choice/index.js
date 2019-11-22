@@ -476,7 +476,7 @@ Component({
         key: 'uid',
         success: function (res) {
           wx.navigateTo({
-            url: `../../common/dynamic-detail/index?id=${id}`,
+            url: `../../common/dynamic-detail/index?id=${id}&type=2`,
           })
         },
         fail: function (e) {

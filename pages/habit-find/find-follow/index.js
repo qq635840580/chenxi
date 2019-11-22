@@ -368,7 +368,7 @@ Component({
     gotoFindDetails: function (e) {
       const id = e.currentTarget.dataset.id;
       wx.navigateTo({
-        url: `../../common/dynamic-detail/index?id=${id}`,
+        url: `../../common/dynamic-detail/index?id=${id}&type=2`,
       })
     },
 

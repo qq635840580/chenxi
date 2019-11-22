@@ -30,16 +30,19 @@ Page({
     commentId: null, //存储点击这条评论的id
     canvasImg: null, //绘制图片存储的地方
     nickname: null,//回复
+    habitShow: false, //灰色的习惯条是否展示 1为不展示2为展示
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     that = this;
     const data = { clock_record_id: options.id, }
     this.setData({
-      id: options.id
+      id: options.id,
+      habitShow: options.type
     });
     this.fetchData(data)
   },
@@ -181,10 +184,20 @@ Page({
    * 去往个人首页
    */
   gotoHomePage: function (e) {
-    console.log(e)
     const uid = e.currentTarget.dataset.uid;
     wx.navigateTo({
       url: `../home-page/index?uid=${uid}`,
+    })
+  },
+
+  /**
+   * 点击灰条跳转至习惯列表
+   */
+  gotoHabitDetails:function (e) {
+    console.log(e)
+    const habit_id = e.currentTarget.dataset.habit_id;
+    wx.navigateTo({
+      url: `/pages/habit-index/habit-detail-nav/index?habit_id=${habit_id}`,
     })
   },
 
@@ -382,7 +395,7 @@ Page({
                       success: (avatar) => {
                         const ctx = wx.createCanvasContext('dialog-fenxiang');
                         if (res.path) {
-                          ctx.drawImage(res.path, 0, 10, 480, 270)
+                          ctx.drawImage(res.path, 0, 10, 480, 290)
                         }
                         ctx.drawImage(path, 0, 0, 480, 800);
                         ctx.drawImage(back.path, 60, 250, 50, 20);

@@ -25,7 +25,7 @@
 
 <view class='page__bd_spacing'>
   <view class='weui-info'>
-   <navigator url='../clock-list/index?uid={{userInfo.id}}' class='weui-flex__item'>
+   <navigator url='../habit-list/index?uid={{userInfo.id}}' class='weui-flex__item'>
       <view class='weui-info__desc'>{{userInfo.habits_count}}</view>
       <view class='weui-info__label'>习惯</view>
     </navigator>

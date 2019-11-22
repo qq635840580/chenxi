@@ -35,6 +35,7 @@
     "pages/common/clock-list/index",
     "pages/common/fans-list/index",
     "pages/common/follow-list/index",
+    "pages/common/habit-list/index",
     "pages/login/index"
   ],
   "window": {

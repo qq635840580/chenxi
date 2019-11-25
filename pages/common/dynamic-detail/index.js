@@ -31,13 +31,14 @@ Page({
     canvasImg: null, //绘制图片存储的地方
     nickname: null,//回复
     habitShow: false, //灰色的习惯条是否展示 1为不展示2为展示
+    parentId: null,//父级id
+    contentId: null,//评论id
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     that = this;
     const data = { clock_record_id: options.id, }
     this.setData({
@@ -85,43 +86,54 @@ Page({
   //点击评论框  使input聚焦
   saveIsInput: function (e) {
     //每次先暂存点击评论的id，方便提交的时候获取到
+    const { nickname, contentid, parentid } = e.currentTarget.dataset;
     this.setData({
       isInput: true,
-      nickname: e.currentTarget.dataset.nickname,
-      contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
-      commentId: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : null
+      nickname,
+      contentId: contentid ? contentid : null,
+      parentId: parentid ? parentid : null
     })
   },
 
 
   //评论触发的方法
   messageSubmit: function (e) {
-    const datas = { clock_record_id: this.data.id };
+    const { id, contentId, parentId } = this.data;
     const data = {
-      clock_record_id: this.data.id,
+      clock_record_id: id,
       content: e.detail.value,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
-      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : undefined,
+      parent_id: parentId ? parentId : undefined,
+      comment_id: contentId ? contentId : undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({
         isInput: false,
         contentId: null,
+        parentId: null,
       })
-      this.fetchData(datas)
+      this.fetchData({ clock_record_id: id });
     });
   },
 
-  /**
-   * 点击评论的评论
-   */
-  clickContent: function (e) {
-    console.log(e.currentTarget.dataset)
-    this.setData({
-      // focusId: e.currentTarget.dataset.id,
-      contentId: e.currentTarget.dataset.contentid,
-      isInput: true,
-    })
+   /**
+    * 增加发表按钮评论
+    */
+  publicHandler: function (e) {
+    const { id, contentId, parentId, msgVal } = this.data;
+    const data = {
+      clock_record_id: id,
+      content: msgVal,
+      parent_id: parentId ? parentId : undefined,
+      comment_id: contentId ? contentId : undefined,
+    };
+    Util.request(Api.CommenteSave, data).then(res => {
+      this.setData({
+        isInput: false,
+        contentId: null,
+        parentId: null,
+      })
+      this.fetchData({ clock_record_id: id });
+    });
   },
 
   /**
@@ -140,26 +152,6 @@ Page({
     this.setData({
       msgVal: e.detail.value
     })
-  },
-
-  /**
-  * 增加发表按钮评论
-  */
-  publicHandler: function (e) {
-    console.log(e)
-    const datas = { clock_record_id: this.data.id };
-    const data = {
-      clock_record_id: this.data.id,
-      content: this.data.msgVal,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
-    };
-    Util.request(Api.CommenteSave, data).then(res => {
-      this.setData({
-        isInput: false,
-        contentId: null,
-      })
-      this.fetchData(datas)
-    });
   },
 
   /**
@@ -194,7 +186,6 @@ Page({
    * 点击灰条跳转至习惯列表
    */
   gotoHabitDetails:function (e) {
-    console.log(e)
     const habit_id = e.currentTarget.dataset.habit_id;
     wx.navigateTo({
       url: `/pages/habit-index/habit-detail-nav/index?habit_id=${habit_id}`,
@@ -330,7 +321,6 @@ Page({
    * 点击空白处  input关闭
    */
   closeInput: function (e) {
-    console.log(e)
     this.setData({
       isInput: false
     })
@@ -470,7 +460,7 @@ Page({
                         ctx.font = 'normal 200 18px sans-serif';
                         ctx.setFillStyle('#999')
                         ctx.setTextAlign('center')
-                        ctx.setFontSize(16);
+                        // ctx.setFontSize(16);
                         ctx.fillText('已加入', 480 / 6 + 15, 560)
                         ctx.fillText('累积打卡', 480 / 2, 560)
                         ctx.fillText('打卡率', 480 / 6 * 5 - 15, 560)
@@ -495,7 +485,6 @@ Page({
 
                             },
                             fail: function (e) {
-                              console.log(e)
                               wx.hideLoading();
                             }
                           });
@@ -526,5 +515,12 @@ Page({
       isCanvas: false
     })
   },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
 
 })

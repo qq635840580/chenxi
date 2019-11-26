@@ -31,6 +31,8 @@ Page({
     canvasImg: null, //绘制图片存储的地方
     nickname: null,//回复
     habitShow: false, //灰色的习惯条是否展示 1为不展示2为展示
+    parentId: null,//父级id
+    contentId: null,//评论id
   },
 
   /**
@@ -526,10 +528,5 @@ Page({
       isCanvas: false
     })
   },
-  onShareAppMessage: function(){
-    const { nickname } = this.data.detail.user;
-    return {
-      title: `${nickname}的打卡日记`
-    }
-  }
+
 })

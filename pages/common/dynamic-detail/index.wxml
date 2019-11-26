@@ -100,13 +100,13 @@
           <text>{{create_time}}</text>
         </view>
         <!-- 评论内容 -->
-        <view class='clock-in-details-text-comments-right-text' data-contentid='{{item.id}}' data-nickname="{{item.nickname}}" bindtap='saveIsInput'>
+        <view class='clock-in-details-text-comments-right-text' data-parentid='{{item.id}}' data-nickname="{{item.nickname}}" bindtap='saveIsInput'>
           {{item.content}}
         </view>
         <!-- 回复区域 -->
         <view class='clock-in-details-text-comments-right-reply' wx:if='{{item.sub_list.length>0}}' wx:for='{{item.sub_list}}' wx:for-item='commentList' wx:key="{{index}}">
           <view class='clock-in-details-text-comments-right-reply-box' catchtap=''>
-            <view catchtap='saveIsInput' data-nickname="{{commentList.nickname}}"  data-contentid='{{commentList.parent_id}}' data-comment_id='{{commentList.id}}'>
+            <view catchtap='saveIsInput' data-nickname="{{commentList.nickname}}"  data-contentid='{{commentList.id}}' data-parentid='{{commentList.parent_id}}'>
               <text>{{commentList.nickname}}<text wx:if='{{commentList.to_nickname}}' style='color:#555'>回复</text> <text wx:if='{{commentList.to_nickname}}'>{{commentList.to_nickname}}：</text> </text>
               {{commentList.content}}
             </view>

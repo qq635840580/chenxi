@@ -526,5 +526,10 @@ Page({
       isCanvas: false
     })
   },
-
+  onShareAppMessage: function(){
+    const { nickname } = this.data.detail.user;
+    return {
+      title: `${nickname}的打卡日记`
+    }
+  }
 })

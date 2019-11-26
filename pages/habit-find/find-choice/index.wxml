@@ -1,4 +1,4 @@
-<!--pages/habit-find/find-choice/index.wxml-->
+<!--pages/find/choice/index.wxml-->
 <!-- 精选 -->
 <view class="weui-search-bar">
   <view class="weui-search-bar__form" catchtap='gotoHabitList'>
@@ -17,10 +17,10 @@
   <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
 </view>
 
-<swiper indicator-dots="{true}" interval="2000" indicator-color="#FFFFFF" indicator-active-color="#3ACC88" autoplay="{ture}" circular="{true}">
+<swiper indicator-dots="{true}" indicator-color="#FFFFFF" indicator-active-color="#3ACC88" autoplay circular="{true}">
   <block wx:for="{{imgUrls}}" wx:key="{{index}}">
     <swiper-item>
-      <image mode='widthFix' src="{{item.image}}" class="slide-image" />
+      <image catchtap="gotoSwiperItem" data-web_url="{{item.web_url}}" mode='widthFix' src="{{item.image}}" class="slide-image" />
     </swiper-item>
   </block>
 </swiper>
@@ -45,7 +45,7 @@
   <view class='weui-panel__bd'>
     <!-- 空白页 -->
     <view class='person-null' wx:if='{{dynamicList.length==0}}'>
-      <image src='/img/common/null.png' mode='widthFix'/>
+      <image src='/img/null.png' mode='widthFix'/>
       <view>暂无消息</view>
     </view>
     <view class='weui-information' wx:for="{{dynamicList}}" wx:key="{{index}}" wx:if="{{dynamicList.length>0}}">
@@ -71,7 +71,7 @@
       </view>
       <view class='information-body'>
         <view catchtap='gotoFindDetails' data-id='{{item.id}}'>
-          <text class='information__desc'>{{item.content}}</text>
+          <view class='information__desc'>{{item.content}}</view>
           <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
             <view class='information__desc_one_img'>
               <image src='{{imgList.path}}' mode="aspectFill" data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' catchtap='viewImage'/>
@@ -104,7 +104,7 @@
             </text>
           </label>
              
-          <button class='iconfont iconfenxiang tool-fenxiang' data-id='{{item.id}}' open-type='share' ></button>
+          <button class='iconfont iconfenxiang tool-fenxiang' open-type='share' ></button>
           <text class='iconfont icongengduo tool-gengduo' catchtap='clickMore' data-is_attention='{{item.user.is_attention}}' data-clock_id='{{item.id}}'></text>
         </view>
       </view>
@@ -125,7 +125,7 @@
 </view>
 
 <!-- 点击更多弹出层 -->
-<view wx:if='{{isShow}}' catchtap='cancelClick'>
+<view wx:if='{{isShow}}'>
   <view class="ys-mask"></view><!-- 遮罩层 -->
   <view class="ys-dialog-btn">
     <view>
@@ -151,7 +151,7 @@
       </checkbox-group>
     </view>
     <view class="ys-dialog-bottom">
-      <button catchtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+      <button bindtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
     </view>
   </view>
 </view>

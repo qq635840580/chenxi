@@ -156,11 +156,17 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (e) {
-    const id = e.target.dataset.id;
+    console.log(e.target.dataset)
+    const { id, days } = e.target.dataset;
     if (id) {
       return {
-        path: `/pages/common/dynamic-detail/index?id=${id}&type=1`
+        // title: '是兄弟就来砍我',
+        path: `/pages/common/dynamic-detail/index?id=${id}&type=1`,
+        title: `TA在培养【${this.data.name}】习惯，已坚持${days}天`,
       }
+    } 
+    return {
+      title: `我在培养【${this.data.name}】习惯，一起来呀`,
     }
   }
 })

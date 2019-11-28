@@ -530,7 +530,11 @@ Component({
         url: `../../habit-index/habit-list/index`
       })
     },
-
+    gotoSwiperItem: function (e) {
+      wx.navigateTo({
+        url: e.target.dataset.web_url,
+      })
+    },
     showInput: function () {
       this.setData({
         inputShowed: true

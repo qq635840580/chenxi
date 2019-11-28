@@ -126,10 +126,9 @@ Component({
       wx.navigateTo({
         url: `../../common/dynamic-detail/index?id=${id}&type=1`,
       })
-    },
+    }, 
     //评论触发的方法
     messageSubmit: function (e) {
-      console.log(e)
       const data = {
         clock_record_id: e.currentTarget.dataset.id,
         content: e.detail.value,

@@ -29,7 +29,7 @@ App({
           data
         }) => {
           if (data.count) {
-            let text = data.count
+            let text = data.count;
             wx.showTabBarRedDot({
               index: 2
             })

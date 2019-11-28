@@ -342,12 +342,10 @@ Page({
     this.fetchData(page);
     this.setData({ page: page });
   },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-
-  }
-
+    const { nickname } = this.data.list[0].user;
+    return {
+      title: `${nickname}的打卡日记`
+    }
+  },
 })

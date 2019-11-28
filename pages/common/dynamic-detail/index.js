@@ -34,7 +34,19 @@ Page({
     parentId: null,//父级id
     contentId: null,//评论id
   },
-
+  onShareAppMessage: function(e) {
+    const {
+      id,
+      continuity_days
+    } = this.data.detail;
+    const { name } = this.data.detail.habits;
+    if (id) {
+      return {
+        path: `/pages/common/dynamic-detail/index?id=${id}&type=2`,
+        title: "TA在培养【" + name + "】习惯已经坚持" + continuity_days + "天"
+      }
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

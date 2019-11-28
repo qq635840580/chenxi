@@ -7,22 +7,22 @@ Page({
    */
   data: {
     tabflag: 1,
-    paddingTop: null,//存储paddingTop的值 试试
+    paddingTop: null, //存储paddingTop的值 试试
     page: 1
   },
-  onTabItemTap: function () {
+  onTabItemTap: function() {
     App.getTotalCount();
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     that = this;
     wx.setNavigationBarTitle({
       title: '发现'
     })
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         that.setData({
           paddingTop: res.statusBarHeight * 2.5
         })
@@ -33,8 +33,10 @@ Page({
   /**
    * 菜单切换
    */
-  saveNav: function (e) {
-    const { tabflag } = e.currentTarget.dataset;
+  saveNav: function(e) {
+    const {
+      tabflag
+    } = e.currentTarget.dataset;
     this.setData({
       tabflag,
       page: 1
@@ -61,7 +63,7 @@ Page({
   /**
    * 点击跳转习惯列表页
    */
-  gotoHabitList: function () {
+  gotoHabitList: function() {
     wx.navigateTo({
       url: `../../habit-index/habit-list/index`
     })
@@ -70,7 +72,7 @@ Page({
   /**
    * 触底
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     let page = ++this.data.page
     let tabflag = this.data.tabflag;
     let routerName;
@@ -84,7 +86,9 @@ Page({
       return;
     }
     const component = this.selectComponent(routerName);
-    component.fetchData({ page: this.data.page });
+    component.fetchData({
+      page: this.data.page
+    });
     this.setData({
       page,
     })
@@ -93,11 +97,17 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (e) {
-    const id = e.target.dataset.id;
+  onShareAppMessage: function(e) {
+    const {
+      id,
+      name,
+      total_user
+    } = e.target.dataset;
+    console.log(id)
     if (id) {
       return {
-        path: `/pages/common/dynamic-detail/index?id=${id}&type=2`
+        path: `/pages/common/dynamic-detail/index?id=${id}&type=2`,
+        title: "TA在培养【" + name + "】习惯已经坚持" + total_user + "天"
       }
     }
   }

@@ -59,7 +59,13 @@
               <text>{{item.comment_count}}</text>
             </text>
           </label>
-          <button class='iconfont iconfenxiang tool-fenxiang' data-id='{{item.id}}' open-type='share' ></button>
+            <button 
+          class='iconfont iconfenxiang tool-fenxiang' 
+          open-type='share' 
+          data-id="{{item.id}}"
+          data-name="{{item.habits.name}}"
+          data-total_user="{{item.habits.total_user}}"
+           ></button>
           <text class='iconfont icongengduo tool-gengduo' catchtap='clickMore' data-is_attention='{{item.user.is_attention}}' data-clock_id='{{item.id}}'></text>
         </view>
       </view>

@@ -71,7 +71,7 @@
       </view>
       <view class='information-body'>
         <view catchtap='gotoFindDetails' data-id='{{item.id}}'>
-          <view class='information__desc information__hidden'>{{item.content}}</view>
+          <text class='information__desc information__hidden'>{{item.content}}</text>
           <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
             <view class='information__desc_one_img'>
               <image src='{{imgList.path}}' mode="aspectFill" data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' catchtap='viewImage'/>

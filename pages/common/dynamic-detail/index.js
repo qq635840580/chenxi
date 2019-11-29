@@ -103,40 +103,54 @@ Page({
       isInput: true,
       nickname: e.currentTarget.dataset.nickname,
       contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
-      commentId: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : null
+      parentId: e.currentTarget.dataset.parentid ? e.currentTarget.dataset.parentid : null
     })
   },
 
 
   //评论触发的方法
   messageSubmit: function (e) {
+    const { id, contentId, parentId } = this.data;
     const datas = { clock_record_id: this.data.id };
     const data = {
-      clock_record_id: this.data.id,
+      clock_record_id: id,
       content: e.detail.value,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
-      comment_id: e.currentTarget.dataset.comment_id ? e.currentTarget.dataset.comment_id : undefined,
+      parent_id: parentId ? parentId : undefined,
+      comment_id: contentId? contentId: undefined,
     };
     Util.request(Api.CommenteSave, data).then(res => {
       this.setData({
         isInput: false,
         contentId: null,
+        parentId: null,
       })
       this.fetchData(datas)
     });
   },
 
   /**
-   * 点击评论的评论
-   */
-  clickContent: function (e) {
-    console.log(e.currentTarget.dataset)
+  * 增加发表按钮评论
+  */
+ publicHandler: function (e) {
+  const { id, contentId, parentId } = this.data;
+  const datas = { clock_record_id: id };
+  const data = {
+    clock_record_id: id,
+    content: this.data.msgVal,
+    parent_id: parentId ? parentId : undefined,
+    comment_id: contentId? contentId: undefined,
+  };
+  Util.request(Api.CommenteSave, data).then(res => {
     this.setData({
-      // focusId: e.currentTarget.dataset.id,
-      contentId: e.currentTarget.dataset.contentid,
-      isInput: true,
+      isInput: false,
+      contentId: null,
+      parentId: null,
     })
-  },
+    this.fetchData(datas)
+  });
+},
+
+
 
   /**
    * 失去焦点
@@ -154,26 +168,6 @@ Page({
     this.setData({
       msgVal: e.detail.value
     })
-  },
-
-  /**
-  * 增加发表按钮评论
-  */
-  publicHandler: function (e) {
-    console.log(e)
-    const datas = { clock_record_id: this.data.id };
-    const data = {
-      clock_record_id: this.data.id,
-      content: this.data.msgVal,
-      parent_id: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : undefined,
-    };
-    Util.request(Api.CommenteSave, data).then(res => {
-      this.setData({
-        isInput: false,
-        contentId: null,
-      })
-      this.fetchData(datas)
-    });
   },
 
   /**

@@ -1,3 +1,4 @@
+
 /* pages/habit-find/find-follow/index.wxss */
 @import '/style/weui-rpx.wxss';
 
@@ -473,4 +474,13 @@ checkbox {
   background: #3ACC88;
   border-radius: 100rpx;
   color: #fff;
+}
+
+/* 超出5行隐藏多余部分并且显示省略号 */
+.information__hidden{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
 }

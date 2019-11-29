@@ -464,3 +464,12 @@ checkbox {
   width: 400rpx;
   vertical-align: middle;
 }
+
+/* 超出5行隐藏多余部分并且显示省略号 */
+.information__hidden{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+}

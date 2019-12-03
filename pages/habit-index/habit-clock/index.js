@@ -55,9 +55,16 @@ Page({
    */
   addImg: function () {
     let that = this;
+    wx.showLoading({
+      title: '正在拉取相册',
+    })
     wx.chooseImage({
       success: function (res) {
         var tempFilePaths = res.tempFilePaths;
+        wx.hideLoading();
+        wx.showLoading({
+          title: '图片上传中'
+        });
         tempFilePaths.forEach(item => {
           wx.uploadFile({
             url: Api.UploadImg,
@@ -73,10 +80,14 @@ Page({
               that.setData({
                 imgAry: [...that.data.imgAry, newRes.data.msg]
               })
+              setTimeout(() => {
+                wx.hideLoading();
+              }, 1000)
             }
           })
         });
-      }
+      },
+      fail: wx.hideLoading
     })
   },
 

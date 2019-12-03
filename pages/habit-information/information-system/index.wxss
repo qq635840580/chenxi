@@ -28,8 +28,10 @@
   line-height: 1.2;
 }
 .system-body__title{
-  font-size: 30rpx;
+  font-size: 32rpx;
   color: #333;
+  font-weight: bold;
+  margin-bottom: 20rpx;
 }
 .system-body__desc{
   font-size: 28rpx;

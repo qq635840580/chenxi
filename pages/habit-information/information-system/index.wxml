@@ -5,11 +5,11 @@
       <image src='/img/habit-information/system.png'></image>
     </view>
     <view class='system-head__bd'>系统通知</view>
-    <view class='system-head__ft'>12/26 12:00</view>
+    <view class='system-head__ft'>{{item.create_time}}</view>
   </view>
   <view class="system-body">
     <view class="system-body__title">{{item.system.title}}</view>
-    <view class="system-body__desc">{{item.system.content}}</view>
+    <text class="system-body__desc">{{item.system.content}}</text>
   </view>
 </view>
 

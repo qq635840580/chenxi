@@ -16,7 +16,7 @@
   </view>
 
   <block wx:for="{{list}}" wx:key="{{item.habit_id}}">
-    <navigator url='/pages/habit-index/habit-detail-nav/index?habit_id={{item.habit_id}}' open-type='navigate'class='weui-habit' bindlongpress='longPressHabit' data-habit_id='{{item.habit_id}}'>
+    <navigator bindtap='gotoHabitList' open-type='navigate'class='weui-habit' bindlongpress='longPressHabit' data-habit_id='{{item.habit_id}}'>
       <view class='weui-habit__hd'>
         <image src='{{item.habit_icon}}'></image>
       </view>

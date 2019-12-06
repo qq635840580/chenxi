@@ -58,7 +58,7 @@ Page({
       id: options.id,
       habitShow: options.type
     });
-    this.fetchData(data)
+    this.fetchData(data);
   },
 
   /**

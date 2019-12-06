@@ -129,14 +129,60 @@ Page({
   },
 
   /**
+   * 点击习惯 跳转对应的习惯列表
+   */
+  gotoHabitList: function(e) {
+    const { habit_id } = e.currentTarget.dataset;
+    //提醒习惯打卡
+    wx.requestSubscribeMessage({
+      tmplIds: ['_4WivtD2yhy0w4dTSM3a_Wwe2hlYduW88FyhE7H2oAs', 'rESRPjZaqk7dhE-MnnKoG6owdEtt_bscXYPC3J3lr0E','7zKlu9jYH5bR2upqpIG0258U6B5mpEVvGLbVLgxqnug'],
+      success: (res) => {
+        wx.navigateTo({
+          url: `/pages/habit-index/habit-detail-nav/index?habit_id=${habit_id}`
+        });
+        console.log('订阅调用成功')
+      },
+      fail: (res) => {
+        wx.navigateTo({
+          url: `/pages/habit-index/habit-detail-nav/index?habit_id=${habit_id}`
+        });
+        console.log(res)
+      }
+    });
+  },
+
+  /**
    * 长按习惯
    */
   longPressHabit: function (e) {
+    const that = this;
     if (e.type == 'longpress') {
-      wx.hideTabBar({})
-      this.setData({
-        isShow: true,
-        habit_id: e.currentTarget.dataset.habit_id,
+      wx.showModal({
+        content: '是否要删除当前习惯？',
+        success(res) {
+          if (res.confirm) {
+            const data = {
+              habit_id: e.currentTarget.dataset.habit_id,
+              user_id: wx.getStorageSync('uid'),
+            };
+            Util.request(Api.DeleteHabit, data).then(res => {
+              that.setData({
+                isShow: false,
+                page: 1,
+              });
+              wx.showToast({
+                title: '删除成功',
+                icon: 'success',
+              });
+              setTimeout(() => {
+                wx.hideToast();
+                that.fetchData();
+              }, 1500)
+            });
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
       });
     }
   },

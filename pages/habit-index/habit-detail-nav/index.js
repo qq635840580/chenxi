@@ -27,7 +27,6 @@ Page({
       loadOptions: options,
       tabflag: 1,
     })
-
   },
 
   /**
@@ -48,7 +47,7 @@ Page({
       //设置动态标题
       wx.setNavigationBarTitle({
         title: res.data.name
-      })
+      });
     });
   },
 

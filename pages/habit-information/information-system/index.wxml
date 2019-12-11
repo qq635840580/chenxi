@@ -1,19 +1,22 @@
 <!--pages/habit-information/information-system/index.wxml-->
-<view class='weui-system' wx:for="{{list}}" wx:key="id">
-  <view class='system-head'>
-    <view class='system-head__hd'>
-      <image src='/img/habit-information/system.png'></image>
+<block wx:for="{{list}}" wx:key="id" >
+  <view class='weui-system' data-url='{{item.system.web_url}}' catchtap='gotoDetails'>
+    <view class='system-head'>
+      <view class='system-head__hd'>
+        <image src='/img/habit-information/system.png'></image>
+      </view>
+      <view class='system-head__bd'>系统通知</view>
+      <view class='system-head__ft'>{{item.create_time}}</view>
     </view>
-    <view class='system-head__bd'>系统通知</view>
-    <view class='system-head__ft'>{{item.create_time}}</view>
+    <view class="system-body">
+      <view class="system-body__title">{{item.system.title}}</view>
+      <text class="system-body__desc">{{item.system.content}}</text>
+    </view>
   </view>
-  <view class="system-body">
-    <view class="system-body__title">{{item.system.title}}</view>
-    <text class="system-body__desc">{{item.system.content}}</text>
-  </view>
-</view>
 
-<view class='weui-nothing' wx:if="{{list.length == 0}}">
-  <image mode='widthFix' src='/img/habit-information/nothing.png'></image>
-  <view>暂无消息</view>
-</view>
+  <view class='weui-nothing' wx:if="{{list.length == 0}}">
+    <image mode='widthFix' src='/img/habit-information/nothing.png'></image>
+    <view>暂无消息</view>
+  </view>
+</block>
+

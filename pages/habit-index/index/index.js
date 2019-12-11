@@ -135,7 +135,7 @@ Page({
     const { habit_id } = e.currentTarget.dataset;
     //提醒习惯打卡
     wx.requestSubscribeMessage({
-      tmplIds: ['_4WivtD2yhy0w4dTSM3a_Wwe2hlYduW88FyhE7H2oAs', 'rESRPjZaqk7dhE-MnnKoG6owdEtt_bscXYPC3J3lr0E','7zKlu9jYH5bR2upqpIG0258U6B5mpEVvGLbVLgxqnug'],
+      tmplIds: ['_4WivtD2yhy0w4dTSM3a_Wwe2hlYduW88FyhE7H2oAs', 'rESRPjZaqk7dhE-MnnKoG6owdEtt_bscXYPC3J3lr0E'],
       success: (res) => {
         wx.navigateTo({
           url: `/pages/habit-index/habit-detail-nav/index?habit_id=${habit_id}`
@@ -283,6 +283,15 @@ Page({
   clickGif: function () {
     this.setData({ gifFlag: false });
     wx.setStorageSync('gifFlag', false);
+  },
+
+  /**
+   * 点击倒计时跳转
+   */
+  gotoDetails: function() {
+    wx.navigateTo({
+      url: this.data.backgroundUrl.web_url,
+    })
   },
 
   /**

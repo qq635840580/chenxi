@@ -1,7 +1,7 @@
 <!--pages/habit-index/index/index.wxml-->
 <view class='page__bd_spacing'>
   <!-- 顶部放倒计时 -->
-  <view class='top__box' style="background:url('{{backgroundUrl.back_image}}');background-size:100%">
+  <view class='top__box' style="background:url('{{backgroundUrl.back_image}}');background-size:100%" bindtap='gotoDetails'>
     <view class='top__title'>{{backgroundUrl.title}}</view>
     <view class='top__time'>
       <text class='top__time-bold'>{{day}}</text>

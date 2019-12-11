@@ -44,6 +44,15 @@ Page({
   },
 
   /**
+   * 点击系统消息跳转
+   */
+  gotoDetails: function(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {

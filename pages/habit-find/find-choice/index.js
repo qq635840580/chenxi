@@ -90,7 +90,7 @@ Component({
     gotoHabit: () => {
       wx.getStorage({
         key: 'uid',
-        success: function (res) {
+        success: (res) => {
           wx.navigateTo({
             url: '../find-habit-list/index',
           });
@@ -139,7 +139,7 @@ Component({
      * 获取动态精选
      */
     fetchData: function (data = {}) {
-      if(this.data.isReturn) {
+      if (this.data.isReturn) {
         this.setData({ isReturn: false });
         return
       }
@@ -482,7 +482,7 @@ Component({
       const id = e.currentTarget.dataset.id;
       wx.getStorage({
         key: 'uid',
-        success: function (res) {
+        success: (res) => {
           wx.navigateTo({
             url: `../../common/dynamic-detail/index?id=${id}&type=2`,
           });
@@ -511,7 +511,7 @@ Component({
       const habit_id = e.currentTarget.dataset.habit_id;
       wx.getStorage({
         key: 'uid',
-        success: function (res) {
+        success: (res) => {
           wx.navigateTo({
             url: `../../habit-index/habit-detail-nav/index?habit_id=${habit_id}`
           });
@@ -535,7 +535,6 @@ Component({
     },
 
     gotoHabitList: function () {
-      console.log('a')
       wx.navigateTo({
         url: `../../habit-index/habit-list/index`
       });

@@ -62,7 +62,6 @@ Component({
       wx.showLoading({
         title: '加载中',
       })
-      console.log(data)
       Util.request(Api.FindLatest, data).then(res => {
         if (data && data.page > 1) {
           this.setData({
@@ -389,7 +388,7 @@ Component({
       const id = e.currentTarget.dataset.id;
       wx.getStorage({
         key: 'uid',
-        success: function (res) {
+        success: (res) => {
           wx.navigateTo({
             url: `../../common/dynamic-detail/index?id=${id}&type=2`,
           });
@@ -419,7 +418,7 @@ Component({
       const habit_id = e.currentTarget.dataset.habit_id;
       wx.getStorage({
         key: 'uid',
-        success: function (res) {
+        success: (res) => {
           wx.navigateTo({
             url: `../../habit-index/habit-detail-nav/index?habit_id=${habit_id}`
           });

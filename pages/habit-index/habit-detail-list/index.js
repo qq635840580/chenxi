@@ -19,6 +19,7 @@ Page({
     isReport: true,
     is_clock: 0,
     is_join: 0,
+    isReturn: false,//是否可以去请求数据，默认可以请求，当触发完图片预览为false，不允许再请求
   },
 })
 
@@ -73,6 +74,10 @@ Component({
       // wx.showLoading({
       //   title: '加载中',
       // });
+      if(this.data.isReturn) {
+        this.setData({ isReturn: false });
+        return
+      }
       const data = { habit_id: this.data.habit_id, page: pageNo ? pageNo : 1 };
       Util.request(Api.HabitDynamicList, data).then(res => {
         this.setData({
@@ -125,8 +130,10 @@ Component({
       const id = e.currentTarget.dataset.id;
       wx.navigateTo({
         url: `../../common/dynamic-detail/index?id=${id}&type=1`,
-      })
+      });
+      this.setData({ isReturn: true });
     }, 
+
     //评论触发的方法
     messageSubmit: function (e) {
       const data = {
@@ -170,7 +177,8 @@ Component({
       const name = this.data.habitName;
       wx.navigateTo({
         url: `../habit-ranking/index?habit_id=${habit_id}&name=${name}`,
-      })
+      });
+      this.setData({ isReturn: true });
     },
 
     /**
@@ -180,7 +188,8 @@ Component({
       const habit_id = this.data.habit_id;
       wx.navigateTo({
         url: '../habit-person/index?habit_id=' + habit_id,
-      })
+      });
+      this.setData({ isReturn: true });
     },
 
     /**
@@ -190,7 +199,8 @@ Component({
       const habit_id = this.data.habit_id;
       wx.navigateTo({
         url: '../habit-install/index?habit_id=' + habit_id,
-      })
+      });
+      this.setData({ isReturn: true });
     },
 
     /**
@@ -207,7 +217,8 @@ Component({
       const habit_id = this.data.habit_id;
       wx.navigateTo({
         url: '../habit-clock/index?habit_id=' + habit_id,
-      })
+      });
+      this.setData({ isReturn: true });
     },
     /**
      * 跳转到动态的详情
@@ -216,12 +227,14 @@ Component({
       const id = e.currentTarget.dataset.id;
       wx.navigateTo({
         url: `../../common/dynamic-detail/index?id=${id}&type=1`,
-      })
+      });
+      this.setData({ isReturn: true });
     },
     /**
      * 点击图片 查看全屏图片
      */
     viewImage: function (e) {
+      this.setData({ isReturn: true });
       const cueerntImg = e.currentTarget.dataset.imgcurrent;
       let imgList = e.currentTarget.dataset.imglist;
       let newImgList = [];
@@ -243,7 +256,8 @@ Component({
       const uid = e.currentTarget.dataset.uid;
       wx.navigateTo({
         url: `../../common/home-page/index?uid=${uid}`,
-      })
+      });
+      this.setData({ isReturn: true });
     },
     /**
      * 点击更多 存储起来当前点击的id 赋值给删除按钮

@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: null,
+    list: [],
     util: Util,
     page: 1,//分页
   },

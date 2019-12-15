@@ -14,6 +14,7 @@
       <text>秒</text>
     </view>
   </view>
+  <view class='page__information'>若看到提醒弹框，请务必勾选底部“总是保持以上选择”</view>
 
   <block wx:for="{{list}}" wx:key="{{item.habit_id}}">
     <navigator bindtap='gotoHabitList' open-type='navigate'class='weui-habit' bindlongpress='longPressHabit' data-habit_id='{{item.habit_id}}'>

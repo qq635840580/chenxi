@@ -20,6 +20,7 @@ Page({
     isReport: true,
     reportContent: null,
     logFlag: false,
+    isReturn: false,//是否可以去请求数据，默认可以请求，当触发完图片预览为false，不允许再请求
   },
   onLoad: function (options) {
     that = this
@@ -92,7 +93,8 @@ Component({
         success: function (res) {
           wx.navigateTo({
             url: '../find-habit-list/index',
-          })
+          });
+          this.setData({ isReturn: true });
         },
         fail: (e) => {
           wx.showModal({
@@ -137,9 +139,13 @@ Component({
      * 获取动态精选
      */
     fetchData: function (data = {}) {
+      if(this.data.isReturn) {
+        this.setData({ isReturn: false });
+        return
+      }
       wx.showLoading({
         title: '加载中',
-      })
+      });
       Util.request(Api.FindDynamic, data).then(res => {
         if (data && data.page > 1) {
           this.setData({
@@ -312,6 +318,7 @@ Component({
           wx.navigateTo({
             url: `../../common/home-page/index?uid=${uid}`,
           });
+          this.setData({ isReturn: true });
         },
         fail: function (e) {
           wx.showModal({
@@ -333,6 +340,7 @@ Component({
     * 点击图片 查看全屏图片
     */
     viewImage: function (e) {
+      this.setData({ isReturn: true });
       const cueerntImg = e.currentTarget.dataset.imgcurrent;
       let imgList = e.currentTarget.dataset.imglist;
       let newImgList = [];
@@ -477,7 +485,8 @@ Component({
         success: function (res) {
           wx.navigateTo({
             url: `../../common/dynamic-detail/index?id=${id}&type=2`,
-          })
+          });
+          this.setData({ isReturn: true });
         },
         fail: function (e) {
           wx.showModal({
@@ -505,7 +514,8 @@ Component({
         success: function (res) {
           wx.navigateTo({
             url: `../../habit-index/habit-detail-nav/index?habit_id=${habit_id}`
-          })
+          });
+          this.setData({ isReturn: true });
         },
         fail: function (e) {
           wx.showModal({
@@ -528,7 +538,8 @@ Component({
       console.log('a')
       wx.navigateTo({
         url: `../../habit-index/habit-list/index`
-      })
+      });
+      this.setData({ isReturn: true });
     },
     gotoSwiperItem: function (e) {
       wx.navigateTo({

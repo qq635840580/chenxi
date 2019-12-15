@@ -37,7 +37,6 @@ Page({
   fetchData() {
     const data = {
       user_id: this.data.user_id,
-      page: this.data.page,
       listRows: this.data.listRows
     };
     wx.showLoading({
@@ -45,7 +44,7 @@ Page({
     })
     Util.request(Api.HabitMyList, data).then(res => {
       this.setData({
-        list: this.data.page > 1 ? [...this.data.list, ...res.data] : res.data,
+        list: res.data,
         searchFlag: true,
         loginFlag: true,
       });
@@ -319,10 +318,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function (e) {
-    this.setData({
-      page: this.data.page + 1,
-    })
-    this.fetchData();
+    
   },
 
   /**

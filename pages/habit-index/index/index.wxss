@@ -1,4 +1,10 @@
 /* pages/habit-index/index/index.wxss */
+.page__information {
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  color: #555;
+  margin-top: 20rpx;
+}
 
 .top__box {
   margin: 20rpx auto 0 auto;

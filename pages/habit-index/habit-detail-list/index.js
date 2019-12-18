@@ -218,7 +218,6 @@ Component({
       wx.navigateTo({
         url: '../habit-clock/index?habit_id=' + habit_id,
       });
-      this.setData({ isReturn: true });
     },
     /**
      * 跳转到动态的详情

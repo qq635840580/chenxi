@@ -27,6 +27,7 @@ Page({
       { name: '5', value: '侵权盗用' },
       // { name: '6', value: '其他' },
     ],
+    isReturn: false,//是否可以去请求数据，默认可以请求，当触发完图片预览为false，不允许再请求
   },
 
   /**
@@ -57,6 +58,10 @@ Page({
    * 初始化页面值
    */
   fetchData: function (pageNo) {
+    if(this.data.isReturn) {
+      this.setData({ isReturn: false });
+      return
+    }
     wx.showLoading({
       title: '加载中',
     });
@@ -102,7 +107,8 @@ Page({
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: `../clockInDetails/index?id=${id}`,
-    })
+    });
+    this.setData({ isReturn: true });
   },
 
   //评论触发的方法
@@ -150,13 +156,15 @@ Page({
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: `../../common/dynamic-detail/index?id=${id}&type=1`,
-    })
+    });
+    this.setData({ isReturn: true });
   },
 
   /**
    * 点击图片 查看全屏图片
    */
   viewImage: function (e) {
+    this.setData({ isReturn: true });
     const cueerntImg = e.currentTarget.dataset.imgcurrent;
     let imgList = e.currentTarget.dataset.imglist;
     let newImgList = [];
@@ -176,7 +184,8 @@ Page({
     const uid = e.currentTarget.dataset.uid;
     wx.navigateTo({
       url: `../../common/home-page/index?uid=${uid}`,
-    })
+    });
+    this.setData({ isReturn: true });
   },
 
   /**
@@ -310,7 +319,8 @@ Page({
   gotoHabitDetails: function () {
     wx.navigateTo({
       url: `../habit-detail-nav/index?habit_id=${this.data.habit_id}`
-    })
+    });
+    this.setData({ isReturn: true });
   },
 
   /**

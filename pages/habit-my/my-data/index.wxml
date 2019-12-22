@@ -1,6 +1,6 @@
 <!--pages/habit-my/my-data/index.wxml-->
 <view class='weui-cells weui-cells_after-title'>
-  <view class="weui-cell">
+  <view class="weui-cell" bindtap='clickAvatar'>
     <view class="weui-cell__bd">
       <view class="weui-label">头像</view>
     </view>

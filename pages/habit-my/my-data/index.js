@@ -125,6 +125,41 @@ Page({
   },
 
   /**
+   * 点击头像的
+   */
+  clickAvatar: function() {
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        wx.showLoading({
+          title: '图片上传中'
+        });
+        var tempFilePaths = res.tempFilePaths;
+        tempFilePaths.forEach(item => {
+          wx.uploadFile({
+            url: Api.UploadAvatar,
+            filePath: item,
+            name: 'fileId',
+            header: {
+              'token': wx.getStorageSync('token'),
+              'uid': wx.getStorageSync('uid'),
+              'openid': wx.getStorageSync('openid'),
+            },
+            success: function (res1) {
+              wx.hideLoading();
+              let newRes = JSON.parse(res1.data);
+              wx.navigateTo({
+                url: `../my-avatar/index?avatarUrl=${newRes.data.msg}`
+              });
+            }
+          })
+        });
+      },
+      fail: wx.hideLoading
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {

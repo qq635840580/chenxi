@@ -1,0 +1,20 @@
+/* pages/habit-my/my-avatar/index.wxss */
+/* .btn-img {
+  z-index: 99999;
+  width: 60%;
+  position: absolute;
+} */
+
+.avatar-box {
+  z-index: 99999;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  width: 100%;
+}
+
+.avatar-box button {
+  background: #3acc88;
+  color: #fff;
+  width: 60%;
+}

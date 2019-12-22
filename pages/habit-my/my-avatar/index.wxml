@@ -1,0 +1,10 @@
+<!--pages/habit-my/my-avatar/index.wxml-->
+<!-- <view class='my-avatar'>
+  <image src="{{avatarUrl}}" mode="center"/>
+</!--> -->
+
+<image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" disable_ratio="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut"></image-cropper>
+
+<view class='avatar-box'>
+  <button bindtap='clickImg' class='btn-img'>保存新头像</button>
+</view>

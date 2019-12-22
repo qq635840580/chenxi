@@ -38,6 +38,7 @@ module.exports = {
   HabitRankingYear: ApiRootUrl + 'habit/YearRank', //排行榜-年榜
   ClockSave: ApiRootUrl + 'clock/save', //打卡
   UploadImg: ApiRootUrl + 'upload/upload', //上传图片
+  UploadAvatar: ApiRootUrl + 'upload/AvatarUpload',//上传头像
   HabitPerson: ApiRootUrl + 'habit/member', //成员
   ClockWeek: ApiRootUrl + 'clock/weekStatistics', //我的打卡周统计
   ClockMonth: ApiRootUrl + 'clock/monthStatistics', //我的打卡月统计

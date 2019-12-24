@@ -10,6 +10,7 @@ Page({
   data: {
     ltst: [],
     user_id: null,
+    page: 1,
   },
 
   /**
@@ -18,7 +19,7 @@ Page({
   onLoad: function (options) {
     that = this
     if (options.user_id) {
-      const data = { user_id: options.user_id };
+      const data = { user_id: options.user_id, page: 1 };
       that.setData({
         user_id: options.user_id
       })
@@ -30,7 +31,7 @@ Page({
       wx.getStorage({
         key: 'uid',
         success: function (res) {
-          const data = { user_id: res.data };
+          const data = { user_id: res.data, page: 1 };
           that.setData({
             user_id: res.data
           })
@@ -66,7 +67,7 @@ Page({
   fetchData: function (data) {
     Util.request(Api.MyFans, data).then(res => {
       that.setData({
-        list: res.data
+        list: data.page && data.page == 1? res.data : [...this.data.list, ...res.data]
       })
     });
   },
@@ -85,7 +86,8 @@ Page({
       })
       setTimeout(() => {
         wx.hideToast();
-        const data = { user_id: that.data.user_id };
+        const data = { user_id: that.data.user_id, page: 1 };
+        this.setData({ page: 1 });
         that.fetchData(data)
       }, 1500)
     });
@@ -108,7 +110,8 @@ Page({
             })
             setTimeout(() => {
               wx.hideToast();
-              const data = { user_id: that.data.user_id };
+              const data = { user_id: that.data.user_id, page: 1 };
+              this.setData({ page: 1 });
               that.fetchData(data)
             }, 1500)
           });
@@ -117,5 +120,15 @@ Page({
         }
       }
     });
+  },
+
+  /**
+   * 触底操作
+   */
+  onReachBottom: function(e) {
+    let page = ++this.data.page;
+    const data = { user_id: that.data.user_id, page };
+    this.setData({ page });
+    this.fetchData(data);
   },
 })

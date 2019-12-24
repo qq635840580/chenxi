@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    list: [],
     user_id: null, //存储user_id
+    page: 1,
   },
 
   /**
@@ -20,7 +22,7 @@ Page({
       user_id: options.user_id,
     })
     if (options.user_id) {
-      const data = { user_id: options.user_id };
+      const data = { user_id: options.user_id, page: 1 };
       that.fetchData(data)
       //设置动态标题
       wx.setNavigationBarTitle({
@@ -30,7 +32,7 @@ Page({
       wx.getStorage({
         key: 'uid',
         success: function (res) {
-          const data = { user_id: res.data };
+          const data = { user_id: res.data, page: 1 };
           that.fetchData(data)
           //设置动态标题
           wx.setNavigationBarTitle({
@@ -50,7 +52,7 @@ Page({
   fetchData: function (data) {
     Util.request(Api.MyFollow, data).then(res => {
       that.setData({
-        list: res.data
+        list: data.page && data.page == 1 ? res.data : [...this.data.list, ...res.data]
       })
     });
   },
@@ -66,7 +68,6 @@ Page({
    * 关注
    */
   followSave: function (e) {
-    console.log(e)
     Util.request(Api.FollowSave, {
       follow_id: e.currentTarget.dataset.id
     }).then(res => {
@@ -75,7 +76,7 @@ Page({
         icon: 'success',
       })
       setTimeout(() => {
-        const data = { user_id: that.data.user_id };
+        const data = { user_id: that.data.user_id, page: 1 };
         that.fetchData(data)
       }, 1500)
     });
@@ -99,7 +100,7 @@ Page({
             })
             setTimeout(() => {
               wx.hideToast();
-              const data = { user_id: that.data.user_id };
+              const data = { user_id: that.data.user_id, page: 1 };
               that.fetchData(data)
             }, 1500)
           });
@@ -119,4 +120,15 @@ Page({
       url: `../home-page/index?uid=${uid}`,
     })
   },
+
+  /**
+   * 触底操作
+   */
+  onReachBottom: function(e) {
+    let page = ++this.data.page;
+    const data = { user_id: that.data.user_id, page };
+    this.setData({ page });
+    this.fetchData(data);
+  },
+
 })

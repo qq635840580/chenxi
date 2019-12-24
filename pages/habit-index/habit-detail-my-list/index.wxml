@@ -37,7 +37,7 @@
       </view>
       <view class='information-body'>
         <view  data-id='{{item.id}}' catchtap='gotoClockInDetails'>
-          <text class='information__desc'>{{item.content}}</text>
+          <text class='information__desc information__hidden'>{{item.content}}</text>
           <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
             <view class='information__desc_one_img'>
               <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' lazy-load="{{true}}"/>

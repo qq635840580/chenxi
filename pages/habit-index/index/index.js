@@ -18,6 +18,7 @@ Page({
     searchFlag: false,//搜索flag
     loginFlag: false,//已登录标识
     gifFlag: false,//gif图是否展示， 默认不展示
+    endDate: '',//结束时间
   },
   onTabItemTap: function () {
     App.getTotalCount();
@@ -66,8 +67,10 @@ Page({
   backgroundUrl: function () {
     Util.request(Api.BackgroundIndex).then(res => {
       this.setData({
-        backgroundUrl: res.data[0]
-      })
+        backgroundUrl: res.data[0],
+        endDate: res.data[0].end_time
+      });
+      this.timeFunc();
     });
   },
 
@@ -123,7 +126,7 @@ Page({
       },
     });
 
-    this.timeFunc();
+    // this.timeFunc();
     this.backgroundUrl();
   },
 
@@ -229,7 +232,7 @@ Page({
     var date = new Date();
     var now = date.getTime();
     //设置截止时间  
-    var str = "2020/1/1 00:00:00";
+    var str = this.data.endDate;
     var endDate = new Date(str);
     var end = endDate.getTime();
     //时间差  

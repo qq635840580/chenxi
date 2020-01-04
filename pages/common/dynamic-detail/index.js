@@ -80,31 +80,67 @@ Page({
    * 点赞
    */
   support: function (e) {
-    const data = { clock_record_id: this.data.id, type: 1, };
-    let detail = this.data.detail;
-    if (detail.is_praise) {
-      detail.support_count = detail.support_count - 1;
-      detail.is_praise = 0;
-      Util.request(Api.CancelSupport, data);
-    } else {
-      detail.support_count = detail.support_count + 1;
-      detail.is_praise = 1;
-      Util.request(Api.SupportSave, data);
-    }
-    this.setData({
-      detail: detail
-    })
+    wx.getStorage({
+      key: 'uid',
+      success: (res) => {
+        const data = { clock_record_id: this.data.id, type: 1, };
+        let detail = this.data.detail;
+        if (detail.is_praise) {
+          detail.support_count = detail.support_count - 1;
+          detail.is_praise = 0;
+          Util.request(Api.CancelSupport, data);
+        } else {
+          detail.support_count = detail.support_count + 1;
+          detail.is_praise = 1;
+          Util.request(Api.SupportSave, data);
+        }
+        this.setData({ detail: detail });
+      },
+      fail: (e) => {
+        wx.showModal({
+          content: '当前未登录，登录后即可享受小程序全部功能',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/login/index'
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+    });
   },
 
   //点击评论框  使input聚焦
   saveIsInput: function (e) {
-    //每次先暂存点击评论的id，方便提交的时候获取到
-    this.setData({
-      isInput: true,
-      nickname: e.currentTarget.dataset.nickname,
-      contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
-      parentId: e.currentTarget.dataset.parentid ? e.currentTarget.dataset.parentid : null
-    })
+    wx.getStorage({
+      key: 'uid',
+      success: (res) => {
+        //每次先暂存点击评论的id，方便提交的时候获取到
+        this.setData({
+          isInput: true,
+          nickname: e.currentTarget.dataset.nickname,
+          contentId: e.currentTarget.dataset.contentid ? e.currentTarget.dataset.contentid : null,
+          parentId: e.currentTarget.dataset.parentid ? e.currentTarget.dataset.parentid : null
+        });
+      },
+      fail: (e) => {
+        wx.showModal({
+          content: '当前未登录，登录后即可享受小程序全部功能',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/login/index'
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+    });
   },
 
 
@@ -174,39 +210,94 @@ Page({
    * 关注
    */
   followHandler: function (e) {
-    const data = { follow_id: e.currentTarget.dataset.uid, };
-    const datas = { clock_record_id: this.data.id };
-    Util.request(Api.FollowSave, data).then(res => {
-      wx.showToast({
-        title: '关注成功',
-        icon: 'success',
-      });
-      setTimeout(() => {
-        wx.hideToast();
-        this.fetchData(datas);
-      }, 1500)
-
+    wx.getStorage({
+      key: 'uid',
+      success: (res) => {
+        const data = { follow_id: e.currentTarget.dataset.uid, };
+        const datas = { clock_record_id: this.data.id };
+        Util.request(Api.FollowSave, data).then(res => {
+          wx.showToast({
+            title: '关注成功',
+            icon: 'success',
+          });
+          setTimeout(() => {
+            wx.hideToast();
+            this.fetchData(datas);
+          }, 1500)
+        });
+      },
+      fail: (e) => {
+        wx.showModal({
+          content: '当前未登录，登录后即可享受小程序全部功能',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/login/index'
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
     });
   },
   /**
    * 去往个人首页
    */
   gotoHomePage: function (e) {
-    const uid = e.currentTarget.dataset.uid;
-    wx.navigateTo({
-      url: `../home-page/index?uid=${uid}`,
-    })
+    wx.getStorage({
+      key: 'uid',
+      success: (res) => {
+        const uid = e.currentTarget.dataset.uid;
+        wx.navigateTo({
+          url: `../home-page/index?uid=${uid}`,
+        });
+      },
+      fail: (e) => {
+        wx.showModal({
+          content: '当前未登录，登录后即可享受小程序全部功能',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/login/index'
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+    });
   },
 
   /**
    * 点击灰条跳转至习惯列表
    */
   gotoHabitDetails:function (e) {
-    console.log(e)
-    const habit_id = e.currentTarget.dataset.habit_id;
-    wx.navigateTo({
-      url: `/pages/habit-index/habit-detail-nav/index?habit_id=${habit_id}`,
-    })
+    wx.getStorage({
+      key: 'uid',
+      success: (res) => {
+        const habit_id = e.currentTarget.dataset.habit_id;
+        wx.navigateTo({
+          url: `/pages/habit-index/habit-detail-nav/index?habit_id=${habit_id}`,
+        });
+      },
+      fail: (e) => {
+        wx.showModal({
+          content: '当前未登录，登录后即可享受小程序全部功能',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/login/index'
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+    });
   },
 
   /**
@@ -229,13 +320,32 @@ Page({
      * 点击更多 存储起来当前点击的id 赋值给删除按钮
      */
   clickMore: function (e) {
-    const is_attention = e.currentTarget.dataset.is_attention;
-    const clock_id = e.currentTarget.dataset.clock_id;
-    this.setData({
-      isShow: true,
-      isDel: is_attention == 4 ? true : false,
-      clock_id: clock_id,
-    })
+    wx.getStorage({
+      key: 'uid',
+      success: (res) => {
+        const is_attention = e.currentTarget.dataset.is_attention;
+        const clock_id = e.currentTarget.dataset.clock_id;
+        this.setData({
+          isShow: true,
+          isDel: is_attention == 4 ? true : false,
+          clock_id: clock_id,
+        });
+      },
+      fail: (e) => {
+        wx.showModal({
+          content: '当前未登录，登录后即可享受小程序全部功能',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/login/index'
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+    });
   },
   /**
    * 弹出层点击取消

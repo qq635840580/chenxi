@@ -1,6 +1,6 @@
 //生产
 const res = wx.getSystemInfoSync();
-var ApiRootUrl = 'https://chenxixiguan.cn/api/';
+var ApiRootUrl = 'https://cs.chenxixiguan.cn/api/';
 
 module.exports = {
   LoginUrl: ApiRootUrl + 'wechat/getOpenid', //登录
@@ -68,4 +68,6 @@ module.exports = {
   MessageTotalCount: ApiRootUrl + 'message/TotalCount', // 未读消息总数量获取
   getImg: ApiRootUrl+ 'users/RandImage', // 获取分享生成图的随机背景图
   RandWord: ApiRootUrl+ 'users/RandWord', // 获取随机一条鸡汤
+
+  BadgeList: ApiRootUrl + 'users/badge',//徽章列表
 }

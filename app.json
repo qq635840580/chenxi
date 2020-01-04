@@ -37,7 +37,9 @@
     "pages/common/follow-list/index",
     "pages/common/habit-list/index",
     "pages/login/index",
-    "pages/habit-my/my-avatar/index"
+    "pages/habit-my/my-avatar/index",
+    "pages/habit-my/my-badge/index",
+    "pages/habit-my/my-badge-list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -205,6 +205,10 @@
   padding: 20rpx 0;
 }
 
+.badge-color {
+  color: #3acc88;
+}
+
 /* .ys-dialog-bottom button {
   box-shadow: 0 0 30rpx #3ACC88;
   background: #3ACC88;

@@ -113,6 +113,15 @@ Page({
   },
 
   /**
+   * 跳转我的徽章
+   */
+  gotoBadge: function() {
+    wx.navigateTo({
+      url: '../my-badge/index'
+    });
+  },
+
+  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {

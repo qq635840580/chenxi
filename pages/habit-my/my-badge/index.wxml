@@ -1,0 +1,74 @@
+<!--pages/habit-my/my-badge/index.wxml-->
+<view class='badge-top'>
+  <view class='badge-top__font'>徽章</view>
+  <view class='badge-top__english'>MY BADGES</view>
+  <view class="badge-top__num">39</view>
+  <view class="badge-top__badge">枚</view>
+</view>
+
+<view class='weui-cells'>
+  <view class='weui-cell' catchtap='gotoBadgeList'>
+    <view class='weui-cell__bd'>累计打卡徽章</view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>1</text> / 38</view>
+  </view>
+  <view class='badge-line'></view>
+  <view class='badge-image'>
+    <view class='badge-image-list'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+      <text>自律萌新1</text>
+    </view>
+    <view class='badge-image-list'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+      <text>自律萌新1</text>
+    </view>
+    <view class='badge-image-list'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+      <text>自律萌新1</text>
+    </view>
+  </view>
+</view>
+
+<view class='weui-cells weui-head'>
+  <view class='weui-cell'>
+    <view class='weui-cell__bd'>连续打卡徽章</view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>1</text> / 38</view>
+  </view>
+  <view class='badge-line'></view>
+  <view class='badge-image'>
+    <view class='badge-image-list'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+      <text>自律萌新1</text>
+    </view>
+    <view class='badge-image-list'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+      <text>自律萌新1</text>
+    </view>
+    <view class='badge-image-list'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+      <text>自律萌新1</text>
+    </view>
+  </view>
+</view>
+
+
+<view class='weui-cells weui-head weui-footer'>
+  <view class='weui-cell'>
+    <view class='weui-cell__bd'>社区徽章</view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>1</text> / 38</view>
+  </view>
+  <view class='badge-line'></view>
+  <view class='badge-image'>
+    <view class='badge-image-list'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+      <text>自律萌新1</text>
+    </view>
+    <view class='badge-image-list'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+      <text>自律萌新1</text>
+    </view>
+    <view class='badge-image-list'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+      <text>自律萌新1</text>
+    </view>
+  </view>
+</view>

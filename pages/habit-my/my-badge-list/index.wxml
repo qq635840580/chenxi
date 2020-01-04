@@ -1,0 +1,46 @@
+<!--pages/habit-my/my-badge-list/index.wxml-->
+<view class='badge-image-list-box'>
+  <view class='badge-image-list' catchtap='viewBadge'>
+    <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+    <view>自律萌新1</view>
+  </view>
+  <view class='badge-image-list'>
+    <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+    <view>自律萌新1</view>
+  </view>
+  <view class='badge-image-list'>
+    <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+    <view>自律萌新1</view>
+  </view>
+  <view class='badge-image-list'>
+    <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+    <view>自律萌新1</view>
+  </view>
+  <view class='badge-image-list'>
+    <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+    <view>自律萌新1</view>
+  </view>
+  <view class='badge-image-list'>
+    <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+    <view>自律萌新1</view>
+  </view>
+  <view class='badge-image-list'>
+    <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+    <view>自律萌新1</view>
+  </view>
+</view>
+
+
+<!-- 弹出层 -->
+<view>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog">
+    <view class='ys-dialog-content'>
+      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
+    </view>  
+    <view class='ys-dialog-badge-name'>自律萌新</view>
+    <view class='ys-dialog-badge-num'>累计打卡999次</view>
+    <view class='ys-dialog-badge-date'>2020-01-01 获得</view>
+  </view>
+  <button class='ys-dialog-badge-footer'>分享</button>
+</view>

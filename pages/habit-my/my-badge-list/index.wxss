@@ -1,11 +1,15 @@
 /* pages/habit-my/my-badge-list/index.wxss */
+page {
+  background-color: #fff;
+}
 .badge-image-list-box {
   margin-top: 20rpx;
 }
 
 .badge-image-list {
   display: inline-block;
-  margin: 30rpx 50rpx;
+  margin: 30rpx 45rpx;
+  text-align: center;
 }
 
 .badge-image-list image {
@@ -37,20 +41,55 @@
   overflow: hidden;
 }
 
-.ys-dialog-content {
-  text-align: center;
+.ys-dialog-close {
+  position: fixed;
+  top: 50rpx;
+  right: 0rpx;
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 5001;
 }
 
-.ys-dialog-content image {
+
+.ys-dialog-close image {
+  /* position: fixed;
+  top: 50rpx;
+  right: 0rpx; */
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.ys-dialog-content {
+  background-image: url('https://chenxixiguan.cn/uploads/20200106/cbc78c549eb185856e6bad5f5d174b34.png');
+  background-size: 580rpx 580rpx;
+  text-align: center;
+  width: 580rpx;
+  height: 580rpx;
+  position: relative;
+}
+
+.ys-dialog-content-bg {
+  background-image: url('https://chenxixiguan.cn/uploads/20200106/45bb24dab62ac4c88f62cef973688de3.png');
+  background-size: 310rpx 410rpx;
+  text-align: center;
+  width: 310rpx;
+  height: 410rpx;
+  position: absolute;
+  top: 80rpx;
+  left: 130rpx;
+}
+
+.ys-dialog-content-bg image {
   width: 250rpx;
   height: 270rpx;
+  margin-top: 40rpx;
 }
 
 .ys-dialog-badge-name {
   color: #fff;
   font-weight: 600;
   font-size: 46rpx;
-  margin-top: 300rpx;
+  margin-top: 200rpx;
 }
 
 .ys-dialog-badge-num {
@@ -79,5 +118,40 @@
   width:300rpx;
   height:88rpx;
   border-radius: 44rpx;
+}
+
+
+/* canvas绘图区域 */
+.ys-dialog-canvas {
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.canvas-img image {
+  width: 100%;
+  height: 980rpx;
+}
+
+.canvas-btn {
+  text-align: center;
+  display: flex;
+}
+
+.canvas-btn button {
+  flex: 1;
+  background: #3ACC88;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 35rpx;
+  width: 100rpx;
 }
 

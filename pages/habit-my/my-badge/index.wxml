@@ -2,73 +2,99 @@
 <view class='badge-top'>
   <view class='badge-top__font'>徽章</view>
   <view class='badge-top__english'>MY BADGES</view>
-  <view class="badge-top__num">39</view>
+  <view class="{{common.had_count < 10 ? 'badge-top__num_big' : 'badge-top__num'}}">{{common.had_count}}</view>
   <view class="badge-top__badge">枚</view>
 </view>
 
 <view class='weui-cells'>
-  <view class='weui-cell' catchtap='gotoBadgeList'>
+  <view class='weui-cell' data-type='1' catchtap='gotoCumBadgeList'>
     <view class='weui-cell__bd'>累计打卡徽章</view>
-    <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>1</text> / 38</view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>{{common.cumulative.had_count}} </text> / {{common.cumulative.total_count}}</view>
   </view>
   <view class='badge-line'></view>
   <view class='badge-image'>
-    <view class='badge-image-list'>
-      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
-      <text>自律萌新1</text>
-    </view>
-    <view class='badge-image-list'>
-      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
-      <text>自律萌新1</text>
-    </view>
-    <view class='badge-image-list'>
-      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
-      <text>自律萌新1</text>
-    </view>
+    <block wx:for='{{cumulativeData}}' wx:key='id'>
+      <view class='badge-image-list' data-datainfo='{{item}}' catchtap='viewImage'>
+        <image mode='aspectFit' src='{{item.is_had ? item.image : item.dark_image}}' />
+        <text>{{item.name}}</text>
+      </view>
+    </block>
   </view>
 </view>
 
 <view class='weui-cells weui-head'>
-  <view class='weui-cell'>
+  <view class='weui-cell' data-type='2' catchtap='gotoCumBadgeList'>
     <view class='weui-cell__bd'>连续打卡徽章</view>
-    <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>1</text> / 38</view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>{{common.continuity.had_count}} </text> / {{common.continuity.total_count}}</view>
   </view>
   <view class='badge-line'></view>
   <view class='badge-image'>
-    <view class='badge-image-list'>
-      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
-      <text>自律萌新1</text>
-    </view>
-    <view class='badge-image-list'>
-      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
-      <text>自律萌新1</text>
-    </view>
-    <view class='badge-image-list'>
-      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
-      <text>自律萌新1</text>
-    </view>
+    <block wx:for='{{continuityData}}' wx:key='id'>
+      <view class='badge-image-list' data-datainfo='{{item}}' catchtap='viewImage'>
+        <image mode='aspectFit' src='{{item.is_had ? item.image : item.dark_image}}' />
+        <text>{{item.name}}</text>
+      </view>
+    </block>
   </view>
 </view>
 
 
 <view class='weui-cells weui-head weui-footer'>
-  <view class='weui-cell'>
+  <view class='weui-cell' data-type='3' catchtap='gotoCumBadgeList'>
     <view class='weui-cell__bd'>社区徽章</view>
-    <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>1</text> / 38</view>
+    <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>{{common.community.had_count}}</text> / {{common.community.total_count}}</view>
   </view>
   <view class='badge-line'></view>
   <view class='badge-image'>
-    <view class='badge-image-list'>
-      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
-      <text>自律萌新1</text>
+    <block wx:for='{{communityData}}' wx:key='id'>
+      <view class='badge-image-list' data-datainfo='{{item}}' catchtap='viewImage'>
+        <image mode='aspectFit' src='{{item.is_had ? item.image : item.dark_image}}' />
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+<!-- 弹出层 -->
+<view wx:if='{{isShow}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog">
+    <view class='ys-dialog-close' bindtap='closeShow'>
+      <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' bindtap='closeShow'/>
     </view>
-    <view class='badge-image-list'>
-      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
-      <text>自律萌新1</text>
-    </view>
-    <view class='badge-image-list'>
-      <image mode='aspectFit' src='https://chenxixiguan.cn/uploads/20200101/53ff822e344196936fe0a52abbc4d71e.png' />
-      <text>自律萌新1</text>
+    <view class='ys-dialog-content'>
+      <view class='ys-dialog-content-bg'>
+        <image mode='aspectFit' src='{{dataInfo.image}}' />
+      </view>
+    </view>  
+    <view class='ys-dialog-badge-name'>{{dataInfo.name}}</view>
+    <view class='ys-dialog-badge-num'>累计打卡{{dataInfo.need_count}}次</view>
+    <view class='ys-dialog-badge-date'>{{dataInfo.get_time}} 获得</view>
+  </view>
+  <button class='ys-dialog-badge-footer' bindtap='canvasContext'>分享</button>
+</view>
+
+<!-- canvas画板  position:fixed; top: -10000px -->
+<canvas 
+  canvas-id="dialog-fenxiang" 
+  class='canvasclass' 
+  style="width:480px; height: 830px; position:fixed; top: -10000px "
+>
+</canvas>
+
+<!-- 绘图区域 -->
+<view wx:if='{{isCanvas}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog-canvas">
+    <view>
+      <view class='canvas-img'>
+        <image src="{{canvasImg}}" show-menu-by-longpress='true' mode="aspectFit"/>
+      </view>
+      <view style="color: #fff; margin: 20rpx 0;">长按图片即可保存到相册</view>
+      <view bindtap='closeCanvas'>
+        <image style='width:60rpx; height:60rpx;' src='/img/common/close.png' mode="aspectFit"/>
+      </view>
     </view>
   </view>
 </view>

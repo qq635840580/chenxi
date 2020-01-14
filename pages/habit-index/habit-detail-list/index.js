@@ -20,6 +20,12 @@ Page({
     is_clock: 0,
     is_join: 0,
     isReturn: false,//是否可以去请求数据，默认可以请求，当触发完图片预览为false，不允许再请求
+    isClock: false,//是否点击打卡，是否请求徽章
+    badgeShow: false,
+    badgeList: [],//获得徽章列表
+    userInfo: {},
+    isCanvas: false,
+    canvasImg: ''
   },
 })
 
@@ -56,7 +62,7 @@ Component({
     // 组件所在页面的生命周期函数
     show: function () {
       this.fetchData();
-
+      this.badgeListFunc();
     },
     hide: function () { },
     resize: function () { },
@@ -118,6 +124,8 @@ Component({
         Util.request(Api.CancelSupport, data);
       } else {
         Util.request(Api.SupportSave, data);
+        this.setData({ isClock: true });
+        this.badgeListFunc();
       }
     },
 
@@ -214,6 +222,7 @@ Component({
      * 点击打卡
      */
     gotoClock: function () {
+      this.setData({ isClock: true });
       const habit_id = this.data.habit_id;
       wx.navigateTo({
         url: '../habit-clock/index?habit_id=' + habit_id,
@@ -382,6 +391,122 @@ Component({
         });
       }
     },
+    
+    /**
+     * 获得徽章列表
+     */
+    badgeListFunc: function() {
+      if(this.data.isClock) {
+        Util.request(Api.BadgeGet).then(res => {
+          // const list = [
+          //   { badge: {image: 'http://qiniu.chenxixiguan.cn/uploads/20200105/FlRp1nCvDzMm69rSdvwPqDz4MJsW.png',name: '敖德萨所',need_count:11, get_time:'2019-11-11' }
+          //   },
+          //   { badge: {image: 'http://qiniu.chenxixiguan.cn/uploads/20200105/FgDXjdz675Phdqq64ZnnVlIi8kUS.png',name: '大萨达大Ⅱ',need_count:22, get_time:'2019-11-11' }
+          //   }
+          // ];
+          this.setData({ 
+            badgeList: res.data.list.length > 0 ? [res.data.list[res.data.list.length-1]] : [],
+            badgeShow: res.data.list.length > 0 ? true : false,
+            userInfo: res.data.userInfo,
+            isClock: false
+          })
+          // this.setData({ 
+          //   badgeList: list.length > 0 ? [list[list.length-1]] : [],
+          //   badgeShow: list.length > 0 ? true : false,
+          //   userInfo: {
+          //     nickname: '请加我大萨达',
+          //     avatarUrl: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqwibibF5iccD6rYWZ0W7b6TrwCColwAwfFRkJgV3YBrMhpWtnxB9XglbSkt1hOxJhwnDUiaIwwTmjJdw/132'
+          //   }
+          // })
+        });
+      }
+    },
+
+    /**
+     * 徽章
+     */
+    closeBadgeShow: function() {
+      this.setData({ badgeShow: false });
+    },
+
+
+    /**
+     * 生成canvas图片
+     */
+    canvasContext: function() {
+      wx.showLoading({
+        title: '图片生成中',
+        mask: true
+      });
+      const thiss = this;
+      return new Promise((res, rej) => {
+        const { badgeList, userInfo } = this.data;
+        wx.getImageInfo({
+          src: 'https://chenxixiguan.cn/uploads/20200106/7d9c9aa06446dae50c30db202012bea3.png',
+          success: (backRes) => {
+            wx.getImageInfo({
+              src: badgeList[0].badge.image,
+              success: (badgeRes) => {
+                wx.getImageInfo({
+                  src: userInfo.avatarUrl,
+                  success: (avatarRes) => {
+                    console.log(this)
+                    const ctx = wx.createCanvasContext('dialog-fenxiang', this);
+                    //背景图
+                    ctx.drawImage(backRes.path, 0, 0, 480, 830);
+                    ctx.drawImage(badgeRes.path, 165, 230, 150, 170);
+                    ctx.save(); // 先保存状态 已便于画完圆再用
+                    ctx.beginPath(); //开始绘制
+                    ctx.arc(60, 50, 30, 0, Math.PI * 2, false);
+                    ctx.clip();//画了圆 再剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内
+                    ctx.drawImage(avatarRes.path, 29, 20, 60, 60);
+                    ctx.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
+                    ctx.setFillStyle('#ffffff');
+                    ctx.font = '20px sans-serif';
+                    ctx.fillText(userInfo.nickname, 120, 55);
+                    ctx.font = '30px sans-serif';
+                    ctx.fillText(badgeList[0].badge.name, 170, 550);
+                    ctx.font = '18px sans-serif';
+                    ctx.fillText(`累计打卡${badgeList[0].badge.need_count}次`, 182, 590);
+                    ctx.fillText(`${badgeList[0].badge.get_time}获得`, 175, 620);
+                    ctx.draw(true, function () {
+                      wx.canvasToTempFilePath({
+                        canvasId: 'dialog-fenxiang',
+                        success: (tempRes) => {
+                          thiss.setData({
+                            canvasImg: tempRes.tempFilePath,
+                            badgeShow: false,
+                            isCanvas: true,
+                          }, () => {
+                            wx.hideLoading();
+                          });
+                        },
+                        fail: function (e) {
+                          console.log(e)
+                          console.log('生成图片失败')
+                          wx.hideLoading();
+                        }
+                      }, thiss);
+                    });
+                  }
+                })
+              },
+            });
+          }
+        });
+      }).catch(e => {
+        wx.hideLoading();
+        console.log(e);
+      });
+    },
+
+    /**
+     * 关闭canvas绘图
+     */  
+    closeCanvas: function() {
+      this.setData({ isCanvas: false });
+    },
+
   },
   // ...
 })

@@ -1,0 +1,81 @@
+/* pages/activity/year/index.wxss */
+page {
+  background-color: #6A1F0F;
+}
+
+.ranking-box {
+  background-color: #fff;
+  width: 90%;
+  margin: 30rpx auto;
+  border-radius: 20rpx;
+}
+
+.ranking-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  line-height: 80rpx;
+}
+
+.ranking-left {
+  padding-left: 30rpx;
+  color: #333;
+}
+
+.ranking-center {
+  padding-left: 65rpx;
+  color: #333;
+}
+
+.ranking-right {
+  float: right;
+  padding-right: 75rpx;
+  color: #333;
+}
+
+.ranking-list {
+  border-top: 1rpx solid #F2F3F5;
+  padding: 30rpx 0;
+}
+
+.ranking-rn {
+ margin-left: 50rpx;
+ color: #555555;
+ font-size: 28rpx;
+ display: inline-block;
+ text-align: center;
+ margin-right: 15rpx;
+}
+
+.ranking-image {
+  margin-left: 40rpx;
+  color: #555555;
+  font-size: 28rpx;
+  display: inline-block;
+  text-align: center;
+}
+
+.ranking-name {
+  margin-left: 80rpx;
+  color: #555555;
+  font-size: 28rpx;
+  display: inline-block;
+}
+
+
+.ranking-name-ten {
+  margin-left: 65rpx;
+  color: #555555;
+  font-size: 28rpx;
+  display: inline-block;
+}
+
+.ranking-num {
+  float: right;
+  margin-right: 85rpx;
+  margin-top: -6rpx;
+  font-size: 38rpx;
+  color: #E56662;
+}
+
+
+

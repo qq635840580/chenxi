@@ -1,0 +1,48 @@
+<!--pages/activity/year/index.wxml-->
+<view>
+  <image style="width: 100%" src='https://chenxixiguan.cn/uploads/20200114/9727cb2674b3dab78584acb5f664d021.png' mode='widthFix' />
+</view>
+
+<view class='ranking-box'>
+  <view class='ranking-title'>
+    <text class='ranking-left'>排名</text>
+    <text class='ranking-center'>昵称</text>
+    <text class='ranking-right'>获赞</text>
+  </view>
+  <!-- 本人 -->
+  <view class='ranking-list' wx:if='{{own.length > 0}}'>
+    <text class='ranking-rn' wx:if='{{own[0].sort > 3}}'>{{own[0].sort}}</text>
+    <view class='ranking-image' wx:if='{{own[0].sort == 1}}'>
+      <image style="width: 40rpx; height: 40rpx;" src='https://chenxixiguan.cn/uploads/20200114/d952c08f12a4d61b424d066752302eea.png' mode='widthFix' />
+    </view>
+    <view class='ranking-image' wx:if='{{own[0].sort == 2}}'>
+      <image style="width: 40rpx; height: 40rpx;" src='/img/habit-detail/two.png' mode='widthFix' />
+    </view>
+    <view class='ranking-image' wx:if='{{own[0].sort == 3}}'>
+      <image style="width: 40rpx; height: 40rpx;" src='/img/habit-detail/three.png'  mode='widthFix' />
+    </view>
+    <text class='{{own[0].sort < 10 ? "ranking-name" : "ranking-name-ten" }} '>{{own[0].user.nickname}}</text>
+    <text class='ranking-num'>{{own[0].praise_count}}</text>
+  </view> 
+  <!-- 循环列表 -->
+  <block wx:for='{{list}}' wx:key='id'>
+    <view class='ranking-list'>
+      <text class='ranking-rn' wx:if='{{item.sort > 3}}'>{{item.sort}}</text>
+      <view class='ranking-image' wx:if='{{item.sort == 1}}'>
+        <image style="width: 40rpx; height: 40rpx;" src='https://chenxixiguan.cn/uploads/20200114/d952c08f12a4d61b424d066752302eea.png' mode='widthFix' />
+      </view>
+      <view class='ranking-image' wx:if='{{item.sort == 2}}'>
+        <image style="width: 40rpx; height: 40rpx;" src='/img/habit-detail/two.png' mode='widthFix' />
+      </view>
+      <view class='ranking-image' wx:if='{{item.sort == 3}}'>
+        <image style="width: 40rpx; height: 40rpx;" src='/img/habit-detail/three.png'  mode='widthFix' />
+      </view>
+      <text class='{{item.sort < 10 ? "ranking-name" : "ranking-name-ten" }} '>{{item.user.nickname}}</text>
+      <text class='ranking-num'>{{item.praise_count}}</text>
+    </view>    
+  </block>
+</view>
+
+<view>
+  <image style="width: 100%" src='http://chenxixiguan.cn/uploads/20200114/159b74b65a14513432dbb5600e927edc.png' mode='widthFix' />
+</view>

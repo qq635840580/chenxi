@@ -123,3 +123,21 @@
     </view>
   </view>
 </view>
+
+
+<!-- 打卡徽章 -->
+<view wx:if='{{badgeShow}}'>
+  <block wx:for='{{badgeList}}' wx:key='id'>
+    <view class="ys-mask"></view><!-- 遮罩层 -->
+    <view class='ys-dialog-close' bindtap='closeBadgeShow'>
+      <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' bindtap='closeBadgeShow'/>
+    </view>
+    <view class="ys-dialog-badge">
+      <view class='ys-dialog-bg'>
+        <view class='ys-dialog-badge-image'><image src='{{item.badge.image}}' mode='widthFix'/></view>
+        <view class='ys-dialog-badge-name'>{{item.badge.name}}</view>
+        <view class='ys-dialog-badge-num'>累计打卡{{item.badge.need_count}}次</view>
+      </view>  
+    </view>
+  </block>
+</view>

@@ -40,7 +40,8 @@
         <image src='/img/habit-my/badge.png'></image>
       </view>
       <button class='weui-cell__bd'>我的徽章</button>
-      <view class='weui-cell__ft weui-cell__ft_in-access'><text class='badge-color'>1</text> / 38</view>
+      <!-- <text class='badge-color'>1</text> -->
+      <view class='weui-cell__ft weui-cell__ft_in-access'>{{userInfo.had_badge_count}} / {{userInfo.badge_count}}</view>
     </view>
 
     <navigator hover-class="none" url='{{logFlag? "../my-data/index" : "/pages/login/index"}}'  class='weui-cell'>

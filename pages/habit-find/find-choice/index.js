@@ -21,6 +21,11 @@ Page({
     reportContent: null,
     logFlag: false,
     isReturn: false,//是否可以去请求数据，默认可以请求，当触发完图片预览为false，不允许再请求
+    badgeShow: false,
+    badgeList: [],//获得徽章列表
+    userInfo: {},
+    isCanvas: false,
+    canvasImg: ''
   },
   onLoad: function (options) {
     that = this
@@ -199,6 +204,7 @@ Component({
             Util.request(Api.CancelSupport, data);
           } else {
             Util.request(Api.SupportSave, data);
+            this.badgeListFunc();
           }
         },
         fail: function (e) {
@@ -280,14 +286,12 @@ Component({
               wx.hideToast();
               let { dynamicList } = this.data;
               dynamicList.forEach(item => {
-                console.log(item.uid)
                 if (item.uid == follow_id) {
                   item.user.is_attention = 1;
                 }
               });
-              this.setData({
-                dynamicList,
-              })
+              this.setData({ dynamicList });
+              this.badgeListFunc();
             }, 500)
           });
         },
@@ -566,6 +570,28 @@ Component({
         inputVal: e.detail.value
       });
     },
+    /**
+     * 是否获取到徽章
+     */
+    badgeListFunc: function() {
+      setTimeout(() => {
+        Util.request(Api.BadgeGet).then(res => {
+          this.setData({ 
+            badgeList: res.data.list.length > 0 ? [res.data.list[res.data.list.length-1]] : [],
+            badgeShow: res.data.list.length > 0 ? true : false,
+            userInfo: res.data.userInfo
+          })
+        });
+      }, 500)
+    },
+
+    /**
+     * 徽章关闭
+     */
+    closeBadgeShow: function() {
+      this.setData({ badgeShow: false });
+    },
+
   },
   // ...
 })

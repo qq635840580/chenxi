@@ -18,7 +18,7 @@
 </view>
 
 <swiper indicator-dots="{true}" indicator-color="#FFFFFF" indicator-active-color="#3ACC88" autoplay circular="{true}">
-  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+  <block wx:for="{{imgUrls}}" wx:key="id">
     <swiper-item>
       <image catchtap="gotoSwiperItem" data-web_url="{{item.web_url}}" mode='widthFix' src="{{item.image}}" class="slide-image" />
     </swiper-item>
@@ -31,7 +31,7 @@
     <view class='weui-panel-head__ft weui-cell__ft_in-access' bindtap='gotoHabit'>更多</view>
   </view>
   <view class='weui-panel__bd'>
-    <view class='weui-grid' wx:for="{{habitList}}" wx:key="{{item.id}}" data-habit_id='{{item.id}}' catchtap='gotoHabitDetails'>
+    <view class='weui-grid' wx:for="{{habitList}}" wx:key="id" data-habit_id='{{item.id}}' catchtap='gotoHabitDetails'>
       <image class="weui-grid__icon" src="{{item.icon}}" />
       <view class="weui-grid__label">{{item.name}}</view>
     </view>
@@ -48,7 +48,7 @@
       <image src='/img/null.png' mode='widthFix'/>
       <view>暂无消息</view>
     </view>
-    <view class='weui-information' wx:for="{{dynamicList}}" wx:key="{{index}}" wx:if="{{dynamicList.length>0}}">
+    <view class='weui-information' wx:for="{{dynamicList}}" wx:key="id" wx:if="{{dynamicList.length>0}}">
       <view class='weui-cell information-head'>
         <view class='weui-cell__hd' data-uid='{{item.uid}}' bindtap='gotoHomePage'>
           <image src='{{item.user.avatarUrl}}'></image>
@@ -72,13 +72,13 @@
       <view class='information-body'>
         <view catchtap='gotoFindDetails' data-id='{{item.id}}'>
           <text class='information__desc information__hidden'>{{item.content}}</text>
-          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="{{index}}">
+          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="id">
             <view class='information__desc_one_img'>
               <image src='{{imgList.path}}' mode="aspectFill" data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' catchtap='viewImage'/>
             </view>
           </block>
 
-          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length > 1}}" wx:key="{{index}}">
+          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length > 1}}" wx:key="id">
             <view class='information__desc_img'>
               <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}'/>
             </view>
@@ -115,7 +115,7 @@
         </view>
       </view>
       <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
-        <view wx:for="{{item.comment_data}}" wx:key="{{index}}" wx:for-item="comment">
+        <view wx:for="{{item.comment_data}}" wx:key="id" wx:for-item="comment">
           <view class='information-footer-box' catchtap='gotoFindDetails' data-id="{{item.id}}" >
             <text>{{comment.nickname}}：</text>
             <text>{{comment.content}}</text>
@@ -129,6 +129,14 @@
 <view class='pinglun-input' wx:if='{{isInput}}'>
   <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindblur='blurHandler'/>
 </view>
+
+<!-- canvas画板  position:fixed; top: -10000px -->
+<canvas 
+  canvas-id="dialog-fenxiang" 
+  class='canvasclass' 
+  style="width:480px; height: 830px; position:fixed; top: -10000px "
+>
+</canvas>
 
 <!-- 点击更多弹出层 -->
 <view wx:if='{{isShow}}'>
@@ -151,13 +159,47 @@
     </view>
     <view class='checkbox__box'>
       <checkbox-group bindchange="checkboxChange">
-        <label class="checkbox__list" wx:for="{{checkboxData}}" wx:key='{{index}}'>
+        <label class="checkbox__list" wx:for="{{checkboxData}}" wx:key='id'>
           <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
         </label>
       </checkbox-group>
     </view>
     <view class="ys-dialog-bottom">
       <button bindtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+    </view>
+  </view>
+</view>
+
+
+<!-- 打卡徽章 -->
+<view wx:if='{{badgeShow}}'>
+  <block wx:for='{{badgeList}}' wx:key='id'>
+    <view class="ys-mask"></view><!-- 遮罩层 -->
+    <view class='ys-dialog-close' bindtap='closeBadgeShow'>
+      <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' bindtap='closeBadgeShow'/>
+    </view>
+    <view class="ys-dialog-badge">
+      <view class='ys-dialog-bg'>
+        <view class='ys-dialog-badge-image'><image src='{{item.badge.image}}' mode='widthFix'/></view>
+        <view class='ys-dialog-badge-name'>{{item.badge.name}}</view>
+        <view class='ys-dialog-badge-num'>累计打卡{{item.badge.need_count}}次</view>
+      </view>  
+    </view>
+  </block>
+</view>
+
+<!-- 绘图区域 -->
+<view wx:if='{{isCanvas}}'>
+  <view class="ys-mask"></view><!-- 遮罩层 -->
+  <view class="ys-dialog-canvas">
+    <view>
+      <view class='canvas-img'>
+        <image src="{{canvasImg}}" show-menu-by-longpress='true' mode="aspectFit"/>
+      </view>
+      <view style="color: #fff; margin: 20rpx 0;">长按图片即可保存到相册</view>
+      <view bindtap='closeCanvas'>
+        <image style='width:60rpx; height:60rpx;' src='/img/common/close.png' mode="aspectFit"/>
+      </view>
     </view>
   </view>
 </view>

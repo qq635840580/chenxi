@@ -18,6 +18,8 @@ Page({
     isReport: true,
     reportContent: null,
     isReturn: false,//是否可以去请求数据，默认可以请求，当触发完图片预览为false，不允许再请求
+    badgeShow: false,
+    badgeList: [],//获得徽章列表
   },
 })
 
@@ -440,5 +442,33 @@ Component({
         }
       });
     },
+    /**
+     * 是否获取到徽章
+     */
+    badgeListFunc: function() {
+      Util.request(Api.BadgeGet).then(res => {
+        this.setData({ 
+          badgeList: res.data.length > 0 ? [...res.data[res.data.length-1]]: [],
+          badgeShow: res.data.lebgth > 0 ? true : false
+        });
+        // this.setData({
+        //   badgeList: [
+        //     { badge: {image: 'http://qiniu.chenxixiguan.cn/uploads/20200105/FlRp1nCvDzMm69rSdvwPqDz4MJsW.png',name: '敖德萨所',need_count:11 }
+        //     },
+        //     { badge: {image: 'http://qiniu.chenxixiguan.cn/uploads/20200105/FgDXjdz675Phdqq64ZnnVlIi8kUS.png',name: '大萨达',need_count:22 }
+        //     }],
+        //     badgeShow: true
+        // });
+      });
+    },
+
+    /**
+     * 徽章关闭
+     */
+    closeBadgeShow: function() {
+      this.setData({ badgeShow: false });
+    },
+
+
   },
 })

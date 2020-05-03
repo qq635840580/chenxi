@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: 'iconfont';  /* project id 1282975 */
-  src: url('//at.alicdn.com/t/font_1282975_4o7pbh45bcv.eot');
-  src: url('//at.alicdn.com/t/font_1282975_4o7pbh45bcv.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1282975_4o7pbh45bcv.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1282975_4o7pbh45bcv.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1282975_4o7pbh45bcv.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1282975_4o7pbh45bcv.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1282975_mjzcksxppps.eot');
+  src: url('//at.alicdn.com/t/font_1282975_mjzcksxppps.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1282975_mjzcksxppps.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1282975_mjzcksxppps.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1282975_mjzcksxppps.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1282975_mjzcksxppps.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -46,6 +46,14 @@
 
 .iconaixin1:before {
   content: "\e627";
+}
+
+.iconwomen:before {
+  content: "\e632";
+}
+
+.iconman:before {
+  content: "\e631";
 }
 
 .follow {
@@ -483,4 +491,14 @@ checkbox {
   display: -webkit-box;
   -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
+}
+
+.habit-gender-man {
+  color: #3FB8E8;
+  font-size: 24rpx;
+}
+
+.habit-gender-women {
+  color: #EF609A;
+  font-size: 24rpx;
 }

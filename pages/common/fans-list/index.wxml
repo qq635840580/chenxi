@@ -7,6 +7,8 @@
     <view class='weui-cell__bd'>
       <view class='weui-cell__title'>
         {{item.user.nickname}} 
+        <text wx:if='{{item.user && item.user.gender==1}}' class='iconfont iconman pinglun-icon habit-gender-man'></text>
+        <text wx:if='{{item.user && item.user.gender!=1}}' class='iconfont iconwomen pinglun-icon habit-gender-women'></text>
         <!-- <view wx:if="{{item.sex == 1}}" class='weui-badge male'><image src='/img/male.png'></image> {{item.age}}</view>
         <view wx:else class='weui-badge woman'><image src='/img/woman.png'></image> {{item.age}}</view> -->
       </view>

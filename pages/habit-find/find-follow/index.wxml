@@ -16,6 +16,8 @@
         <view class='weui-cell__bd'>
           <view class='weui-cell__title'>
             {{item.user.nickname}}
+            <text wx:if='{{item.user.gender==1}}' class='iconfont iconman pinglun-icon habit-gender-man'></text>
+            <text wx:if='{{item.user.gender!=1}}' class='iconfont iconwomen pinglun-icon habit-gender-women'></text>
           </view>
           <view class='weui-cell__desc'>{{item.create_time}}</view>
         </view>

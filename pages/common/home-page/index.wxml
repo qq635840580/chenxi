@@ -6,7 +6,11 @@
   <view class='bg_block'>
     <view class='user'>
       <image class='user_avatar' src='{{userInfo.avatarUrl}}'></image>
-      <view class='user_name'>{{userInfo.nickname}}</view>
+      <view class='user_name'>
+        {{userInfo.nickname}}
+        <text wx:if='{{userInfo && userInfo.gender==1}}' class='iconfont iconman pinglun-icon habit-gender-man'></text>
+        <text wx:if='{{userInfo && userInfo.gender!=1}}' class='iconfont iconwomen pinglun-icon habit-gender-women'></text>
+      </view>
       <view class='user_info'>{{userInfo.sign}}</view>
       <view class='user_focus' wx:if='{{userInfo.is_attention == 0}}' bindtap="followClick">
         <button>+关注</button>

@@ -1,4 +1,6 @@
 /* pages/common/follow-list/index.wxss */
+@import '/style/weui-rpx.wxss';
+
 .weui-cells::before{
   left: 0;
   top: 0;
@@ -69,4 +71,14 @@ button[type=default][plain] {
 
 button[type=primary] {
   background-color: #3acc88;
+}
+
+.habit-gender-man {
+  color: #3FB8E8;
+  font-size: 24rpx;
+}
+
+.habit-gender-women {
+  color: #EF609A;
+  font-size: 24rpx;
 }

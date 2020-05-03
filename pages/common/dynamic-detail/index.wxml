@@ -14,6 +14,8 @@
         <view class='habit-details-dynamic-one-img-total-top'>
           <view>
             {{detail.user.nickname}} 
+            <text wx:if='{{detail.user && detail.user.gender==1}}' class='iconfont iconman pinglun-icon habit-gender-man'></text>
+            <text wx:if='{{detail.user && detail.user.gender!=1}}' class='iconfont iconwomen pinglun-icon habit-gender-women'></text>
             <text class='weui-cell__me' wx:if='{{!detail.is_public}}'>仅自己可见</text>
           </view>
           <view>已坚持{{detail.continuity_days}}天</view>

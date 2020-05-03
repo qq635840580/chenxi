@@ -1,4 +1,32 @@
 /* pages/habit-find/find-total-rank/index.wxss */
+@import '/style/weui-rpx.wxss';
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1282975 */
+  src: url('//at.alicdn.com/t/font_1282975_mjzcksxppps.eot');
+  src: url('//at.alicdn.com/t/font_1282975_mjzcksxppps.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1282975_mjzcksxppps.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1282975_mjzcksxppps.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1282975_mjzcksxppps.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1282975_mjzcksxppps.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 36rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconwomen:before {
+  content: "\e632";
+}
+
+.iconman:before {
+  content: "\e631";
+}
+
 .ranking-top-text {
   font-size: 24rpx;
   font-family:PingFang-SC-Medium;
@@ -58,9 +86,14 @@
 }
 
 .ranking-me .ranking-me-left-name view:nth-child(1) {
+  display: inline-block;
   font-size: 28rpx;
   color: #555;
   margin-top: 17rpx;
+  width: 220rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .ranking-me .ranking-me-left-name view:nth-child(2) {
@@ -265,4 +298,14 @@
   font-size: 35rpx;
   font-weight: bold;
   width: 430rpx;
+}
+
+.habit-gender-man {
+  color: #3FB8E8;
+  font-size: 24rpx;
+}
+
+.habit-gender-women {
+  color: #EF609A;
+  font-size: 24rpx;
 }

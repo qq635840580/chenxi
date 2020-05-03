@@ -1,4 +1,6 @@
 /* pages/habit-information/information-fans/index.wxss */
+@import '/style/weui-rpx.wxss';
+
 .weui-information {
   margin-top: 20rpx;
   background-color: #fff;
@@ -89,4 +91,14 @@ button[type=default][plain] {
 
 button[type=primary] {
   background-color: #3acc88;
+}
+
+.habit-gender-man {
+  color: #3FB8E8;
+  font-size: 24rpx;
+}
+
+.habit-gender-women {
+  color: #EF609A;
+  font-size: 24rpx;
 }

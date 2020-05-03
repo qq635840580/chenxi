@@ -1,4 +1,6 @@
 /* pages/common/dynamic-detail/index.wxss */
+@import '/style/weui-rpx.wxss';
+
 page {
   /* background: #fff; */
   height: 100%;
@@ -687,5 +689,15 @@ checkbox {
 
 .weui-flex__item .weui-color__green {
   color: #3acc88;
+}
+
+.habit-gender-man {
+  color: #3FB8E8;
+  font-size: 24rpx;
+}
+
+.habit-gender-women {
+  color: #EF609A;
+  font-size: 24rpx;
 }
 

@@ -7,7 +7,7 @@
   <text class='ranking-top-text-right'>本月</text>
 </view>
 <!-- 排行榜本人 -->
-<view class='ranking-me ranking-me-bottom' wx:if='{{logFlag}}'>
+<view class='ranking-me ranking-me-bottom' wx:if='{{own && logFlag}}'>
   <!-- 1、2、3名奖牌部分 -->
   <view class='ranking-medlas'>
     <text>{{own.sort}}</text>
@@ -18,7 +18,11 @@
   </view>
   <!-- 姓名年龄部分 -->
   <view class='ranking-me-left-name' data-uid='{{own.uid}}' catchtap='gotoHomePage'>
-    <view>{{own.user.nickname}}</view>
+    <view>
+      {{own.user.nickname}}
+      <text wx:if='{{own.user && own.user.gender==1}}' class='iconfont iconman pinglun-icon habit-gender-man'></text>
+      <text wx:if='{{own.user && own.user.gender!=1}}' class='iconfont iconwomen pinglun-icon habit-gender-women'></text>
+    </view>
   </view>
   <!-- 点赞部分 -->
   <view class='ranking-me-right' data-id='{{own.id}}' data-isown='1' data-praise='{{own.is_praise}}' bindtap='pariseClick'>
@@ -50,7 +54,11 @@
   </view>
   <!-- 姓名年龄部分 -->
   <view class='ranking-me-left-name' data-uid='{{item.uid}}' catchtap='gotoHomePage'>
-    <view>{{item.user.nickname}}</view>
+    <view>
+      {{item.user.nickname}}
+      <text wx:if='{{item.user && item.user.gender==1}}' class='iconfont iconman pinglun-icon habit-gender-man'></text>
+      <text wx:if='{{item.user && item.user.gender!=1}}' class='iconfont iconwomen pinglun-icon habit-gender-women'></text>
+    </view>
   </view>
   <!-- 点赞部分 -->
   <view class='ranking-me-right' data-id='{{item.id}}' data-praise='{{item.is_praise}}' bindtap='pariseClick'>

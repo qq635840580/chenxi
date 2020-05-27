@@ -1,4 +1,4 @@
-<!--pages/habit-index/habit-detail-my/index.wxml-->
+<!-- pages/habit-index/habit-detail-my/index.wxml -->
 <!-- 打卡周日历 -->
 <view class='habit-detailsMy-top-caledar'>
   <view class='habit-detailsMy-top-caledar-detail'>
@@ -6,80 +6,102 @@
     <view class='habit-detailsMy-top-caledar-detail-top'>
       <!-- 左侧 -->
       <view>
-        <image src='/img/habit-detail/rili.png'/>
+        <image src='/img/habit-detail/rili.png' />
         <text>打卡统计</text>
       </view>
       <!-- 右侧 -->
       <view bindtap='gotoClockIn'>
         <text>已坚持{{continuity_days}}天</text>
-        <image src='/img/habit-detail/chakan.png'/>
+        <image src='/img/habit-detail/chakan.png' />
       </view>
-    </view> 
-
+    </view>
     <view class='habit-detailsMy-top-caledar-detail-line'></view>
     <!-- 是否打卡 -->
     <view class='habit-detailsMy-top-caledar-detail-week'>
       <view>
         <view>一</view>
-        <view wx:if="{{week_statistics[0]==0}}"><image src='/img/habit-detail/weidaka.png'/></view>
-        <view wx:if="{{week_statistics[0]==1}}"><image src='/img/habit-detail/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[0]==0}}">
+          <image src='/img/habit-detail/weidaka.png' />
+        </view>
+        <view wx:if="{{week_statistics[0]==1}}">
+          <image src='/img/habit-detail/daguoka.png' />
+        </view>
       </view>
       <view>
         <view>二</view>
-        <view wx:if="{{week_statistics[1]==0}}"><image src='/img/habit-detail/weidaka.png'/></view>
-        <view wx:if="{{week_statistics[1]==1}}"><image src='/img/habit-detail/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[1]==0}}">
+          <image src='/img/habit-detail/weidaka.png' />
+        </view>
+        <view wx:if="{{week_statistics[1]==1}}">
+          <image src='/img/habit-detail/daguoka.png' />
+        </view>
       </view>
       <view>
         <view>三</view>
-        <view wx:if="{{week_statistics[2]==0}}"><image src='/img/habit-detail/weidaka.png'/></view>
-        <view wx:if="{{week_statistics[2]==1}}"><image src='/img/habit-detail/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[2]==0}}">
+          <image src='/img/habit-detail/weidaka.png' />
+        </view>
+        <view wx:if="{{week_statistics[2]==1}}">
+          <image src='/img/habit-detail/daguoka.png' />
+        </view>
       </view>
       <view>
         <view>四</view>
-        <view wx:if="{{week_statistics[3]==0}}"><image src='/img/habit-detail/weidaka.png'/></view>
-        <view wx:if="{{week_statistics[3]==1}}"><image src='/img/habit-detail/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[3]==0}}">
+          <image src='/img/habit-detail/weidaka.png' />
+        </view>
+        <view wx:if="{{week_statistics[3]==1}}">
+          <image src='/img/habit-detail/daguoka.png' />
+        </view>
       </view>
       <view>
         <view>五</view>
-        <view wx:if="{{week_statistics[4]==0}}"><image src='/img/habit-detail/weidaka.png'/></view>
-        <view wx:if="{{week_statistics[4]==1}}"><image src='/img/habit-detail/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[4]==0}}">
+          <image src='/img/habit-detail/weidaka.png' />
+        </view>
+        <view wx:if="{{week_statistics[4]==1}}">
+          <image src='/img/habit-detail/daguoka.png' />
+        </view>
       </view>
       <view>
         <view>六</view>
-        <view wx:if="{{week_statistics[5]==0}}"><image src='/img/habit-detail/weidaka.png'/></view>
-        <view wx:if="{{week_statistics[5]==1}}"><image src='/img/habit-detail/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[5]==0}}">
+          <image src='/img/habit-detail/weidaka.png' />
+        </view>
+        <view wx:if="{{week_statistics[5]==1}}">
+          <image src='/img/habit-detail/daguoka.png' />
+        </view>
       </view>
       <view>
         <view>日</view>
-        <view wx:if="{{week_statistics[6]==0}}"><image src='/img/habit-detail/weidaka.png'/></view>
-        <view wx:if="{{week_statistics[6]==1}}"><image src='/img/habit-detail/daguoka.png'/></view>
+        <view wx:if="{{week_statistics[6]==0}}">
+          <image src='/img/habit-detail/weidaka.png' />
+        </view>
+        <view wx:if="{{week_statistics[6]==1}}">
+          <image src='/img/habit-detail/daguoka.png' />
+        </view>
       </view>
     </view>
   </view>
 </view>
-
 <!-- 空白页 -->
 <view class='person-null' wx:if='{{newsList.length==0}}'>
-  <image src='/img/common/null.png' mode='widthFix'/>
+  <image src='/img/common/null.png' mode='widthFix' />
   <view>暂无消息</view>
 </view>
-
 <!-- 时间轴 -->
-<view class="listview-container">
+<!-- <view class="listview-container">
   <block wx:for="{{newsList}}" wx:key="">
     <view class="playlog-item" bindtap="itemTapped">
       <view class="dotline">
-        <!-- 竖线 -->
         <view class="line"></view>
-        <!-- 圆点 -->
         <view class="dot"></view>
-        <!-- 时间戳 -->
       </view>
       <view class="content" data-id='{{item.id}}' bindtap='gotoDetails'>
         <text class="course">{{item.date}}  {{item.time}}</text>
         <text class="chapter" wx:if='{{item.clock_record_image.length==0}}'>{{item.content}}</text>
         <view class='content-image' wx:if='{{item.clock_record_image.length>0}}'>
-          <image src='{{item.clock_record_image[0].path}}' mode="aspectFill"/>
+          <image src='{{item.clock_record_image[0].path}}' mode="aspectFill" />
         </view>
         <view class='bottom-btn'>
           <text>{{item.habits.name}}</text>
@@ -88,8 +110,113 @@
       </view>
     </view>
   </block>
+</view> -->
+<view class='weui-panel'>
+  <view class='weui-panel__bd'>
+    <view class='weui-information' wx:for="{{newsList}}" wx:key="id" wx:if="{{newsList.length>0}}">
+      <view class='weui-cell information-head'>
+        <view class='weui-cell__hd' data-uid='{{item.uid}}' catchtap='gotoHomePage'>
+          <image src='{{item.user.avatarUrl}}'></image>
+        </view>
+        <view class='weui-cell__bd'>
+          <view class='weui-cell__title'>
+            {{item.user.nickname}}
+            <text wx:if='{{item.user.gender==1}}' class='iconfont iconman pinglun-icon habit-gender-man'></text>
+            <text wx:if='{{item.user.gender!=1}}' class='iconfont iconwomen pinglun-icon habit-gender-women'></text>
+          </view>
+          <view class='weui-cell__desc'>{{item.create_time}}</view>
+        </view>
+        <view class='weui-cell__ft'>
+          <view class='habit-details-dynamic-one-img-right'>
+            <view>第{{item.continuity_days}}天</view>
+          </view>
+        </view>
+      </view>
+      <view class='information-body'>
+        <view data-id='{{item.id}}' catchtap='gotoClockInDetails'>
+          <text class='information__desc information__hidden'>{{item.content}}</text>
+          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length==1}}" wx:key="id">
+            <view class='information__desc_one_img'>
+              <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' lazy-load="{{true}}" />
+            </view>
+          </block>
+          <block wx:for="{{item.clock_record_image}}" wx:for-item="imgList" wx:if="{{item.clock_record_image.length > 1}}" wx:key="id">
+            <view class='information__desc_img'>
+              <image src='{{imgList.path}}' mode="aspectFill" catchtap='viewImage' data-imgcurrent='{{imgList.path}}' data-imglist='{{item.clock_record_image}}' lazy-load="{{true}}" />
+            </view>
+          </block>
+        </view>
+        <view class='weui-tool'>
+          <text class='tool-dianzan' bindtap='support' data-is_praise='{{item.is_praise}}' data-id="{{item.id}}">
+            <text class='iconfont iconaixin' wx:if="{{item.is_praise==0}}"></text>
+            <text class='iconfont iconaixin1 icon-back' wx:if="{{item.is_praise==1}}"></text>
+            <text>{{item.support_count}}</text>
+          </text>
+          <label data-id="{{item.id}}" catchtap='gotoClockInDetails'>
+            <text class='tool-pinglun'>
+              <text class='iconfont iconxinxi pinglun-icon'></text>
+              <text decode='true' space='ensp'>{{item.comment_count}}</text>
+              <!-- <textarea disabled='true'>{{item.comment_count}}</textarea> -->
+            </text>
+          </label>
+          <button class='iconfont iconfenxiang tool-fenxiang' open-type='share'></button>
+          <text class='iconfont icongengduo tool-gengduo' catchtap='clickMore' data-is_attention='{{item.user.is_attention}}' data-clock_id='{{item.id}}'></text>
+        </view>
+      </view>
+      <view class='information-footer' wx:if='{{item.comment_data.length>0}}'>
+        <view wx:for="{{item.comment_data}}" wx:key="id" wx:for-item="comment">
+          <view class='information-footer-box' data-id="{{item.id}}" catchtap='gotoClockInDetails'>
+            <text>{{comment.nickname}}：</text>
+            <text>{{comment.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
-
+<!-- 输入评论框 -->
+<view class='pinglun-input' wx:if='{{isInput}}'>
+  <input value='{{inputVal}}' focus="{{isInput}}" data-id='{{focusId}}' data-contentid='{{contentId}}' bindconfirm='messageSubmit' bindblur='blurHandler' />
+</view>
+<!-- 空白页 -->
+<view class='person-null' wx:if='{{list.length==0}}'>
+  <image src='/img/common/null.png' mode='widthFix' />
+  <view>快来打卡吧！改变从此开始...</view>
+</view>
+<view wx:if='{{isShow}}' catchtap='cancelClick'>
+  <view class="ys-mask"></view>
+  <!-- 遮罩层 -->
+  <view class="ys-dialog-btn">
+    <view>
+      <button class='ys-dialog-btn__del' wx:if='{{isDel}}' catchtap='delClick' data-clock_id='{{clock_id}}'>
+        删除
+      </button>
+      <button class='ys-dialog-btn__del' wx:if='{{!isDel}}' catchtap='reportClick'>举报</button>
+      <button class='ys-dialog-btn__cancel' catchtap='cancelClick'>取消</button>
+    </view>
+  </view>
+</view>
+<view wx:if='{{isReport}}'>
+  <view class="ys-mask"></view>
+  <!-- 遮罩层 -->
+  <view class="ys-dialog">
+    <view class="ys-dialog-title">
+      举报原因
+      <image src='https://chenxixiguan.cn/uploads/20190723/9faa3d6a6e2194c31a37eb960fb72279.png' catchtap='closeReport' />
+    </view>
+    <view class='checkbox__box'>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox__list" wx:for="{{checkboxData}}" wx:key='{{index}}'>
+          <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+          {{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="ys-dialog-bottom">
+      <button catchtap='enterReport' data-clock_id='{{clock_id}}'>确认举报</button>
+    </view>
+  </view>
+</view>
 <!-- 打卡 -->
 <view class='habit-clock' bindtap='gotoClock'>
   <view class='habit-clock-box'>
@@ -97,4 +224,3 @@
     <text wx:if='{{is_clock==1}}'>记录心情</text>
   </view>
 </view>
-

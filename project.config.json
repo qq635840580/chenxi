@@ -18,10 +18,11 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useCompilerModule": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.0",
+	"libVersion": "2.11.1",
 	"appid": "wx1663fc90c471a614",
 	"projectname": "chenxi",
 	"debugOptions": {

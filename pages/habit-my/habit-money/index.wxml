@@ -1,0 +1,60 @@
+<!-- title区域 -->
+<view class='money-title'>加油鸭，晨夕！</view>
+<!-- 点击区域 -->
+<view class="money-box">
+  <view class='money-content'>
+    <view class='money-area' bindtap='handleClick' data-num='1'>
+      <button class='money-content-num {{num == 1 ? "money-content-num-current" : ""}}'>
+        1.00
+      </button>
+      <view class='money-content-font {{num == 1 ? "money-content-font-current" : ""}}'>一块也是爱</view>
+    </view>
+    <view class='money-area' bindtap='handleClick' data-num='2'>
+      <button class='money-content-num {{num == 2 ? "money-content-num-current" : ""}}'>
+        5.20
+      </button>
+      <view class='money-content-font {{num == 2 ? "money-content-font-current" : ""}}'>爱你，晨夕</view>
+    </view>
+    <view class='money-area' bindtap='handleClick' data-num='3'>
+      <button class='money-content-num {{num == 3 ? "money-content-num-current" : ""}}'>
+        17.8
+      </button>
+      <view class='money-content-font {{num == 3 ? "money-content-font-current" : ""}}'>一起成长</view>
+    </view>
+  </view>
+  <view class='money-content money-margin'>
+    <view class='money-area' bindtap='handleClick' data-num='4'>
+      <button class='money-content-num {{num == 4 ? "money-content-num-current" : ""}}'>
+        36.6
+      </button>
+      <view class='money-content-font {{num == 4 ? "money-content-font-current" : ""}}'>加油！</view>
+    </view>
+    <view class='money-area' bindtap='handleClick' data-num='5'>
+      <button class='money-content-num {{num == 5 ? "money-content-num-current" : ""}}'>
+        100.1
+      </button>
+      <view class='money-content-font {{num == 5 ? "money-content-font-current" : ""}}'>百里挑一</view>
+    </view>
+    <view class='money-area' bindtap='handleClick' data-num='6'>
+      <button class='money-content-num {{num == 6 ? "money-content-num-current" : ""}}'>
+        666.66
+      </button>
+      <view class='money-content-font {{num == 6 ? "money-content-font-current" : ""}}'>
+        疯狂打call
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 自定义金额区域 -->
+<view class="money-custom">
+  <view class="money-custom-num">自定义金额</view>
+  <view class="money-custom-box">
+    <input type='digit' cursor='2' placeholder='请输入自定义金额...' bindinput='handleInput' />
+  </view>
+</view>
+<!-- 按钮区域 -->
+<button class='money-pay' bindtap='handleClickPay'>打赏</button>
+<!-- 打赏记录 -->
+<view class='money-log'>
+  <view class='money-log-title'>- 打赏记录 -</view>
+</view>

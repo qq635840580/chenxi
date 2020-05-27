@@ -1,0 +1,104 @@
+/* pages/habit-my/habit-money/index.wxss */
+page {
+  background-color: #fff;
+}
+
+.money-title {
+  font-size: 42rpx;
+  font-weight: 600;
+  color: #212121;
+  text-align: center;
+  margin: 40rpx 0;
+}
+
+.money-box {
+  width: 100%;
+}
+
+.money-content {
+  padding: 0 30rpx;
+  display: flex;
+}
+
+.money-margin {
+  margin-top: 30rpx;
+}
+
+.money-area {
+  text-align: center;
+  flex: 1;
+}
+
+.money-content-num {
+  width: 180rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #212121;
+  background-color: #F2F3F5;
+  border-radius: 44rpx;
+  color: 36rpx;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.money-content-num-current {
+  background-color: #3ACC88;
+  color: #fff;
+}
+
+.money-content-font {
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.money-content-font-current {
+  color: #3ACC88;
+}
+
+.money-custom {
+  margin-top: 50rpx;
+}
+
+.money-custom-num {
+  margin-top: 30rpx;
+  font-size: 32rpx;
+  color: #333;
+  text-align: center;
+}
+
+.money-custom-box {
+  padding: 0 60rpx;
+  margin-top: 20rpx;
+}
+
+.money-custom-box input {
+  background-color: #F5F5F7;
+  color: #3ACC88;
+  height: 88rpx;
+  border-radius: 44rpx;
+  text-align: center;
+}
+
+.money-pay {
+  margin-top: 50rpx;
+  width: 300rpx;
+  height: 88rpx;
+  color: #fff;
+  font-size: 36rpx;
+  background-color: #3ACC88;
+  box-shadow: 0px 5px 10px 0px rgba(58, 136, 204, 0.35);
+  border-radius: 44px;
+}
+
+.money-log {
+  margin-top: 30rpx;
+}
+
+.money-log-title {
+  font-size: 28rpx;
+  color: #999;
+  font-weight: 400;
+  text-align: center;
+}

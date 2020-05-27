@@ -92,7 +92,7 @@
 .weui-cell__bd {
   text-align: left;
   color:#333;
-  font-size: 36rpx;
+  font-size: 30rpx;
 }
 
 .badge-color {

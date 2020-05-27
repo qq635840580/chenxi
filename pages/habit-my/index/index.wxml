@@ -74,6 +74,13 @@
       <view class='weui-cell__bd'>常见问题</view>
       <view class='weui-cell__ft weui-cell__ft_in-access'></view>
     </navigator>
+    <navigator hover-class="none" url='../habit-money/index' class='weui-cell'>
+      <view class='weui-cell__hd'>
+        <image src='/img/habit-my/money.png'></image>
+      </view>
+      <view class='weui-cell__bd'>打赏晨夕</view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'></view>
+    </navigator>
     <navigator hover-class="none" url='../my-about/index' class='weui-cell'>
       <view class='weui-cell__hd'>
         <image src='/img/habit-my/about.png'></image>

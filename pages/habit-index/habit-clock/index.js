@@ -55,9 +55,6 @@ Page({
    */
   addImg: function () {
     let that = this;
-    wx.showLoading({
-      title: '正在拉取相册',
-    })
     wx.chooseImage({
       success: function (res) {
         var tempFilePaths = res.tempFilePaths;

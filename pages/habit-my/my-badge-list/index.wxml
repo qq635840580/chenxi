@@ -3,7 +3,7 @@
   <block wx:for='{{list}}' wx:key='id'>
     <view class='badge-image-list' data-image='{{item.image}}' data-date='{{item.get_time}}' data-name='{{item.name}}' data-num='{{item.need_count}}' data-flag='{{item.is_had}}' bindtap='viewBadge'>
       <image mode='aspectFit' src='{{item.is_had ? item.image : item.dark_image }}' />
-      <view>{{item.name}}</view>
+      <view class="badge-name">{{item.name}}</view>
     </view>
   </block>
 </view>

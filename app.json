@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/habit-index/index/index",
     "pages/habit-index/habit-list/index",
     "pages/habit-index/habit-add/index",
@@ -41,7 +40,8 @@
     "pages/habit-my/my-avatar/index",
     "pages/habit-my/my-badge/index",
     "pages/habit-my/my-badge-list/index",
-    "pages/activity/year/index"
+    "pages/activity/year/index",
+    "pages/habit-my/habit-money/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

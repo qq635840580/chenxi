@@ -73,4 +73,6 @@ module.exports = {
   BadgeGet: ApiRootUrl + 'users/gotBadge',//已获得徽章
 
   NewYear: ApiRootUrl + 'activity/newYearPraiseRank',//新年排行榜
+  GetList: ApiRootUrl + 'reward/getList',//打赏列表
+  GetPay: ApiRootUrl + 'wechat/pay',//获取支付相关信息
 }

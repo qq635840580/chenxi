@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    num: null
+    num: null,
+    payList: [],
   },
 
   /**
@@ -36,9 +37,9 @@ Page({
    */
   handlePayList: function () {
     Util.request(Api.GetList).then(res => {
-      // this.setData({
-      //   iconList: res.data
-      // });
+      this.setData({
+        payList: res.data
+      });
     });
   },
 
@@ -83,12 +84,22 @@ Page({
         'signType': res.data.signType,
         'paySign': res.data.sign,
         'success': function (res) {
-          console.log(res);
-          console.log('success');
+          this.handlePayList();
+          this.setData({ num: null });
+          wx.showModal({
+            title: '温馨提示',
+            content: '感谢您的支持，我们会继续努力哒！',
+            showCancel: false,
+            confirmText: '好哒'
+          });
         },
         'fail': function (res) {
-          console.log(res);
-          console.log('fail');
+          wx.showModal({
+            title: '温馨提示',
+            content: '支付失败',
+            showCancel: false,
+            confirmText: '好哒'
+          })
         },
         'complete': function (res) {
           console.log(res); console.log('complete');

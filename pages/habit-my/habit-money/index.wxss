@@ -102,3 +102,49 @@ page {
   font-weight: 400;
   text-align: center;
 }
+
+.money-pay-box {
+  margin: 10rpx 70rpx;
+  font-size: 26rpx;
+  color: #999999;
+  vertical-align: top;
+}
+
+.money-pay-ul {
+  margin: 10rpx 0;
+}
+
+.money-pay-avatar {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  vertical-align: top;
+  border-radius: 50%;
+}
+
+.money-pay-name {
+  display: inline-block;
+  width: 150rpx;
+  white-space: nowrap;
+  /*超出的空白区域不换行*/
+  overflow: hidden;
+  /*超出隐藏*/
+  text-overflow: ellipsis;
+  margin-right: 20rpx;
+  vertical-align: top;
+}
+
+.money-pay-date {
+  display: inline-block;
+  width: 180rpx;
+  vertical-align: top;
+}
+
+.money-pay-amount {
+  float: right;
+  color: #3ACC88;
+  width: 150rpx;
+  vertical-align: top;
+  text-align: right;
+}

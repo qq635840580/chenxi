@@ -72,6 +72,9 @@ page {
   padding: 0 60rpx;
   margin-top: 20rpx;
 }
+.money-custom-box-placeholder{
+  color: #999999;
+}
 
 .money-custom-box input {
   background-color: #F5F5F7;

@@ -49,7 +49,7 @@
 <view class="money-custom">
 	<view class="money-custom-num">自定义金额</view>
 	<view class="money-custom-box">
-		<input type='digit' cursor='2' placeholder='请输入自定义金额...' bindinput='handleInput' value='{{num}}' />
+		<input type='digit' cursor='2' placeholder='请输入自定义金额...' bindinput='handleInput' value='{{num}}' placeholder-class="money-custom-box-placeholder" />
 	</view>
 </view>
 <!-- 按钮区域 -->

@@ -77,10 +77,7 @@ Component({
      * 初始化页面值
      */
     fetchData: function (pageNo) {
-      // wx.showLoading({
-      //   title: '加载中',
-      // });
-      if(this.data.isReturn) {
+      if (this.data.isReturn) {
         this.setData({ isReturn: false });
         return
       }
@@ -140,7 +137,7 @@ Component({
         url: `../../common/dynamic-detail/index?id=${id}&type=1`,
       });
       this.setData({ isReturn: true });
-    }, 
+    },
 
     //评论触发的方法
     messageSubmit: function (e) {
@@ -391,12 +388,12 @@ Component({
         });
       }
     },
-    
+
     /**
      * 获得徽章列表
      */
-    badgeListFunc: function() {
-      if(this.data.isClock) {
+    badgeListFunc: function () {
+      if (this.data.isClock) {
         Util.request(Api.BadgeGet).then(res => {
           // const list = [
           //   { badge: {image: 'http://qiniu.chenxixiguan.cn/uploads/20200105/FlRp1nCvDzMm69rSdvwPqDz4MJsW.png',name: '敖德萨所',need_count:11, get_time:'2019-11-11' }
@@ -404,12 +401,6 @@ Component({
           //   { badge: {image: 'http://qiniu.chenxixiguan.cn/uploads/20200105/FgDXjdz675Phdqq64ZnnVlIi8kUS.png',name: '大萨达大Ⅱ',need_count:22, get_time:'2019-11-11' }
           //   }
           // ];
-          this.setData({ 
-            badgeList: res.data.list.length > 0 ? [res.data.list[res.data.list.length-1]] : [],
-            badgeShow: res.data.list.length > 0 ? true : false,
-            userInfo: res.data.userInfo,
-            isClock: false
-          })
           // this.setData({ 
           //   badgeList: list.length > 0 ? [list[list.length-1]] : [],
           //   badgeShow: list.length > 0 ? true : false,
@@ -418,6 +409,12 @@ Component({
           //     avatarUrl: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqwibibF5iccD6rYWZ0W7b6TrwCColwAwfFRkJgV3YBrMhpWtnxB9XglbSkt1hOxJhwnDUiaIwwTmjJdw/132'
           //   }
           // })
+          this.setData({
+            badgeList: res.data.list.length > 0 ? [res.data.list[res.data.list.length - 1]] : [],
+            badgeShow: res.data.list.length > 0 ? true : false,
+            userInfo: res.data.userInfo,
+            isClock: false
+          })
         });
       }
     },
@@ -425,7 +422,7 @@ Component({
     /**
      * 徽章
      */
-    closeBadgeShow: function() {
+    closeBadgeShow: function () {
       this.setData({ badgeShow: false });
     },
 
@@ -433,7 +430,7 @@ Component({
     /**
      * 生成canvas图片
      */
-    canvasContext: function() {
+    canvasContext: function () {
       wx.showLoading({
         title: '图片生成中',
         mask: true
@@ -502,8 +499,8 @@ Component({
 
     /**
      * 关闭canvas绘图
-     */  
-    closeCanvas: function() {
+     */
+    closeCanvas: function () {
       this.setData({ isCanvas: false });
     },
 

@@ -2,83 +2,90 @@
 <view class='money-title'>加油鸭，晨夕！</view>
 <!-- 点击区域 -->
 <view class="money-box">
-	<view class='money-content'>
-		<view class='money-area' bindtap='handleClick' data-num='1.00'>
-			<button class='money-content-num {{num == 1.00 ? "money-content-num-current" : ""}}'>
-				1.00
-			</button>
-			<view class='money-content-font {{num == 1.00 ? "money-content-font-current" : ""}}'>一块也是爱</view>
-		</view>
-		<view class='money-area' bindtap='handleClick' data-num=' 5.20'>
-			<button class='money-content-num {{num ==  5.20 ? "money-content-num-current" : ""}}'>
-				5.20
-			</button>
-			<view class='money-content-font {{num ==  5.20 ? "money-content-font-current" : ""}}'>爱你，晨夕</view>
-		</view>
-		<view class='money-area' bindtap='handleClick' data-num='17.8'>
-			<button class='money-content-num {{num == 17.8 ? "money-content-num-current" : ""}}'>
-				17.8
-			</button>
-			<view class='money-content-font {{num == 17.8 ? "money-content-font-current" : ""}}'>一起成长</view>
-		</view>
-	</view>
-	<view class='money-content money-margin'>
-		<view class='money-area' bindtap='handleClick' data-num='36.6'>
-			<button class='money-content-num {{num == 36.6 ? "money-content-num-current" : ""}}'>
-				36.6
-			</button>
-			<view class='money-content-font {{num == 36.6 ? "money-content-font-current" : ""}}'>加油！</view>
-		</view>
-		<view class='money-area' bindtap='handleClick' data-num='100.1'>
-			<button class='money-content-num {{num == 100.1 ? "money-content-num-current" : ""}}'>
-				100.1
-			</button>
-			<view class='money-content-font {{num == 100.1 ? "money-content-font-current" : ""}}'>百里挑一</view>
-		</view>
-		<view class='money-area' bindtap='handleClick' data-num='666.66'>
-			<button class='money-content-num {{num == 666.66 ? "money-content-num-current" : ""}}'>
-				666.66
-			</button>
-			<view class='money-content-font {{num == 666.66 ? "money-content-font-current" : ""}}'>
-				疯狂打call
-			</view>
-		</view>
-	</view>
+  <view class='money-content'>
+    <view class='money-area' bindtap='handleClick' data-num='1.00'>
+      <button class='money-content-num {{num == 1.00 ? "money-content-num-current" : ""}}'>
+        1.00
+      </button>
+      <view class='money-content-font {{num == 1.00 ? "money-content-font-current" : ""}}'>
+        一块也是爱
+      </view>
+    </view>
+    <view class='money-area' bindtap='handleClick' data-num=' 5.20'>
+      <button class='money-content-num {{num ==  5.20 ? "money-content-num-current" : ""}}'>
+        5.20
+      </button>
+      <view class='money-content-font {{num ==  5.20 ? "money-content-font-current" : ""}}'>
+        爱你，晨夕
+      </view>
+    </view>
+    <view class='money-area' bindtap='handleClick' data-num='17.8'>
+      <button class='money-content-num {{num == 17.8 ? "money-content-num-current" : ""}}'>
+        17.8
+      </button>
+      <view class='money-content-font {{num == 17.8 ? "money-content-font-current" : ""}}'>
+        一起成长
+      </view>
+    </view>
+  </view>
+  <view class='money-content money-margin'>
+    <view class='money-area' bindtap='handleClick' data-num='36.6'>
+      <button class='money-content-num {{num == 36.6 ? "money-content-num-current" : ""}}'>
+        36.6
+      </button>
+      <view class='money-content-font {{num == 36.6 ? "money-content-font-current" : ""}}'>
+        加油！
+      </view>
+    </view>
+    <view class='money-area' bindtap='handleClick' data-num='100.1'>
+      <button class='money-content-num {{num == 100.1 ? "money-content-num-current" : ""}}'>
+        100.1
+      </button>
+      <view class='money-content-font {{num == 100.1 ? "money-content-font-current" : ""}}'>
+        百里挑一
+      </view>
+    </view>
+    <view class='money-area' bindtap='handleClick' data-num='666.66'>
+      <button class='money-content-num {{num == 666.66 ? "money-content-num-current" : ""}}'>
+        666.66
+      </button>
+      <view class='money-content-font {{num == 666.66 ? "money-content-font-current" : ""}}'>
+        疯狂打call
+      </view>
+    </view>
+  </view>
 </view>
 <!-- 自定义金额区域 -->
 <view class="money-custom">
-	<view class="money-custom-num">自定义金额</view>
-	<view class="money-custom-box">
-		<input type='digit' cursor='2' placeholder='请输入自定义金额...' bindinput='handleInput' value='{{num}}' placeholder-class="money-custom-box-placeholder" />
-	</view>
+  <view class="money-custom-num">自定义金额</view>
+  <view class="money-custom-box">
+    <input type='digit' cursor='2' placeholder='请输入自定义金额...' bindinput='handleInput' value='{{num}}' placeholder-class="money-custom-box-placeholder" />
+  </view>
 </view>
 <!-- 按钮区域 -->
 <button class='money-pay' bindtap='handleClickPay'>打赏</button>
 <!-- 打赏记录 -->
 <view class='money-log'>
-	<view class='money-log-title'>- 打赏记录 -</view>
-	<view class='money-pay-box'>
-	
-		<swiper   vertical="true" autoplay="true" circular="true" interval="2000" display-multiple-items='5'>
-			<view >
-				<block wx:for-index="id" wx:for='{{payList}}'>
-					<swiper-item>
-						<view class='money-pay-ul'>
-							<image mode="aspectFill" class='money-pay-avatar' src='{{item.avatar}}' />
-							<text class='money-pay-name'>{{item.username}}</text>
-							<text class='money-pay-date'>{{item.create_time}}</text>
-							<text class='money-pay-amount'>{{item.total_fee}}元</text>
-						</view>
-					</swiper-item>
-				</block>
-
-			</view>
-		</swiper>
-
-	</view>
+  <view class='money-log-title'>- 打赏记录 -</view>
+  <view class='money-pay-box'>
+    <swiper vertical="true" autoplay="true" circular="true" interval="2000" display-multiple-items='5'>
+      <view>
+        <block wx:for-index="id" wx:for='{{payList}}'>
+          <swiper-item>
+            <view class='money-pay-ul'>
+              <image mode="aspectFill" class='money-pay-avatar' src='{{item.avatar}}' />
+              <text class='money-pay-name'>{{item.username}}</text>
+              <text class='money-pay-date'>{{item.create_time}}</text>
+              <text class='money-pay-amount'>{{item.total_fee}}元</text>
+            </view>
+          </swiper-item>
+        </block>
+      </view>
+    </swiper>
+  </view>
 </view>
 <view class="adContainerView">
-	<view class="adContainer">
-		<ad unit-id="adunit-9225ed7f2024211d" ad-intervals="30"></ad>
-	</view>
+  <view class="adContainer">
+    <ad unit-id="adunit-9225ed7f2024211d" ad-intervals="30"></ad>
+  </view>
 </view>

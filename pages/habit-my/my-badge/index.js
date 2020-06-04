@@ -24,7 +24,7 @@ Page({
   onLoad: function (options) {
     that = this;
   },
-  
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -44,7 +44,7 @@ Page({
   /**
    * 查询
    */
-  fetchData: function() {
+  fetchData: function () {
     wx.showLoading({
       title: '加载中',
     })
@@ -63,7 +63,7 @@ Page({
   /**
    * 累计打卡
    */
-  gotoCumBadgeList: function(e) {
+  gotoCumBadgeList: function (e) {
     const { type } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `../my-badge-list/index?type=${type}`
@@ -73,7 +73,7 @@ Page({
   /**
    * 去往徽章列表
    */
-  gotoBadgeList: function() {
+  gotoBadgeList: function () {
     wx.navigateTo({
       url: '../my-badge-list/index'
     });
@@ -82,10 +82,10 @@ Page({
   /**
    * 点击已获得的徽章
    */
-  viewImage: function(e) {
+  viewImage: function (e) {
     const { datainfo } = e.currentTarget.dataset;
     console.log(datainfo)
-    if(datainfo.is_had) {
+    if (datainfo.is_had) {
       this.setData({ dataInfo: datainfo, isShow: true });
     }
   },
@@ -93,26 +93,28 @@ Page({
   /**
    * 关闭弹出层
    */
-  closeShow: function() {
-    this.setData({ isShow: false }); 
+  closeShow: function () {
+    this.setData({ isShow: false });
   },
 
   /**
    * 生成canvas图片
    */
-  canvasContext: function() {
+  canvasContext: function () {
     wx.showLoading({
       title: '图片生成中',
       mask: true
     });
     return new Promise((res, rej) => {
       const { dataInfo, userInfo } = this.data;
-      console.log(dataInfo)
+      const img = dataInfo.image.indexOf('https') == -1 ? dataInfo.image.replace(/^http/, "https") : dataInfo.image;
+      console.log(img)
+      // console.log(dataInfo.image.replace(/^http/,"https"))
       wx.getImageInfo({
         src: 'https://chenxixiguan.cn/uploads/20200106/7d9c9aa06446dae50c30db202012bea3.png',
         success: (backRes) => {
           wx.getImageInfo({
-            src: dataInfo.image,
+            src: img,
             success: (badgeRes) => {
               wx.getImageInfo({
                 src: userInfo.avatarUrl,
@@ -167,8 +169,8 @@ Page({
 
   /**
    * 关闭canvas绘图
-   */  
-  closeCanvas: function() {
+   */
+  closeCanvas: function () {
     this.setData({ isCanvas: false });
   },
 

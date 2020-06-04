@@ -70,7 +70,7 @@
   <view class='money-pay-box'>
     <swiper vertical="true" autoplay="true" circular="true" interval="2000" display-multiple-items='5'>
       <view>
-        <block wx:for-index="id" wx:for='{{payList}}'>
+        <block wx:for='{{payList}}' wx:key="id">
           <swiper-item>
             <view class='money-pay-ul'>
               <image mode="aspectFill" class='money-pay-avatar' src='{{item.avatar}}' />
@@ -87,5 +87,7 @@
 <view class="adContainerView">
   <view class="adContainer">
     <ad unit-id="adunit-9225ed7f2024211d" ad-intervals="30"></ad>
+    <ad unit-id="adunit-8babc6e077de7044" ad-type="video" ad-theme="white"></ad>
+    <ad unit-id="adunit-e774f69c5319776a" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
   </view>
 </view>
